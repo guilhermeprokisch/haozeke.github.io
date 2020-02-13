@@ -239,7 +239,7 @@ plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;
 
 
 
-<h3 id="conclusions">Conclusions</h3>
+<h2 id="conclusions">Conclusions</h2>
 
 <ul>
 <li>The last step is of course to export the file as to a <code>TeX</code> file and then
