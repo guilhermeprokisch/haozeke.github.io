@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://rgoswami.me/categories/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/emacs/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/programming/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/python/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/jupyter-orgmode/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/tools/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/workflows/</loc>
+    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/direnv/</loc>
+    <lastmod>2020-02-13T21:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/poetry-direnv/</loc>
+    <lastmod>2020-02-13T21:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/github/</loc>
+    <lastmod>2020-02-12T11:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/notes/</loc>
+    <lastmod>2020-02-12T11:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/ghnotif/</loc>
+    <lastmod>2020-02-12T11:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/explanations/</loc>
+    <lastmod>2020-02-11T23:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/projects/</loc>
+    <lastmod>2020-02-11T23:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/ramblings/</loc>
+    <lastmod>2020-02-11T23:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/rationale/</loc>
+    <lastmod>2020-02-11T23:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/about/</loc>
+    <lastmod>2017-07-12T17:05:38-04:00</lastmod>
+  </url>
+  
+</urlset>

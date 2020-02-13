@@ -1,0 +1,401 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Rohit Goswami</title>
+        <link>https://rgoswami.me/posts/</link>
+        <description>Recent content in Posts on Rohit Goswami</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 13 Feb 2020 22:36:00 +0000</lastBuildDate>
+        <atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Replacing Jupyter with Orgmode</title>
+            <link>https://rgoswami.me/posts/jupyter-orgmode/</link>
+            <pubDate>Thu, 13 Feb 2020 22:36:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/jupyter-orgmode/</guid>
+            <description>Background  I dislike Jupyter notebooks (and JupyterHub) a lot EIN is really not much of a solution either  In the past I have written some posts on TeX with JupyterHub and discussed ways to use virtual Python with JupyterHub in a more reasonable manner.
+However, I personally found that EIN was a huge pain to work with, and I mostly ended up working with the web-interface anyway.</description>
+            <content type="html"><![CDATA[
+
+<h2 id="background">Background</h2>
+
+<ul>
+<li>I dislike Jupyter notebooks (and <a href="https://jupyter.org/" target="_blank">JupyterHub</a>) a lot</li>
+<li><a href="https://tkf.github.io/emacs-ipython-notebook/" target="_blank">EIN</a> is really not much of a solution either</li>
+</ul>
+
+<p>In the past I have written some posts on <a href="https://grimoire.science/latex-and-jupyterhub/" target="_blank">TeX with JupyterHub</a> and discussed ways
+to use virtual <a href="https://grimoire.science/python-and-jupyterhub/" target="_blank">Python with JupyterHub</a> in a more reasonable manner.</p>
+
+<p>However, I personally found that EIN was a huge pain to work with, and I mostly
+ended up working with the web-interface anyway.</p>
+
+<p>It is a bit redundant to do so, given that at-least for my purposes, the end
+result was a LaTeX document. Breaking down the rest of my requirements went a
+bit like this:</p>
+
+<dl>
+<dt>What exports well to TeX?</dt>
+<dd><strong>Org</strong>, Markdown, anything which goes into pandoc</dd>
+<dt>What displays code really well?</dt>
+<dd>LaTeX, Markdown, <strong>Org</strong></dd>
+<dt>What allows easy visualization of code snippets?</dt>
+<dd>Rmarkdown, RStudio,
+JupyterHub, <strong>Org</strong> with babel</dd>
+</dl>
+
+<p>Clearly, <a href="https://orgmode.org/manual/" target="_blank">orgmode</a> is the common denominator, and ergo, a perfect JupyterHub alternative.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p>Throughout this post I will assume the following structure:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tree tmp
+mkdir -p tmp/images
+touch tmp/myFakeJupyter.org</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>tmp</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>├──</td>
+<td>images</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>└──</td>
+<td>myFakeJupyter.org</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>directory,</td>
+<td>1</td>
+<td>file</td>
+</tr>
+</tbody>
+</table>
+
+<p>As is evident, we have a folder <code>tmp</code> which will have all the things we need for
+dealing with our setup.</p>
+
+<h3 id="virtual-python">Virtual Python</h3>
+
+<p>Without waxing too eloquent on the whole reason behind doing this, since I will
+rant about virtual python management systems elsewhere, here I will simply
+describe my preferred method, which is <a href="https://python-poetry.org/" target="_blank">using poetry</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># In a folder above tmp</span>
+poetry init
+poetry add numpy matplotlib scipy pandas</code></pre></div>
+<p>The next part is optional, but a good idea if you figure out <a href="https://direnv.net/" target="_blank">using direnv</a> and
+have configured <code>layout_poetry</code> as <a href="https://rgoswami.me/posts/poetry-direnv" target="_blank">described here</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Same place as the poetry files</span>
+echo <span style="color:#e6db74">&#34;layout_poetry()&#34;</span> &gt;&gt; .envrc</code></pre></div>
+<p><strong>Note:</strong></p>
+
+<ul>
+<li>We can nest an arbitrary number of the <code>tmp</code> structures under a single place
+we define the poetry setup</li>
+<li>I prefer using <code>direnv</code> to ensure that I never forget to hook into the right environment</li>
+</ul>
+
+<h2 id="orgmode">Orgmode</h2>
+
+<p>This is not an introduction to org, however in particular, there are some basic
+settings to keep in mind to make sure the set-up works as expected.</p>
+
+<h3 id="indentation">Indentation</h3>
+
+<p>Python is notoriously weird about whitespace, so we will ensure that our export
+process does not mangle whitespace and offend the python interpreter. We will
+have the following line at the top of our <code>orgmode</code> file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode"><span style="color:#75715e"># -*- org-src-preserve-indentation: t; org-edit-src-content: 0; -*-</span></code></pre></div>
+<p><strong>Note:</strong></p>
+
+<ul>
+<li>this post is actually generating the file being discussed here by</li>
+</ul>
+
+<p><a href="https://orgmode.org/manual/Extracting-Source-Code.html" target="_blank">tangling the file</a></p>
+
+<ul>
+<li>You can get the whole file here</li>
+</ul>
+
+<h3 id="tex-settings">TeX Settings</h3>
+
+<p>These are also basically optional, but at the very least you will need the
+following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode"><span style="color:#75715e">#+author</span><span style="color:#75715e">: Rohit Goswami</span>
+<span style="color:#75715e">#+title</span><span style="color:#75715e">: Whatever</span>
+<span style="color:#75715e">#+subtitle</span><span style="color:#75715e">: Wittier line about whatever</span>
+<span style="color:#75715e">#+date</span><span style="color:#75715e">: \today</span>
+<span style="color:#75715e">#+OPTIONS</span><span style="color:#75715e">: toc:nil</span></code></pre></div>
+<p>I actually use a lot of math using the <code>TeX</code> input mode in Emacs, so I like the
+following settings for math:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode"><span style="color:#75715e"># For math display</span>
+<span style="color:#75715e">#+LATEX_HEADER</span><span style="color:#75715e">: \usepackage{amsfonts}</span>
+<span style="color:#75715e">#+LATEX_HEADER</span><span style="color:#75715e">: \usepackage{unicode-math}</span></code></pre></div>
+<p>There are a bunch of other settings which may be used, but these are the bare
+minimum, more on that would be in a snippet anyway.</p>
+
+<p><strong>Note:</strong></p>
+
+<ul>
+<li>rendering math in the <code>orgmode</code> file in this manner requires that we
+use <code>XeTeX</code> to compile the final file</li>
+</ul>
+
+<h3 id="org-python">Org-Python</h3>
+
+<p>We essentially need to ensure that:</p>
+
+<ul>
+<li>Babel uses our virtual python</li>
+<li>The same session is used for each block</li>
+</ul>
+
+<p>We will get our poetry python pretty easily:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">which python</code></pre></div>
+<p>Now we will use this as a common <code>header-arg</code> passed into the property drawer to
+make sure we don&rsquo;t need to set them in every code block.</p>
+
+<p>We can use the following structure in our file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode">\* Python Stuff
+<span style="color:#75715e">  :PROPERTIES:
+</span><span style="color:#75715e"></span><span style="color:#75715e">  :header-args:    :python /home/haozeke/.cache/pypoetry/virtualenvs/test-2aLV_5DQ-py3.8/bin/python :session One
+</span><span style="color:#75715e"></span><span style="color:#75715e">  :END:</span>
+Now we can simply work with code as we normally would
+\#+BEGIN_SRC python
+print(&#34;Hello World&#34;)
+\#+END_SRC</code></pre></div>
+<p><strong>Note:</strong></p>
+
+<ul>
+<li>For some reason, this property needs to be set on <strong>every</strong> heading (as of Feb 13 2020)</li>
+<li>In the actual file you will want to remove extraneous  \ symbols:
+
+<ul>
+<li>\* → *</li>
+<li>\#+BEGIN_SRC → #+BEGIN_SRC</li>
+<li>\#+END_SRC → #+END_SRC</li>
+</ul></li>
+</ul>
+
+<h3 id="python-images-and-orgmode">Python Images and Orgmode</h3>
+
+<p>To view images in <code>orgmode</code> as we would in a JupyterLab notebook, we will use a
+slight trick.</p>
+
+<ul>
+<li>We will ensure that the code block returns a file object with the arguments</li>
+
+<li><p>The code block should end with a print statement to actually generate the file
+name</p>
+
+<p>So we want a code block like this:</p></li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#+BEGIN_SRC python :results output file :exports both
+import matplotlib.pyplot as plt
+from sklearn.datasets.samples_generator import make_circles
+X, y = make_circles(100, factor=.1, noise=.1)
+plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap=&#39;autumn&#39;)
+plt.xlabel(&#39;x1&#39;)
+plt.ylabel(&#39;x2&#39;)
+plt.savefig(&#39;images/plotCircles.png&#39;, dpi = 300)
+print(&#39;images/plotCircles.png&#39;) # return filename to org-mode
+#+end_src</code></pre></div>
+<p>Which would give the following when executed:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#+RESULTS:
+[[file:images/plotCircles.png]]</code></pre></div>
+<p>Since that looks pretty ugly, this will actually look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> sklearn.datasets.samples_generator <span style="color:#f92672">import</span> make_circles
+X, y <span style="color:#f92672">=</span> make_circles(<span style="color:#ae81ff">100</span>, factor<span style="color:#f92672">=.</span><span style="color:#ae81ff">1</span>, noise<span style="color:#f92672">=.</span><span style="color:#ae81ff">1</span>)
+plt<span style="color:#f92672">.</span>scatter(X[:, <span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;autumn&#39;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;x1&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;x2&#39;</span>)
+plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;images/plotCircles.png&#39;</span>, dpi <span style="color:#f92672">=</span> <span style="color:#ae81ff">300</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;images/plotCircles.png&#39;</span>) <span style="color:#75715e"># return filename to org-mode</span></code></pre></div>
+
+    <figure class="left" >
+        <img src="/ox-hugo/plotCircles.png"   />
+
+        
+    </figure>
+
+
+
+<h3 id="conclusions">Conclusions</h3>
+
+<ul>
+<li>The last step is of course to export the file as to a <code>TeX</code> file and then
+compile that with something like <code>latexmk -pdfxe -shell-escape file.tex</code></li>
+</ul>
+
+<p>There are a million and one variations of this of course, but this is enough to
+get started.</p>
+
+<p>The whole file is also reproduced here.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Poetry and Direnv</title>
+            <link>https://rgoswami.me/posts/poetry-direnv/</link>
+            <pubDate>Thu, 13 Feb 2020 21:36:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
+            <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
+Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
+            <content type="html"><![CDATA[
+
+<h2 id="background">Background</h2>
+
+<ul>
+<li>I end up writing about using <a href="https://python-poetry.org/" target="_blank">poetry</a> a lot</li>
+<li>I almost always <a href="https://direnv.net/" target="_blank">use direnv</a> in real life too</li>
+<li>I don&rsquo;t keep writing mini scripts in my <code>.envrc</code></li>
+</ul>
+
+<p>Honestly there&rsquo;s nothing here anyone using the <a href="https://github.com/direnv/direnv/wiki/Python" target="_blank">direnv wiki</a> will find surprising,
+but then it is still neat to link back to.</p>
+
+<h2 id="setting-up-poetry">Setting Up Poetry</h2>
+
+<p>This essentially works by simply modifying the global <code>.direnvrc</code> which
+essentially gets sourced by every local <code>.envrc</code> anyway.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim $HOME/.direnvrc</code></pre></div>
+<p>So what we put in there is the following snippet derived from other snippets <a href="https://github.com/direnv/direnv/wiki/Python" target="_blank">on
+the wiki</a>, and is actually now there too.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># PUT this here</span>
+layout_poetry<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> ! -f pyproject.toml <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+    log_error <span style="color:#e6db74">&#39;No pyproject.toml found.  Use `poetry new` or `poetry init` to create one first.&#39;</span>
+    exit <span style="color:#ae81ff">2</span>
+  <span style="color:#66d9ef">fi</span>
+
+  local VENV<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>dirname <span style="color:#66d9ef">$(</span>poetry run which python<span style="color:#66d9ef">))</span>
+  export VIRTUAL_ENV<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$VENV<span style="color:#e6db74">&#34;</span> | rev | cut -d<span style="color:#e6db74">&#39;/&#39;</span> -f2- | rev<span style="color:#66d9ef">)</span>
+  export POETRY_ACTIVE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+  PATH_add <span style="color:#e6db74">&#34;</span>$VENV<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>Now we can just make <code>.envrc</code> files with <code>layout_poetry</code> and everything will
+<em>just work™</em>.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Taming Github Notifications</title>
+            <link>https://rgoswami.me/posts/ghnotif/</link>
+            <pubDate>Wed, 12 Feb 2020 11:36:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/ghnotif/</guid>
+            <description>Background As a member of several large organizations, I get a lot of github notifications. Not all of these are of relevance to me. This is especially true of psuedo-monorepo style repositories like the JOSS review system and especially the exercism community.
+ I recently (re-)joined the exercism community as a maintainer for the C++ lessons after having been a (sporadic) teacher This was largely in response to a community call to action as the group needed new blood to usher in v3 of the exercism project  Anyway, I have since found that at the small cost of possibly much of my public repo data, I can manage my notifications better with Octobox</description>
+            <content type="html"><![CDATA[
+
+<h2 id="background">Background</h2>
+
+<p>As a member of several large organizations, I get a lot of github notifications.
+Not all of these are of relevance to me. This is especially true of
+<code>psuedo-monorepo</code> style repositories like the <a href="https://github.com/openjournals/joss-reviews" target="_blank">JOSS review system</a> and
+<strong>especially</strong> the <a href="https://github.com/exercism/v3/" target="_blank">exercism community</a>.</p>
+
+<ul>
+<li>I recently (re-)joined the <a href="https://exercism.io/" target="_blank">exercism community</a> as a maintainer for the C++
+lessons after having been a (sporadic) teacher</li>
+<li>This was largely in response to a community call to action as the group needed
+new blood to usher in <strong>v3</strong> of the exercism project</li>
+</ul>
+
+<p>Anyway, I have since found that at the small cost of possibly much of my public
+repo data, I can manage my notifications better with <a href="https://octobox.io/" target="_blank">Octobox</a></p>
+
+<h2 id="octobox">Octobox</h2>
+
+<ul>
+<li>It appears to be free for now</li>
+<li>It syncs on demand (useful)</li>
+<li>I can search things quite easily</li>
+<li>They have a neat logo</li>
+<li>There appear to be many features I probably won&rsquo;t use</li>
+</ul>
+
+<p>It looks like this:</p>
+
+
+    <figure class="left" >
+        <img src="/ox-hugo/octoboxSample.png"   />
+
+        
+            <figcaption class="center" >Figure 1: Octobox Stock Photo</figcaption>
+        
+    </figure>
+
+
+]]></content>
+        </item>
+        
+        <item>
+            <title>Site Rationale</title>
+            <link>https://rgoswami.me/posts/rationale/</link>
+            <pubDate>Tue, 11 Feb 2020 23:28:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/rationale/</guid>
+            <description> Why this site exists I have a lot of online presences. I have been around (or at-least, lurking) for over ten years. Almost as long as I have been programming. Anyway, I have a penchant lately for using emacs and honestly there isn&amp;rsquo;t very good support for org-mode files. There are options recently with gatsby as well, but this seemed kinda neat.
+What &amp;lsquo;this&amp;rsquo; is  This site is built by Hugo The posts are generated with ox-hugo The theme is based of this excellent one and my modifications are here  What is here  Mostly random thoughts I don&amp;rsquo;t mind people knowing Some tech stuff which isn&amp;rsquo;t coherent enough to be put in any form with references Emacs specific workflows which I might want to write about more than short notes on the config  What isn&amp;rsquo;t here  More coherent thoughts will not be here, that should and will go to my grimoire My doom-emacs configuration Academic stuff is better tracked on Publons or Google Scholar or my pages hosted by my favorite IITK group or UI group  </description>
+            <content type="html"><![CDATA[
+
+<h2 id="why-this-site-exists">Why this site exists</h2>
+
+<p>I have a lot of online presences. I have been around (or at-least, lurking) for
+over ten years. Almost as long as I have been programming. Anyway, I have a
+penchant lately for using <code>emacs</code> and honestly there isn&rsquo;t very good support for
+<code>org-mode</code> files. There are options recently with <code>gatsby</code> as well, but this
+seemed kinda neat.</p>
+
+<h2 id="what-this-is">What &lsquo;this&rsquo; is</h2>
+
+<ul>
+<li>This site is <a href="http://gohugo.io/" target="_blank">built by Hugo</a></li>
+<li>The posts are <a href="https://ox-hugo.scripter.co/" target="_blank">generated with ox-hugo</a></li>
+<li>The theme is based of this <a href="https://github.com/rhazdon/hugo-theme-hello-friend-ng" target="_blank">excellent one</a> and my modifications <a href="https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz" target="_blank">are here</a></li>
+</ul>
+
+<h2 id="what-is-here">What is here</h2>
+
+<ul>
+<li>Mostly random thoughts I don&rsquo;t mind people knowing</li>
+<li>Some tech stuff which isn&rsquo;t coherent enough to be put in any form with
+references</li>
+<li>Emacs specific workflows which I might want to write about more than <a href="https://dotdoom.grimoire.science/" target="_blank">short
+notes on the config</a></li>
+</ul>
+
+<h2 id="what-isn-t-here">What isn&rsquo;t here</h2>
+
+<ul>
+<li>More coherent thoughts will <strong>not</strong> be here, that should and will go to my <a href="https://grimoire.science" target="_blank">grimoire</a></li>
+<li>My <a href="https://dotdoom.grimoire.science/" target="_blank">doom-emacs configuration</a></li>
+<li>Academic stuff is better tracked on <a href="https://publons.com/researcher/2911170/rohit-goswami/" target="_blank">Publons</a> or <a href="https://scholar.google.co.in/citations?user=36gIdJMAAAAJ&amp;hl=en" target="_blank">Google Scholar</a> or my pages
+hosted by my favorite <a href="https://femtolab.science/people/rohit" target="_blank">IITK group</a> or <a href="https://www.hi.is/starfsfolk/rog32" target="_blank">UI group</a></li>
+</ul>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>
