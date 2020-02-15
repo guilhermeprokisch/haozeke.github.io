@@ -6,10 +6,23 @@
     <description>Recent content on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Feb 2020 22:36:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 05:28:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pandora and Proxychains</title>
+      <link>https://rgoswami.me/posts/pandora-proxychains/</link>
+      <pubDate>Sat, 15 Feb 2020 05:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/pandora-proxychains/</guid>
+      <description>Background  Pandora doesn&amp;rsquo;t work outside the states I keep forgetting how to set-up proxychains  Proxychains Technically this article expects proxychains-ng, which seems to be the more up-to-date fork of the original proxychains.
+ Install proxychains-ng
+# I am on archlinux.. sudo pacman -S proxychains-ng Copy the configuration to the $HOME directory
+cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
+  In my particular case, I don&amp;rsquo;t keep the tor section enabled.</description>
+    </item>
     
     <item>
       <title>Replacing Jupyter with Orgmode</title>

@@ -5,8 +5,75 @@
         <description>Recent content in Posts on Rohit Goswami</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 13 Feb 2020 22:36:00 +0000</lastBuildDate>
+        <lastBuildDate>Sat, 15 Feb 2020 05:28:00 +0000</lastBuildDate>
         <atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Pandora and Proxychains</title>
+            <link>https://rgoswami.me/posts/pandora-proxychains/</link>
+            <pubDate>Sat, 15 Feb 2020 05:28:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/pandora-proxychains/</guid>
+            <description>Background  Pandora doesn&amp;rsquo;t work outside the states I keep forgetting how to set-up proxychains  Proxychains Technically this article expects proxychains-ng, which seems to be the more up-to-date fork of the original proxychains.
+ Install proxychains-ng
+# I am on archlinux.. sudo pacman -S proxychains-ng Copy the configuration to the $HOME directory
+cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
+  In my particular case, I don&amp;rsquo;t keep the tor section enabled.</description>
+            <content type="html"><![CDATA[
+
+<h2 id="background">Background</h2>
+
+<ul>
+<li>Pandora doesn&rsquo;t work outside the states</li>
+<li>I keep forgetting how to set-up <code>proxychains</code></li>
+</ul>
+
+<h2 id="proxychains">Proxychains</h2>
+
+<p>Technically this article <a href="https://github.com/rofl0r/proxychains-ng" target="_blank">expects proxychains-ng</a>, which seems to be the more
+up-to-date fork of the original <code>proxychains</code>.</p>
+
+<ol>
+<li><p>Install <code>proxychains-ng</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># I am on archlinux..</span>
+sudo pacman -S proxychains-ng</code></pre></div></li>
+
+<li><p>Copy the configuration to the <code>$HOME</code> directory</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /etc/proxychains.conf .</code></pre></div></li>
+
+<li><p>Edit said configuration to add some US-based proxy</p></li>
+</ol>
+
+<p>In my particular case, I don&rsquo;t keep the tor section enabled.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tail $HOME/proxychains.conf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+#       proxy types: http, socks4, socks5
+#        ( auth types supported: &#34;basic&#34;-http  &#34;user/pass&#34;-socks )
+#
+[ProxyList]
+# add proxy here ...
+# meanwile
+# defaults set to &#34;tor&#34;
+# socks4 	127.0.0.1 9050</code></pre></div>
+<p>I actually use <a href="https://windscribe.com" target="_blank">Windscribe</a> for my VPN needs, and they have a neat <a href="https://windscribe.com/getconfig/socks" target="_blank">SOCKS5 proxy
+setup</a>. This works out to a line like <code>socks5 $IP $PORT $USERNAME $PASS</code> being
+added. The default generator gives you a pretty server name, but to get the IP
+I use <code>ping $SERVER</code> and put that in the <code>conf</code> file.</p>
+
+<h2 id="pandora">Pandora</h2>
+
+<p>I use the excellent <code>pianobar</code> frontend.</p>
+
+<ol>
+<li><p>Get <a href="https://github.com/PromyLOPh/pianobar" target="_blank">pianobar</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S pianobar</code></pre></div></li>
+
+<li><p>Use it with <code>proxychains</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">proxychains pianobar</code></pre></div></li>
+
+<li><p>Profit</p></li>
+</ol>
+]]></content>
+        </item>
         
         <item>
             <title>Replacing Jupyter with Orgmode</title>

@@ -4,16 +4,46 @@
   
   <url>
     <loc>https://rgoswami.me/categories/</loc>
-    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rgoswami.me/tags/emacs/</loc>
-    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
+    <loc>https://rgoswami.me/posts/pandora-proxychains/</loc>
+    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/personal/</loc>
+    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/posts/</loc>
+    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/</loc>
+    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/</loc>
+    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/tools/</loc>
+    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/workflow/</loc>
+    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/emacs/</loc>
     <lastmod>2020-02-13T22:36:00+00:00</lastmod>
   </url>
   
@@ -29,21 +59,6 @@
   
   <url>
     <loc>https://rgoswami.me/posts/jupyter-orgmode/</loc>
-    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/</loc>
-    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/</loc>
-    <lastmod>2020-02-13T22:36:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/tools/</loc>
     <lastmod>2020-02-13T22:36:00+00:00</lastmod>
   </url>
   
