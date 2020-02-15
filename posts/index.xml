@@ -72,6 +72,17 @@ I use <code>ping $SERVER</code> and put that in the <code>conf</code> file.</p>
 
 <li><p>Profit</p></li>
 </ol>
+
+<p>I also like setting up some defaults to make life easier:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p ~/.config/pianobar
+vim ~/.config/pianobar/config</code></pre></div>
+<p>I normally set the following (inspired by the <a href="https://wiki.archlinux.org/index.php/Pianobar" target="_blank">ArchWiki</a>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">audio_quality = {high, medium, low}
+autostart_station = $ID
+password = &#34;$PASS&#34;
+user = &#34;$emailID&#34;</code></pre></div>
+<p>The <code>autostart_station ID</code> can be obtained by inspecting the terminal output
+during an initial run. I usually set it to the QuickMix station.</p>
 ]]></content>
         </item>
         
