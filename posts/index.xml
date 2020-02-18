@@ -5,8 +5,1167 @@
         <description>Recent content in Posts on Rohit Goswami</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 17 Feb 2020 15:28:00 +0000</lastBuildDate>
+        <lastBuildDate>Tue, 18 Feb 2020 22:00:00 +0000</lastBuildDate>
         <atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>ISLR :: Resampling Methods</title>
+            <link>https://rgoswami.me/posts/islr-ch5/</link>
+            <pubDate>Tue, 18 Feb 2020 22:00:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/islr-ch5/</guid>
+            <description>Chapter V - Resampling Methods All the questions are as per the ISL seventh printing1.
+Common Instead of using the standard functions, we will leverage the mlr3 package2.
+#install.packages(&amp;#34;mlr3&amp;#34;,&amp;#34;data.table&amp;#34;,&amp;#34;mlr3viz&amp;#34;,&amp;#34;mlr3learners&amp;#34;) Actually for R version 3.6.2, the steps to get it working were a bit more involved.
+install.packages(&amp;#34;remotes&amp;#34;,&amp;#34;data.table&amp;#34;, &amp;#34;GGally&amp;#34;,&amp;#34;precerec&amp;#34;) # For plots## Warning in install.packages(&amp;#34;remotes&amp;#34;, &amp;#34;data.table&amp;#34;, &amp;#34;GGally&amp;#34;, &amp;#34;precerec&amp;#34;): &amp;#39;lib ## = &amp;#34;data.table&amp;#34;&amp;#39; is not writable## Error in install.packages(&amp;#34;remotes&amp;#34;, &amp;#34;data.table&amp;#34;, &amp;#34;GGally&amp;#34;, &amp;#34;precerec&amp;#34;): unable to install packageslibrary(remotes) remotes::install_github(&amp;#34;mlr-org/mlr3&amp;#34;)## Skipping install of &amp;#39;mlr3&amp;#39; from a github remote, the SHA1 (fca21c10) has not changed since last install.</description>
+            <content type="html"><![CDATA[
+
+<h2 id="chapter-v---resampling-methods">Chapter V - Resampling Methods</h2>
+
+<p>All the questions are as per the
+<a href="https://faculty.marshall.usc.edu/gareth-james/ISL/" target="_blank">ISL seventh
+printing</a><sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>.</p>
+
+<h3 id="common">Common</h3>
+
+<p>Instead of using the standard functions, we will leverage the <code>mlr3</code>
+package<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#install.packages(&#34;mlr3&#34;,&#34;data.table&#34;,&#34;mlr3viz&#34;,&#34;mlr3learners&#34;)</span></code></pre></div>
+<p>Actually for <code>R</code> version <code>3.6.2</code>, the steps to get it working were a bit
+more involved.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;remotes&#34;</span>,<span style="color:#e6db74">&#34;data.table&#34;</span>,
+                 <span style="color:#e6db74">&#34;GGally&#34;</span>,<span style="color:#e6db74">&#34;precerec&#34;</span>) <span style="color:#75715e"># For plots</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning in install.packages(&#34;remotes&#34;, &#34;data.table&#34;, &#34;GGally&#34;, &#34;precerec&#34;): &#39;lib
+## = &#34;data.table&#34;&#39; is not writable</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Error in install.packages(&#34;remotes&#34;, &#34;data.table&#34;, &#34;GGally&#34;, &#34;precerec&#34;): unable to install packages</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(remotes)
+remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;mlr-org/mlr3&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3&#39; from a github remote, the SHA1 (fca21c10) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;mlr-org/mlr3viz&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3viz&#39; from a github remote, the SHA1 (0b4ea273) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;mlr-org/mlr3learners&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3learners&#39; from a github remote, the SHA1 (64b275a0) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre></div>
+<p>Load <code>ISLR</code> and other libraries.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">libsUsed<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;dplyr&#34;</span>,<span style="color:#e6db74">&#34;ggplot2&#34;</span>,<span style="color:#e6db74">&#34;tidyverse&#34;</span>,
+            <span style="color:#e6db74">&#34;ISLR&#34;</span>,<span style="color:#e6db74">&#34;caret&#34;</span>,<span style="color:#e6db74">&#34;MASS&#34;</span>,
+            <span style="color:#e6db74">&#34;pROC&#34;</span>,<span style="color:#e6db74">&#34;mlr3&#34;</span>,<span style="color:#e6db74">&#34;data.table&#34;</span>,
+            <span style="color:#e6db74">&#34;mlr3viz&#34;</span>,<span style="color:#e6db74">&#34;mlr3learners&#34;</span>)
+<span style="color:#a6e22e">invisible</span>(<span style="color:#a6e22e">lapply</span>(libsUsed, library, character.only <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;dplyr&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:stats&#39;:
+##
+##     filter, lag</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:base&#39;:
+##
+##     intersect, setdiff, setequal, union</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ✔ tibble  2.1.3     ✔ purrr   0.3.3
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Loading required package: lattice</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;caret&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:purrr&#39;:
+##
+##     lift</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;MASS&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:dplyr&#39;:
+##
+##     select</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Type &#39;citation(&#34;pROC&#34;)&#39; for a citation.</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;pROC&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:stats&#39;:
+##
+##     cov, smooth, var</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;data.table&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:purrr&#39;:
+##
+##     transpose</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:dplyr&#39;:
+##
+##     between, first, last</code></pre></div>
+<h2 id="question-5.5---page-198">Question 5.5 - Page 198</h2>
+
+<p>In Chapter 4, we used logistic regression to predict the probability of
+<code>default</code> using <code>income</code> and <code>balance</code> on the <code>Default</code> data set. We
+will now estimate the test error of this logistic regression model using
+the validation set approach. Do not forget to set a random seed before
+beginning your analysis.</p>
+
+<p><strong>(a)</strong> Fit a logistic regression model that uses income and balance to
+predict <code>default</code>.</p>
+
+<p><strong>(b)</strong> Using the validation set approach, estimate the test error of this
+model. In order to do this, you must perform the following steps:</p>
+
+<ol>
+<li><p>Split the sample set into a training set and a validation set.</p></li>
+
+<li><p>Fit a multiple logistic regression model using only the training
+observations.</p></li>
+
+<li><p>Obtain a prediction of default status for each individual in the
+validation set by computing the posterior probability of default for
+that individual, and classifying the individual to the <code>default</code>
+category if the posterior probability is greater than \(0.5\).</p></li>
+
+<li><p>Compute the validation set error, which is the fraction of the
+observations in the validation set that are misclassified.</p></li>
+</ol>
+
+<p><strong>&copy;</strong> Repeat the process in (b) three times, using three different
+splits of the observations into a training set and a validation set.
+Comment on the results obtained.</p>
+
+<p><strong>(d)</strong> Now consider a logistic regression model that predicts the prob-
+ability of <code>default</code> using <code>income</code> , <code>balance</code> , and a dummy variable
+for <code>student</code>. Estimate the test error for this model using the
+validation set approach. Comment on whether or not including a dummy
+variable for <code>student</code> leads to a reduction in the test error rate.</p>
+
+<h3 id="answer">Answer</h3>
+
+<p>We will need our data.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat<span style="color:#f92672">&lt;-</span>ISLR<span style="color:#f92672">::</span>Default</code></pre></div>
+<ul>
+<li>Very quick peek</li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##  default    student       balance           income
+##  No :9667   No :7056   Min.   :   0.0   Min.   :  772
+##  Yes: 333   Yes:2944   1st Qu.: 481.7   1st Qu.:21340
+##                        Median : 823.6   Median :34553
+##                        Mean   : 835.4   Mean   :33517
+##                        3rd Qu.:1166.3   3rd Qu.:43808
+##                        Max.   :2654.3   Max.   :73554</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat <span style="color:#f92672">%&gt;%</span> str</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    10000 obs. of  4 variables:
+##  $ default: Factor w/ 2 levels &#34;No&#34;,&#34;Yes&#34;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ student: Factor w/ 2 levels &#34;No&#34;,&#34;Yes&#34;: 1 2 1 1 1 2 1 2 1 1 ...
+##  $ balance: num  730 817 1074 529 786 ...
+##  $ income : num  44362 12106 31767 35704 38463 ...</code></pre></div>
+<h4 id="a-logistic-model-with-mlr3">a) Logistic Model with mlr3</h4>
+
+<p>Following the <a href="https://mlr3book.mlr-org.com/tasks.html" target="_blank">new approach</a>
+which leverages R6 features leads us to define a classification task
+first. As far as I can tell, the data needs to be filtered to contain
+only the things we need to predict with, in this case we are required to
+use only income and balance so we will do so.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1984</span>)
+redDat<span style="color:#f92672">&lt;-</span>defDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(income,balance,default))
+tskLogiFull<span style="color:#f92672">=</span>TaskClassif<span style="color:#f92672">$</span><span style="color:#a6e22e">new</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credit&#34;</span>,backend<span style="color:#f92672">=</span>redDat,target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>)
+<span style="color:#a6e22e">print</span>(tskLogiFull)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &lt;TaskClassif:credit&gt; (10000 x 3)
+## * Target: default
+## * Properties: twoclass
+## * Features (2):
+##   - dbl (2): balance, income</code></pre></div>
+<p>This can be visualized neatly as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(tskLogiFull)</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-8-1.png"   />
+
+        
+            <figcaption class="center" >Figure 1: MLR3 Visualizations</figcaption>
+        
+    </figure>
+
+
+
+<p>We have a pretty imbalanced data-set.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(tskLogiFull,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pairs&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Registered S3 method overwritten by &#39;GGally&#39;:
+##   method from
+##   +.gg   ggplot2</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-9-1.png"   />
+
+        
+            <figcaption class="center" >Figure 2: Paired mlr3 data</figcaption>
+        
+    </figure>
+
+
+
+<p>We can use any of the learners implemented, so it is a good idea to take
+a quick peek at them all.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">as.data.table</span>(mlr_learners)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;glmnet&#39; required but not installed for Learner
+## &#39;classif.glmnet&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;kknn&#39; required but not installed for Learner &#39;classif.kknn&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;ranger&#39; required but not installed for Learner
+## &#39;classif.ranger&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;xgboost&#39; required but not installed for Learner
+## &#39;classif.xgboost&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;glmnet&#39; required but not installed for Learner &#39;regr.glmnet&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;kknn&#39; required but not installed for Learner &#39;regr.kknn&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;DiceKriging&#39; required but not installed for Learner &#39;regr.km&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;ranger&#39; required but not installed for Learner &#39;regr.ranger&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning: Package &#39;xgboost&#39; required but not installed for Learner &#39;regr.xgboost&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                     key                                    feature_types
+##  1:       classif.debug logical,integer,numeric,character,factor,ordered
+##  2: classif.featureless logical,integer,numeric,character,factor,ordered
+##  3:      classif.glmnet                          logical,integer,numeric
+##  4:        classif.kknn           logical,integer,numeric,factor,ordered
+##  5:         classif.lda           logical,integer,numeric,factor,ordered
+##  6:     classif.log_reg logical,integer,numeric,character,factor,ordered
+##  7: classif.naive_bayes                   logical,integer,numeric,factor
+##  8:         classif.qda           logical,integer,numeric,factor,ordered
+##  9:      classif.ranger logical,integer,numeric,character,factor,ordered
+## 10:       classif.rpart           logical,integer,numeric,factor,ordered
+## 11:         classif.svm                          logical,integer,numeric
+## 12:     classif.xgboost                          logical,integer,numeric
+## 13:    regr.featureless logical,integer,numeric,character,factor,ordered
+## 14:         regr.glmnet                          logical,integer,numeric
+## 15:           regr.kknn           logical,integer,numeric,factor,ordered
+## 16:             regr.km                          logical,integer,numeric
+## 17:             regr.lm                   logical,integer,numeric,factor
+## 18:         regr.ranger logical,integer,numeric,character,factor,ordered
+## 19:          regr.rpart           logical,integer,numeric,factor,ordered
+## 20:            regr.svm                          logical,integer,numeric
+## 21:        regr.xgboost                          logical,integer,numeric
+##                     key                                    feature_types
+##        packages
+##  1:
+##  2:
+##  3:      glmnet
+##  4:        kknn
+##  5:        MASS
+##  6:       stats
+##  7:       e1071
+##  8:        MASS
+##  9:      ranger
+## 10:       rpart
+## 11:       e1071
+## 12:     xgboost
+## 13:       stats
+## 14:      glmnet
+## 15:        kknn
+## 16: DiceKriging
+## 17:       stats
+## 18:      ranger
+## 19:       rpart
+## 20:       e1071
+## 21:     xgboost
+##        packages
+##                                                            properties
+##  1:                                      missings,multiclass,twoclass
+##  2:         importance,missings,multiclass,selected_features,twoclass
+##  3:                                       multiclass,twoclass,weights
+##  4:                                               multiclass,twoclass
+##  5:                                       multiclass,twoclass,weights
+##  6:                                                  twoclass,weights
+##  7:                                               multiclass,twoclass
+##  8:                                       multiclass,twoclass,weights
+##  9:                  importance,multiclass,oob_error,twoclass,weights
+## 10: importance,missings,multiclass,selected_features,twoclass,weights
+## 11:                                               multiclass,twoclass
+## 12:                   importance,missings,multiclass,twoclass,weights
+## 13:                             importance,missings,selected_features
+## 14:                                                           weights
+## 15:
+## 16:
+## 17:                                                           weights
+## 18:                                      importance,oob_error,weights
+## 19:                     importance,missings,selected_features,weights
+## 20:
+## 21:                                       importance,missings,weights
+##                                                            properties
+##     predict_types
+##  1: response,prob
+##  2: response,prob
+##  3: response,prob
+##  4: response,prob
+##  5: response,prob
+##  6: response,prob
+##  7: response,prob
+##  8: response,prob
+##  9: response,prob
+## 10: response,prob
+## 11: response,prob
+## 12: response,prob
+## 13:   response,se
+## 14:      response
+## 15:      response
+## 16:   response,se
+## 17:   response,se
+## 18:   response,se
+## 19:      response
+## 20:      response
+## 21:      response
+##     predict_types</code></pre></div>
+<p>We can now pick the logistic one.
+<a href="https://github.com/mlr-org/mlr3learners/" target="_blank">Note that</a> this essentially
+proxies our requests down to the <code>stats</code> package.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">learner <span style="color:#f92672">=</span> mlr_learners<span style="color:#f92672">$</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;classif.log_reg&#34;</span>)</code></pre></div>
+<p>Now we can final solve the question, which is to simply use the model on
+all our data and return the accuracy metrics.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">trainFullCred<span style="color:#f92672">=</span>learner<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogiFull)
+<span style="color:#a6e22e">print</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull)<span style="color:#f92672">$</span>confusion)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##         truth
+## response   No  Yes
+##      No  9629  225
+##      Yes   38  108</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">measure <span style="color:#f92672">=</span> <span style="color:#a6e22e">msr</span>(<span style="color:#e6db74">&#34;classif.acc&#34;</span>)
+<span style="color:#a6e22e">print</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull)<span style="color:#f92672">$</span><span style="color:#a6e22e">score</span>(measure))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## classif.acc
+##      0.9737</code></pre></div>
+<p>Note that this style of working with objects does not really utilize the
+familiar <code>%&gt;%</code> interface.</p>
+
+<p>The <code>caret</code> package still has neater default metrics so we will use that
+as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull)<span style="color:#f92672">$</span>response,defDat<span style="color:#f92672">$</span>default)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
+##
+##           Reference
+## Prediction   No  Yes
+##        No  9629  225
+##        Yes   38  108
+##
+##                Accuracy : 0.9737
+##                  95% CI : (0.9704, 0.9767)
+##     No Information Rate : 0.9667
+##     P-Value [Acc &gt; NIR] : 3.067e-05
+##
+##                   Kappa : 0.4396
+##
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16
+##
+##             Sensitivity : 0.9961
+##             Specificity : 0.3243
+##          Pos Pred Value : 0.9772
+##          Neg Pred Value : 0.7397
+##              Prevalence : 0.9667
+##          Detection Rate : 0.9629
+##    Detection Prevalence : 0.9854
+##       Balanced Accuracy : 0.6602
+##
+##        &#39;Positive&#39; Class : No
+##</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull))</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-14-1.png"   />
+
+        
+            <figcaption class="center" >Figure 3: Autoplot results</figcaption>
+        
+    </figure>
+
+
+
+<p>We can get some other plots as well, but we need our probabilities to be
+returned.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># For ROC curves</span>
+lrnprob <span style="color:#f92672">=</span> <span style="color:#a6e22e">lrn</span>(<span style="color:#e6db74">&#34;classif.log_reg&#34;</span>,predict_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prob&#34;</span>)
+lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogiFull)
+<span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull),type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-15-1.png"   />
+
+        
+            <figcaption class="center" >Figure 4: ROC curve</figcaption>
+        
+    </figure>
+
+
+
+<h4 id="b-validation-sets-with-mlr3">b) Validation Sets with mlr3</h4>
+
+<p>Though the question seems to require a manual validation set generation
+and thresholding, we can simply use the defaults.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">train_set <span style="color:#f92672">=</span> <span style="color:#a6e22e">sample</span>(tskLogiFull<span style="color:#f92672">$</span>nrow, <span style="color:#ae81ff">0.8</span> <span style="color:#f92672">*</span> tskLogiFull<span style="color:#f92672">$</span>nrow)
+test_set <span style="color:#f92672">=</span> <span style="color:#a6e22e">setdiff</span>(<span style="color:#a6e22e">seq_len</span>(tskLogiFull<span style="color:#f92672">$</span>nrow), train_set)
+learner<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogiFull,row_ids<span style="color:#f92672">=</span>train_set)
+<span style="color:#a6e22e">confusionMatrix</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull, row_ids<span style="color:#f92672">=</span>test_set)<span style="color:#f92672">$</span>response,defDat[<span style="color:#f92672">-</span>train_set,]<span style="color:#f92672">$</span>default)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
+##
+##           Reference
+## Prediction   No  Yes
+##        No  1921   47
+##        Yes    9   23
+##
+##                Accuracy : 0.972
+##                  95% CI : (0.9638, 0.9788)
+##     No Information Rate : 0.965
+##     P-Value [Acc &gt; NIR] : 0.04663
+##
+##                   Kappa : 0.4387
+##
+##  Mcnemar&#39;s Test P-Value : 7.641e-07
+##
+##             Sensitivity : 0.9953
+##             Specificity : 0.3286
+##          Pos Pred Value : 0.9761
+##          Neg Pred Value : 0.7188
+##              Prevalence : 0.9650
+##          Detection Rate : 0.9605
+##    Detection Prevalence : 0.9840
+##       Balanced Accuracy : 0.6620
+##
+##        &#39;Positive&#39; Class : No
+##</code></pre></div>
+<p>For a reasonable comparison, we will demonstrate a standard approach as
+well. In this instance we will not use <code>caret</code> to ensure that our class
+distribution in the train and test sets are not sampled to remain the
+same.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">trainNoCaret<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">sample</span>(<span style="color:#a6e22e">nrow</span>(defDat), size <span style="color:#f92672">=</span> <span style="color:#a6e22e">floor</span>(<span style="color:#ae81ff">.8</span><span style="color:#f92672">*</span><span style="color:#a6e22e">nrow</span>(defDat)), replace <span style="color:#f92672">=</span> F)
+glm.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">glm</span>(default<span style="color:#f92672">~</span>income<span style="color:#f92672">+</span>balance,data<span style="color:#f92672">=</span>defDat,family<span style="color:#f92672">=</span>binomial,subset<span style="color:#f92672">=</span>trainNoCaret)
+glm.probs<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(glm.fit,defDat[<span style="color:#f92672">-</span>trainNoCaret,],type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;response&#34;</span>)
+glm.preds<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">ifelse</span>(glm.probs <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#34;No&#34;</span>, <span style="color:#e6db74">&#34;Yes&#34;</span>)
+<span style="color:#a6e22e">confusionMatrix</span>(glm.preds <span style="color:#f92672">%&gt;%</span> factor,defDat[<span style="color:#f92672">-</span>trainNoCaret,]<span style="color:#f92672">$</span>default)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
+##
+##           Reference
+## Prediction   No  Yes
+##        No  1930   46
+##        Yes    6   18
+##
+##                Accuracy : 0.974
+##                  95% CI : (0.966, 0.9805)
+##     No Information Rate : 0.968
+##     P-Value [Acc &gt; NIR] : 0.06859
+##
+##                   Kappa : 0.3986
+##
+##  Mcnemar&#39;s Test P-Value : 6.362e-08
+##
+##             Sensitivity : 0.9969
+##             Specificity : 0.2812
+##          Pos Pred Value : 0.9767
+##          Neg Pred Value : 0.7500
+##              Prevalence : 0.9680
+##          Detection Rate : 0.9650
+##    Detection Prevalence : 0.9880
+##       Balanced Accuracy : 0.6391
+##
+##        &#39;Positive&#39; Class : No
+##</code></pre></div>
+<p>Since the two approaches use different samples there is a little
+variation, but we can see that the accuracy is essentially the same.</p>
+
+<h4 id="c-3-fold-cross-validation">c) 3-fold cross validation</h4>
+
+<p>As per the question, we can repeat the block above three times, or
+extract it into a function which takes a seed value and run that three
+times. Either way, here we will present the <code>mlr3</code> approach to cross
+validation and resampling.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr <span style="color:#f92672">=</span> <span style="color:#a6e22e">resample</span>(tskLogiFull, lrnprob, <span style="color:#a6e22e">rsmp</span>(<span style="color:#e6db74">&#34;cv&#34;</span>, folds <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## INFO  [22:12:30.025] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 1/3)
+## INFO  [22:12:30.212] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 2/3)
+## INFO  [22:12:30.360] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 3/3)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(rr,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-18-1.png"   />
+
+        
+            <figcaption class="center" >Figure 5: Resampled ROC curve</figcaption>
+        
+    </figure>
+
+
+
+<p>We might want the average as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr<span style="color:#f92672">$</span><span style="color:#a6e22e">aggregate</span>(<span style="color:#a6e22e">msr</span>(<span style="color:#e6db74">&#34;classif.ce&#34;</span>)) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## classif.ce
+## 0.02630035</code></pre></div>
+<h4 id="adding-student-as-a-dummy-variable">Adding Student as a dummy variable</h4>
+
+<p>We will stick to the <code>mlr3</code> approach because it is faster.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">redDat2<span style="color:#f92672">&lt;-</span>defDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">mutate</span>(student<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(defDat<span style="color:#f92672">$</span>student))
+tskLogi2<span style="color:#f92672">=</span>TaskClassif<span style="color:#f92672">$</span><span style="color:#a6e22e">new</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credit&#34;</span>,backend<span style="color:#f92672">=</span>redDat2,target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>)
+<span style="color:#a6e22e">print</span>(tskLogi2)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &lt;TaskClassif:credit&gt; (10000 x 4)
+## * Target: default
+## * Properties: twoclass
+## * Features (3):
+##   - dbl (3): balance, income, student</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(tskLogi2,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pairs&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-21-1.png"   />
+
+        
+            <figcaption class="center" >Figure 6: Logistic regression pairs data</figcaption>
+        
+    </figure>
+
+
+
+<p>This gives us a visual indicator and premonition that we might not be
+getting incredible results with our new variable in the mix, but we
+should still work it through.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogi2)<span style="color:#f92672">$</span>response,defDat<span style="color:#f92672">$</span>default)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
+##
+##           Reference
+## Prediction   No  Yes
+##        No  9629  225
+##        Yes   38  108
+##
+##                Accuracy : 0.9737
+##                  95% CI : (0.9704, 0.9767)
+##     No Information Rate : 0.9667
+##     P-Value [Acc &gt; NIR] : 3.067e-05
+##
+##                   Kappa : 0.4396
+##
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16
+##
+##             Sensitivity : 0.9961
+##             Specificity : 0.3243
+##          Pos Pred Value : 0.9772
+##          Neg Pred Value : 0.7397
+##              Prevalence : 0.9667
+##          Detection Rate : 0.9629
+##    Detection Prevalence : 0.9854
+##       Balanced Accuracy : 0.6602
+##
+##        &#39;Positive&#39; Class : No
+##</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogi2))</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-23-1.png"   />
+
+        
+            <figcaption class="center" >Figure 7: Autoplot figure</figcaption>
+        
+    </figure>
+
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogi2)
+<span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogi2),type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-24-1.png"   />
+
+        
+            <figcaption class="center" >Figure 8: ROC plot</figcaption>
+        
+    </figure>
+
+
+
+<p>Although we have slightly better accuracy with the new variable, it
+needs to be compared to determine if it is worth further investigation.</p>
+
+<p>With a three-fold validation approach,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;gridExtra&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;gridExtra&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:dplyr&#39;:
+##
+##     combine</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">resample</span>(tskLogi2, lrnprob, <span style="color:#a6e22e">rsmp</span>(<span style="color:#e6db74">&#34;cv&#34;</span>, folds <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## INFO  [22:12:39.670] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 1/3)
+## INFO  [22:12:39.731] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 2/3)
+## INFO  [22:12:39.780] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 3/3)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">wS<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">autoplot</span>(rr2)
+nS<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">autoplot</span>(rr)
+<span style="color:#a6e22e">grid.arrange</span>(wS,nS,ncol<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,bottom<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;With student (left) and without (right)&#34;</span>)</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-25-1.png"   />
+
+        
+            <figcaption class="center" >Figure 9: Plot of accuracy</figcaption>
+        
+    </figure>
+
+
+
+<p>Given the results, it is fair to say that adding the student data is
+useful in general.</p>
+
+<h2 id="question-5.6---page-199">Question 5.6 - Page 199</h2>
+
+<p>We continue to consider the use of a logistic regression model to
+predict the probability of <code>default</code> using <code>income</code> and <code>balance</code> on the
+<code>Default</code> data set. In particular, we will now compute estimates for the
+standard errors of the <code>income</code> and <code>balance</code> logistic regression
+coefficients in two different ways: (1) using the bootstrap, and (2)
+using the standard formula for computing the standard errors in the
+<code>glm()</code> function. Do not forget to set a random seed before beginning
+your analysis.</p>
+
+<p><strong>(a)</strong> Using the <code>summary()</code> and <code>glm()</code> functions, determine the
+estimated standard errors for the coefficients associated with <code>income</code>
+and <code>balance</code> in a multiple logistic regression model that uses both
+predictors.</p>
+
+<p><strong>(b)</strong> Write a function, <code>boot.fn()</code> , that takes as input the <code>Default</code>
+data set as well as an index of the observations, and that outputs the
+coefficient estimates for <code>income</code> and <code>balance</code> in the multiple
+logistic regression model.</p>
+
+<p><strong>&copy;</strong> Use the <code>boot()</code> function together with your <code>boot.fn()</code> function
+to estimate the standard errors of the logistic regression coefficients
+for <code>income</code> and <code>balance</code>.</p>
+
+<p><strong>(d)</strong> Comment on the estimated standard errors obtained using the
+<code>glm()</code> function and using your bootstrap function.</p>
+
+<h3 id="answer-1">Answer</h3>
+
+<p>This question is slightly more specific to the packages in the book so
+we will use them.</p>
+
+<h4 id="a-fit-summary">a) Fit summary</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.fit <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Call:
+## glm(formula = default ~ income + balance, family = binomial,
+##     data = defDat, subset = trainNoCaret)
+##
+## Deviance Residuals:
+##     Min       1Q   Median       3Q      Max
+## -2.1943  -0.1488  -0.0588  -0.0217   3.7058
+##
+## Coefficients:
+##               Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept) -1.150e+01  4.814e-01 -23.885  &lt; 2e-16 ***
+## income       2.288e-05  5.553e-06   4.121 3.78e-05 ***
+## balance      5.593e-03  2.509e-04  22.295  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## (Dispersion parameter for binomial family taken to be 1)
+##
+##     Null deviance: 2354.0  on 7999  degrees of freedom
+## Residual deviance: 1283.6  on 7997  degrees of freedom
+## AIC: 1289.6
+##
+## Number of Fisher Scoring iterations: 8</code></pre></div>
+<h4 id="b-function">b) Function</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boot.fn<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(data,subs){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">coef</span>(<span style="color:#a6e22e">glm</span>(default<span style="color:#f92672">~</span>income<span style="color:#f92672">+</span>balance,data<span style="color:#f92672">=</span>data, family<span style="color:#f92672">=</span>binomial,subset<span style="color:#f92672">=</span>subs)))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">boot.fn</span>(defDat,train_set) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##   (Intercept)        income       balance
+## -1.136824e+01  1.846153e-05  5.576468e-03</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">glm</span>(default<span style="color:#f92672">~</span>income<span style="color:#f92672">+</span>balance,data<span style="color:#f92672">=</span>defDat,family<span style="color:#f92672">=</span>binomial,subset<span style="color:#f92672">=</span>train_set) <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Call:
+## glm(formula = default ~ income + balance, family = binomial,
+##     data = defDat, subset = train_set)
+##
+## Deviance Residuals:
+##     Min       1Q   Median       3Q      Max
+## -2.4280  -0.1465  -0.0582  -0.0218   3.7115
+##
+## Coefficients:
+##               Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept) -1.137e+01  4.813e-01 -23.618  &lt; 2e-16 ***
+## income       1.846e-05  5.553e-06   3.324 0.000886 ***
+## balance      5.576e-03  2.529e-04  22.046  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## (Dispersion parameter for binomial family taken to be 1)
+##
+##     Null deviance: 2313.6  on 7999  degrees of freedom
+## Residual deviance: 1266.4  on 7997  degrees of freedom
+## AIC: 1272.4
+##
+## Number of Fisher Scoring iterations: 8</code></pre></div>
+<p>We see that the statistics obtained from both are the same.</p>
+
+<h4 id="c-bootstrap">c) Bootstrap</h4>
+
+<p>The old fashioned way. <code>R</code> is the resample rate, <code>boot.fn</code> is the
+statistic used.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(boot)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;boot&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:lattice&#39;:
+##
+##     melanoma</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">boot</span>(defDat,boot.fn,R<span style="color:#f92672">=</span><span style="color:#ae81ff">184</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+##
+##
+## Call:
+## boot(data = defDat, statistic = boot.fn, R = 184)
+##
+##
+## Bootstrap Statistics :
+##          original        bias     std. error
+## t1* -1.154047e+01 -1.407368e-02 4.073453e-01
+## t2*  2.080898e-05 -6.386634e-08 4.720109e-06
+## t3*  5.647103e-03  1.350950e-05 2.111547e-04</code></pre></div>
+<h4 id="d-comparison">d) Comparison</h4>
+
+<ul>
+<li>Clearly, there is not much difference in the standard error estimates</li>
+</ul>
+
+<p class="verse">
+Var | Bootstrap | Summary |<br />
+| :---------: | --------- |<br />
+Intercept | 4.428026e-01 | 4.883e-01 |<br />
+income | 2.797011e-06 | 5.548e-06 |<br />
+balance | 2.423002e-04 | 2.591e-04 |<br />
+</p>
+
+<h2 id="question-5.8---page-200">Question 5.8 - Page 200</h2>
+
+<p>We will now perform cross-validation on a simulated data set. <strong>(a)</strong>
+Generate a simulated data set as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#f92672">&gt;</span> set <span style="color:#a6e22e">. seed </span>(<span style="color:#ae81ff">1</span>)
+<span style="color:#f92672">&gt;</span> y <span style="color:#f92672">=</span> <span style="color:#a6e22e">rnorm </span>(<span style="color:#ae81ff">100</span>)
+<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#a6e22e">rnorm </span>(<span style="color:#ae81ff">100</span>)
+<span style="color:#f92672">&gt;</span> y <span style="color:#f92672">=</span>x <span style="color:#ae81ff">-2</span>\<span style="color:#f92672">*</span> x ^2<span style="color:#f92672">+</span> <span style="color:#a6e22e">rnorm </span>(<span style="color:#ae81ff">100</span>)</code></pre></div>
+<p>In this data set, what is n and what is p? Write out the model used to
+generate the data in equation form.</p>
+
+<p><strong>(b)</strong> Create a scatterplot of \(X\) against \(Y\). Comment on what you find.</p>
+
+<p><strong>&copy;</strong> Set a random seed, and then compute the LOOCV errors that result
+from fitting the following four models using least squares:</p>
+
+<ol>
+<li><p>\(Y=\beta_0+\beta_1X+\eta\)</p></li>
+
+<li><p>\(Y=\beta_0+\beta_1X+\beta_2X^2+\eta\)</p></li>
+
+<li><p>\(Y=\beta_0+\beta_1X+\beta_2X^2+\beta_{3}X^{3}+\eta\)</p></li>
+
+<li><p>\(Y=\beta_0+\beta_1X+\beta_2X^2+\beta_{3}X^{3}+\beta_{4}X^{4}+\eta\)</p></li>
+</ol>
+
+<p>Note you may find it helpful to use the <code>data.frame()</code> function to
+create a single data set containing both \(X\) and \(Y\).</p>
+
+<p><strong>(d)</strong> Repeat &copy; using another random seed, and report your results. Are
+your results the same as what you got in &copy;? Why?</p>
+
+<p><strong>(e)</strong> Which of the models in &copy; had the smallest LOOCV error? Is this
+what you expected? Explain your answer.</p>
+
+<p><strong>(f)</strong> Comment on the statistical significance of the coefficient esti-
+mates that results from fitting each of the models in &copy; using least
+squares. Do these results agree with the conclusions drawn based on the
+cross-validation results?</p>
+
+<h3 id="answer-2">Answer</h3>
+
+<h4 id="a-modeling-data">a) Modeling data</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1</span>)
+y <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">100</span>)
+x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">100</span>)
+y <span style="color:#f92672">&lt;-</span> x <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x^2 <span style="color:#f92672">+</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">100</span>)</code></pre></div>
+<p>Clearly:</p>
+
+<ul>
+<li>Our equation is \(y=x-2x^{2}+\epsilon\) where \(epsilon\) is normally
+distributed from 100 samples</li>
+<li>We have \(n=100\) observations</li>
+<li>\(p=2\) where \(p\) is the number of features</li>
+</ul>
+
+<h4 id="b-visual-inspection">b) Visual inspection</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">qplot</span>(x,y)</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol3/unnamed-chunk-31-1.png"   />
+
+        
+            <figcaption class="center" >Figure 10: Model data plot</figcaption>
+        
+    </figure>
+
+
+
+<p>We observe that the data is quadratic, as we also know from the
+generating function, which was a quadratic equation plus normally
+distributed noise.</p>
+
+<h4 id="c-least-squares-fits">c) Least squares fits</h4>
+
+<p>Not very important, but here we use the <code>caret</code> form.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">pow<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(x,y){<span style="color:#a6e22e">return</span>(x^y)}
+dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(y,x,x2<span style="color:#f92672">=</span><span style="color:#a6e22e">pow</span>(x,<span style="color:#ae81ff">2</span>),x3<span style="color:#f92672">=</span><span style="color:#a6e22e">pow</span>(x,<span style="color:#ae81ff">3</span>),x4<span style="color:#f92672">=</span><span style="color:#a6e22e">pow</span>(x,<span style="color:#ae81ff">4</span>))</code></pre></div>
+<p>We might have also just used <code>poly(x,n)</code> to skip making the data frame.</p>
+
+<p>We will set our resampling method as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fitControl<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">trainControl</span>(method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;LOOCV&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   1 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared    MAE
+##   2.427134  0.05389864  1.878566
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   2 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.042399  0.8032414  0.8029942
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2<span style="color:#f92672">+</span>x3,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   3 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.050041  0.8003517  0.8073024
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2<span style="color:#f92672">+</span>x3<span style="color:#f92672">+</span>x4,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   4 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.055828  0.7982111  0.8150296
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div>
+<h4 id="d-seeding-effects">d) Seeding effects</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1995</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   1 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared    MAE
+##   2.427134  0.05389864  1.878566
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   2 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.042399  0.8032414  0.8029942
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2<span style="color:#f92672">+</span>x3,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   3 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.050041  0.8003517  0.8073024
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2<span style="color:#f92672">+</span>x3<span style="color:#f92672">+</span>x4,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   4 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.055828  0.7982111  0.8150296
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div>
+<p>We note that there is no change on varying the seed because LOOCV is
+exhaustive and uses n folds for each observation.</p>
+
+<h4 id="e-analysis">e) Analysis</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x,data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   1 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared    MAE
+##   2.427134  0.05389864  1.878566
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">2</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   1 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.042399  0.8032414  0.8029942
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">3</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   1 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.050041  0.8003517  0.8073024
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">4</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+##
+## 100 samples
+##   1 predictor
+##
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation
+## Summary of sample sizes: 99, 99, 99, 99, 99, 99, ...
+## Resampling results:
+##
+##   RMSE      Rsquared   MAE
+##   1.055828  0.7982111  0.8150296
+##
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div>
+<p>Clearly the quadratic polynomial has the lowest error, which makes sense
+given how the data was generated.</p>
+
+<h4 id="f-statistical-significance">f) Statistical significance</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x,data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+##
+## Residuals:
+##     Min      1Q  Median      3Q     Max
+## -7.3469 -0.9275  0.8028  1.5608  4.3974
+##
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  -1.8185     0.2364  -7.692 1.14e-11 ***
+## x             0.2430     0.2479   0.981    0.329
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## Residual standard error: 2.362 on 98 degrees of freedom
+## Multiple R-squared:  0.009717,   Adjusted R-squared:  -0.0003881
+## F-statistic: 0.9616 on 1 and 98 DF,  p-value: 0.3292</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">2</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+##
+## Residuals:
+##      Min       1Q   Median       3Q      Max
+## -2.89884 -0.53765  0.04135  0.61490  2.73607
+##
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)    -1.8277     0.1032 -17.704   &lt;2e-16 ***
+## `poly(x, 2)1`   2.3164     1.0324   2.244   0.0271 *
+## `poly(x, 2)2` -21.0586     1.0324 -20.399   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## Residual standard error: 1.032 on 97 degrees of freedom
+## Multiple R-squared:  0.8128, Adjusted R-squared:  0.8089
+## F-statistic: 210.6 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">3</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+##
+## Residuals:
+##      Min       1Q   Median       3Q      Max
+## -2.87250 -0.53881  0.02862  0.59383  2.74350
+##
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)    -1.8277     0.1037 -17.621   &lt;2e-16 ***
+## `poly(x, 3)1`   2.3164     1.0372   2.233   0.0279 *
+## `poly(x, 3)2` -21.0586     1.0372 -20.302   &lt;2e-16 ***
+## `poly(x, 3)3`  -0.3048     1.0372  -0.294   0.7695
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## Residual standard error: 1.037 on 96 degrees of freedom
+## Multiple R-squared:  0.813,  Adjusted R-squared:  0.8071
+## F-statistic: 139.1 on 3 and 96 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">4</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+##
+## Residuals:
+##     Min      1Q  Median      3Q     Max
+## -2.8914 -0.5244  0.0749  0.5932  2.7796
+##
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)    -1.8277     0.1041 -17.549   &lt;2e-16 ***
+## `poly(x, 4)1`   2.3164     1.0415   2.224   0.0285 *
+## `poly(x, 4)2` -21.0586     1.0415 -20.220   &lt;2e-16 ***
+## `poly(x, 4)3`  -0.3048     1.0415  -0.293   0.7704
+## `poly(x, 4)4`  -0.4926     1.0415  -0.473   0.6373
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## Residual standard error: 1.041 on 95 degrees of freedom
+## Multiple R-squared:  0.8134, Adjusted R-squared:  0.8055
+## F-statistic: 103.5 on 4 and 95 DF,  p-value: &lt; 2.2e-16</code></pre></div>
+<ul>
+<li>Clearly, the second order terms are the most significant, as expected</li>
+</ul>
+
+<h2 id="question-5.9---page-201">Question 5.9 - Page 201</h2>
+
+<p>We will now consider the Boston housing data set, from the MASS library.</p>
+
+<p><strong>(a)</strong> Based on this data set, provide an estimate for the population
+mean of <code>medv</code>. Call this estimate \(\hat{\mu}\).</p>
+
+<p><strong>(b)</strong> Provide an estimate of the standard error of \(\hat{\mu}\).
+Interpret this result. <em>Hint: We can compute the standard error of the
+sample mean by dividing the sample standard deviation by the square root
+of the number of observations.</em></p>
+
+<p><strong>&copy;</strong> Now estimate the standard error of \(\hat{\mu}\) using the
+bootstrap. How does this compare to your answer from (b)?</p>
+
+<p><strong>(d)</strong> Based on your bootstrap estimate from &copy;, provide a 95 %
+confidence interval for the mean of <code>medv</code>. Compare it to the results
+obtained using <code>t.test(Boston\$medv)</code>. <em>Hint: You can approximate a 95 %
+confidence interval using the formula
+\([\hat{\mu} − 2SE(\hat{\mu}), \hat{\mu} + 2SE(\hat{\mu})]\).</em></p>
+
+<p><strong>(e)</strong> Based on this data set, provide an estimate, \(\hat{\mu_{med}}\),
+for the median value of <code>medv</code> in the population.</p>
+
+<p><strong>(f)</strong> We now would like to estimate the standard error of \(\hat{\mu}\)
+med. Unfortunately, there is no simple formula for computing the
+standard error of the median. Instead, estimate the standard error of
+the median using the bootstrap. Comment on your findings.</p>
+
+<p><strong>(g)</strong> Based on this data set, provide an estimate for the tenth
+percentile of <code>medv</code> in Boston suburbs. Call this quantity
+\(\hat{\mu_{0.1}}\). (You can use the <code>quantile()</code> function.)</p>
+
+<p><strong>(h)</strong> Use the bootstrap to estimate the standard error of
+\(\hat{\mu_{0.1}}\). Comment on your findings.</p>
+
+<h3 id="answer-3">Answer</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">&lt;-</span>MASS<span style="color:#f92672">::</span>Boston</code></pre></div>
+<ul>
+<li>Reminder</li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       crim                zn             indus            chas
+##  Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000
+##  1st Qu.: 0.08204   1st Qu.:  0.00   1st Qu.: 5.19   1st Qu.:0.00000
+##  Median : 0.25651   Median :  0.00   Median : 9.69   Median :0.00000
+##  Mean   : 3.61352   Mean   : 11.36   Mean   :11.14   Mean   :0.06917
+##  3rd Qu.: 3.67708   3rd Qu.: 12.50   3rd Qu.:18.10   3rd Qu.:0.00000
+##  Max.   :88.97620   Max.   :100.00   Max.   :27.74   Max.   :1.00000
+##       nox               rm             age              dis
+##  Min.   :0.3850   Min.   :3.561   Min.   :  2.90   Min.   : 1.130
+##  1st Qu.:0.4490   1st Qu.:5.886   1st Qu.: 45.02   1st Qu.: 2.100
+##  Median :0.5380   Median :6.208   Median : 77.50   Median : 3.207
+##  Mean   :0.5547   Mean   :6.285   Mean   : 68.57   Mean   : 3.795
+##  3rd Qu.:0.6240   3rd Qu.:6.623   3rd Qu.: 94.08   3rd Qu.: 5.188
+##  Max.   :0.8710   Max.   :8.780   Max.   :100.00   Max.   :12.127
+##       rad              tax           ptratio          black
+##  Min.   : 1.000   Min.   :187.0   Min.   :12.60   Min.   :  0.32
+##  1st Qu.: 4.000   1st Qu.:279.0   1st Qu.:17.40   1st Qu.:375.38
+##  Median : 5.000   Median :330.0   Median :19.05   Median :391.44
+##  Mean   : 9.549   Mean   :408.2   Mean   :18.46   Mean   :356.67
+##  3rd Qu.:24.000   3rd Qu.:666.0   3rd Qu.:20.20   3rd Qu.:396.23
+##  Max.   :24.000   Max.   :711.0   Max.   :22.00   Max.   :396.90
+##      lstat            medv
+##  Min.   : 1.73   Min.   : 5.00
+##  1st Qu.: 6.95   1st Qu.:17.02
+##  Median :11.36   Median :21.20
+##  Mean   :12.65   Mean   :22.53
+##  3rd Qu.:16.95   3rd Qu.:25.00
+##  Max.   :37.97   Max.   :50.00</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston <span style="color:#f92672">%&gt;%</span> str <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    506 obs. of  14 variables:
+##  $ crim   : num  0.00632 0.02731 0.02729 0.03237 0.06905 ...
+##  $ zn     : num  18 0 0 0 0 0 12.5 12.5 12.5 12.5 ...
+##  $ indus  : num  2.31 7.07 7.07 2.18 2.18 2.18 7.87 7.87 7.87 7.87 ...
+##  $ chas   : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ nox    : num  0.538 0.469 0.469 0.458 0.458 0.458 0.524 0.524 0.524 0.524 ...
+##  $ rm     : num  6.58 6.42 7.18 7 7.15 ...
+##  $ age    : num  65.2 78.9 61.1 45.8 54.2 58.7 66.6 96.1 100 85.9 ...
+##  $ dis    : num  4.09 4.97 4.97 6.06 6.06 ...
+##  $ rad    : int  1 2 2 3 3 3 5 5 5 5 ...
+##  $ tax    : num  296 242 242 222 222 222 311 311 311 311 ...
+##  $ ptratio: num  15.3 17.8 17.8 18.7 18.7 18.7 15.2 15.2 15.2 15.2 ...
+##  $ black  : num  397 397 393 395 397 ...
+##  $ lstat  : num  4.98 9.14 4.03 2.94 5.33 ...
+##  $ medv   : num  24 21.6 34.7 33.4 36.2 28.7 22.9 27.1 16.5 18.9 ...
+## NULL</code></pre></div>
+<h4 id="a-mean">a) Mean</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">muhat<span style="color:#f92672">=</span>boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">mean</span>()
+<span style="color:#a6e22e">print</span>(muhat)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 22.53281</code></pre></div>
+<h4 id="b-standard-error">b) Standard error</h4>
+
+<p>Recall that \(SE=\frac{SD}{\sqrt{N_{obs}}}\)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> sd<span style="color:#f92672">/</span>(<span style="color:#a6e22e">nrow</span>(boston)^0.5) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 22.49444</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 0.4088611</code></pre></div>
+<h4 id="c-bootstrap-estimate">c) Bootstrap estimate</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(boot)
+myMean<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">function</span>(frame,ind){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">mean</span>(frame[ind]))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">boot</span>(boston<span style="color:#f92672">$</span>medv,myMean,R<span style="color:#f92672">=</span><span style="color:#ae81ff">184</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+##
+##
+## Call:
+## boot(data = boston$medv, statistic = myMean, R = 184)
+##
+##
+## Bootstrap Statistics :
+##     original     bias    std. error
+## t1* 22.53281 0.03451839    0.409621</code></pre></div>
+<p>We see that the bootstrapped error over 184 samples is <code>0.4341499</code> while
+without it we had <code>0.4088611</code> which is similar enough.</p>
+
+<h4 id="d-confidence-intervals-with-bootstrap-and-t.test">d) Confidence intervals with bootstrap and t.test</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> t.test <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+##  One Sample t-test
+##
+## data:  .
+## t = 55.111, df = 505, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  21.72953 23.33608
+## sample estimates:
+## mean of x
+##  22.53281</code></pre></div>
+<p>We can approximate this with what we already have</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">bRes<span style="color:#f92672">=</span><span style="color:#a6e22e">boot</span>(boston<span style="color:#f92672">$</span>medv,myMean,R<span style="color:#f92672">=</span><span style="color:#ae81ff">184</span>)
+seBoot<span style="color:#f92672">&lt;-</span>bRes<span style="color:#f92672">$</span>t <span style="color:#f92672">%&gt;%</span> var <span style="color:#f92672">%&gt;%</span> sqrt
+xlow<span style="color:#f92672">=</span>muhat<span style="color:#ae81ff">-2</span><span style="color:#f92672">*</span>(seBoot)
+xhigh<span style="color:#f92672">=</span>muhat<span style="color:#ae81ff">+2</span><span style="color:#f92672">*</span>(seBoot)
+<span style="color:#a6e22e">c</span>(xlow,xhigh) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 21.72675 23.33887</code></pre></div>
+<p>Our intervals are also pretty close to each other.</p>
+
+<h4 id="e-median">e) Median</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> sort <span style="color:#f92672">%&gt;%</span> median <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 21.2</code></pre></div>
+<h4 id="f-median-standard-error">f) Median standard error</h4>
+
+<p>We can reuse the logic of the <code>myMean</code> function defined previously.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">myMedian<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(data,ind){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">median</span>(data[ind]))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">boot</span>(myMedian,R<span style="color:#f92672">=</span><span style="color:#ae81ff">1500</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+##
+##
+## Call:
+## boot(data = ., statistic = myMedian, R = 1500)
+##
+##
+## Bootstrap Statistics :
+##     original      bias    std. error
+## t1*     21.2 -0.03773333    0.387315</code></pre></div>
+<p>We see that the standard error is <code>0.3767072</code>.</p>
+
+<h4 id="g-tenth-percentile">g) Tenth percentile</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">mu0one<span style="color:#f92672">&lt;-</span>boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">quantile</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0.1</span>))
+<span style="color:#a6e22e">print</span>(mu0one)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##   10%
+## 12.75</code></pre></div>
+<h4 id="h-bootstrap">h) Bootstrap</h4>
+
+<p>Once again.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">myQuant<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(data,ind){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">quantile</span>(data[ind],<span style="color:#ae81ff">0.1</span>))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">boot</span>(myQuant,R<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+##
+##
+## Call:
+## boot(data = ., statistic = myQuant, R = 500)
+##
+##
+## Bootstrap Statistics :
+##     original  bias    std. error
+## t1*    12.75 -0.0095   0.4951415</code></pre></div>
+<p>The standard error is <code>0.5024526</code></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:fn-1">James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2013). An Introduction to Statistical Learning: with Applications in R. Berlin, Germany: Springer Science &amp; Business Media.
+ <a class="footnote-return" href="#fnref:fn-1"><sup>[return]</sup></a></li>
+<li id="fn:fn-2">Lang et al., (2019). mlr3: A modern object-oriented machine learning framework in R. Journal of Open Source Software, 4(44), 1903, <a href="https://doi.org/10.21105/joss.01903" target="_blank">https://doi.org/10.21105/joss.01903</a>
+ <a class="footnote-return" href="#fnref:fn-2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+]]></content>
+        </item>
         
         <item>
             <title>ISLR :: Classification</title>
