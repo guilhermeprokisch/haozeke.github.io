@@ -38,5 +38,68 @@
       <description></description>
     </item>
     
+    <item>
+      <title>tools</title>
+      <link>https://rgoswami.me/tags/tools/</link>
+      <pubDate>Sat, 15 Feb 2020 05:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow</title>
+      <link>https://rgoswami.me/tags/workflow/</link>
+      <pubDate>Sat, 15 Feb 2020 05:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>https://rgoswami.me/tags/emacs/</link>
+      <pubDate>Thu, 13 Feb 2020 22:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://rgoswami.me/tags/python/</link>
+      <pubDate>Thu, 13 Feb 2020 22:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflows</title>
+      <link>https://rgoswami.me/tags/workflows/</link>
+      <pubDate>Thu, 13 Feb 2020 22:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/workflows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>direnv</title>
+      <link>https://rgoswami.me/tags/direnv/</link>
+      <pubDate>Thu, 13 Feb 2020 21:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/direnv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://rgoswami.me/tags/github/</link>
+      <pubDate>Wed, 12 Feb 2020 11:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/github/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

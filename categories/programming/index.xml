@@ -22,5 +22,36 @@ Common Stuff Here I&amp;rsquo;ll load things I will be using throughout, mostly 
 libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;tidyverse&amp;#34;,&amp;#34;ISLR&amp;#34;,&amp;#34;caret&amp;#34;) invisible(lapply(libsUsed, library, character.only = TRUE))# # Attaching package: &amp;#39;dplyr&amp;#39;# The following objects are masked from &amp;#39;package:stats&amp;#39;: # # filter, lag# The following objects are masked from &amp;#39;package:base&amp;#39;: # # intersect, setdiff, setequal, union# ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──# ✔ tibble 2.</description>
     </item>
     
+    <item>
+      <title>Replacing Jupyter with Orgmode</title>
+      <link>https://rgoswami.me/posts/jupyter-orgmode/</link>
+      <pubDate>Thu, 13 Feb 2020 22:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/jupyter-orgmode/</guid>
+      <description>Background  I dislike Jupyter notebooks (and JupyterHub) a lot EIN is really not much of a solution either  In the past I have written some posts on TeX with JupyterHub and discussed ways to use virtual Python with JupyterHub in a more reasonable manner.
+However, I personally found that EIN was a huge pain to work with, and I mostly ended up working with the web-interface anyway.</description>
+    </item>
+    
+    <item>
+      <title>Poetry and Direnv</title>
+      <link>https://rgoswami.me/posts/poetry-direnv/</link>
+      <pubDate>Thu, 13 Feb 2020 21:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
+      <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
+Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
+    </item>
+    
+    <item>
+      <title>ISLR :: Multiple Linear Regression</title>
+      <link>https://rgoswami.me/posts/islr-ch2-ch3/</link>
+      <pubDate>Wed, 15 Jan 2020 05:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/islr-ch2-ch3/</guid>
+      <description>Chapter II - Statistical Learning All the questions are as per the ISL seventh printing&amp;nbsp;1.
+Question 2.8 - Pages 54-55 This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for \(777\) different universities and colleges in the US. The variables are
+ Private : Public/private indicator Apps : Number of applications received Accept : Number of applicants accepted Enroll : Number of new students enrolled Top10perc : New students from top 10 % of high school class Top25perc : New students from top 25 % of high school class F.</description>
+    </item>
+    
   </channel>
 </rss>
