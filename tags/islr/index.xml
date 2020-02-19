@@ -6,10 +6,20 @@
     <description>Recent content in ISLR on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Feb 2020 07:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2020 09:47:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/islr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ISLR :: Moving Beyond Linearity</title>
+      <link>https://rgoswami.me/posts/islr-ch7/</link>
+      <pubDate>Wed, 19 Feb 2020 09:47:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/islr-ch7/</guid>
+      <description>Chapter VII - Moving Beyond Linearity All the questions are as per the ISL seventh printing.
+Common libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;tidyverse&amp;#34;, &amp;#34;ISLR&amp;#34;,&amp;#34;caret&amp;#34;,&amp;#34;MASS&amp;#34;, &amp;#34;gridExtra&amp;#34;, &amp;#34;pls&amp;#34;,&amp;#34;latex2exp&amp;#34;,&amp;#34;data.table&amp;#34;) invisible(lapply(libsUsed, library, character.only = TRUE))## ## Attaching package: &amp;#39;dplyr&amp;#39;## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──## ✔ tibble 2.1.3 ✔ purrr 0.3.3 ## ✔ tidyr 1.</description>
+    </item>
     
     <item>
       <title>ISLR :: Linear Model Selection and Regularization</title>
