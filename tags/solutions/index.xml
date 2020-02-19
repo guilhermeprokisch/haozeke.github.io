@@ -12,19 +12,6 @@
     
     
     <item>
-      <title>ISLR :: Linear Model Selection and Regularization</title>
-      <link>https://rgoswami.me/posts/islr-ch6/</link>
-      <pubDate>Tue, 18 Feb 2020 22:00:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/islr-ch6/</guid>
-      <description>Chapter VI - Linear Model Selection and Regularization All the questions are as per the ISL seventh printing1.
-Common Instead of using the standard functions, we will leverage the mlr3 package2.
-#install.packages(&amp;#34;mlr3&amp;#34;,&amp;#34;data.table&amp;#34;,&amp;#34;mlr3viz&amp;#34;,&amp;#34;mlr3learners&amp;#34;) Actually for R version 3.6.2, the steps to get it working were a bit more involved.
-Load ISLR and other libraries.
-libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;tidyverse&amp;#34;, &amp;#34;ISLR&amp;#34;,&amp;#34;caret&amp;#34;,&amp;#34;MASS&amp;#34;, &amp;#34;gridExtra&amp;#34;, &amp;#34;pls&amp;#34;,&amp;#34;latex2exp&amp;#34;,&amp;#34;data.table&amp;#34;) invisible(lapply(libsUsed, library, character.only = TRUE))## ## Attaching package: &amp;#39;dplyr&amp;#39;## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union## ── Attaching packages ─────────────────────────────────────── tidyverse 1.</description>
-    </item>
-    
-    <item>
       <title>ISLR :: Resampling Methods</title>
       <link>https://rgoswami.me/posts/islr-ch5/</link>
       <pubDate>Tue, 18 Feb 2020 22:00:00 +0000</pubDate>
