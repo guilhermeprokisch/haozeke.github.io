@@ -4815,7 +4815,16 @@ models in the caret formulation.</p>
     </figure>
 
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">dotplot</span>(results)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Error in dotplot(results): object &#39;results&#39; not found</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">dotplot</span>(resmod)</code></pre></div>
+
+    <figure class="left" >
+        <img src="/islr/sol2/unnamed-chunk-30-2.png"   />
+
+        
+    </figure>
+
+
+
 <p>Kappa or Cohen&rsquo;s Kappa is essentially classification accuracy,
 normalized at the baseline of random chance. It is a more useful measure
 to use on problems that have imbalanced classes. There&rsquo;s more on model
