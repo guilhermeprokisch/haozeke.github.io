@@ -38,7 +38,7 @@ Common libsUsed&lt;-c(&#34;dplyr&#34;,&#34;ggplot2&#34;,&#34;tidyverse&#34;, &#3
 
 <meta itemprop="datePublished" content="2020-02-19T09:47:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-02-19T09:47:00&#43;00:00" />
-<meta itemprop="wordCount" content="5613">
+<meta itemprop="wordCount" content="5900">
 
 
 
@@ -124,7 +124,7 @@ Common libsUsed&lt;-c(&#34;dplyr&#34;,&#34;ggplot2&#34;,&#34;tidyverse&#34;, &#3
     <main class="post">
 
         <div class="post-info">
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>27 minutes
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>28 minutes
 
             
 
@@ -997,22 +997,50 @@ modelFit <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f
 ##  2.365529e+01 -9.569936e-02  8.741819e-01 -2.478418e-01  1.269506e+01
 ##      Terminal     S.F.Ratio   perc.alumni        Expend     Grad.Rate
 ##  2.297296e+01 -4.700560e+01  4.195006e+01  2.003912e-01  2.383197e+01</code></pre></div>
+<ul>
+<li>But five seems like a better bet.</li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">coefficients</span>(modelFit,id<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##   (Intercept)    PrivateYes    Room.Board           PhD   perc.alumni
+## -2864.6325619  2936.7416766     1.0677573    40.5334088    61.3147684
+##        Expend
+##     0.2253945</code></pre></div>
 <h4 id="b-gam">b) GAM</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fit <span style="color:#f92672">=</span> <span style="color:#a6e22e">gam</span>(Outstate <span style="color:#f92672">~</span> Private<span style="color:#f92672">+</span><span style="color:#a6e22e">s</span>(Apps,<span style="color:#ae81ff">3</span>)<span style="color:#f92672">+</span>Accept<span style="color:#f92672">+</span>Enroll<span style="color:#f92672">+</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(gam)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fit <span style="color:#f92672">=</span> <span style="color:#a6e22e">gam</span>(Outstate <span style="color:#f92672">~</span> Private<span style="color:#f92672">+</span><span style="color:#a6e22e">s</span>(Apps,<span style="color:#ae81ff">3</span>)<span style="color:#f92672">+</span>Accept<span style="color:#f92672">+</span>Enroll<span style="color:#f92672">+</span>
             Top10perc<span style="color:#f92672">+</span>F.Undergrad<span style="color:#f92672">+</span>Room.Board<span style="color:#f92672">+</span>
             Personal<span style="color:#f92672">+</span>PhD<span style="color:#f92672">+</span>Terminal<span style="color:#f92672">+</span>S.F.Ratio<span style="color:#f92672">+</span>
             perc.alumni<span style="color:#f92672">+</span>Expend<span style="color:#f92672">+</span>Grad.Rate
         , data <span style="color:#f92672">=</span> colDat)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning in model.matrix.default(mt, mf, contrasts): non-list contrasts argument
+## ignored</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fit2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">gam</span>(Outstate <span style="color:#f92672">~</span> Private<span style="color:#f92672">+</span><span style="color:#a6e22e">s</span>(Room.Board,<span style="color:#ae81ff">2</span>)<span style="color:#f92672">+</span><span style="color:#a6e22e">s</span>(PhD,<span style="color:#ae81ff">3</span>)<span style="color:#f92672">+</span><span style="color:#a6e22e">s</span>(perc.alumni)<span style="color:#f92672">+</span>Expend
+        , data <span style="color:#f92672">=</span> colDat)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Warning in model.matrix.default(mt, mf, contrasts): non-list contrasts argument
 ## ignored</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
 <span style="color:#a6e22e">plot</span>(fit,se<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>)</code></pre></div>
-<p></islr/sol5/unnamed-chunk-36-1.png ></islr/sol5/unnamed-chunk-36-2.png ></islr/sol5/unnamed-chunk-36-3.png ><img src="https://rgoswami.me/islr/sol5/unnamed-chunk-36-4.png" alt="" /></p>
+<p><img src="https://rgoswami.me/islr/sol5/unnamed-chunk-39-1.png" alt="" />
+<img src="https://rgoswami.me/islr/sol5/unnamed-chunk-39-2.png" alt="" />
+<img src="https://rgoswami.me/islr/sol5/unnamed-chunk-39-3.png" alt="" />
+<img src="https://rgoswami.me/islr/sol5/unnamed-chunk-39-4.png" alt="" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
+<span style="color:#a6e22e">plot</span>(fit2,se<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>)</code></pre></div>
+
+    <figure class="left" >
+        <img src="https://rgoswami.me/islr/sol5/unnamed-chunk-40-2.png"   />
+
+        
+    </figure>
+
+
 
 <h4 id="c-evaluate">c) Evaluate</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">pred <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">predict</span>(fit, test_set)
 mse.error <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">mean</span>((test_set<span style="color:#f92672">$</span>Outstate <span style="color:#f92672">-</span> pred)^2)
 mse.error <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 3691891</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">gam.tss <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>((test_set<span style="color:#f92672">$</span>Outstate <span style="color:#f92672">-</span> <span style="color:#a6e22e">mean</span>(test_set<span style="color:#f92672">$</span>Outstate))^2)
 test.rss <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> mse.error<span style="color:#f92672">/</span>gam.tss
-test.rss <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 0.7731239</code></pre></div>
+test.rss <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 0.7731239</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">pred2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">predict</span>(fit2, test_set)
+mse.error2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">mean</span>((test_set<span style="color:#f92672">$</span>Outstate <span style="color:#f92672">-</span> pred2)^2)
+mse.error2 <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 4121902</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">gam.tss2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>((test_set<span style="color:#f92672">$</span>Outstate <span style="color:#f92672">-</span> <span style="color:#a6e22e">mean</span>(test_set<span style="color:#f92672">$</span>Outstate))^2)
+test.rss2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> mse.error2<span style="color:#f92672">/</span>gam.tss2
+test.rss2 <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 0.7466987</code></pre></div>
 <p>This is pretty good model, all told.</p>
 
 <h4 id="d-summary">d) Summary</h4>
@@ -1070,6 +1098,41 @@ test.rss <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div 
 ## Expend
 ## Grad.Rate
 ## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(fit2) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Call: gam(formula = Outstate ~ Private + s(Room.Board, 2) + s(PhD,
+##     3) + s(perc.alumni) + Expend, data = colDat)
+## Deviance Residuals:
+##       Min        1Q    Median        3Q       Max
+## -8676.030 -1345.678    -8.409  1265.524  9590.459
+##
+## (Dispersion Parameter for gaussian family taken to be 4175193)
+##
+##     Null Deviance: 12559297426 on 776 degrees of freedom
+## Residual Deviance: 3194023899 on 765.0002 degrees of freedom
+## AIC: 14064.05
+##
+## Number of Local Scoring Iterations: 2
+##
+## Anova for Parametric Effects
+##                   Df     Sum Sq    Mean Sq F value    Pr(&gt;F)
+## Private            1 3751107814 3751107814  898.43 &lt; 2.2e-16 ***
+## s(Room.Board, 2)   1 2913770756 2913770756  697.88 &lt; 2.2e-16 ***
+## s(PhD, 3)          1 1149711330 1149711330  275.37 &lt; 2.2e-16 ***
+## s(perc.alumni)     1  556759894  556759894  133.35 &lt; 2.2e-16 ***
+## Expend             1  554812125  554812125  132.88 &lt; 2.2e-16 ***
+## Residuals        765 3194023899    4175193
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## Anova for Nonparametric Effects
+##                  Npar Df Npar F     Pr(F)
+## (Intercept)
+## Private
+## s(Room.Board, 2)       1 4.9853 0.0258517 *
+## s(PhD, 3)              2 9.1614 0.0001171 ***
+## s(perc.alumni)         3 0.8726 0.4548496
+## Expend
+## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre></div>
             </div>
         </article>
@@ -1081,7 +1144,7 @@ test.rss <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/solutions">solutions</a></span><span class="tag"><a href="https://rgoswami.me/tags/r">R</a></span><span class="tag"><a href="https://rgoswami.me/tags/islr">ISLR</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>5613 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>5900 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-02-19 09:47 &#43;0000</p>
         </div>
