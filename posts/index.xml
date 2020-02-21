@@ -6022,7 +6022,7 @@ make sure we don&rsquo;t need to set them in every code block.</p>
 <p>We can use the following structure in our file:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode">\* Python Stuff
 <span style="color:#75715e">  :PROPERTIES:
-</span><span style="color:#75715e"></span><span style="color:#75715e">  :header-args:    :python /home/haozeke/.cache/pypoetry/virtualenvs/test-2aLV_5DQ-py3.8/bin/python :session One
+</span><span style="color:#75715e"></span><span style="color:#75715e">  :header-args:    :python /home/haozeke/.cache/pypoetry/virtualenvs/test-2aLV_5DQ-py3.8/bin/python :session One :results output :exports both
 </span><span style="color:#75715e"></span><span style="color:#75715e">  :END:</span>
 Now we can simply work with code as we normally would
 \#+BEGIN_SRC python
@@ -6086,6 +6086,14 @@ plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;
     </figure>
 
 
+
+<h3 id="bonus">Bonus</h3>
+
+<p>A better way to simulate standard <code>jupyter</code> workflows is to just specify the
+properties once at the beginning.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode"><span style="color:#75715e">#+PROPERTY</span><span style="color:#75715e">: header-args:python :python /home/haozeke/.cache/pypoetry/virtualenvs/test-2aLV_5DQ-py3.8/bin/python :session One :results output :exports both</span></code></pre></div>
+<p>This setup circumvents having to set the properties per sub-tree, though for
+very large projects, it is useful to use different processes.</p>
 
 <h2 id="conclusions">Conclusions</h2>
 
