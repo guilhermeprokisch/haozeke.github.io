@@ -6,10 +6,20 @@
     <description>Recent content on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Feb 2020 09:47:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2020 22:28:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bojack Horseman</title>
+      <link>https://rgoswami.me/posts/bojack-horseman/</link>
+      <pubDate>Thu, 27 Feb 2020 22:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/bojack-horseman/</guid>
+      <description>Background For a while I was worried about writing about a TV show here. I thought it might be frivolous, or worse, might outweigh the other kinds of articles I would like to write. However, like most things, that which is ignored just grows, so it is easier to just write and forget about it.
+The Show Much has been said about how Bojack Horseman is one of the best shows ever, and they&amp;rsquo;re all correct.</description>
+    </item>
     
     <item>
       <title>ISLR :: Moving Beyond Linearity</title>
@@ -108,17 +118,6 @@ Setting Up Poetry This essentially works by simply modifying the global .direnvr
       <guid>https://rgoswami.me/posts/rationale/</guid>
       <description> Why this site exists I have a lot of online presences. I have been around (or at-least, lurking) for over ten years. Almost as long as I have been programming. Anyway, I have a penchant lately for using emacs and honestly there isn&amp;rsquo;t very good support for org-mode files. There are options recently with gatsby as well, but this seemed kinda neat.
 What &amp;lsquo;this&amp;rsquo; is  This site is built by Hugo The posts are generated with ox-hugo The theme is based of this excellent one and my modifications are here  What is here  Mostly random thoughts I don&amp;rsquo;t mind people knowing Some tech stuff which isn&amp;rsquo;t coherent enough to be put in any form with references Emacs specific workflows which I might want to write about more than short notes on the config  What isn&amp;rsquo;t here  More coherent thoughts will not be here, that should and will go to my grimoire My doom-emacs configuration Academic stuff is better tracked on Publons or Google Scholar or my pages hosted by my favorite IITK group or UI group  </description>
-    </item>
-    
-    <item>
-      <title>ISLR :: Multiple Linear Regression</title>
-      <link>https://rgoswami.me/posts/islr-ch2-ch3/</link>
-      <pubDate>Wed, 15 Jan 2020 05:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/islr-ch2-ch3/</guid>
-      <description>Chapter II - Statistical Learning All the questions are as per the ISL seventh printing&amp;nbsp;1.
-Question 2.8 - Pages 54-55 This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for \(777\) different universities and colleges in the US. The variables are
- Private : Public/private indicator Apps : Number of applications received Accept : Number of applicants accepted Enroll : Number of new students enrolled Top10perc : New students from top 10 % of high school class Top25perc : New students from top 25 % of high school class F.</description>
     </item>
     
   </channel>

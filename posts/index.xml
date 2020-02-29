@@ -5,8 +5,64 @@
         <description>Recent content in Posts on Rohit Goswami</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 19 Feb 2020 09:47:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 27 Feb 2020 22:28:00 +0000</lastBuildDate>
         <atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Bojack Horseman</title>
+            <link>https://rgoswami.me/posts/bojack-horseman/</link>
+            <pubDate>Thu, 27 Feb 2020 22:28:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/bojack-horseman/</guid>
+            <description>Background For a while I was worried about writing about a TV show here. I thought it might be frivolous, or worse, might outweigh the other kinds of articles I would like to write. However, like most things, that which is ignored just grows, so it is easier to just write and forget about it.
+The Show Much has been said about how Bojack Horseman is one of the best shows ever, and they&amp;rsquo;re all correct.</description>
+            <content type="html"><![CDATA[
+
+<h2 id="background">Background</h2>
+
+<p>For a while I was worried about writing about a TV show here. I thought it might
+be frivolous, or worse, might outweigh the other kinds of articles I would like
+to write. However, like most things, that which is ignored just grows, so it is
+easier to just write and forget about it.</p>
+
+<h2 id="the-show">The Show</h2>
+
+<p>Much has been said about how Bojack Horseman is one of the best shows ever, and
+they&rsquo;re all correct. For that matter I won&rsquo;t be going into the details of how
+every episode ties together a tapestry of lives in a meaningful way, or any of
+that. The show was amazingly poignant. The characters felt real. Which actually
+leads me to the real issue.</p>
+
+<h2 id="the-end">The End</h2>
+
+<p>The end of Bojack was <strong>good</strong>. It was the way it was meant to be. For a
+slice-of-life show, it is a natural conclusion. It isn&rsquo;t necessary that any
+catharsis occurs or that the characters change or become better or all that
+jazz. It isn&rsquo;t about giving the viewers closure. It is simply about a window
+onto the lives of (fictional) characters being shut. To that end, I disliked
+attempts to bring closure in the show itself.</p>
+
+<p>One of the main reasons why I felt strongly enough to write this, is simply
+because when I looked around, the prevailing opinion was that the main character
+should have been killed off, <span class="underline">for his sins</span>. This strikes me as a very flippant
+attitude to take. It reeks of people trying to make the show a cautionary tale,
+which is frankly speaking a weird approach to take towards any fictional story.
+The idea that the character should be redeemed also seemed equally weak, for
+much the same reasons.</p>
+
+<p>The fact that the characters are hypocrites, and that none of them are as good
+or bad as they make themselves out to be is one of the best parts of the show.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>That&rsquo;s actually all I have to say about this. I thought of adding relevant memes
+or listing episodes or name dropping sites, but this isn&rsquo;t buzzfeed. The show is
+incredible, and there are far better ways of proving that. Bust out your
+favorite search engine + streaming content provider / digital piracy eye-patch
+and give it a whirl. The only thing I&rsquo;d suggest is watching everything in order,
+it&rsquo;s just that kind of show.</p>
+]]></content>
+        </item>
         
         <item>
             <title>ISLR :: Moving Beyond Linearity</title>
