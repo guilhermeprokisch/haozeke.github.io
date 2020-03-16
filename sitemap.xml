@@ -3,17 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://rgoswami.me/categories/</loc>
-    <lastmod>2020-03-16T00:17:00+00:00</lastmod>
+    <loc>https://rgoswami.me/tags/academics/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rgoswami.me/posts/d3git/</loc>
-    <lastmod>2020-03-16T00:17:00+00:00</lastmod>
+    <loc>https://rgoswami.me/categories/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/evaluation/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/mackay-all-a/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/tags/ideas/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/programming/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/teaching/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/d3git/</loc>
     <lastmod>2020-03-16T00:17:00+00:00</lastmod>
   </url>
   
@@ -23,22 +63,7 @@
   </url>
   
   <url>
-    <loc>https://rgoswami.me/posts/</loc>
-    <lastmod>2020-03-16T00:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rgoswami.me/tags/rationale/</loc>
-    <lastmod>2020-03-16T00:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/</loc>
-    <lastmod>2020-03-16T00:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/</loc>
     <lastmod>2020-03-16T00:17:00+00:00</lastmod>
   </url>
   
@@ -59,11 +84,6 @@
   
   <url>
     <loc>https://rgoswami.me/tags/hpc/</loc>
-    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/categories/programming/</loc>
     <lastmod>2020-03-16T00:06:00+00:00</lastmod>
   </url>
   
