@@ -14,7 +14,7 @@
             <pubDate>Mon, 16 Mar 2020 02:24:00 +0000</pubDate>
             
             <guid>https://rgoswami.me/posts/mackay-all-a/</guid>
-            <description>Background  I recently read this post written by the now deceased Prof. David MacKay&amp;nbsp;1 It should be read widely, however, given that it is distributed as a ps.gz which is then a .ps file, and thus probably inaccessible to many of the people who should read it (there is also a pdf) THIS IS NOT MY CONTENT&amp;nbsp;2 Now, enjoy the post  Everyone Should Get an A Imagine a University – call it Camwick – where all students arrive with straight A grades.</description>
+            <description>Background  I recently read this post written by the now deceased Prof. David MacKay&amp;nbsp;1 It should be read widely, however, given that it is distributed as a ps.gz which is then a .ps file, and thus probably inaccessible to many of the people who should read it, I decided to rework it for native online consumption (there is also a pdf) THIS IS NOT MY CONTENT&amp;nbsp;2 Now, enjoy the post  Everyone Should Get an A Imagine a University – call it Camwick – where all students arrive with straight A grades.</description>
             <content type="html"><![CDATA[
 
 <h2 id="background">Background</h2>
@@ -23,7 +23,7 @@
 <li>I recently read this post written by the now deceased <a href="http://www.inference.org.uk/mackay/" target="_blank">Prof. David MacKay</a>&nbsp;<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup></li>
 <li>It should be read widely, however, given that it is distributed as a <code>ps.gz</code>
 which is then a <code>.ps</code> file, and thus probably inaccessible to many of the
-people who should read it (there is <a href="http://www.inference.org.uk/mackay/exams.pdf" target="_blank">also a pdf</a>)</li>
+people who should read it, I decided to rework it for native online consumption (there is <a href="http://www.inference.org.uk/mackay/exams.pdf" target="_blank">also a pdf</a>)</li>
 <li><strong>THIS IS NOT MY CONTENT</strong>&nbsp;<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup></li>
 <li>Now, enjoy the post</li>
 </ul>
