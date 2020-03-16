@@ -6,10 +6,19 @@
     <description>Recent content in workflow on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2020 00:06:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 00:17:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>D3 for Git</title>
+      <link>https://rgoswami.me/posts/d3git/</link>
+      <pubDate>Mon, 16 Mar 2020 00:17:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/d3git/</guid>
+      <description>Background  I have had a lot of discussions regarding the teaching of git This is mostly as a part of the SoftwareCarpentries, or in view of my involvement with univ.ai, or simply in every public space I am associated with Without getting into my views, I just wanted to keep this resource in mind  The site  Learning git is a highly contentious thing People seem to be fond of GUI tools, especially since on non *nix systems, it seems that there is a lot of debate surrounding obtaining the git utility in the first place  One of the best ways of understanding (without installing stuff) the mental models required for working with git is this site</description>
+    </item>
     
     <item>
       <title>Provisioning Dotfiles on an HPC</title>

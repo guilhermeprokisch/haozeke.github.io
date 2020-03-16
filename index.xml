@@ -6,10 +6,19 @@
     <description>Recent content on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2020 00:06:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 00:17:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>D3 for Git</title>
+      <link>https://rgoswami.me/posts/d3git/</link>
+      <pubDate>Mon, 16 Mar 2020 00:17:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/d3git/</guid>
+      <description>Background  I have had a lot of discussions regarding the teaching of git This is mostly as a part of the SoftwareCarpentries, or in view of my involvement with univ.ai, or simply in every public space I am associated with Without getting into my views, I just wanted to keep this resource in mind  The site  Learning git is a highly contentious thing People seem to be fond of GUI tools, especially since on non *nix systems, it seems that there is a lot of debate surrounding obtaining the git utility in the first place  One of the best ways of understanding (without installing stuff) the mental models required for working with git is this site</description>
+    </item>
     
     <item>
       <title>Provisioning Dotfiles on an HPC</title>
@@ -108,16 +117,6 @@ cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
       <guid>https://rgoswami.me/posts/jupyter-orgmode/</guid>
       <description>Background  I dislike Jupyter notebooks (and JupyterHub) a lot EIN is really not much of a solution either  In the past I have written some posts on TeX with JupyterHub and discussed ways to use virtual Python with JupyterHub in a more reasonable manner.
 However, I personally found that EIN was a huge pain to work with, and I mostly ended up working with the web-interface anyway.</description>
-    </item>
-    
-    <item>
-      <title>Poetry and Direnv</title>
-      <link>https://rgoswami.me/posts/poetry-direnv/</link>
-      <pubDate>Thu, 13 Feb 2020 21:36:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
-      <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
-Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
     </item>
     
   </channel>

@@ -5,8 +5,62 @@
         <description>Recent content in Posts on Rohit Goswami</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 16 Mar 2020 00:06:00 +0000</lastBuildDate>
+        <lastBuildDate>Mon, 16 Mar 2020 00:17:00 +0000</lastBuildDate>
         <atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>D3 for Git</title>
+            <link>https://rgoswami.me/posts/d3git/</link>
+            <pubDate>Mon, 16 Mar 2020 00:17:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/d3git/</guid>
+            <description>Background  I have had a lot of discussions regarding the teaching of git This is mostly as a part of the SoftwareCarpentries, or in view of my involvement with univ.ai, or simply in every public space I am associated with Without getting into my views, I just wanted to keep this resource in mind  The site  Learning git is a highly contentious thing People seem to be fond of GUI tools, especially since on non *nix systems, it seems that there is a lot of debate surrounding obtaining the git utility in the first place  One of the best ways of understanding (without installing stuff) the mental models required for working with git is this site</description>
+            <content type="html"><![CDATA[
+
+<h2 id="background">Background</h2>
+
+<ul>
+<li>I have had a lot of discussions regarding the teaching of <code>git</code></li>
+<li>This is mostly as a part of the SoftwareCarpentries, or in view of my
+involvement with univ.ai, or simply in every public space I am associated with</li>
+<li>Without getting into my views, I just wanted to keep this resource in mind</li>
+</ul>
+
+<h2 id="the-site">The site</h2>
+
+<ul>
+<li>Learning <code>git</code> is a highly contentious thing</li>
+<li>People seem to be fond of GUI tools, especially since on non *nix systems, it
+seems that there is a lot of debate surrounding obtaining the <code>git</code> utility in
+the first place</li>
+</ul>
+
+<p>One of the best ways of understanding (without installing stuff) the mental
+models required for working with <code>git</code> is <a href="https://onlywei.github.io/explain-git-with-d3/#checkout" target="_blank">this site</a></p>
+
+
+    <figure class="left" >
+        <img src="/ox-hugo/d3git.png"   />
+
+        
+            <figcaption class="center" >Figure 1: A screenshot of the site</figcaption>
+        
+    </figure>
+
+
+
+<ul>
+<li>However, as is clear, this is not exactly a replacement for a good old</li>
+</ul>
+
+<p>command-line.</p>
+
+<ul>
+<li>It does make for a good resource for teaching with slides, or for generating
+other static visualizations, where live coding is not an option</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Provisioning Dotfiles on an HPC</title>
