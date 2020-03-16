@@ -21,8 +21,8 @@
 
 <ul>
 <li>I have had a lot of discussions regarding the teaching of <code>git</code></li>
-<li>This is mostly as a part of the SoftwareCarpentries, or in view of my
-involvement with univ.ai, or simply in every public space I am associated with</li>
+<li>This is mostly as a part of <a href="https://static.carpentries.org/maintainers/#HaoZeke" target="_blank">the SoftwareCarpentries</a>, or in view of my
+<a href="https://www.univ.ai/teams/rohit-goswami" target="_blank">involvement with univ.ai</a>, or simply in every public space I am associated with</li>
 <li>Without getting into my views, I just wanted to keep this resource in mind</li>
 </ul>
 
@@ -50,14 +50,10 @@ models required for working with <code>git</code> is <a href="https://onlywei.gi
 
 
 <ul>
-<li>However, as is clear, this is not exactly a replacement for a good old</li>
-</ul>
+<li><p>However, as is clear, this is not exactly a replacement for a good old command-line.</p></li>
 
-<p>command-line.</p>
-
-<ul>
-<li>It does make for a good resource for teaching with slides, or for generating
-other static visualizations, where live coding is not an option</li>
+<li><p>It does make for a good resource for teaching with slides, or for generating
+other static visualizations, where live coding is not an option</p></li>
 </ul>
 ]]></content>
         </item>
