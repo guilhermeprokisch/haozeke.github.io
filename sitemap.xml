@@ -53,17 +53,22 @@
   </url>
   
   <url>
+    <loc>https://rgoswami.me/posts/shortpost/</loc>
+    <lastmod>2020-03-16T00:16:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://rgoswami.me/tags/hpc/</loc>
     <lastmod>2020-03-16T00:06:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rgoswami.me/tags/programming/</loc>
+    <loc>https://rgoswami.me/categories/programming/</loc>
     <lastmod>2020-03-16T00:06:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rgoswami.me/categories/programming/</loc>
+    <loc>https://rgoswami.me/tags/programming/</loc>
     <lastmod>2020-03-16T00:06:00+00:00</lastmod>
   </url>
   
