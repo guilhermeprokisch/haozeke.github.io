@@ -6,10 +6,30 @@
     <description>Recent content on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Feb 2020 22:28:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 00:06:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Provisioning Dotfiles on an HPC</title>
+      <link>https://rgoswami.me/posts/prov-dots/</link>
+      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/prov-dots/</guid>
+      <description>Background My dotfiles turned 4 years old a few months ago (since 9th Jan 2017) and remains one of my most frequently updated projects for obvious reasons. Going through the changes reminds me of a whole of posts I never got around to writing.
+Anyway, recently I gained access to another HPC cluster, with a standard configuration (bash, old CentOS) and decided to track my provisioning steps. This is really a very streamlined experience by now, since I&amp;rsquo;ve used the same setup across scores of machines.</description>
+    </item>
+    
+    <item>
+      <title>Switching to Colemak</title>
+      <link>https://rgoswami.me/posts/colemak-switch/</link>
+      <pubDate>Sat, 29 Feb 2020 14:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/colemak-switch/</guid>
+      <description>Background I just realized that it has been over two years since I switched from QWERTY to COLEMAK but somehow never managed to write about it. It was a major change in my life, and it took forever to get acclimatized to. I do not think I&amp;rsquo;ll ever again be in a position to make such a change in my life again, but it was definitely worth it.
+Touch Typing My interest in touch typing in I decided to digitize my notes for posterity, during the last two years of my undergraduate studies back in Harcourt Butler Technical Institute (HBTI) Kanpur, India.</description>
+    </item>
     
     <item>
       <title>Bojack Horseman</title>
@@ -98,26 +118,6 @@ However, I personally found that EIN was a huge pain to work with, and I mostly 
       <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
       <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
 Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
-    </item>
-    
-    <item>
-      <title>Taming Github Notifications</title>
-      <link>https://rgoswami.me/posts/ghnotif/</link>
-      <pubDate>Wed, 12 Feb 2020 11:36:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/ghnotif/</guid>
-      <description>Background As a member of several large organizations, I get a lot of github notifications. Not all of these are of relevance to me. This is especially true of psuedo-monorepo style repositories like the JOSS review system and especially the exercism community.
- I recently (re-)joined the exercism community as a maintainer for the C++ lessons after having been a (sporadic) teacher This was largely in response to a community call to action as the group needed new blood to usher in v3 of the exercism project  Anyway, I have since found that at the small cost of possibly much of my public repo data, I can manage my notifications better with Octobox</description>
-    </item>
-    
-    <item>
-      <title>Site Rationale</title>
-      <link>https://rgoswami.me/posts/rationale/</link>
-      <pubDate>Tue, 11 Feb 2020 23:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/rationale/</guid>
-      <description> Why this site exists I have a lot of online presences. I have been around (or at-least, lurking) for over ten years. Almost as long as I have been programming. Anyway, I have a penchant lately for using emacs and honestly there isn&amp;rsquo;t very good support for org-mode files. There are options recently with gatsby as well, but this seemed kinda neat.
-What &amp;lsquo;this&amp;rsquo; is  This site is built by Hugo The posts are generated with ox-hugo The theme is based of this excellent one and my modifications are here  What is here  Mostly random thoughts I don&amp;rsquo;t mind people knowing Some tech stuff which isn&amp;rsquo;t coherent enough to be put in any form with references Emacs specific workflows which I might want to write about more than short notes on the config  What isn&amp;rsquo;t here  More coherent thoughts will not be here, that should and will go to my grimoire My doom-emacs configuration Academic stuff is better tracked on Publons or Google Scholar or my pages hosted by my favorite IITK group or UI group  </description>
     </item>
     
   </channel>

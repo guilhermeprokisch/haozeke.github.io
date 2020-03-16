@@ -6,10 +6,30 @@
     <description>Recent content in workflow on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Feb 2020 05:28:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 00:06:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Provisioning Dotfiles on an HPC</title>
+      <link>https://rgoswami.me/posts/prov-dots/</link>
+      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/prov-dots/</guid>
+      <description>Background My dotfiles turned 4 years old a few months ago (since 9th Jan 2017) and remains one of my most frequently updated projects for obvious reasons. Going through the changes reminds me of a whole of posts I never got around to writing.
+Anyway, recently I gained access to another HPC cluster, with a standard configuration (bash, old CentOS) and decided to track my provisioning steps. This is really a very streamlined experience by now, since I&amp;rsquo;ve used the same setup across scores of machines.</description>
+    </item>
+    
+    <item>
+      <title>Switching to Colemak</title>
+      <link>https://rgoswami.me/posts/colemak-switch/</link>
+      <pubDate>Sat, 29 Feb 2020 14:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/colemak-switch/</guid>
+      <description>Background I just realized that it has been over two years since I switched from QWERTY to COLEMAK but somehow never managed to write about it. It was a major change in my life, and it took forever to get acclimatized to. I do not think I&amp;rsquo;ll ever again be in a position to make such a change in my life again, but it was definitely worth it.
+Touch Typing My interest in touch typing in I decided to digitize my notes for posterity, during the last two years of my undergraduate studies back in Harcourt Butler Technical Institute (HBTI) Kanpur, India.</description>
+    </item>
     
     <item>
       <title>Pandora and Proxychains</title>

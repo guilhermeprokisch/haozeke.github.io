@@ -6,10 +6,55 @@
     <description>Recent content in Tags on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Feb 2020 22:28:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 00:06:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hpc</title>
+      <link>https://rgoswami.me/tags/hpc/</link>
+      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/hpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://rgoswami.me/tags/programming/</link>
+      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>https://rgoswami.me/tags/projects/</link>
+      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow</title>
+      <link>https://rgoswami.me/tags/workflow/</link>
+      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal</title>
+      <link>https://rgoswami.me/tags/personal/</link>
+      <pubDate>Sat, 29 Feb 2020 14:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/personal/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>random</title>
@@ -53,51 +98,6 @@
       <pubDate>Wed, 19 Feb 2020 09:47:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/islr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://rgoswami.me/tags/r/</link>
-      <pubDate>Wed, 19 Feb 2020 09:47:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>solutions</title>
-      <link>https://rgoswami.me/tags/solutions/</link>
-      <pubDate>Wed, 19 Feb 2020 09:47:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/solutions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools</title>
-      <link>https://rgoswami.me/tags/tools/</link>
-      <pubDate>Sat, 15 Feb 2020 05:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>workflow</title>
-      <link>https://rgoswami.me/tags/workflow/</link>
-      <pubDate>Sat, 15 Feb 2020 05:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/workflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emacs</title>
-      <link>https://rgoswami.me/tags/emacs/</link>
-      <pubDate>Thu, 13 Feb 2020 22:36:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/emacs/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,20 @@
     <description>Recent content in programming on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Feb 2020 09:47:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 00:06:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Provisioning Dotfiles on an HPC</title>
+      <link>https://rgoswami.me/posts/prov-dots/</link>
+      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/prov-dots/</guid>
+      <description>Background My dotfiles turned 4 years old a few months ago (since 9th Jan 2017) and remains one of my most frequently updated projects for obvious reasons. Going through the changes reminds me of a whole of posts I never got around to writing.
+Anyway, recently I gained access to another HPC cluster, with a standard configuration (bash, old CentOS) and decided to track my provisioning steps. This is really a very streamlined experience by now, since I&amp;rsquo;ve used the same setup across scores of machines.</description>
+    </item>
     
     <item>
       <title>ISLR :: Moving Beyond Linearity</title>

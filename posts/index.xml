@@ -5,8 +5,399 @@
         <description>Recent content in Posts on Rohit Goswami</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 27 Feb 2020 22:28:00 +0000</lastBuildDate>
+        <lastBuildDate>Mon, 16 Mar 2020 00:06:00 +0000</lastBuildDate>
         <atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Provisioning Dotfiles on an HPC</title>
+            <link>https://rgoswami.me/posts/prov-dots/</link>
+            <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/prov-dots/</guid>
+            <description>Background My dotfiles turned 4 years old a few months ago (since 9th Jan 2017) and remains one of my most frequently updated projects for obvious reasons. Going through the changes reminds me of a whole of posts I never got around to writing.
+Anyway, recently I gained access to another HPC cluster, with a standard configuration (bash, old CentOS) and decided to track my provisioning steps. This is really a very streamlined experience by now, since I&amp;rsquo;ve used the same setup across scores of machines.</description>
+            <content type="html"><![CDATA[
+
+<h2 id="background">Background</h2>
+
+<p><a href="https://github.com/HaoZeke/Dotfiles" target="_blank">My dotfiles</a> turned 4 years old a few months ago (since 9th Jan 2017) and remains one of my most
+frequently updated projects for obvious reasons. Going through the changes
+reminds me of a whole of posts I never got around to writing.</p>
+
+<p>Anyway, recently I gained access to another HPC cluster, with a standard configuration
+(bash, old CentOS) and decided to track my provisioning steps. This is really a
+very streamlined experience by now, since I&rsquo;ve used the same setup across scores
+of machines. This is actually also a generic intro to configuring user setups on
+HPC (high performance cluster) machines, if one is inclined to read it in that
+manner. To that end, sections of this post involve restrictions relating to user
+privileges which aren&rsquo;t normally part of most Dotfile setups.</p>
+
+<h3 id="aside">Aside</h3>
+
+<ul>
+<li>Dotfiles define most people who maintain them</li>
+<li>No two sets are ever exactly alike</li>
+<li>They fall somewhere between winging it for each machine and using something
+like <a href="https://www.habitat.sh/learn/" target="_blank">Chef</a> or <a href="https://www.ansible.com/" target="_blank">Ansible</a></li>
+<li>Tracking dotfiles is really close to having a sort of out-of-context journal</li>
+</ul>
+
+<p>Before I settled on using <a href="https://github.com/kobus-v-schoor/dotgit" target="_blank">the fabulous dotgit</a>, I considered several
+alternatives, most notably <a href="https://www.gnu.org/software/stow/" target="_blank">GNU stow</a>.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<p>It is important to note the environment into which I had to get my
+setup.</p>
+
+<h3 id="ssh-setup">SSH Setup</h3>
+
+<ul>
+<li>The very first thing to do is to use a new <code>ssh-key</code></li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export myKey<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;someName&#34;</span>
+ssh-keygen -f $HOME/.ssh/$myKey
+<span style="color:#75715e"># I normally don&#39;t set a password</span>
+ssh-add $HOME/.ssh/$myKey
+ssh-copy-id $myHPC
+<span style="color:#75715e"># myHPC being an IP address</span></code></pre></div>
+<p>I more often than not tend to back this up with a cutesy alias, also because I
+do not always get my username of choice on these machines. So in
+<code>$HOME/.ssh/config</code> I use:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">Host myHPC
+ Hostname 127.0.0.1
+ User somethingIgot
+ IdentityFile ~/.ssh/myKey</code></pre></div>
+<h3 id="harvesting-information">Harvesting Information</h3>
+
+<ul>
+<li>I normally use <a href="https://github.com/dylanaraps/neofetch" target="_blank">neofetch</a> on new machines</li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p $HOME/Git/Github
+cd $HOME/Git/Github
+git clone https://github.com/dylanaraps/neofetch.git
+cd neofetch
+./neofetch</code></pre></div>
+
+    <figure class="left" >
+        <img src="/ox-hugo/sampleHPC.png"   />
+
+        
+            <figcaption class="center" >Figure 1: Neofetch Output</figcaption>
+        
+    </figure>
+
+
+
+<p>Where the top has been tastefully truncated. Just for context, the latest <code>bash</code>
+as of this writing is <code>v5.0.16</code> so, that&rsquo;s not too bad, given that <code>neofetch</code>
+works for <code>bash</code> ≥ 3.2</p>
+
+<h2 id="circumventing-user-restrictions-with-nix"><span class="org-todo todo TODO">TODO</span> Circumventing User Restrictions with Nix</h2>
+
+<ul>
+<li>A post in and of itself would be required to explain why and how users are
+normally restricted from activities in cluster nodes</li>
+<li>Here, we leverage the <a href="https://nixos.org/nix/manual/#chap-installation" target="_blank">nix-package management system</a> to circumvent these</li>
+<li>User installation of <code>nix</code> is sadly non-trivial, so this might be of some use&nbsp;<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup></li>
+</ul>
+
+<h3 id="testing-nix-user-chroot">Testing nix-user-chroot</h3>
+
+<ol>
+<li>We will first check namespace support</li>
+</ol>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Errored out</span>
+unshare --user --pid echo YES
+<span style="color:#75715e"># Worked!</span>
+zgrep CONFIG_USER_NS /boot/config-<span style="color:#66d9ef">$(</span>uname -r<span style="color:#66d9ef">)</span>
+<span style="color:#75715e"># CONFIG_USER_NS=y</span></code></pre></div>
+<p>Thankfully we have support for namespaces, so we can continue with <code>nix-user-chroot</code>.</p>
+
+<ol>
+<li>Since we definitely do not have <code>rustup</code> or <code>rustc</code> on the HPC, we will use <a href="https://github.com/nix-community/nix-user-chroot/releases" target="_blank">a
+prebuilt binary</a> of <code>nix-user-chroot</code></li>
+</ol>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd $HOME <span style="color:#f92672">&amp;&amp;</span> wget -O nix-user-chroot  https://github.com/nix-community/nix-user-chroot/releases/download/1.0.2/nix-user-chroot-bin-1.0.2-x86_64-unknown-linux-musl</code></pre></div>
+<ol>
+<li>Similar to <a href="https://nixos.wiki/wiki/Nix%5FInstallation%5FGuide#Installing%5Fwithout%5Froot%5Fpermissions" target="_blank">the wiki example</a>, we will use <code>$HOME/.nix</code></li>
+</ol>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/
+chmod +x nix-user-chroot
+mkdir -m <span style="color:#ae81ff">0755</span> ~/.nix
+./nix-user-chroot ~/.nix bash -c <span style="color:#e6db74">&#39;curl https://nixos.org/nix/install | sh&#39;</span></code></pre></div>
+<ul>
+<li>Only, this <strong>doesn&rsquo;t work</strong></li>
+</ul>
+
+<p>Turns out that since <code>unshare</code> is too old, <code>nix-user-chroot</code> won&rsquo;t work either.</p>
+
+<h3 id="using-proot">Using PRoot</h3>
+
+<p>PRoot is pretty neat in general, they even have a <a href="https://proot-me.github.io/" target="_blank">nice website describing it</a>.</p>
+
+<ol>
+<li>Set a folder up for local installations (this is normally done by my
+Dotfiles, but we might as well have one here too)</li>
+</ol>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p $HOME/.local/bin
+export PATH<span style="color:#f92672">=</span>$PATH:$HOME/.local/bin</code></pre></div>
+<ol>
+<li>Get a binary from the <a href="https://gitlab.com/proot/proot/-/jobs" target="_blank">GitLab artifacts</a></li>
+</ol>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd $HOME
+mkdir tmp
+cd tmp
+wget -O artifacts.zip https://gitlab.com/proot/proot/-/jobs/452350181/artifacts/download
+unzip artifacts.zip
+mv dist/proot $HOME/.local/bin</code></pre></div>
+<ol>
+<li>Bind and install <code>nix</code></li>
+</ol>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/.nix
+export PROOT_NO_SECCOMP<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+proot -b ~/.nix:/nix
+export PROOT_NO_SECCOMP<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+curl https://nixos.org/nix/install | sh</code></pre></div>
+<p>If you&rsquo;re very unlucky, like I was, you may be greeted by a lovely little error
+message along the lines of:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/nix/store/ddmmzn4ggz1f66lwxjy64n89864yj9w9-nix-2.3.3/bin/nix-store: /opt/ohpc/pub/compiler/gcc/5.4.0/lib64/libstdc++.so.6: version `GLIBCXX_3.4.22&#39; not found (required by /nix/store/c0b76xh2za9r9r4b0g3iv4x2lkw1zzcn-aws-sdk-cpp-1.7.90/lib/libaws-cpp-sdk-core.so)</code></pre></div>
+<p>Which basically is as bad as it sounds. At this stage, we need a newer compiler
+to even get <code>nix</code> up and running, but can&rsquo;t without getting an OS update. This
+chicken and egg situation calls for the drastic measure of leveraging <code>brew</code>
+first<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></code></pre></div>
+<p>Note that nothing in this section suggests the best way is not to lobby your
+sys-admin to install <code>nix</code> system-wide in multi-user mode.</p>
+
+<h2 id="giving-up-with-linuxbrew">Giving Up with Linuxbrew</h2>
+
+<ul>
+<li>Somewhere around this point, <a href="https://docs.brew.sh/Homebrew-on-Linux" target="_blank">linuxbrew</a> is a good idea</li>
+<li>More on this later</li>
+</ul>
+
+<h2 id="shell-stuff">Shell Stuff</h2>
+
+<p><code>zsh</code> is my shell of choice, and is what my <code>Dotfiles</code> expect and work best with.</p>
+
+<ul>
+<li>I did end up making a quick change to update the <code>dotfiles</code> with a target
+which includes a snippet to transition to <code>zsh</code> from the default <code>bash</code> shell</li>
+</ul>
+
+<h2 id="dotfiles">Dotfiles</h2>
+
+<p>The actual installation steps basically tracks <a href="https://github.com/HaoZeke/Dotfiles" target="_blank">the readme instructions</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/kobus-v-schoor/dotgit.git
+mkdir -p ~/.bin
+cp -r dotgit/bin/dotgit* ~/.bin
+cat dotgit/bin/bash_completion &gt;&gt; ~/.bash_completion
+rm -rf dotgit
+<span style="color:#75715e"># echo &#39;export PATH=&#34;$PATH:$HOME/.bin&#34;&#39; &gt;&gt; ~/.bashrc</span>
+echo <span style="color:#e6db74">&#39;export PATH=&#34;$PATH:$HOME/.bin&#34;&#39;</span> &gt;&gt; ~/.zshrc</code></pre></div><div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:fn-1">Much of this section is directly adapted from <a href="https://nixos.wiki/wiki/Nix%5FInstallation%5FGuide#Installing%5Fwithout%5Froot%5Fpermissions" target="_blank">the NixOS wiki</a>
+ <a class="footnote-return" href="#fnref:fn-1"><sup>[return]</sup></a></li>
+<li id="fn:fn-2">This used to be called linuxbrew, but the <a href="https://docs.brew.sh/Homebrew-on-Linux" target="_blank">new site</a> makes it clear that it&rsquo;s all one <code>brew</code> now.
+ <a class="footnote-return" href="#fnref:fn-2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Switching to Colemak</title>
+            <link>https://rgoswami.me/posts/colemak-switch/</link>
+            <pubDate>Sat, 29 Feb 2020 14:06:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/colemak-switch/</guid>
+            <description>Background I just realized that it has been over two years since I switched from QWERTY to COLEMAK but somehow never managed to write about it. It was a major change in my life, and it took forever to get acclimatized to. I do not think I&amp;rsquo;ll ever again be in a position to make such a change in my life again, but it was definitely worth it.
+Touch Typing My interest in touch typing in I decided to digitize my notes for posterity, during the last two years of my undergraduate studies back in Harcourt Butler Technical Institute (HBTI) Kanpur, India.</description>
+            <content type="html"><![CDATA[
+
+<h2 id="background">Background</h2>
+
+<p>I just realized that it has been over two years since I switched from QWERTY to
+COLEMAK but somehow never managed to write about it. It was a major change in my
+life, and it took forever to get acclimatized to. I do not think I&rsquo;ll ever again be
+in a position to make such a change in my life again, but it was definitely
+worth it.</p>
+
+<h2 id="touch-typing">Touch Typing</h2>
+
+<p>My interest in touch typing in I decided to digitize my notes for posterity, during the
+last two years of my undergraduate studies back in Harcourt Butler Technical
+Institute (HBTI) Kanpur, India. in one of my many instances of yak shaving, I
+realized I could probably consume and annotate a lot more content by typing
+faster. Given that at that stage I was already a fast talker, it seemed like a
+natural extension. There was probably an element of nostalgia involved as well.
+That and the end of a bachelors involves the thesis, which generally involves a
+lot of typing.</p>
+
+<p>There were (and are) some fantastic resources for learning to touch type
+nowadays, I personally used:</p>
+
+<dl>
+<dt><a href="https://www.typing.com/" target="_blank">Typing.com</a></dt>
+<dd>This is short, but a pretty good basic setup. The numbering and
+special characters are a bit much to take in at the level of practice you get
+by completing all the previous exercises, but eventually they make for a good workout.</dd>
+<dt><a href="https://www.typingclub.com/en-gb/login/" target="_blank">TypingClub</a></dt>
+<dd>This is what I ended up working my way through. It is
+comprehensive, beautiful, and fun.</dd>
+</dl>
+
+<p>Also, later, I ended up using <a href="https://www.keybr.com/" target="_blank">keybr</a> a lot, simply because typing gibberish is a
+good way of practicing, and it is independent of the keyboard layout.</p>
+
+<p>Just to foreshadow things, the enemy facing me at this point was the layout
+itself<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>.</p>
+
+
+    <figure class="left" >
+        <img src="https://www.keyboard-design.com/kb-images/qwerty-kla.jpg"   />
+
+        
+    </figure>
+
+
+
+<h2 id="alternate-layouts">Alternate layouts</h2>
+
+<p>Having finally broken into the giddy regimes of 150+ wpm, I was ecstatic, and
+decided to start working my way through some longer reports. However, I quickly
+realized I was unable to type for more than a couple of minutes without getting
+terribly cramped. Once it got to the point of having to visit a physiotherapist,
+I had to call it quits. At that stage, relearning the entire touch typing
+corpus, given that I already was used to QWERTY, seemed pretty bleak.</p>
+
+<p>It took forever, and I ended up applying my choices to my phone keyboard as
+well, which presumably helped me in terms of increasing familiarity, had the
+unintended effect of making me seem distant to people I was close to, since my
+verbose texts suddenly devolved to painful one-liners.</p>
+
+<p>The alternative layouts I tried were:</p>
+
+<dl>
+<dt><a href="https://www.dvorak-keyboard.com/" target="_blank">DVORAK</a></dt>
+<dd>At the time, TypingClub only supported QWERTY and DVORAK, so it was
+pretty natural for me to try it out. There are also some <a href="https://www.dvzine.org/" target="_blank">very nice comics
+about it</a>. I remember that it was pretty neat, with
+a good even distribution, until I tried coding. The placement of the
+semicolons make it impossible to use while programming. I would still say it
+makes for a comfortable layout, as long as special characters are not required.</dd>
+</dl>
+
+
+    <figure class="left" >
+        <img src="https://www.keyboard-design.com/kb-images/dvorak-kla.jpg"   />
+
+        
+    </figure>
+
+
+
+<dl>
+<dt><a href="http://mkweb.bcgsc.ca/carpalx" target="_blank">CarpalX</a></dt>
+<dd>I experimented with the entire carpalx family, but I was unable to get
+used to it. I liked QFMLWY best. I do recommend reading the training methodology, especially if
+anyone is interested in numerical optimization in general. More importantly,
+though it was relatively easy to set up on my devices and operating systems,
+the fact that it wasn&rsquo;t natively supported meant a lot of grief whenever I
+inevitably had to use a public computer.</dd>
+</dl>
+
+
+    <figure class="left" >
+        <img src="https://www.keyboard-design.com/kb-images/qgmlwy-kla.jpg"   />
+
+        
+    </figure>
+
+
+
+<dl>
+<dt>Colemak</dt>
+<dd>Eventually I decided to go with <a href="https://colemak.com/" target="_blank">Colemak</a>, especially since it is
+widely available. Nothing is easier than <code>setxkbmap us -variant colemak -option grp:alt_shift_toggle</code> on public machines and it&rsquo;s easy on Windows as
+well. Colemak seems like a good compromise. I personally have not been able to
+reach the same speeds I managed with QWERTY, even after a year, but then
+again, I can be a lot more consistent, and it hurts less. Nowadays, Colemak
+has made its way onto most typing sites as well, including TypingClub</dd>
+</dl>
+
+
+    <figure class="left" >
+        <img src="https://www.keyboard-design.com/kb-images/colemak-kla.jpg"   />
+
+        
+    </figure>
+
+
+
+<h3 id="what-about-vim">What about VIM?</h3>
+
+<ul>
+<li>DVORAK makes it impossible, so do most other layouts, but there are some
+tutorials purporting to help use vim movement with DVORAK</li>
+<li>Colemak isn&rsquo;t any better, but the fact of the matter is that once you know VIM
+on QWERTY, and have separately internalized colemak or something else, hitting
+keys is just hitting keys</li>
+</ul>
+
+<p>All that said, I still occasionally simply remap HJKL (QWERTY movement) to HNEI
+(Colemak analog) when it is feasible.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Changing layouts was a real struggle. Watching my WPM drop back to lower than
+hunt and peck styles was pretty humiliating, especially since the reports kept
+coming in, and more than once I switched to QWERTY. However, since then, I have
+managed to stay on course. I guess if I think about it, it boils down to a few
+scattered thoughts:</p>
+
+<ul>
+<li>Typing is kinda like running a marathon, knowing how it is done and doing it
+are two different things</li>
+<li>Tell <strong>everyone</strong>, so people can listen to you lament your reduced speed and not
+hate you for replying slowly</li>
+<li>Practice everyday, because, well, it works out in the long run, even when you
+plateau</li>
+<li>Alternate shifts! That&rsquo;s really something which should show up more in
+tutorials, especially for listicles, not changing the shifts will really hurt</li>
+<li>Try and get a mechanical keyboard (like the <a href="https://www.annepro.net/" target="_blank">Anne Pro 2</a> or the <a href="https://www.coolermaster.com/catalog/peripheral/keyboards/masterkeys-pro-l-white/" target="_blank">Coolermaster Masterkeys</a>), they&rsquo;re fun and easy to change layouts on</li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:fn-1">The images are <a href="https://www.keyboard-design.com/best-keyboard-layouts.html" target="_blank">from here</a>, where there&rsquo;s also an effort based metric used to score keyboard layouts.
+ <a class="footnote-return" href="#fnref:fn-1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+]]></content>
+        </item>
         
         <item>
             <title>Bojack Horseman</title>

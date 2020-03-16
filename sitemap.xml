@@ -3,22 +3,77 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://rgoswami.me/categories/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/hpc/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/programming/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/programming/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/projects/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/prov-dots/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/workflow/</loc>
+    <lastmod>2020-03-16T00:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/notes/</loc>
+    <lastmod>2020-02-29T14:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/personal/</loc>
+    <lastmod>2020-02-29T14:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/colemak-switch/</loc>
+    <lastmod>2020-02-29T14:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://rgoswami.me/posts/bojack-horseman/</loc>
     <lastmod>2020-02-27T22:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rgoswami.me/categories/</loc>
-    <lastmod>2020-02-27T22:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rgoswami.me/categories/personal/</loc>
-    <lastmod>2020-02-27T22:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/posts/</loc>
     <lastmod>2020-02-27T22:28:00+00:00</lastmod>
   </url>
   
@@ -29,16 +84,6 @@
   
   <url>
     <loc>https://rgoswami.me/tags/review/</loc>
-    <lastmod>2020-02-27T22:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/</loc>
-    <lastmod>2020-02-27T22:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/</loc>
     <lastmod>2020-02-27T22:28:00+00:00</lastmod>
   </url>
   
@@ -59,11 +104,6 @@
   
   <url>
     <loc>https://rgoswami.me/posts/islr-ch7/</loc>
-    <lastmod>2020-02-19T09:47:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/categories/programming/</loc>
     <lastmod>2020-02-19T09:47:00+00:00</lastmod>
   </url>
   
@@ -103,11 +143,6 @@
   </url>
   
   <url>
-    <loc>https://rgoswami.me/tags/workflow/</loc>
-    <lastmod>2020-02-15T05:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rgoswami.me/tags/emacs/</loc>
     <lastmod>2020-02-13T22:36:00+00:00</lastmod>
   </url>
@@ -134,11 +169,6 @@
   
   <url>
     <loc>https://rgoswami.me/tags/github/</loc>
-    <lastmod>2020-02-12T11:36:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/categories/notes/</loc>
     <lastmod>2020-02-12T11:36:00+00:00</lastmod>
   </url>
   
