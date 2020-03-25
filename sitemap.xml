@@ -3,47 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://rgoswami.me/categories/</loc>
-    <lastmod>2020-03-25T17:04:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/categories/notes/</loc>
-    <lastmod>2020-03-25T17:04:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/posts/</loc>
-    <lastmod>2020-03-25T17:04:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/</loc>
-    <lastmod>2020-03-25T17:04:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/statistics/</loc>
-    <lastmod>2020-03-25T17:04:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/</loc>
-    <lastmod>2020-03-25T17:04:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/theory/</loc>
-    <lastmod>2020-03-25T17:04:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/posts/trees-and-bags/</loc>
-    <lastmod>2020-03-25T17:04:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rgoswami.me/tags/academics/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/</loc>
     <lastmod>2020-03-16T02:24:00+00:00</lastmod>
   </url>
   
@@ -63,7 +28,22 @@
   </url>
   
   <url>
+    <loc>https://rgoswami.me/posts/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://rgoswami.me/categories/programming/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/</loc>
+    <lastmod>2020-03-16T02:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/</loc>
     <lastmod>2020-03-16T02:24:00+00:00</lastmod>
   </url>
   
@@ -74,6 +54,11 @@
   
   <url>
     <loc>https://rgoswami.me/posts/d3git/</loc>
+    <lastmod>2020-03-16T00:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/notes/</loc>
     <lastmod>2020-03-16T00:17:00+00:00</lastmod>
   </url>
   
