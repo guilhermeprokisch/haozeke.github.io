@@ -5,8 +5,379 @@
         <description>Recent content in Posts on Rohit Goswami</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 16 Mar 2020 02:24:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 26 Mar 2020 00:28:00 +0000</lastBuildDate>
         <atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Trees and Bags</title>
+            <link>https://rgoswami.me/posts/trees-and-bags/</link>
+            <pubDate>Thu, 26 Mar 2020 00:28:00 +0000</pubDate>
+            
+            <guid>https://rgoswami.me/posts/trees-and-bags/</guid>
+            <description>Explain why using bagging for prediction trees generally improves predictions over regular prediction trees.
+ Introduction Bagging (or Bootstrap Aggregation) is one of the most commonly used ensemble method for improving the prediction of trees. We will broadly follow a historical development trend to understand the process. That is, we will begin by considering the Bootstrap method. This in turn requires knowledge of the Jacknife method, which is understandable from a simple bias variance perspective.</description>
+            <content type="html"><![CDATA[
+
+<blockquote>
+<p>Explain why using bagging for prediction trees generally improves
+predictions over regular prediction trees.</p>
+</blockquote>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Bagging (or Bootstrap Aggregation) is one of the most commonly used
+ensemble method for improving the prediction of trees. We will broadly
+follow a historical development trend to understand the process. That
+is, we will begin by considering the Bootstrap method. This in turn
+requires knowledge of the Jacknife method, which is understandable from
+a simple bias variance perspective. Finally we will close out the
+discussion by considering the utility and trade-offs of the Bagging
+technique, and will draw attention to the fact that the Bagging method
+was contrasted to another popular ensemble method, namely the Random
+Forest method, in the previous section.</p>
+
+<p>Before delving into the mathematics, recall that the approach taken by
+bagging is essentially (Cichosz
+(<a href="#ref-cichoszDataMiningAlgorithms2015">2015</a>)):</p>
+
+<ul>
+<li>create base models with <strong>bootstrap</strong> samples of the training set</li>
+<li>combine models by unweighted voting (for classification) or by
+averaging (for regression)</li>
+</ul>
+
+<p>The reason for covering the Jacknife method is to develop an intuition
+relating to the sampling of data described in the following table:</p>
+
+<table>
+<thead>
+<tr>
+<th>Data-set Size per sample</th>
+<th>Estimator</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Reduces</td>
+<td>Jacknife</td>
+</tr>
+
+<tr>
+<td>Remains the same</td>
+<td>Bootstrap</td>
+</tr>
+
+<tr>
+<td>Increases</td>
+<td>data-augmentation</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="bias-variance-trade-offs">Bias Variance Trade-offs</h2>
+
+<p>We will recall, for this discussion, the bias variance trade off which
+is the basis of our model accuracy estimates (for regression) as per the
+formulation of James et al.
+(<a href="#ref-jamesIntroductionStatisticalLearning2013">2013</a>).</p>
+
+<p>\begin{equation}
+E(y₀-\hat{f}(x₀))²=\mathrm{Var}(\hat{f}(x₀))+[\mathrm{Bias(\hat{f(x₀)})}]²+\mathrm{Var}(ε)
+\end{equation}</p>
+
+<p>Where:</p>
+
+<ul>
+<li>\(E(y_{0}-\hat{f}(x_{0}))²\) is the expected test MSE, or the
+average test MSE if \(f\) is estimated with a large number of
+training sets and tested at each \(x₀\)</li>
+<li>The variance is the amount by which our approximation \(\hat{f}\)
+will change if estimated by a different training set, or the
+<strong>flexibility</strong> error</li>
+<li>The bias is the (reducible) <strong>approximation</strong> error, caused by not
+fitting to the training set exactly</li>
+<li>\(\mathrm{Var}(ε)\) is the <strong>irreducible</strong> error</li>
+</ul>
+
+<p>We will also keep in mind, going forward the following requirements of a
+good estimator:</p>
+
+<ul>
+<li>Low variance AND low bias</li>
+<li>Typically, the variance increases while the bias decreases as we use
+more flexible methods (i.e. methods which fit the training set
+better<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>)</li>
+</ul>
+
+<p>Also for the rest of this section, we will need to recall from Hastie,
+Tibshirani, and Friedman
+(<a href="#ref-hastieElementsStatisticalLearning2009">2009</a>), that the bias is
+given by:</p>
+
+<p>\begin{equation}
+[E(\hat{f_{k}}(x₀)-f(x₀)]²
+\end{equation}</p>
+
+<p>Where the expectation averages over the randomness in the training data.</p>
+
+<p>To keep things in perspective, recall from Hastie, Tibshirani, and
+Friedman (<a href="#ref-hastieElementsStatisticalLearning2009">2009</a>):</p>
+
+
+    <figure class="left" >
+        <img src="/ox-hugo/biasVar.png"   />
+
+        
+            <figcaption class="center" >Figure 1: Test and training error as a function of model complexity</figcaption>
+        
+    </figure>
+
+
+
+<h2 id="jacknife-estimates">Jacknife Estimates</h2>
+
+<p>We will model our discussion on the work of Efron
+(<a href="#ref-efronJackknifeBootstrapOther1982">1982</a>). Note that:</p>
+
+<ul>
+<li>The \(\hat{θ}\) symbol is an estimate of the true quantity \(θ\)</li>
+<li>This is defined by the estimate being \(\hat{θ}=θ(\hat{F})\)</li>
+<li>\(\hat{F}\) is the empirical probability distribution, defined by
+mass \(1/n\) at \(xᵢ ∀ i∈I\), i is from 1 to n</li>
+</ul>
+
+<p>The points above establishes our bias to be given by
+\(E_Fθ(\hat{F})-θ(F)\) such that \(E_F\) is the expectation under
+x₁⋯xₙ~F.</p>
+
+<p>To derive the Jacknife estimate \((\tilde{θ})\) we will simply
+sequentially delete points xᵢ (changing \(\hat{F}\)), and recompute
+our estimate \(\hat{θ}\), which then simplifies to:</p>
+
+<p>\begin{equation}
+\tilde{θ}\equiv n\hat{θ}-(\frac{n-1}{n})∑_{i=1}ⁿ\hat{θ}
+\end{equation}</p>
+
+<p>In essence, the Jacknife estimate is obtained by making repeated
+estimates on increasingly smaller data-sets. This intuition lets us
+imagine a method which actually makes estimates on larger data-sets
+(which is the motivation for data augmentation) or, perhaps not so
+intuitively, on estimates on data-sets of the same size.</p>
+
+<h2 id="bootstrap-estimates">Bootstrap Estimates</h2>
+
+<p>Continuing with the same notation, we will note that the bootstrap is
+obtained by draw random data-sets with replacement from the training
+data, where each sample is the same size as the original (Hastie,
+Tibshirani, and Friedman
+(<a href="#ref-hastieElementsStatisticalLearning2009">2009</a>)).</p>
+
+<p>We will consider the bootstrap estimate for the standard deviation of
+the \(\hat{θ}\) operator, which is denoted by
+\(σ(F,n,\hat{\theta})=σ(F)\)</p>
+
+<p>The bootstrap is simple the standard deviation at the approximate F,
+i.e., at \(F=\hat{F}\):</p>
+
+<p>\begin{equation}
+\hat{\mathrm{SD}}=\sigma(\hat{F})
+\end{equation}</p>
+
+<p>Since we generally have no closed form analytical form for \(σ(F)\) we
+must use a Monte Carlo algorithm:</p>
+
+<ol>
+<li>Fit a non parametric maximum likelihood estimate (MLE) of F,
+i.e. \(\hat{F}\)</li>
+<li>Draw a sample from \(\hat{F}\) and calculate the estimate of
+\(\hat{θ}\) on that sample, say, \(\hat{θ}\^*\)</li>
+<li>Repeat 2 to get multiple (say B) replications of \(\hat{θ}\^*\)</li>
+</ol>
+
+<p>Now we know that as \(B→∞\) then our estimate would match
+\(σ(\hat{F})\) perfectly, however, since that itself is an estimate of
+the value we are actually interested in, in practice there is no real
+point using a very high B value.</p>
+
+<p>Note that in actual practice we simply use the given training data with
+repetition and do not actually use an MLE of the approximate true
+distribution to generate samples. This causes the bootstrap estimate to
+be unreasonably good, since there is always significant overlap between
+the training and test samples during the model fit. This is why cross
+validation demands non-overlapping data partitions.</p>
+
+<h3 id="connecting-estimates">Connecting Estimates</h3>
+
+<p>The somewhat surprising result can be proved when
+\(\hat{θ}=θ(\hat{F}\) is a quadratic functional, namely:</p>
+
+<p>\begin{equation}\hat{\mathrm{Bias}}_{boot}=\frac{n-1}{n} \hat{\mathrm{Bias}}_{jack}\end{equation}</p>
+
+<p>In practice however, we will simply recall that the Jacknife tends to
+overestimate, and the Bootstrap tends to underestimation.</p>
+
+<h2 id="bagging">Bagging</h2>
+
+<p>Bagging, is motivated by using the bootstrap methodology to improve the
+estimate or prediction directly, instead of using it as a method to
+asses the accuracy of an estimate. It is a representative of the
+so-called parallel ensemble methods where the base learners are
+generated in parallel. As such, the motivation is to reduce the error by
+exploiting the independence of base learners (true for mathematically
+exact bootstrap samples, but not really true in practice).</p>
+
+<p>Mathematically the formulation of Hastie, Tibshirani, and Friedman
+(<a href="#ref-hastieElementsStatisticalLearning2009">2009</a>) establishes a
+connection between the Bayesian understanding of the bootstrap mean as a
+posterior average, however, here we will use a more heuristic approach.</p>
+
+<p>We have noted above that the bagging process simply involves looking at
+different samples in differing orders. This has some stark repercussions
+for tree-based methods, since the trees are grown with a <em>greedy</em>
+approach.</p>
+
+<ul>
+<li>Bootstrap samples may cause different trees to be produced</li>
+<li>This causes a reduction in the <strong>variance</strong>, especially when not too
+many samples are considered</li>
+<li>Averaging, reduces variance while leaving bias unchanged</li>
+</ul>
+
+<p>Practically, these separate trees being averaged allows for varying
+importance values of the variables to be calculated.</p>
+
+<p>In particular, following Hastie, Tibshirani, and Friedman
+(<a href="#ref-hastieElementsStatisticalLearning2009">2009</a>), it is possible to
+see that the MSE tends to decrease by bagging.</p>
+
+<p>\begin{align}
+ E_P[Y-\hat{f}^*(x)]² &amp; = &amp; E_P[Y-f*{ag}(x)+f^*_{ag}(x)-\hat{f}^*(x)]² \\<br />
+&amp; = &amp; E_P[Y-f^*_{ag}(x)]²+E_P[\hat{f}^*(x)-f^*_{ag}(x)]² ≥ E_P[Y-f^*_{ag}(x)]²
+\end{align}</p>
+
+<p>Where:</p>
+
+<ul>
+<li>The training observations are independently drawn from a
+distribution \(P\)</li>
+<li>\(f_{ag}(x)=E_P\hat{f}\^*(x)\) is the ideal aggregate estimator</li>
+</ul>
+
+<p>For the formulation above, we assume that \(f_{ag}\) is a true
+bagging estimate, which draws samples from the actual population. The
+upper bound is obtained from the variance of the \(\hat{f}\^*(x)\)
+around the mean, \(f_{ag}\)</p>
+
+<p>Practically, we should note the following:</p>
+
+<ul>
+<li>The regression trees are deep</li>
+<li>The greedy algorithm growing the trees cause them to be unstable
+(sensitive to changes in input data)</li>
+<li>Each tree has a high variance, and low bias</li>
+<li>Averaging these trees reduces the variance</li>
+</ul>
+
+<p>Missing from the discussion above is how exactly the training and test
+sets are used in a bagging algorithm, as well as an estimate for the
+error for each base learner. This has been reported in the code above as
+the OOB error, or out of bag error. We have, as noted by Zhou
+(<a href="#ref-zhouEnsembleMethodsFoundations2012">2012</a>) and Breiman
+(<a href="#ref-breimanBaggingPredictors1996">1996</a>) the following
+considerations.</p>
+
+<ul>
+<li>Given \(m\) training samples, the probability that the iᵗʰ sample
+is selected 0,1,2&hellip; times is approximately Poisson distributed with
+\(λ=1\)</li>
+<li>The probability of the iᵗʰ example will occur at least once is then
+\(1-(1/e)≈0.632\)</li>
+<li>This means for each base learner, there are around \(36.8\) %
+original training samples which have not been used in its training
+process</li>
+</ul>
+
+<p>The goodness can thus be estimated using these OOB error, which is
+simply an estimate of the error of the base tree on the OOB samples.</p>
+
+<p>As a final note, random forests are conceptually easily understood by
+combining bagging with subspace sampling, which is why in most cases and
+packages, we used bagging as a special case of random forests, i.e. when
+no subspace sampling is performed, random forests algorithms perform
+bagging.</p>
+
+<h2 id="references">References</h2>
+
+<div id="refs" class="references hanging-indent">
+  <div></div>
+
+<div id="ref-breimanBaggingPredictors1996">
+  <div></div>
+
+<p>Breiman, Leo. 1996. &ldquo;Bagging Predictors.&rdquo; <em>Machine Learning</em> 24 (2):
+123&ndash;40. <a href="https://doi.org/10.1023/A:1018054314350" target="_blank">https://doi.org/10.1023/A:1018054314350</a>.</p>
+
+<p></div></p>
+
+<div id="ref-cichoszDataMiningAlgorithms2015">
+  <div></div>
+
+<p>Cichosz, Pawel. 2015. <em>Data Mining Algorithms: Explained Using R</em>.
+Chichester, West Sussex ; Malden, MA: John Wiley &amp; Sons Inc.</p>
+
+<p></div></p>
+
+<div id="ref-efronJackknifeBootstrapOther1982">
+  <div></div>
+
+<p>Efron, Bradley. 1982. <em>The Jackknife, the Bootstrap, and Other
+Resampling Plans</em>. CBMS-NSF Regional Conference Series in Applied
+Mathematics 38. Philadelphia, Pa: Society for Industrial and Applied
+Mathematics.</p>
+
+<p></div></p>
+
+<div id="ref-hastieElementsStatisticalLearning2009">
+  <div></div>
+
+<p>Hastie, Trevor, Robert Tibshirani, and J. H. Friedman. 2009. <em>The
+Elements of Statistical Learning: Data Mining, Inference, and
+Prediction</em>. 2nd ed. Springer Series in Statistics. New York, NY:
+Springer.</p>
+
+<p></div></p>
+
+<div id="ref-jamesIntroductionStatisticalLearning2013">
+  <div></div>
+
+<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.
+2013. <em>An Introduction to Statistical Learning</em>. Vol. 103. Springer
+Texts in Statistics. New York, NY: Springer New York.
+<a href="https://doi.org/10.1007/978-1-4614-7138-7" target="_blank">https://doi.org/10.1007/978-1-4614-7138-7</a>.</p>
+
+<p></div></p>
+
+<div id="ref-zhouEnsembleMethodsFoundations2012">
+  <div></div>
+
+<p>Zhou, Zhi-Hua. 2012. <em>Ensemble Methods: Foundations and Algorithms</em>. 0th
+ed. Chapman and Hall/CRC. <a href="https://doi.org/10.1201/b12207" target="_blank">https://doi.org/10.1201/b12207</a>.</p>
+
+<p></div></p>
+
+<p></div></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:fn-1">This is mostly true for reasonably smooth true functions
+ <a class="footnote-return" href="#fnref:fn-1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+]]></content>
+        </item>
         
         <item>
             <title>Everyone Should Get an A - David MacKay</title>
