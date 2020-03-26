@@ -37,8 +37,8 @@ was contrasted to another popular ensemble method, namely the Random
 Forest method, in the previous section.</p>
 
 <p>Before delving into the mathematics, recall that the approach taken by
-bagging is essentially (Cichosz
-(<a href="#ref-cichoszDataMiningAlgorithms2015">2015</a>)):</p>
+bagging is given as per Cichosz
+(<a href="#ref-cichoszDataMiningAlgorithms2015">2015</a>) to be:</p>
 
 <ul>
 <li>create base models with <strong>bootstrap</strong> samples of the training set</li>
@@ -169,9 +169,9 @@ intuitively, on estimates on data-sets of the same size.</p>
 
 <p>Continuing with the same notation, we will note that the bootstrap is
 obtained by draw random data-sets with replacement from the training
-data, where each sample is the same size as the original (Hastie,
-Tibshirani, and Friedman
-(<a href="#ref-hastieElementsStatisticalLearning2009">2009</a>)).</p>
+data, where each sample is the same size as the original; as noted by
+Hastie, Tibshirani, and Friedman
+(<a href="#ref-hastieElementsStatisticalLearning2009">2009</a>).</p>
 
 <p>We will consider the bootstrap estimate for the standard deviation of
 the \(\hat{θ}\) operator, which is denoted by
