@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2020 00:28:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 17:17:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Analytics: Google to Goat</title>
+      <link>https://rgoswami.me/posts/goat-google/</link>
+      <pubDate>Thu, 09 Apr 2020 17:17:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/goat-google/</guid>
+      <description>Background Like a lot of my tech based rants, this was brought on by a recent Hacker News post. I won&amp;rsquo;t go into why the product listed there is a hollow faux FOSS rip-off. I won&amp;rsquo;t discuss how that &amp;lsquo;free&amp;rsquo; analytics option, like many others are just hobby projects taking pot shots at other projects. Or how insanely overpriced most alternatives are.
+I will however discuss why and how I transitioned to using the awesome Goat Counter.</description>
+    </item>
     
     <item>
       <title>Trees and Bags</title>
@@ -100,18 +110,6 @@ Common Instead of using the standard functions, we will leverage the mlr3 packag
 #install.packages(&amp;#34;mlr3&amp;#34;,&amp;#34;data.table&amp;#34;,&amp;#34;mlr3viz&amp;#34;,&amp;#34;mlr3learners&amp;#34;) Actually for R version 3.6.2, the steps to get it working were a bit more involved.
 Load ISLR and other libraries.
 libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;tidyverse&amp;#34;, &amp;#34;ISLR&amp;#34;,&amp;#34;caret&amp;#34;,&amp;#34;MASS&amp;#34;, &amp;#34;gridExtra&amp;#34;, &amp;#34;pls&amp;#34;,&amp;#34;latex2exp&amp;#34;,&amp;#34;data.table&amp;#34;) invisible(lapply(libsUsed, library, character.only = TRUE))## ## Attaching package: &amp;#39;dplyr&amp;#39;## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union## ── Attaching packages ─────────────────────────────────────── tidyverse 1.</description>
-    </item>
-    
-    <item>
-      <title>ISLR :: Resampling Methods</title>
-      <link>https://rgoswami.me/posts/islr-ch5/</link>
-      <pubDate>Tue, 18 Feb 2020 22:00:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/islr-ch5/</guid>
-      <description>Chapter V - Resampling Methods All the questions are as per the ISL seventh printing1.
-Common Instead of using the standard functions, we will leverage the mlr3 package2.
-#install.packages(&amp;#34;mlr3&amp;#34;,&amp;#34;data.table&amp;#34;,&amp;#34;mlr3viz&amp;#34;,&amp;#34;mlr3learners&amp;#34;) Actually for R version 3.6.2, the steps to get it working were a bit more involved.
-install.packages(&amp;#34;remotes&amp;#34;,&amp;#34;data.table&amp;#34;, &amp;#34;GGally&amp;#34;,&amp;#34;precerec&amp;#34;) # For plotslibrary(remotes) remotes::install_github(&amp;#34;mlr-org/mlr3&amp;#34;)## Skipping install of &amp;#39;mlr3&amp;#39; from a github remote, the SHA1 (fca21c10) has not changed since last install. ## Use `force = TRUE` to force installationremotes::install_github(&amp;#34;mlr-org/mlr3viz&amp;#34;)## Skipping install of &amp;#39;mlr3viz&amp;#39; from a github remote, the SHA1 (0b4ea273) has not changed since last install.</description>
     </item>
     
   </channel>
