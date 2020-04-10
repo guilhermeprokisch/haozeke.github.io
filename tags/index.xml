@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2020 17:17:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 16:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>ideas</title>
       <link>https://rgoswami.me/tags/ideas/</link>
-      <pubDate>Thu, 09 Apr 2020 17:17:00 +0000</pubDate>
+      <pubDate>Fri, 10 Apr 2020 16:01:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/ideas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>teaching</title>
+      <link>https://rgoswami.me/tags/teaching/</link>
+      <pubDate>Fri, 10 Apr 2020 16:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/teaching/</guid>
       <description></description>
     </item>
     
@@ -80,15 +89,6 @@
       <pubDate>Mon, 16 Mar 2020 02:24:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/evaluation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>teaching</title>
-      <link>https://rgoswami.me/tags/teaching/</link>
-      <pubDate>Mon, 16 Mar 2020 02:24:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/teaching/</guid>
       <description></description>
     </item>
     

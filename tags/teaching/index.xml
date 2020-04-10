@@ -6,10 +6,21 @@
     <description>Recent content in teaching on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2020 02:24:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 16:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/teaching/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>On-boarding for Code in Place</title>
+      <link>https://rgoswami.me/posts/scp-onboarding/</link>
+      <pubDate>Fri, 10 Apr 2020 16:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/scp-onboarding/</guid>
+      <description>Background A few weeks ago, I ended up recording a video for the Stanford Code in Place initiative (which can be found here). I heard back a while ago, and am now to lead a section for the course!
+I&amp;rsquo;ll probably be making a series of short posts as this process continues.
+On-Boarding This was very reminiscent of the Carpentries instructor training, which makes sense, given how well thought out that experience was.</description>
+    </item>
     
     <item>
       <title>Everyone Should Get an A - David MacKay</title>
