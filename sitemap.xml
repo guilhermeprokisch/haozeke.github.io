@@ -277,4 +277,9 @@
     <lastmod>1995-08-10T00:00:00+00:00</lastmod>
   </url>
   
+  <url>
+    <loc>https://rgoswami.me/search/</loc>
+    <priority>0.1</priority>
+  </url>
+  
 </urlset>
