@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2020 16:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2020 02:48:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Small Section On-boarding</title>
+      <link>https://rgoswami.me/posts/scp-smallgrp/</link>
+      <pubDate>Tue, 14 Apr 2020 02:48:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/scp-smallgrp/</guid>
+      <description>Background As I mentioned in my last post, I&amp;rsquo;m leading a section for Stanford CS106A: Code in Place. I did also mention I&amp;rsquo;d try to keep a set of short notes on the process. So there1.
+The Training Given the overwhelming number of students, and section leaders, the small groups are for fostering a community of teachers.
+Consider allowing for daisy chaining during introductions Discussions are the primary take-away Only the instructor should be coding during the session  Core components  Clarity Content Atmosphere Section management Correctness  Sectional Details  Check in at the start Notice the space Check in regularly Avoid negative phrases Establish norms and the general culture  Zoom Norms  Have people introduce themselves Mute people when they aren&amp;rsquo;t talking Raise hands Try to use icebreakers which respect privacy  Materials Here&amp;rsquo;s some of the stuff which, being as it was open-sourced, I suppose is OK to put here2.</description>
+    </item>
     
     <item>
       <title>On-boarding for Code in Place</title>
@@ -98,16 +109,6 @@ Touch Typing My interest in touch typing in I decided to digitize my notes for p
       <guid>https://rgoswami.me/posts/bojack-horseman/</guid>
       <description>Background For a while I was worried about writing about a TV show here. I thought it might be frivolous, or worse, might outweigh the other kinds of articles I would like to write. However, like most things, that which is ignored just grows, so it is easier to just write and forget about it.
 The Show Much has been said about how Bojack Horseman is one of the best shows ever, and they&amp;rsquo;re all correct.</description>
-    </item>
-    
-    <item>
-      <title>ISLR :: Moving Beyond Linearity</title>
-      <link>https://rgoswami.me/posts/islr-ch7/</link>
-      <pubDate>Wed, 19 Feb 2020 09:47:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/islr-ch7/</guid>
-      <description>Chapter VII - Moving Beyond Linearity All the questions are as per the ISL seventh printing.
-Common libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;tidyverse&amp;#34;, &amp;#34;ISLR&amp;#34;,&amp;#34;caret&amp;#34;,&amp;#34;MASS&amp;#34;, &amp;#34;gridExtra&amp;#34;, &amp;#34;pls&amp;#34;,&amp;#34;latex2exp&amp;#34;,&amp;#34;data.table&amp;#34;) invisible(lapply(libsUsed, library, character.only = TRUE))## ## Attaching package: &amp;#39;dplyr&amp;#39;## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──## ✔ tibble 2.1.3 ✔ purrr 0.3.3 ## ✔ tidyr 1.</description>
     </item>
     
   </channel>
