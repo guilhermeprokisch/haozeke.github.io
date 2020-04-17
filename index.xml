@@ -6,10 +6,21 @@
     <description>Recent content on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2020 02:48:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2020 22:54:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CS106A Section Meeting I</title>
+      <link>https://rgoswami.me/posts/scp-smallgrp-meet1/</link>
+      <pubDate>Fri, 17 Apr 2020 22:54:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/scp-smallgrp-meet1/</guid>
+      <description>Background As I mentioned earlier, I&amp;rsquo;m leading a section for Stanford CS106A: Code in Place. I did also mention I&amp;rsquo;d try to keep a set of short notes on the process. I finally had my first section meeting!
+Preparation I went through the following:
+ Sent out a welcome message Detailed the workflow Set up a HackMD instance Set up some slides in beamer&amp;nbsp;1  However, after that, I was still concerned since I didn&amp;rsquo;t get much of a response on the ice-breakers for EdStem.</description>
+    </item>
     
     <item>
       <title>Small Section On-boarding</title>
@@ -99,16 +110,6 @@ Anyway, recently I gained access to another HPC cluster, with a standard configu
       <guid>https://rgoswami.me/posts/colemak-switch/</guid>
       <description>Background I just realized that it has been over two years since I switched from QWERTY to COLEMAK but somehow never managed to write about it. It was a major change in my life, and it took forever to get acclimatized to. I do not think I&amp;rsquo;ll ever again be in a position to make such a change in my life again, but it was definitely worth it.
 Touch Typing My interest in touch typing in I decided to digitize my notes for posterity, during the last two years of my undergraduate studies back in Harcourt Butler Technical Institute (HBTI) Kanpur, India.</description>
-    </item>
-    
-    <item>
-      <title>Bojack Horseman</title>
-      <link>https://rgoswami.me/posts/bojack-horseman/</link>
-      <pubDate>Thu, 27 Feb 2020 22:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/bojack-horseman/</guid>
-      <description>Background For a while I was worried about writing about a TV show here. I thought it might be frivolous, or worse, might outweigh the other kinds of articles I would like to write. However, like most things, that which is ignored just grows, so it is easier to just write and forget about it.
-The Show Much has been said about how Bojack Horseman is one of the best shows ever, and they&amp;rsquo;re all correct.</description>
     </item>
     
   </channel>
