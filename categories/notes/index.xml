@@ -6,10 +6,21 @@
     <description>Recent content in notes on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Apr 2020 22:54:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 07:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CS106A Small Group Training</title>
+      <link>https://rgoswami.me/posts/scp-smallgrp-trainig/</link>
+      <pubDate>Wed, 22 Apr 2020 07:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/scp-smallgrp-trainig/</guid>
+      <description>Background As I mentioned earlier, I&amp;rsquo;m leading a section for Stanford CS106A: Code in Place. This post relates to the notes and thoughts garnered during the small group training session&amp;nbsp;1.
+Reflections Demographics Redacted. Did not use breakout meetings due to privacy issues.
+Engagement and Participation  Some people were more active (skewed responses) Some of the more rudimentary questions might have been suppressed  Highlighted Moments  Covering multiple perspectives Different mental models  Challenges and Transformations  Technical debt was an issue Lack of engagement Went on for too long  For me in particular:</description>
+    </item>
     
     <item>
       <title>CS106A Section Meeting I</title>

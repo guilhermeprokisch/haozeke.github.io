@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Apr 2020 22:54:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 07:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CS106A Small Group Training</title>
+      <link>https://rgoswami.me/posts/scp-smallgrp-trainig/</link>
+      <pubDate>Wed, 22 Apr 2020 07:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/scp-smallgrp-trainig/</guid>
+      <description>Background As I mentioned earlier, I&amp;rsquo;m leading a section for Stanford CS106A: Code in Place. This post relates to the notes and thoughts garnered during the small group training session&amp;nbsp;1.
+Reflections Demographics Redacted. Did not use breakout meetings due to privacy issues.
+Engagement and Participation  Some people were more active (skewed responses) Some of the more rudimentary questions might have been suppressed  Highlighted Moments  Covering multiple perspectives Different mental models  Challenges and Transformations  Technical debt was an issue Lack of engagement Went on for too long  For me in particular:</description>
+    </item>
     
     <item>
       <title>CS106A Section Meeting I</title>
@@ -100,16 +111,6 @@ Alternatives  I have an automated system based around IFTTT combined with Twitte
       <guid>https://rgoswami.me/posts/prov-dots/</guid>
       <description>Background My dotfiles turned 4 years old a few months ago (since 9th Jan 2017) and remains one of my most frequently updated projects for obvious reasons. Going through the changes reminds me of a whole of posts I never got around to writing.
 Anyway, recently I gained access to another HPC cluster, with a standard configuration (bash, old CentOS) and decided to track my provisioning steps. This is really a very streamlined experience by now, since I&amp;rsquo;ve used the same setup across scores of machines.</description>
-    </item>
-    
-    <item>
-      <title>Switching to Colemak</title>
-      <link>https://rgoswami.me/posts/colemak-switch/</link>
-      <pubDate>Sat, 29 Feb 2020 14:06:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/colemak-switch/</guid>
-      <description>Background I just realized that it has been over two years since I switched from QWERTY to COLEMAK but somehow never managed to write about it. It was a major change in my life, and it took forever to get acclimatized to. I do not think I&amp;rsquo;ll ever again be in a position to make such a change in my life again, but it was definitely worth it.
-Touch Typing My interest in touch typing in I decided to digitize my notes for posterity, during the last two years of my undergraduate studies back in Harcourt Butler Technical Institute (HBTI) Kanpur, India.</description>
     </item>
     
   </channel>
