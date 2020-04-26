@@ -36,7 +36,7 @@
 
 <meta itemprop="datePublished" content="2020-04-26T20:01:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-26T20:01:00&#43;00:00" />
-<meta itemprop="wordCount" content="475">
+<meta itemprop="wordCount" content="481">
 
 
 
@@ -177,15 +177,15 @@
 
 <p>Support for Mathematica in modern orgmode is mainly through the use of <a href="https://github.com/emacsmirror/org/blob/master/contrib/lisp/ob-mathematica.el" target="_blank">ob-mathematica</a>, which is the official org-babel extension (from <code>contrib</code>) for working with Mathematica. However, <code>ob-mathematica</code> relies on the now-defunct <code>mma</code> package for font-locking, which is less than ideal. Thankfully, there exists the excellent <a href="https://github.com/kawabata/wolfram-mode" target="_blank">wolfram-mode</a> package which happens to be in MELPA as well. Finally, since the default return type of a <code>mathematica</code> block is an input-string meant to be used in another <code>mathematica</code> block, which is not useful when we work with <code>org-babel</code>, we will use the excellent <code>mash.pl</code> utility <a href="http://ai.eecs.umich.edu/people/dreeves/mash/" target="_blank">from here</a>, as suggested by the <code>ob-mathematica</code> package to sanitize our output and set a unifying path.</p>
 
-<p>So to recap, use your favorite MELPA manager to get:</p>
+<p>So to recap, use your favorite manager to get:</p>
 
 <ul class="task-list">
-<li><label><input type="checkbox" disabled class="task-list-item"> <code>ob-mathematica</code></label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> <code>wolfram-mode</code></label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> <code>mash.pl</code></label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> <code>ob-mathematica</code> (in contrib)</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> <code>wolfram-mode</code> (<a href="https://melpa.org/#/wolfram-mode" target="_blank">MELPA</a>)</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> <code>mash.pl</code> (<a href="http://ai.eecs.umich.edu/people/dreeves/mash" target="_blank">from here</a>)</label></li>
 </ul>
 
-<p>That said, the configuration is then simply&nbsp;<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>:</p>
+<p>After obtaining the packages, the configuration is then simply&nbsp;<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Load mathematica from contrib</span>
 (org-babel-do-load-languages <span style="color:#e6db74">&#39;org-babel-load-languages</span>
                              (<span style="color:#a6e22e">append</span> org-babel-load-languages
@@ -291,7 +291,7 @@ Print[<span style="color:#e6db74">&#34;images/sine.png&#34;</span>]</code></pre>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/tools">tools</a></span><span class="tag"><a href="https://rgoswami.me/tags/emacs">emacs</a></span><span class="tag"><a href="https://rgoswami.me/tags/workflow">workflow</a></span><span class="tag"><a href="https://rgoswami.me/tags/orgmode">orgmode</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>475 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>481 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-04-26 20:01 &#43;0000</p>
         </div>
