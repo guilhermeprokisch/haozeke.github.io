@@ -6,10 +6,19 @@
     <description>Recent content in workflow on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2020 17:17:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2020 20:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Mathematica with Orgmode</title>
+      <link>https://rgoswami.me/posts/org-mathematica/</link>
+      <pubDate>Sun, 26 Apr 2020 20:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/org-mathematica/</guid>
+      <description>Background I have been wanting to find a workflow which allows me to bypass writing a lot of TeX by hand for a while now. To that end I looked into using a computer algebra system (CAS). Naturally, my first choice was the FOSS Maxima (also because it uses Lisp under the hood). However, for all the reasons listed here, relating to its accuracy, which have not been fixed even though the post was over 5 years ago, I ended up having to go with the closed source Mathematica.</description>
+    </item>
     
     <item>
       <title>Analytics: Google to Goat</title>

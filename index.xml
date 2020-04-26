@@ -6,10 +6,19 @@
     <description>Recent content on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 07:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2020 20:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Mathematica with Orgmode</title>
+      <link>https://rgoswami.me/posts/org-mathematica/</link>
+      <pubDate>Sun, 26 Apr 2020 20:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/org-mathematica/</guid>
+      <description>Background I have been wanting to find a workflow which allows me to bypass writing a lot of TeX by hand for a while now. To that end I looked into using a computer algebra system (CAS). Naturally, my first choice was the FOSS Maxima (also because it uses Lisp under the hood). However, for all the reasons listed here, relating to its accuracy, which have not been fixed even though the post was over 5 years ago, I ended up having to go with the closed source Mathematica.</description>
+    </item>
     
     <item>
       <title>CS106A Small Group Training</title>
@@ -101,16 +110,6 @@ I will however discuss why and how I transitioned to using the awesome Goat Coun
       <guid>https://rgoswami.me/posts/shortpost/</guid>
       <description> Background Sometime this year, I realized that I no longer have access to a lot of my older communication. This included, a lot of resources I enjoyed and shared with the people who were around me at that point in time. To counter this, I have decided to opt for shorter posts, even if they don&amp;rsquo;t always include the same level of detail I would prefer to provide.
 Alternatives  I have an automated system based around IFTTT combined with Twitter, Diigo, and even Pocket However, that doesn&amp;rsquo;t really tell me much, and trawling through a massive glut of data is often pointless as well There&amp;rsquo;s always Twitter, but I don&amp;rsquo;t really care to hear the views of others when I want to revisit my own ideas  Conclusions  I will be making shorter posts here, like the random one on octobox  </description>
-    </item>
-    
-    <item>
-      <title>Provisioning Dotfiles on an HPC</title>
-      <link>https://rgoswami.me/posts/prov-dots/</link>
-      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/prov-dots/</guid>
-      <description>Background My dotfiles turned 4 years old a few months ago (since 9th Jan 2017) and remains one of my most frequently updated projects for obvious reasons. Going through the changes reminds me of a whole of posts I never got around to writing.
-Anyway, recently I gained access to another HPC cluster, with a standard configuration (bash, old CentOS) and decided to track my provisioning steps. This is really a very streamlined experience by now, since I&amp;rsquo;ve used the same setup across scores of machines.</description>
     </item>
     
   </channel>

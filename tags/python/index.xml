@@ -6,20 +6,10 @@
     <description>Recent content in python on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Feb 2020 22:36:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 21:36:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Replacing Jupyter with Orgmode</title>
-      <link>https://rgoswami.me/posts/jupyter-orgmode/</link>
-      <pubDate>Thu, 13 Feb 2020 22:36:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/jupyter-orgmode/</guid>
-      <description>Background  I dislike Jupyter notebooks (and JupyterHub) a lot EIN is really not much of a solution either  In the past I have written some posts on TeX with JupyterHub and discussed ways to use virtual Python with JupyterHub in a more reasonable manner.
-However, I personally found that EIN was a huge pain to work with, and I mostly ended up working with the web-interface anyway.</description>
-    </item>
     
     <item>
       <title>Poetry and Direnv</title>

@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 07:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2020 20:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>emacs</title>
+      <link>https://rgoswami.me/tags/emacs/</link>
+      <pubDate>Sun, 26 Apr 2020 20:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>orgmode</title>
+      <link>https://rgoswami.me/tags/orgmode/</link>
+      <pubDate>Sun, 26 Apr 2020 20:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/orgmode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://rgoswami.me/tags/tools/</link>
+      <pubDate>Sun, 26 Apr 2020 20:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow</title>
+      <link>https://rgoswami.me/tags/workflow/</link>
+      <pubDate>Sun, 26 Apr 2020 20:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/workflow/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cs106a</title>
@@ -48,24 +84,6 @@
     </item>
     
     <item>
-      <title>tools</title>
-      <link>https://rgoswami.me/tags/tools/</link>
-      <pubDate>Thu, 09 Apr 2020 17:17:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>workflow</title>
-      <link>https://rgoswami.me/tags/workflow/</link>
-      <pubDate>Thu, 09 Apr 2020 17:17:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/workflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>statistics</title>
       <link>https://rgoswami.me/tags/statistics/</link>
       <pubDate>Thu, 26 Mar 2020 00:28:00 +0000</pubDate>
@@ -80,24 +98,6 @@
       <pubDate>Thu, 26 Mar 2020 00:28:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/theory/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>academics</title>
-      <link>https://rgoswami.me/tags/academics/</link>
-      <pubDate>Mon, 16 Mar 2020 02:24:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/academics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>evaluation</title>
-      <link>https://rgoswami.me/tags/evaluation/</link>
-      <pubDate>Mon, 16 Mar 2020 02:24:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/evaluation/</guid>
       <description></description>
     </item>
     
