@@ -6,10 +6,20 @@
     <description>Recent content in programming on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2020 20:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2020 16:39:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pandoc to Orgmode with Babel</title>
+      <link>https://rgoswami.me/posts/org-pandoc-babel/</link>
+      <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/org-pandoc-babel/</guid>
+      <description>Background One of the best things about writing in orgmode is that we can embed and execute arbitrary code snippets. However, not all languages have an exporter, for obvious reasons. Somewhat surprisingly, there is no way to call pandoc on embedded snippets, which feels like a waste, especially when a whole bunch of documentation formats can be converted to orgmode with it.
+Consider the following beautifully highlighted snippet of an rst (ReStructured Text) list table.</description>
+    </item>
     
     <item>
       <title>Using Mathematica with Orgmode</title>
@@ -103,17 +113,6 @@ However, I personally found that EIN was a huge pain to work with, and I mostly 
       <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
       <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
 Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
-    </item>
-    
-    <item>
-      <title>ISLR :: Multiple Linear Regression</title>
-      <link>https://rgoswami.me/posts/islr-ch2-ch3/</link>
-      <pubDate>Wed, 15 Jan 2020 05:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/islr-ch2-ch3/</guid>
-      <description>Chapter II - Statistical Learning All the questions are as per the ISL seventh printing&amp;nbsp;1.
-Question 2.8 - Pages 54-55 This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for \(777\) different universities and colleges in the US. The variables are
- Private : Public/private indicator Apps : Number of applications received Accept : Number of applicants accepted Enroll : Number of new students enrolled Top10perc : New students from top 10 % of high school class Top25perc : New students from top 25 % of high school class F.</description>
     </item>
     
   </channel>

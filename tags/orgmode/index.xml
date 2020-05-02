@@ -6,10 +6,20 @@
     <description>Recent content in orgmode on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2020 20:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2020 16:39:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/orgmode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pandoc to Orgmode with Babel</title>
+      <link>https://rgoswami.me/posts/org-pandoc-babel/</link>
+      <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/org-pandoc-babel/</guid>
+      <description>Background One of the best things about writing in orgmode is that we can embed and execute arbitrary code snippets. However, not all languages have an exporter, for obvious reasons. Somewhat surprisingly, there is no way to call pandoc on embedded snippets, which feels like a waste, especially when a whole bunch of documentation formats can be converted to orgmode with it.
+Consider the following beautifully highlighted snippet of an rst (ReStructured Text) list table.</description>
+    </item>
     
     <item>
       <title>Using Mathematica with Orgmode</title>

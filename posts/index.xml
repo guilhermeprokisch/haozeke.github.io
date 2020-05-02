@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2020 20:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2020 16:39:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pandoc to Orgmode with Babel</title>
+      <link>https://rgoswami.me/posts/org-pandoc-babel/</link>
+      <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/org-pandoc-babel/</guid>
+      <description>Background One of the best things about writing in orgmode is that we can embed and execute arbitrary code snippets. However, not all languages have an exporter, for obvious reasons. Somewhat surprisingly, there is no way to call pandoc on embedded snippets, which feels like a waste, especially when a whole bunch of documentation formats can be converted to orgmode with it.
+Consider the following beautifully highlighted snippet of an rst (ReStructured Text) list table.</description>
+    </item>
     
     <item>
       <title>Using Mathematica with Orgmode</title>
@@ -100,16 +110,6 @@ I will however discuss why and how I transitioned to using the awesome Goat Coun
       
       <guid>https://rgoswami.me/posts/d3git/</guid>
       <description>Background  I have had a lot of discussions regarding the teaching of git This is mostly as a part of the SoftwareCarpentries, or in view of my involvement with univ.ai, or simply in every public space I am associated with Without getting into my views, I just wanted to keep this resource in mind  The site  Learning git is a highly contentious thing People seem to be fond of GUI tools, especially since on non *nix systems, it seems that there is a lot of debate surrounding obtaining the git utility in the first place  One of the best ways of understanding (without installing stuff) the mental models required for working with git is this site</description>
-    </item>
-    
-    <item>
-      <title>Shorter Posts</title>
-      <link>https://rgoswami.me/posts/shortpost/</link>
-      <pubDate>Mon, 16 Mar 2020 00:16:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/shortpost/</guid>
-      <description> Background Sometime this year, I realized that I no longer have access to a lot of my older communication. This included, a lot of resources I enjoyed and shared with the people who were around me at that point in time. To counter this, I have decided to opt for shorter posts, even if they don&amp;rsquo;t always include the same level of detail I would prefer to provide.
-Alternatives  I have an automated system based around IFTTT combined with Twitter, Diigo, and even Pocket However, that doesn&amp;rsquo;t really tell me much, and trawling through a massive glut of data is often pointless as well There&amp;rsquo;s always Twitter, but I don&amp;rsquo;t really care to hear the views of others when I want to revisit my own ideas  Conclusions  I will be making shorter posts here, like the random one on octobox  </description>
     </item>
     
   </channel>

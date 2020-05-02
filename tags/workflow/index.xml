@@ -6,10 +6,20 @@
     <description>Recent content in workflow on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2020 20:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2020 16:39:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pandoc to Orgmode with Babel</title>
+      <link>https://rgoswami.me/posts/org-pandoc-babel/</link>
+      <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/org-pandoc-babel/</guid>
+      <description>Background One of the best things about writing in orgmode is that we can embed and execute arbitrary code snippets. However, not all languages have an exporter, for obvious reasons. Somewhat surprisingly, there is no way to call pandoc on embedded snippets, which feels like a waste, especially when a whole bunch of documentation formats can be converted to orgmode with it.
+Consider the following beautifully highlighted snippet of an rst (ReStructured Text) list table.</description>
+    </item>
     
     <item>
       <title>Using Mathematica with Orgmode</title>
@@ -100,16 +110,6 @@ However, I personally found that EIN was a huge pain to work with, and I mostly 
       <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
       <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
 Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
-    </item>
-    
-    <item>
-      <title>Taming Github Notifications</title>
-      <link>https://rgoswami.me/posts/ghnotif/</link>
-      <pubDate>Wed, 12 Feb 2020 11:36:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/ghnotif/</guid>
-      <description>Background As a member of several large organizations, I get a lot of github notifications. Not all of these are of relevance to me. This is especially true of psuedo-monorepo style repositories like the JOSS review system and especially the exercism community.
- I recently (re-)joined the exercism community as a maintainer for the C++ lessons after having been a (sporadic) teacher This was largely in response to a community call to action as the group needed new blood to usher in v3 of the exercism project  Anyway, I have since found that at the small cost of possibly much of my public repo data, I can manage my notifications better with Octobox</description>
     </item>
     
   </channel>

@@ -4,51 +4,56 @@
   
   <url>
     <loc>https://rgoswami.me/categories/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/tags/emacs/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/tags/orgmode/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/org-pandoc-babel/</loc>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/posts/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/categories/programming/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/tags/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/tags/tools/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/posts/org-mathematica/</loc>
-    <lastmod>2020-04-26T20:01:00+00:00</lastmod>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/tags/workflow/</loc>
+    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/posts/org-mathematica/</loc>
     <lastmod>2020-04-26T20:01:00+00:00</lastmod>
   </url>
   
