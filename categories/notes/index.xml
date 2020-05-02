@@ -6,10 +6,20 @@
     <description>Recent content in notes on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 07:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2020 20:30:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Refactoring Dotfiles For Colemak</title>
+      <link>https://rgoswami.me/posts/colemak-dots-refactor/</link>
+      <pubDate>Sat, 02 May 2020 20:30:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/colemak-dots-refactor/</guid>
+      <description>Background I have, in the past written about how I made the switch to Colemak. However, until recently, I was still trying to mimic the VIM keybindings from QWERTY. This is a post where I discuss the changes I made to ensure that I never have to stretch my fingers in odd ways again. The main idea is expressed well by vim-colemak.
+Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `12345 67890-= qwfpg jluy;[]\  e | k qwert yuiop[]\  arstd HNEIo&amp;#39; h i | h l asdfg HJKL;&amp;#39; zxcvb km,.</description>
+    </item>
     
     <item>
       <title>CS106A Small Group Training</title>
@@ -102,16 +112,6 @@ Alternatives  I have an automated system based around IFTTT combined with Twitte
       <guid>https://rgoswami.me/posts/colemak-switch/</guid>
       <description>Background I just realized that it has been over two years since I switched from QWERTY to COLEMAK but somehow never managed to write about it. It was a major change in my life, and it took forever to get acclimatized to. I do not think I&amp;rsquo;ll ever again be in a position to make such a change in my life again, but it was definitely worth it.
 Touch Typing My interest in touch typing in I decided to digitize my notes for posterity, during the last two years of my undergraduate studies back in Harcourt Butler Technical Institute (HBTI) Kanpur, India.</description>
-    </item>
-    
-    <item>
-      <title>Taming Github Notifications</title>
-      <link>https://rgoswami.me/posts/ghnotif/</link>
-      <pubDate>Wed, 12 Feb 2020 11:36:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/ghnotif/</guid>
-      <description>Background As a member of several large organizations, I get a lot of github notifications. Not all of these are of relevance to me. This is especially true of psuedo-monorepo style repositories like the JOSS review system and especially the exercism community.
- I recently (re-)joined the exercism community as a maintainer for the C++ lessons after having been a (sporadic) teacher This was largely in response to a community call to action as the group needed new blood to usher in v3 of the exercism project  Anyway, I have since found that at the small cost of possibly much of my public repo data, I can manage my notifications better with Octobox</description>
     </item>
     
   </channel>

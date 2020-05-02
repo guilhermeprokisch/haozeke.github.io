@@ -6,10 +6,20 @@
     <description>Recent content in workflow on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 May 2020 16:39:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2020 20:30:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Refactoring Dotfiles For Colemak</title>
+      <link>https://rgoswami.me/posts/colemak-dots-refactor/</link>
+      <pubDate>Sat, 02 May 2020 20:30:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/colemak-dots-refactor/</guid>
+      <description>Background I have, in the past written about how I made the switch to Colemak. However, until recently, I was still trying to mimic the VIM keybindings from QWERTY. This is a post where I discuss the changes I made to ensure that I never have to stretch my fingers in odd ways again. The main idea is expressed well by vim-colemak.
+Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `12345 67890-= qwfpg jluy;[]\  e | k qwert yuiop[]\  arstd HNEIo&amp;#39; h i | h l asdfg HJKL;&amp;#39; zxcvb km,.</description>
+    </item>
     
     <item>
       <title>Pandoc to Orgmode with Babel</title>
@@ -100,16 +110,6 @@ cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
       <guid>https://rgoswami.me/posts/jupyter-orgmode/</guid>
       <description>Background  I dislike Jupyter notebooks (and JupyterHub) a lot EIN is really not much of a solution either  In the past I have written some posts on TeX with JupyterHub and discussed ways to use virtual Python with JupyterHub in a more reasonable manner.
 However, I personally found that EIN was a huge pain to work with, and I mostly ended up working with the web-interface anyway.</description>
-    </item>
-    
-    <item>
-      <title>Poetry and Direnv</title>
-      <link>https://rgoswami.me/posts/poetry-direnv/</link>
-      <pubDate>Thu, 13 Feb 2020 21:36:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
-      <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
-Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
     </item>
     
   </channel>

@@ -6,10 +6,20 @@
     <description>Recent content in personal on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Feb 2020 14:06:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2020 20:30:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/personal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Refactoring Dotfiles For Colemak</title>
+      <link>https://rgoswami.me/posts/colemak-dots-refactor/</link>
+      <pubDate>Sat, 02 May 2020 20:30:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/colemak-dots-refactor/</guid>
+      <description>Background I have, in the past written about how I made the switch to Colemak. However, until recently, I was still trying to mimic the VIM keybindings from QWERTY. This is a post where I discuss the changes I made to ensure that I never have to stretch my fingers in odd ways again. The main idea is expressed well by vim-colemak.
+Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `12345 67890-= qwfpg jluy;[]\  e | k qwert yuiop[]\  arstd HNEIo&amp;#39; h i | h l asdfg HJKL;&amp;#39; zxcvb km,.</description>
+    </item>
     
     <item>
       <title>Switching to Colemak</title>
