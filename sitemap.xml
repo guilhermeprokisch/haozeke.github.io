@@ -8,22 +8,12 @@
   </url>
   
   <url>
-    <loc>https://rgoswami.me/categories/notes/</loc>
-    <lastmod>2020-05-02T20:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/personal/</loc>
-    <lastmod>2020-05-02T20:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rgoswami.me/posts/</loc>
     <lastmod>2020-05-02T20:30:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rgoswami.me/tags/programming/</loc>
+    <loc>https://rgoswami.me/categories/programming/</loc>
     <lastmod>2020-05-02T20:30:00+00:00</lastmod>
   </url>
   
@@ -63,11 +53,6 @@
   </url>
   
   <url>
-    <loc>https://rgoswami.me/categories/programming/</loc>
-    <lastmod>2020-05-02T16:39:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rgoswami.me/tags/tools/</loc>
     <lastmod>2020-05-02T16:39:00+00:00</lastmod>
   </url>
@@ -88,6 +73,11 @@
   </url>
   
   <url>
+    <loc>https://rgoswami.me/categories/notes/</loc>
+    <lastmod>2020-04-22T07:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://rgoswami.me/tags/teaching/</loc>
     <lastmod>2020-04-22T07:01:00+00:00</lastmod>
   </url>
@@ -98,13 +88,13 @@
   </url>
   
   <url>
-    <loc>https://rgoswami.me/tags/ideas/</loc>
+    <loc>https://rgoswami.me/posts/scp-smallgrp/</loc>
     <lastmod>2020-04-14T02:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rgoswami.me/posts/scp-smallgrp/</loc>
-    <lastmod>2020-04-14T02:48:00+00:00</lastmod>
+    <loc>https://rgoswami.me/tags/ideas/</loc>
+    <lastmod>2020-04-10T16:01:00+00:00</lastmod>
   </url>
   
   <url>
@@ -120,6 +110,11 @@
   <url>
     <loc>https://rgoswami.me/tags/rationale/</loc>
     <lastmod>2020-04-09T17:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/tags/math/</loc>
+    <lastmod>2020-03-26T00:28:00+00:00</lastmod>
   </url>
   
   <url>
@@ -178,17 +173,22 @@
   </url>
   
   <url>
+    <loc>https://rgoswami.me/tags/explanations/</loc>
+    <lastmod>2020-02-29T14:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rgoswami.me/categories/personal/</loc>
+    <lastmod>2020-02-29T14:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://rgoswami.me/posts/colemak-switch/</loc>
     <lastmod>2020-02-29T14:06:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rgoswami.me/posts/bojack-horseman/</loc>
-    <lastmod>2020-02-27T22:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/categories/personal/</loc>
     <lastmod>2020-02-27T22:28:00+00:00</lastmod>
   </url>
   
@@ -280,16 +280,6 @@
   <url>
     <loc>https://rgoswami.me/posts/ghnotif/</loc>
     <lastmod>2020-02-12T11:36:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/tags/explanations/</loc>
-    <lastmod>2020-02-11T23:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rgoswami.me/categories/projects/</loc>
-    <lastmod>2020-02-11T23:28:00+00:00</lastmod>
   </url>
   
   <url>

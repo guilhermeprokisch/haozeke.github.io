@@ -31,7 +31,6 @@ install.packages(&amp;#34;remotes&amp;#34;,&amp;#34;data.table&amp;#34;, &amp;#3
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
 
 
 
@@ -50,6 +49,17 @@ install.packages(&#34;remotes&#34;,&#34;data.table&#34;, &#34;GGally&#34;,&#34;p
 
 
 <meta itemprop="keywords" content="solutions,R,ISLR," />
+<meta property="og:title" content="ISLR :: Resampling Methods" />
+<meta property="og:description" content="Chapter V - Resampling Methods All the questions are as per the ISL seventh printing1.
+Common Instead of using the standard functions, we will leverage the mlr3 package2.
+#install.packages(&#34;mlr3&#34;,&#34;data.table&#34;,&#34;mlr3viz&#34;,&#34;mlr3learners&#34;) Actually for R version 3.6.2, the steps to get it working were a bit more involved.
+install.packages(&#34;remotes&#34;,&#34;data.table&#34;, &#34;GGally&#34;,&#34;precerec&#34;) # For plotslibrary(remotes) remotes::install_github(&#34;mlr-org/mlr3&#34;)## Skipping install of &#39;mlr3&#39; from a github remote, the SHA1 (fca21c10) has not changed since last install. ## Use `force = TRUE` to force installationremotes::install_github(&#34;mlr-org/mlr3viz&#34;)## Skipping install of &#39;mlr3viz&#39; from a github remote, the SHA1 (0b4ea273) has not changed since last install." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rgoswami.me/posts/islr-ch5/" />
+
+<meta property="og:image" content="https://rgoswami.me" />
+<meta property="article:published_time" content="2020-02-18T22:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-18T22:00:00+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -346,15 +356,12 @@ tskLogiFull<span style="color:#f92672">=</span>TaskClassif<span style="color:#f9
 ##   - dbl (2): balance, income</code></pre></div>
 <p>This can be visualized neatly as well.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(tskLogiFull)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-8-1.png"   />
-
-        
-            <figcaption class="center" >Figure 1: MLR3 Visualizations</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-8-1.png"
+         alt="Figure 1: MLR3 Visualizations"/> <figcaption>
+            <p>Figure 1: MLR3 Visualizations</p>
+        </figcaption>
+</figure>
 
 
 <p>We have a pretty imbalanced data-set.</p>
@@ -362,15 +369,12 @@ tskLogiFull<span style="color:#f92672">=</span>TaskClassif<span style="color:#f9
 ##   method from
 ##   +.gg   ggplot2</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-9-1.png"   />
-
-        
-            <figcaption class="center" >Figure 2: Paired mlr3 data</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-9-1.png"
+         alt="Figure 2: Paired mlr3 data"/> <figcaption>
+            <p>Figure 2: Paired mlr3 data</p>
+        </figcaption>
+</figure>
 
 
 <p>We can use any of the learners implemented, so it is a good idea to take
@@ -512,15 +516,12 @@ as well.</p>
 ##
 ##        &#39;Positive&#39; Class : No
 ##</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull))</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-14-1.png"   />
-
-        
-            <figcaption class="center" >Figure 3: Autoplot results</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-14-1.png"
+         alt="Figure 3: Autoplot results"/> <figcaption>
+            <p>Figure 3: Autoplot results</p>
+        </figcaption>
+</figure>
 
 
 <p>We can get some other plots as well, but we need our probabilities to be
@@ -529,15 +530,12 @@ returned.</p>
 lrnprob <span style="color:#f92672">=</span> <span style="color:#a6e22e">lrn</span>(<span style="color:#e6db74">&#34;classif.log_reg&#34;</span>,predict_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prob&#34;</span>)
 lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogiFull)
 <span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull),type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-15-1.png"   />
-
-        
-            <figcaption class="center" >Figure 4: ROC curve</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-15-1.png"
+         alt="Figure 4: ROC curve"/> <figcaption>
+            <p>Figure 4: ROC curve</p>
+        </figcaption>
+</figure>
 
 
 <h4 id="b-validation-sets-with-mlr3">b) Validation Sets with mlr3</h4>
@@ -621,15 +619,12 @@ validation and resampling.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr <span style="color:#f92672">=</span> <span style="color:#a6e22e">resample</span>(tskLogiFull, lrnprob, <span style="color:#a6e22e">rsmp</span>(<span style="color:#e6db74">&#34;cv&#34;</span>, folds <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## INFO  [22:12:30.025] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 1/3)
 ## INFO  [22:12:30.212] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 2/3)
 ## INFO  [22:12:30.360] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 3/3)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(rr,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-18-1.png"   />
-
-        
-            <figcaption class="center" >Figure 5: Resampled ROC curve</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-18-1.png"
+         alt="Figure 5: Resampled ROC curve"/> <figcaption>
+            <p>Figure 5: Resampled ROC curve</p>
+        </figcaption>
+</figure>
 
 
 <p>We might want the average as well.</p>
@@ -647,15 +642,12 @@ tskLogi2<span style="color:#f92672">=</span>TaskClassif<span style="color:#f9267
 ##   - dbl (3): balance, income, student</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(tskLogi2,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pairs&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-21-1.png"   />
-
-        
-            <figcaption class="center" >Figure 6: Logistic regression pairs data</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-21-1.png"
+         alt="Figure 6: Logistic regression pairs data"/> <figcaption>
+            <p>Figure 6: Logistic regression pairs data</p>
+        </figcaption>
+</figure>
 
 
 <p>This gives us a visual indicator and premonition that we might not be
@@ -688,27 +680,21 @@ should still work it through.</p>
 ##
 ##        &#39;Positive&#39; Class : No
 ##</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogi2))</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-23-1.png"   />
-
-        
-            <figcaption class="center" >Figure 7: Autoplot figure</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-23-1.png"
+         alt="Figure 7: Autoplot figure"/> <figcaption>
+            <p>Figure 7: Autoplot figure</p>
+        </figcaption>
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogi2)
 <span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogi2),type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-24-1.png"   />
-
-        
-            <figcaption class="center" >Figure 8: ROC plot</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-24-1.png"
+         alt="Figure 8: ROC plot"/> <figcaption>
+            <p>Figure 8: ROC plot</p>
+        </figcaption>
+</figure>
 
 
 <p>Although we have slightly better accuracy with the new variable, it
@@ -723,15 +709,12 @@ needs to be compared to determine if it is worth further investigation.</p>
 ## INFO  [22:12:39.780] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 3/3)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">wS<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">autoplot</span>(rr2)
 nS<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">autoplot</span>(rr)
 <span style="color:#a6e22e">grid.arrange</span>(wS,nS,ncol<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,bottom<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;With student (left) and without (right)&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-25-1.png"   />
-
-        
-            <figcaption class="center" >Figure 9: Plot of accuracy</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-25-1.png"
+         alt="Figure 9: Plot of accuracy"/> <figcaption>
+            <p>Figure 9: Plot of accuracy</p>
+        </figcaption>
+</figure>
 
 
 <p>Given the results, it is fair to say that adding the student data is
@@ -915,15 +898,12 @@ distributed from 100 samples</li>
 
 <h4 id="b-visual-inspection">b) Visual inspection</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">qplot</span>(x,y)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-31-1.png"   />
-
-        
-            <figcaption class="center" >Figure 10: Model data plot</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-31-1.png"
+         alt="Figure 10: Model data plot"/> <figcaption>
+            <p>Figure 10: Model data plot</p>
+        </figcaption>
+</figure>
 
 
 <p>We observe that the data is quadratic, as we also know from the
@@ -1432,14 +1412,14 @@ xhigh<span style="color:#f92672">=</span>muhat<span style="color:#ae81ff">+2</sp
             
                 <span><a href="https://rgoswami.me">Rohit Goswami (HaoZeke)</a></span>
             
-            <span></span>
+            <span><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</span>
             <span> <a href="https://rgoswami.me/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Based on a theme by <a href="https://github.com/rhazdon">rhazdon</a></span>
+            <span>Theme <a href="https://rgoswami.me/posts/rationale/">details here</a></span>
         </div>
     </div>
 </footer>
@@ -1453,8 +1433,7 @@ xhigh<span style="color:#f92672">=</span>muhat<span style="color:#ae81ff">+2</sp
 
 <script src="https://rgoswami.me/bundle.min.582d94d7fb9230fda38dd4c9d5ca8014cab7228a34654fe3c3476fc00178e03398e53906f6f25d759a6e29f36ae005e4ddbed05e05a31f3c3febc33bd0e89c58.js" integrity="sha512-WC2U1/uSMP2jjdTJ1cqAFMq3Ioo0ZU/jw0dvwAF44DOY5TkG9vJddZpuKfNq4AXk3b7QXgWjHzw/68M70OicWA=="></script>
 <script data-goatcounter="https://rgoswami.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.20.0,npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
 
 

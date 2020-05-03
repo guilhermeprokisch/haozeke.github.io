@@ -30,7 +30,6 @@ Question 2.8 - Pages 54-55 This exercise relates to the College data set, which 
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
 
 
 
@@ -48,6 +47,16 @@ Question 2.8 - Pages 54-55 This exercise relates to the College data set, which 
 
 
 <meta itemprop="keywords" content="solutions,R,ISLR," />
+<meta property="og:title" content="ISLR :: Multiple Linear Regression" />
+<meta property="og:description" content="Chapter II - Statistical Learning All the questions are as per the ISL seventh printing&nbsp;1.
+Question 2.8 - Pages 54-55 This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for \(777\) different universities and colleges in the US. The variables are
+ Private : Public/private indicator Apps : Number of applications received Accept : Number of applicants accepted Enroll : Number of new students enrolled Top10perc : New students from top 10 % of high school class Top25perc : New students from top 25 % of high school class F." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rgoswami.me/posts/islr-ch2-ch3/" />
+
+<meta property="og:image" content="https://rgoswami.me" />
+<meta property="article:published_time" content="2020-01-15T05:28:00+00:00" />
+<meta property="article:modified_time" content="2020-01-15T05:28:00+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -342,15 +351,12 @@ with <code>r</code> in <code>{}</code>.</p>
 <!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">tenColl <span style="color:#f92672">&lt;-</span> ISLR<span style="color:#f92672">::</span>College[,<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>] <span style="color:#75715e"># For getting the first ten columns</span>
 <span style="color:#a6e22e">pairs</span>(tenColl) <span style="color:#75715e"># Scatterplot</span></code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-3-1.png"   />
-
-        
-            <figcaption class="center" >Figure 1: Pairs</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-3-1.png"
+         alt="Figure 1: Pairs"/> <figcaption>
+            <p>Figure 1: Pairs</p>
+        </figcaption>
+</figure>
 
 
 <ol>
@@ -359,15 +365,12 @@ with <code>r</code> in <code>{}</code>.</p>
 
 <!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(ISLR<span style="color:#f92672">::</span>College<span style="color:#f92672">$</span>Private,ISLR<span style="color:#f92672">::</span>College<span style="color:#f92672">$</span>Outstate,xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Private&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Outstate&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-4-1.png"   />
-
-        
-            <figcaption class="center" >Figure 2: Boxplots</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-4-1.png"
+         alt="Figure 2: Boxplots"/> <figcaption>
+            <p>Figure 2: Boxplots</p>
+        </figcaption>
+</figure>
 
 
 <ol>
@@ -382,15 +385,12 @@ Elite<span style="color:#f92672">=</span><span style="color:#a6e22e">as.factor</
 college<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">data.frame</span>(college,Elite)
 <span style="color:#a6e22e">summary</span>(college<span style="color:#f92672">$</span>Elite)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##  No Yes
 ## 699  78</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(college<span style="color:#f92672">$</span>Outstate,college<span style="color:#f92672">$</span>Elite,xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Outstate&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Elite&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-6-1.png"   />
-
-        
-            <figcaption class="center" >Figure 3: Plotting Outstate and Elite</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-6-1.png"
+         alt="Figure 3: Plotting Outstate and Elite"/> <figcaption>
+            <p>Figure 3: Plotting Outstate and Elite</p>
+        </figcaption>
+</figure>
 
 
 <ol>
@@ -403,27 +403,21 @@ college<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">data.
 <span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>perc.alumni, col<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
 <span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>Personal, col<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, breaks<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
 <span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>PhD, breaks<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-7-1.png"   />
-
-        
-            <figcaption class="center" >Figure 4: Histogram</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-7-1.png"
+         alt="Figure 4: Histogram"/> <figcaption>
+            <p>Figure 4: Histogram</p>
+        </figcaption>
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>Top10perc, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>)
 <span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>Outstate, col<span style="color:#f92672">=</span><span style="color:#ae81ff">23</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-7-2.png"   />
-
-        
-            <figcaption class="center" >Figure 5: Colored Histogram</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-7-2.png"
+         alt="Figure 5: Colored Histogram"/> <figcaption>
+            <p>Figure 5: Colored Histogram</p>
+        </figcaption>
+</figure>
 
 
 <ol>
@@ -433,41 +427,32 @@ college<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">data.
 <p>\(0\) implies the faculty have PhDs. It is clear that people donate more
 when faculty do not have terminal degrees.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(college<span style="color:#f92672">$</span>Terminal<span style="color:#f92672">-</span>college<span style="color:#f92672">$</span>PhD, college<span style="color:#f92672">$</span>perc.alumni)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-8-1.png"   />
-
-        
-            <figcaption class="center" >Figure 6: Terminal degrees and alumni</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-8-1.png"
+         alt="Figure 6: Terminal degrees and alumni"/> <figcaption>
+            <p>Figure 6: Terminal degrees and alumni</p>
+        </figcaption>
+</figure>
 
 
 <p>High tuition correlates to high graduation rate.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(college<span style="color:#f92672">$</span>Expend, college<span style="color:#f92672">$</span>Grad.Rate)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-9-1.png"   />
-
-        
-            <figcaption class="center" >Figure 7: Tuiton and graduation</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-9-1.png"
+         alt="Figure 7: Tuiton and graduation"/> <figcaption>
+            <p>Figure 7: Tuiton and graduation</p>
+        </figcaption>
+</figure>
 
 
 <p>Low acceptance implies a low student to faculty ratio.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(college<span style="color:#f92672">$</span>Accept <span style="color:#f92672">/</span> college<span style="color:#f92672">$</span>Apps, college<span style="color:#f92672">$</span>S.F.Ratio)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-10-1.png"   />
-
-        
-            <figcaption class="center" >Figure 8: Acceptance and Student/Faculty ratio</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-10-1.png"
+         alt="Figure 8: Acceptance and Student/Faculty ratio"/> <figcaption>
+            <p>Figure 8: Acceptance and Student/Faculty ratio</p>
+        </figcaption>
+</figure>
 
 
 <h3 id="question-2.9---page-56">Question 2.9 - Page 56</h3>
@@ -601,15 +586,12 @@ noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">
 <span style="color:#a6e22e">plot</span>(autoDat<span style="color:#f92672">$</span>weight, autoDat<span style="color:#f92672">$</span>acceleration)
 <span style="color:#a6e22e">plot</span>(autoDat<span style="color:#f92672">$</span>displacement, autoDat<span style="color:#f92672">$</span>acceleration)
 <span style="color:#a6e22e">plot</span>(autoDat<span style="color:#f92672">$</span>cylinders, autoDat<span style="color:#f92672">$</span>acceleration)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-21-1.png"   />
-
-        
-            <figcaption class="center" >Figure 9: Relationship determination</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-21-1.png"
+         alt="Figure 9: Relationship determination"/> <figcaption>
+            <p>Figure 9: Relationship determination</p>
+        </figcaption>
+</figure>
 
 
 <ul>
@@ -649,15 +631,12 @@ much interest for predictions of the mileage.</p>
 <span style="color:#a6e22e">plot</span>(noFactors<span style="color:#f92672">$</span>mpg,noFactors<span style="color:#f92672">$</span>displacement)
 <span style="color:#a6e22e">plot</span>(noFactors<span style="color:#f92672">$</span>mpg,noFactors<span style="color:#f92672">$</span>acceleration)
 <span style="color:#a6e22e">plot</span>(noFactors<span style="color:#f92672">$</span>mpg,noFactors<span style="color:#f92672">$</span>year)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-23-1.png"   />
-
-        
-            <figcaption class="center" >Figure 10: Predictions</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-23-1.png"
+         alt="Figure 10: Predictions"/> <figcaption>
+            <p>Figure 10: Predictions</p>
+        </figcaption>
+</figure>
 
 
 <ul>
@@ -732,15 +711,12 @@ significant?</p>
 ##                                                  (Other)           :365</code></pre></div>
 <p><strong>(a)</strong> Scatterplot</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">pairs</span>(cleanAuto)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-25-1.png"   />
-
-        
-            <figcaption class="center" >Figure 11: Scatterplot</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-25-1.png"
+         alt="Figure 11: Scatterplot"/> <figcaption>
+            <p>Figure 11: Scatterplot</p>
+        </figcaption>
+</figure>
 
 
 <p><strong>(b)</strong> Correlation matrix. For this we exclude the qualitative variables
@@ -900,58 +876,34 @@ efficient every year</p></li>
 <p><strong>(d)</strong> Lets plot these</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
 noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>horsepower,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Horsepower&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>weight,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Weight&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-2.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-2.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>year,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Year&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-3.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-3.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>acceleration,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Acceleration&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-4.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-4.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>displacement,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Displacement&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-5.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-5.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage Multiple Regression&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-6.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-6.png"/> 
+</figure>
 
 
 <p>Form this we can see that the fit is not very accurate as there is a
@@ -965,24 +917,16 @@ plot too much.</p>
 fitPlot <span style="color:#f92672">&lt;-</span> noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>.)
 <span style="color:#75715e"># See residuals</span>
 <span style="color:#a6e22e">plot</span>(xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Prediction&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Studentized Residual&#34;</span>,x<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(fitPlot),y<span style="color:#f92672">=</span><span style="color:#a6e22e">rstudent</span>(fitPlot))</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-29-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-29-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Try a linear fit of studentized residuals</span>
 <span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
 <span style="color:#a6e22e">plot</span>(<span style="color:#a6e22e">lm</span>(<span style="color:#a6e22e">predict</span>(fitPlot)<span style="color:#f92672">~</span><span style="color:#a6e22e">rstudent</span>(fitPlot)))</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-29-2.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-29-2.png"/> 
+</figure>
 
 
 <p>Clearly the studentized residuals are nonlinear w.r.t the prediction.
@@ -1473,15 +1417,12 @@ same for both models</p>
 <!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
 <span style="color:#a6e22e">plot</span>(lmCarSplusPU)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-41-1.png"   />
-
-        
-            <figcaption class="center" >Figure 12: Leverage Plots</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-41-1.png"
+         alt="Figure 12: Leverage Plots"/> <figcaption>
+            <p>Figure 12: Leverage Plots</p>
+        </figcaption>
+</figure>
 
 
 <p>We can see there is a point with high leverage, but it has a low
@@ -1495,15 +1436,12 @@ than 3</li>
 <!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># See residuals</span>
 <span style="color:#a6e22e">plot</span>(xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Prediction&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Studentized Residual&#34;</span>,x<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(lmCarSplusPU),y<span style="color:#f92672">=</span><span style="color:#a6e22e">rstudent</span>(lmCarSplusPU))</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-42-1.png"   />
-
-        
-            <figcaption class="center" >Figure 13: Studentized residuals</figcaption>
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-42-1.png"
+         alt="Figure 13: Studentized residuals"/> <figcaption>
+            <p>Figure 13: Studentized residuals</p>
+        </figcaption>
+</figure>
 
 
 <p>Thus I would say there are no outliers in our dataset, as none of our
@@ -1580,14 +1518,14 @@ datapoints have an absolute studentized residual above 3.</p>
             
                 <span><a href="https://rgoswami.me">Rohit Goswami (HaoZeke)</a></span>
             
-            <span></span>
+            <span><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</span>
             <span> <a href="https://rgoswami.me/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Based on a theme by <a href="https://github.com/rhazdon">rhazdon</a></span>
+            <span>Theme <a href="https://rgoswami.me/posts/rationale/">details here</a></span>
         </div>
     </div>
 </footer>
@@ -1601,8 +1539,7 @@ datapoints have an absolute studentized residual above 3.</p>
 
 <script src="https://rgoswami.me/bundle.min.582d94d7fb9230fda38dd4c9d5ca8014cab7228a34654fe3c3476fc00178e03398e53906f6f25d759a6e29f36ae005e4ddbed05e05a31f3c3febc33bd0e89c58.js" integrity="sha512-WC2U1/uSMP2jjdTJ1cqAFMq3Ioo0ZU/jw0dvwAF44DOY5TkG9vJddZpuKfNq4AXk3b7QXgWjHzw/68M70OicWA=="></script>
 <script data-goatcounter="https://rgoswami.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.20.0,npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
 
 

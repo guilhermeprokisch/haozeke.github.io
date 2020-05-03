@@ -32,7 +32,6 @@ libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;ti
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
 
 
 
@@ -52,6 +51,18 @@ libsUsed&lt;-c(&#34;dplyr&#34;,&#34;ggplot2&#34;,&#34;tidyverse&#34;, &#34;ISLR&
 
 
 <meta itemprop="keywords" content="solutions,R,ISLR," />
+<meta property="og:title" content="ISLR :: Linear Model Selection and Regularization" />
+<meta property="og:description" content="Chapter VI - Linear Model Selection and Regularization All the questions are as per the ISL seventh printing1.
+Common Instead of using the standard functions, we will leverage the mlr3 package2.
+#install.packages(&#34;mlr3&#34;,&#34;data.table&#34;,&#34;mlr3viz&#34;,&#34;mlr3learners&#34;) Actually for R version 3.6.2, the steps to get it working were a bit more involved.
+Load ISLR and other libraries.
+libsUsed&lt;-c(&#34;dplyr&#34;,&#34;ggplot2&#34;,&#34;tidyverse&#34;, &#34;ISLR&#34;,&#34;caret&#34;,&#34;MASS&#34;, &#34;gridExtra&#34;, &#34;pls&#34;,&#34;latex2exp&#34;,&#34;data.table&#34;) invisible(lapply(libsUsed, library, character.only = TRUE))## ## Attaching package: &#39;dplyr&#39;## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union## ── Attaching packages ─────────────────────────────────────── tidyverse 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rgoswami.me/posts/islr-ch6/" />
+
+<meta property="og:image" content="https://rgoswami.me" />
+<meta property="article:published_time" content="2020-02-19T07:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-19T07:00:00+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -318,13 +329,9 @@ noise<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">rnorm</
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">beta<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">43</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">6</span>)
 y<span style="color:#f92672">&lt;-</span>beta[1] <span style="color:#f92672">+</span> beta[2]<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> beta[3]<span style="color:#f92672">*</span>x^2 <span style="color:#f92672">+</span> beta[4]<span style="color:#f92672">*</span>x^3 <span style="color:#f92672">+</span> noise
 <span style="color:#a6e22e">qplot</span>(x,y)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-4-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-4-1.png"/> 
+</figure>
 
 
 <h4 id="c-subset-selection">c) Subset selection</h4>
@@ -399,33 +406,21 @@ sets <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div cl
 <p>We might want to see this as a plot.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(summarySet<span style="color:#f92672">$</span>cp, xlab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Subset Size&#34;</span>, ylab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cp&#34;</span>, pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;l&#34;</span>)
 <span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">3</span>,summarySet<span style="color:#f92672">$</span>cp[3],pch<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>,lwd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-7-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-7-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(summarySet<span style="color:#f92672">$</span>bic, xlab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Subset Size&#34;</span>, ylab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;BIC&#34;</span>, pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;l&#34;</span>)
 <span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">3</span>,summarySet<span style="color:#f92672">$</span>bic[3],pch<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>,lwd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-8-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-8-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(summarySet<span style="color:#f92672">$</span>adjr2, xlab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Subset Size&#34;</span>, ylab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Adjusted R2&#34;</span>, pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;l&#34;</span>)
 <span style="color:#a6e22e">points</span>(<span style="color:#ae81ff">3</span>,summarySet<span style="color:#f92672">$</span>adjr2[3],pch<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>,col<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>,lwd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-9-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-9-1.png"/> 
+</figure>
 
 
 <p>Lets check the coefficients.</p>
@@ -482,13 +477,9 @@ forwardFit <span style="color:#f92672">%&gt;%</span> summary <span style="color:
 <span style="color:#a6e22e">plot</span>(forwardFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Cp&#39;</span>)
 <span style="color:#a6e22e">plot</span>(forwardFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r2&#39;</span>)
 <span style="color:#a6e22e">plot</span>(forwardFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adjr2&#39;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-12-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-12-1.png"/> 
+</figure>
 
 
 <p>I find these not as fun to look at, so we will do better.</p>
@@ -505,13 +496,9 @@ forwardFit <span style="color:#f92672">%&gt;%</span> summary <span style="color:
   <span style="color:#a6e22e">plot</span>(leapObj<span style="color:#f92672">$</span>cp,xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Number of variables&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#a6e22e">TeX</span>(<span style="color:#e6db74">&#34;C_p&#34;</span>),type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b&#34;</span>)
   <span style="color:#a6e22e">points</span>(bcp,leapObj<span style="color:#f92672">$</span>cp[bcp],col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>,cex<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,pch<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
 }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plotLEAP</span>(forwardFit <span style="color:#f92672">%&gt;%</span> summary)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-14-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-14-1.png"/> 
+</figure>
 
 
 <p>Lets check the backward selection as well.</p>
@@ -561,22 +548,14 @@ backwardFit <span style="color:#f92672">%&gt;%</span> summary <span style="color
 <span style="color:#a6e22e">plot</span>(backwardFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Cp&#39;</span>)
 <span style="color:#a6e22e">plot</span>(backwardFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r2&#39;</span>)
 <span style="color:#a6e22e">plot</span>(backwardFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adjr2&#39;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-16-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-16-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plotLEAP</span>(backwardFit <span style="color:#f92672">%&gt;%</span> summary)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-17-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-17-1.png"/> 
+</figure>
 
 
 <p>In spite of some slight variations, overall all methods converge to the
@@ -706,22 +685,14 @@ lassoCaret<span style="color:#f92672">=</span> <span style="color:#a6e22e">train
 ## Tuning parameter &#39;alpha&#39; was held constant at a value of 1
 ## RMSE was used to select the optimal model using the smallest value.
 ## The final values used for the model were alpha = 1 and lambda = 0.1.</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lassoCaret  <span style="color:#f92672">%&gt;%</span> ggplot</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-20-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-20-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lassoCaret <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-21-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-21-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(glmnet)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Loading required package: Matrix</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Attaching package: &#39;Matrix&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:tidyr&#39;:
@@ -732,13 +703,9 @@ lassoCaret<span style="color:#f92672">=</span> <span style="color:#a6e22e">train
 ##     melanoma</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lasso.mod <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cv.glmnet</span>(<span style="color:#a6e22e">as.matrix</span>(df[<span style="color:#ae81ff">-1</span>]), y, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 lambda <span style="color:#f92672">&lt;-</span> lasso.mod<span style="color:#f92672">$</span>lambda.min
 <span style="color:#a6e22e">plot</span>(lasso.mod)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-22-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-22-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">predict</span>(lasso.mod, s<span style="color:#f92672">=</span>lambda, type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;coefficients&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## 11 x 1 sparse Matrix of class &#34;dgCMatrix&#34;
 ##                     1
@@ -789,13 +756,9 @@ newSub <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div 
 ## 8  ( 1 )  &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34; &#34; &#34; &#34; &#34; &#34;  &#34;*&#34;
 ## 9  ( 1 )  &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34; &#34; &#34;*&#34; &#34; &#34;  &#34;*&#34;
 ## 10  ( 1 ) &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34;*&#34; &#34; &#34; &#34;*&#34;  &#34;*&#34;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plotLEAP</span>(newSub <span style="color:#f92672">%&gt;%</span> summary)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-25-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-25-1.png"/> 
+</figure>
 
 
 <p>Or in its more native look,</p>
@@ -804,26 +767,18 @@ newSub <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div 
 <span style="color:#a6e22e">plot</span>(newSub,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Cp&#39;</span>)
 <span style="color:#a6e22e">plot</span>(newSub,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r2&#39;</span>)
 <span style="color:#a6e22e">plot</span>(newSub,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adjr2&#39;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-26-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-26-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(glmnet)
 <span style="color:#a6e22e">library</span>(boot)
 lasso.mod2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cv.glmnet</span>(<span style="color:#a6e22e">as.matrix</span>(newDF[<span style="color:#ae81ff">-1</span>]), y, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 lambda2 <span style="color:#f92672">&lt;-</span> lasso.mod2<span style="color:#f92672">$</span>lambda.min
 <span style="color:#a6e22e">plot</span>(lasso.mod2)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-27-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-27-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">predict</span>(lasso.mod2, s<span style="color:#f92672">=</span>lambda, type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;coefficients&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## 11 x 1 sparse Matrix of class &#34;dgCMatrix&#34;
 ##                       1
@@ -954,22 +909,14 @@ lassocaret2<span style="color:#f92672">=</span> <span style="color:#a6e22e">trai
 ## Tuning parameter &#39;alpha&#39; was held constant at a value of 1
 ## RMSE was used to select the optimal model using the smallest value.
 ## The final values used for the model were alpha = 1 and lambda = 6.579332.</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lassocaret2  <span style="color:#f92672">%&gt;%</span> ggplot</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-29-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-29-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lassocaret2 <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-30-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-30-1.png"/> 
+</figure>
 
 
 <p>Clearly, the LASSO model has correctly reduced the model down to the
@@ -1160,13 +1107,9 @@ are calculated</a> in a manner to ensure no negative values are obtained.</p>
 ## perc.alumni -9.301831e+00
 ## Expend       5.601144e-02
 ## Grad.Rate    1.259989e+01</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(ridgCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-38-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-38-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ridgPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(ridgCol,test_set)
 ridgPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>Apps)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##         RMSE     Rsquared          MAE
@@ -1212,13 +1155,9 @@ ridgPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">p
 ## perc.alumni   -0.67848535
 ## Expend         0.04597728
 ## Grad.Rate      8.67569015</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(lassoCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-43-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-43-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lassoPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(lassoCol,test_set)
 lassoPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>Apps)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##         RMSE     Rsquared          MAE
@@ -1240,13 +1179,9 @@ pcrCol <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92
 ## X           100.00    100.00    100.00
 ## .outcome     93.17     93.18     93.32
 ## NULL</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(pcrCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-47-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-47-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">pcrPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(pcrCol,test_set)
 pcrPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>Apps)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##         RMSE     Rsquared          MAE
@@ -1268,13 +1203,9 @@ plsCol <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92
 ## X           100.00    100.00    100.00
 ## .outcome     93.18     93.19     93.32
 ## NULL</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(plsCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-50-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-50-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">plsPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(plsCol,test_set)
 plsPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>Apps)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##         RMSE     Rsquared          MAE
@@ -1311,13 +1242,9 @@ plsPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">po
 ## pcr    0.8658504 0.9080179 0.9235117 0.9146884 0.9281892 0.9471991    0
 ## pls    0.8881249 0.9080786 0.9183968 0.9173632 0.9258994 0.9420894    0
 ## linear 0.8840049 0.8986452 0.9222319 0.9160913 0.9296275 0.9492198    0</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">resamples</span>(models) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">bwplot</span>(scales<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;free&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-53-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-53-1.png"/> 
+</figure>
 
 
 <ul>
@@ -1335,13 +1262,9 @@ lsgp<span style="color:#f92672">&lt;-</span>lassoCol <span style="color:#f92672"
 pcgp<span style="color:#f92672">&lt;-</span>pcrCol <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;PCR Variable Importance&#34;</span>)
 plgp<span style="color:#f92672">&lt;-</span>plsCol <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;PLS Variable Importance&#34;</span>)
 <span style="color:#a6e22e">grid.arrange</span>(lgp,rgp,lsgp,pcgp,plgp,ncol<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-54-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-54-1.png"/> 
+</figure>
 
 
 <h2 id="question-6.10---pages-263-264">Question 6.10 - Pages 263-264</h2>
@@ -1547,13 +1470,9 @@ linPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">po
 ## x.18        -1.36872894
 ## x.19        20.90257005
 ## x.20        20.07494414</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(ridgCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-64-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-64-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ridgPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(ridgCol,test_set)
 ridgPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>y)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      RMSE  Rsquared       MAE
@@ -1600,13 +1519,9 @@ ridgPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">p
 ## x.18        -0.6693664
 ## x.19        21.5357460
 ## x.20        20.5226071</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(lassoCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-69-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-69-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lassoPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(lassoCol,test_set)
 lassoPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>y)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      RMSE  Rsquared       MAE
@@ -1626,13 +1541,9 @@ pcrCol <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92
 ## X            88.85     91.94     94.59     96.73     98.51    100.00
 ## .outcome     92.15     94.96     99.51     99.57     99.76     99.99
 ## NULL</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(pcrCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-73-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-73-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">pcrPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(pcrCol,test_set)
 pcrPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>y)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      RMSE  Rsquared       MAE
@@ -1652,13 +1563,9 @@ plsCol <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92
 ## X            80.72     84.69     88.98     92.69     96.71    100.00
 ## .outcome     99.99     99.99     99.99     99.99     99.99     99.99
 ## NULL</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(plsCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-76-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-76-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">plsPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(plsCol,test_set)
 plsPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>y)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      RMSE  Rsquared       MAE
@@ -1746,22 +1653,14 @@ modelFit <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f
 <span style="color:#a6e22e">plot</span>(modelFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Cp&#39;</span>)
 <span style="color:#a6e22e">plot</span>(modelFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r2&#39;</span>)
 <span style="color:#a6e22e">plot</span>(modelFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adjr2&#39;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-79-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-79-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plotLEAP</span>(modelFit <span style="color:#f92672">%&gt;%</span> summary)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-80-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-80-1.png"/> 
+</figure>
 
 
 <p>It would appear that 16 variables would be a good bet. We note that the
@@ -1775,13 +1674,9 @@ lsgp<span style="color:#f92672">&lt;-</span>lassoCol <span style="color:#f92672"
 pcgp<span style="color:#f92672">&lt;-</span>pcrCol <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;PCR Variable Importance&#34;</span>)
 plgp<span style="color:#f92672">&lt;-</span>plsCol <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;PLS Variable Importance&#34;</span>)
 <span style="color:#a6e22e">grid.arrange</span>(lgp,rgp,lsgp,pcgp,plgp,ncol<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>,bottom<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Effective Importance, scaled&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-81-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-81-1.png"/> 
+</figure>
 
 
 <h4 id="e-model-size">e) Model size</h4>
@@ -1845,13 +1740,9 @@ x_cols <span style="color:#f92672">=</span> <span style="color:#a6e22e">colnames
         <span style="color:#a6e22e">sum</span>(beta[<span style="color:#f92672">!</span>(x_cols <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">names</span>(coefi))])^2) <span style="color:#75715e">## Handling the intercept</span>
 }
 <span style="color:#a6e22e">plot</span>(x <span style="color:#f92672">=</span> a, y <span style="color:#f92672">=</span> b, xlab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of Coefficients&#34;</span>, ylab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Relative Error&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-84-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-84-1.png"/> 
+</figure>
 
 
 <h2 id="question-6.11---page-264">Question 6.11 - Page 264</h2>
@@ -1995,13 +1886,9 @@ linPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">po
 ## black       -0.001650403
 ## lstat        0.086462700
 ## medv        -0.027519270</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(ridgCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-94-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-94-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ridgPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(ridgCol,test_set)
 ridgPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>crim)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      RMSE  Rsquared       MAE
@@ -2041,13 +1928,9 @@ ridgPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">p
 ## black        .
 ## lstat        0.040788606
 ## medv         .</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(lassoCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-99-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-99-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lassoPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(lassoCol,test_set)
 lassoPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>crim)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      RMSE  Rsquared       MAE
@@ -2098,22 +1981,14 @@ modelFit <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f
 <span style="color:#a6e22e">plot</span>(modelFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Cp&#39;</span>)
 <span style="color:#a6e22e">plot</span>(modelFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r2&#39;</span>)
 <span style="color:#a6e22e">plot</span>(modelFit,scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adjr2&#39;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-103-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-103-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plotLEAP</span>(modelFit <span style="color:#f92672">%&gt;%</span> summary)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-104-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-104-1.png"/> 
+</figure>
 
 
 <p>It would appear that 16 variables would be a good bet. We note that the
@@ -2125,13 +2000,9 @@ values.</p>
 rgp<span style="color:#f92672">&lt;-</span>ridgCol <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;Ridge Variable Importance&#34;</span>)
 lsgp<span style="color:#f92672">&lt;-</span>lassoCol <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;Lasso Variable Importance&#34;</span>)
 <span style="color:#a6e22e">grid.arrange</span>(lgp,rgp,lsgp,ncol<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,bottom<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Effective Importance, scaled&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-105-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-105-1.png"/> 
+</figure>
 
 
 <h4 id="b-propose-a-model">b) Propose a model</h4>
@@ -2232,13 +2103,9 @@ test_set<span style="color:#f92672">&lt;-</span>boston[<span style="color:#f9267
 ## black       -0.01414707
 ## lstat        0.15519923
 ## medv        -0.04483670</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(ridgCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-113-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-113-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ridgPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(ridgCol,test_set)
 ridgPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>crim)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      RMSE  Rsquared       MAE
@@ -2276,26 +2143,18 @@ ridgPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">p
 ## black       -0.01454496
 ## lstat        0.15290845
 ## medv         .</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggplot</span>(lassoCol)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-118-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-118-1.png"/> 
+</figure>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lassoPred<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(lassoCol,test_set)
 lassoPred <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">postResample</span>(obs <span style="color:#f92672">=</span> test_set<span style="color:#f92672">$</span>crim)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      RMSE  Rsquared       MAE
 ## 6.9630616 0.3693364 2.6767742</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rgp<span style="color:#f92672">&lt;-</span>ridgCol <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;Ridge Variable Importance&#34;</span>)
 lsgp<span style="color:#f92672">&lt;-</span>lassoCol <span style="color:#f92672">%&gt;%</span> varImp <span style="color:#f92672">%&gt;%</span> ggplot <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;Lasso Variable Importance&#34;</span>)
 <span style="color:#a6e22e">grid.arrange</span>(rgp,lsgp,ncol<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,bottom<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Effective Importance, scaled&#34;</span>)</code></pre></div>
-
-    <figure class="left" >
-        <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-120-1.png"   />
-
-        
-    </figure>
-
+<figure>
+    <img src="https://rgoswami.me/islr/sol4/unnamed-chunk-120-1.png"/> 
+</figure>
 
 
 <p>None of these models are actually any good apparently, given that we
@@ -2382,14 +2241,14 @@ L1.</p>
             
                 <span><a href="https://rgoswami.me">Rohit Goswami (HaoZeke)</a></span>
             
-            <span></span>
+            <span><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</span>
             <span> <a href="https://rgoswami.me/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Based on a theme by <a href="https://github.com/rhazdon">rhazdon</a></span>
+            <span>Theme <a href="https://rgoswami.me/posts/rationale/">details here</a></span>
         </div>
     </div>
 </footer>
@@ -2403,8 +2262,7 @@ L1.</p>
 
 <script src="https://rgoswami.me/bundle.min.582d94d7fb9230fda38dd4c9d5ca8014cab7228a34654fe3c3476fc00178e03398e53906f6f25d759a6e29f36ae005e4ddbed05e05a31f3c3febc33bd0e89c58.js" integrity="sha512-WC2U1/uSMP2jjdTJ1cqAFMq3Ioo0ZU/jw0dvwAF44DOY5TkG9vJddZpuKfNq4AXk3b7QXgWjHzw/68M70OicWA=="></script>
 <script data-goatcounter="https://rgoswami.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.20.0,npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
 
 

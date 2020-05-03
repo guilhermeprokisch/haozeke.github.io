@@ -6,21 +6,11 @@
     <description>Recent content in ideas on Rohit Goswami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2020 02:48:00 +0000</lastBuildDate>
+    <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
+    <lastBuildDate>Fri, 10 Apr 2020 16:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/ideas/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Small Section On-boarding</title>
-      <link>https://rgoswami.me/posts/scp-smallgrp/</link>
-      <pubDate>Tue, 14 Apr 2020 02:48:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/scp-smallgrp/</guid>
-      <description>Background As I mentioned in my last post, I&amp;rsquo;m leading a section for Stanford CS106A: Code in Place. I did also mention I&amp;rsquo;d try to keep a set of short notes on the process. So there1.
-The Training Given the overwhelming number of students, and section leaders, the small groups are for fostering a community of teachers.
-Consider allowing for daisy chaining during introductions Discussions are the primary take-away Only the instructor should be coding during the session  Core components  Clarity Content Atmosphere Section management Correctness  Sectional Details  Check in at the start Notice the space Check in regularly Avoid negative phrases Establish norms and the general culture  Zoom Norms  Have people introduce themselves Mute people when they aren&amp;rsquo;t talking Raise hands Try to use icebreakers which respect privacy  Materials Here&amp;rsquo;s some of the stuff which, being as it was open-sourced, I suppose is OK to put here2.</description>
-    </item>
     
     <item>
       <title>On-boarding for Code in Place</title>
