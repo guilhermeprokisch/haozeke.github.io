@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sun, 10 May 2020 20:55:01 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 21:05:43 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Search</title>
       <link>https://rgoswami.me/search/</link>
-      <pubDate>Sun, 10 May 2020 20:55:01 +0000</pubDate>
+      <pubDate>Sun, 10 May 2020 21:05:43 +0000</pubDate>
       
       <guid>https://rgoswami.me/search/</guid>
       <description>Search in full-text, the entire contents of the site.</description>
