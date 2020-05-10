@@ -39,7 +39,7 @@
 
 <meta itemprop="datePublished" content="2020-05-10T15:01:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-05-10T15:01:00&#43;00:00" />
-<meta itemprop="wordCount" content="2055">
+<meta itemprop="wordCount" content="2068">
 
 
 
@@ -410,7 +410,7 @@ org-ref</code> expression, but it doesn&rsquo;t really matter.</p>
          org-ref-bibliography-notes <span style="color:#e6db74">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/bibnotes.org&#34;</span>
          org-ref-note-title-format <span style="color:#e6db74">&#34;* TODO %y - %t\n :PROPERTIES:\n  :Custom_ID: %k\n  :NOTER_DOCUMENT: %F\n :ROAM_KEY: cite:%k\n  :AUTHOR: %9a\n  :JOURNAL: %j\n  :YEAR: %y\n  :VOLUME: %v\n  :PAGES: %p\n  :DOI: %D\n  :URL: %U\n :END:\n\n&#34;</span>
          org-ref-notes-directory <span style="color:#e6db74">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/&#34;</span>
-         org-ref-notes-function <span style="color:#e6db74">&#39;org-ref-notes-function-many-files</span>
+         org-ref-notes-function <span style="color:#e6db74">&#39;orb-edit-notes</span>
     ))</code></pre></div>
 <p>An essential aspect of this configuration is just that most of heavy lifting in
 terms of the notes are palmed off to <code>helm-bibtex</code>.</p>
@@ -422,7 +422,7 @@ terms of the notes are palmed off to <code>helm-bibtex</code>.</p>
 <ul>
 <li>The <code>org-ref-get-pdf-filename-function</code> simply uses the <code>helm-bibtex</code> settings to find the <code>pdf</code></li>
 <li>The default bibliography and notes directory are set to the same location as all the <code>org-roam</code> files, to encourage a flat hierarchy</li>
-<li>The <code>org-ref-notes-function</code> simply ensures that, like the <code>helm-bibtex</code> settings, I expect one file per <code>pdf</code></li>
+<li>The <code>org-ref-notes-function</code> simply ensures that, like the <code>helm-bibtex</code> settings, I expect one file per <code>pdf</code>, and that I would like to use my <code>org-roam</code> template instead of the <code>org-ref</code> or <code>helm-bibtex</code> one</li>
 </ul>
 
 <p>Note that for some reason,
@@ -524,7 +524,6 @@ configuration, adapted for those who don&rsquo;t believe in the dark side below.
   :after (org-roam)
   :hook (org-roam-mode <span style="color:#f92672">.</span> org-roam-bibtex-mode)
   :config
-  (add-hook <span style="color:#e6db74">&#39;org-mode</span> (org-roam-bibtex-mode <span style="color:#66d9ef">t</span>))
   (setq org-roam-bibtex-preformat-keywords
    <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;=key=&#34;</span> <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#e6db74">&#34;file&#34;</span> <span style="color:#e6db74">&#34;author-or-editor&#34;</span> <span style="color:#e6db74">&#34;keywords&#34;</span>))
   (setq orb-templates
@@ -629,7 +628,7 @@ personal benefit. Eventually I plan to expand this into something with
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/ramblings">ramblings</a></span><span class="tag"><a href="https://rgoswami.me/tags/explanations">explanations</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>2055 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>2068 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-10 15:01 &#43;0000</p>
         </div>
