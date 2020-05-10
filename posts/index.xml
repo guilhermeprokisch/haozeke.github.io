@@ -114,5 +114,173 @@ I will however discuss why and how I transitioned to using the awesome Goat Coun
  Introduction Bagging (or Bootstrap Aggregation) is one of the most commonly used ensemble method for improving the prediction of trees. We will broadly follow a historical development trend to understand the process. That is, we will begin by considering the Bootstrap method. This in turn requires knowledge of the Jacknife method, which is understandable from a simple bias variance perspective.</description>
     </item>
     
+    <item>
+      <title>Everyone Should Get an A - David MacKay</title>
+      <link>https://rgoswami.me/posts/mackay-all-a/</link>
+      <pubDate>Mon, 16 Mar 2020 02:24:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/mackay-all-a/</guid>
+      <description>Background  I recently read this post written by the now deceased Prof. David MacKay&amp;nbsp;1 It should be read widely, however, given that it is distributed as a ps.gz which is then a .ps file, and thus probably inaccessible to many of the people who should read it, I decided to rework it for native online consumption (there is also a pdf) THIS IS NOT MY CONTENT&amp;nbsp;2 Now, enjoy the post  Everyone Should Get an A Imagine a University – call it Camwick – where all students arrive with straight A grades.</description>
+    </item>
+    
+    <item>
+      <title>D3 for Git</title>
+      <link>https://rgoswami.me/posts/d3git/</link>
+      <pubDate>Mon, 16 Mar 2020 00:17:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/d3git/</guid>
+      <description>Background  I have had a lot of discussions regarding the teaching of git This is mostly as a part of the SoftwareCarpentries, or in view of my involvement with univ.ai, or simply in every public space I am associated with Without getting into my views, I just wanted to keep this resource in mind  The site  Learning git is a highly contentious thing People seem to be fond of GUI tools, especially since on non *nix systems, it seems that there is a lot of debate surrounding obtaining the git utility in the first place  One of the best ways of understanding (without installing stuff) the mental models required for working with git is this site</description>
+    </item>
+    
+    <item>
+      <title>Shorter Posts</title>
+      <link>https://rgoswami.me/posts/shortpost/</link>
+      <pubDate>Mon, 16 Mar 2020 00:16:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/shortpost/</guid>
+      <description> Background Sometime this year, I realized that I no longer have access to a lot of my older communication. This included, a lot of resources I enjoyed and shared with the people who were around me at that point in time. To counter this, I have decided to opt for shorter posts, even if they don&amp;rsquo;t always include the same level of detail I would prefer to provide.
+Alternatives  I have an automated system based around IFTTT combined with Twitter, Diigo, and even Pocket However, that doesn&amp;rsquo;t really tell me much, and trawling through a massive glut of data is often pointless as well There&amp;rsquo;s always Twitter, but I don&amp;rsquo;t really care to hear the views of others when I want to revisit my own ideas  Conclusions  I will be making shorter posts here, like the random one on octobox  </description>
+    </item>
+    
+    <item>
+      <title>Provisioning Dotfiles on an HPC</title>
+      <link>https://rgoswami.me/posts/prov-dots/</link>
+      <pubDate>Mon, 16 Mar 2020 00:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/prov-dots/</guid>
+      <description>Background My dotfiles turned 4 years old a few months ago (since 9th Jan 2017) and remains one of my most frequently updated projects for obvious reasons. Going through the changes reminds me of a whole of posts I never got around to writing.
+Anyway, recently I gained access to another HPC cluster, with a standard configuration (bash, old CentOS) and decided to track my provisioning steps. This is really a very streamlined experience by now, since I&amp;rsquo;ve used the same setup across scores of machines.</description>
+    </item>
+    
+    <item>
+      <title>Switching to Colemak</title>
+      <link>https://rgoswami.me/posts/colemak-switch/</link>
+      <pubDate>Sat, 29 Feb 2020 14:06:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/colemak-switch/</guid>
+      <description>Background I just realized that it has been over two years since I switched from QWERTY to Colemak but somehow never managed to write about it. It was a major change in my life, and it took forever to get acclimatized to. I do not think I&amp;rsquo;ll ever again be in a position to make such a change in my life again, but it was definitely worth it.
+Touch Typing My interest in touch typing in I decided to digitize my notes for posterity, during the last two years of my undergraduate studies back in Harcourt Butler Technical Institute (HBTI) Kanpur, India.</description>
+    </item>
+    
+    <item>
+      <title>Bojack Horseman</title>
+      <link>https://rgoswami.me/posts/bojack-horseman/</link>
+      <pubDate>Thu, 27 Feb 2020 22:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/bojack-horseman/</guid>
+      <description>Background For a while I was worried about writing about a TV show here. I thought it might be frivolous, or worse, might outweigh the other kinds of articles I would like to write. However, like most things, that which is ignored just grows, so it is easier to just write and forget about it.
+The Show Much has been said about how Bojack Horseman is one of the best shows ever, and they&amp;rsquo;re all correct.</description>
+    </item>
+    
+    <item>
+      <title>ISLR :: Moving Beyond Linearity</title>
+      <link>https://rgoswami.me/posts/islr-ch7/</link>
+      <pubDate>Wed, 19 Feb 2020 09:47:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/islr-ch7/</guid>
+      <description>Chapter VII - Moving Beyond Linearity All the questions are as per the ISL seventh printing.
+Common libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;tidyverse&amp;#34;, &amp;#34;ISLR&amp;#34;,&amp;#34;caret&amp;#34;,&amp;#34;MASS&amp;#34;, &amp;#34;gridExtra&amp;#34;, &amp;#34;pls&amp;#34;,&amp;#34;latex2exp&amp;#34;,&amp;#34;data.table&amp;#34;) invisible(lapply(libsUsed, library, character.only = TRUE))## ## Attaching package: &amp;#39;dplyr&amp;#39;## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──## ✔ tibble 2.1.3 ✔ purrr 0.3.3 ## ✔ tidyr 1.</description>
+    </item>
+    
+    <item>
+      <title>ISLR :: Linear Model Selection and Regularization</title>
+      <link>https://rgoswami.me/posts/islr-ch6/</link>
+      <pubDate>Wed, 19 Feb 2020 07:00:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/islr-ch6/</guid>
+      <description>Chapter VI - Linear Model Selection and Regularization All the questions are as per the ISL seventh printing1.
+Common Instead of using the standard functions, we will leverage the mlr3 package2.
+#install.packages(&amp;#34;mlr3&amp;#34;,&amp;#34;data.table&amp;#34;,&amp;#34;mlr3viz&amp;#34;,&amp;#34;mlr3learners&amp;#34;) Actually for R version 3.6.2, the steps to get it working were a bit more involved.
+Load ISLR and other libraries.
+libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;tidyverse&amp;#34;, &amp;#34;ISLR&amp;#34;,&amp;#34;caret&amp;#34;,&amp;#34;MASS&amp;#34;, &amp;#34;gridExtra&amp;#34;, &amp;#34;pls&amp;#34;,&amp;#34;latex2exp&amp;#34;,&amp;#34;data.table&amp;#34;) invisible(lapply(libsUsed, library, character.only = TRUE))## ## Attaching package: &amp;#39;dplyr&amp;#39;## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union## ── Attaching packages ─────────────────────────────────────── tidyverse 1.</description>
+    </item>
+    
+    <item>
+      <title>ISLR :: Resampling Methods</title>
+      <link>https://rgoswami.me/posts/islr-ch5/</link>
+      <pubDate>Tue, 18 Feb 2020 22:00:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/islr-ch5/</guid>
+      <description>Chapter V - Resampling Methods All the questions are as per the ISL seventh printing1.
+Common Instead of using the standard functions, we will leverage the mlr3 package2.
+#install.packages(&amp;#34;mlr3&amp;#34;,&amp;#34;data.table&amp;#34;,&amp;#34;mlr3viz&amp;#34;,&amp;#34;mlr3learners&amp;#34;) Actually for R version 3.6.2, the steps to get it working were a bit more involved.
+install.packages(&amp;#34;remotes&amp;#34;,&amp;#34;data.table&amp;#34;, &amp;#34;GGally&amp;#34;,&amp;#34;precerec&amp;#34;) # For plotslibrary(remotes) remotes::install_github(&amp;#34;mlr-org/mlr3&amp;#34;)## Skipping install of &amp;#39;mlr3&amp;#39; from a github remote, the SHA1 (fca21c10) has not changed since last install. ## Use `force = TRUE` to force installationremotes::install_github(&amp;#34;mlr-org/mlr3viz&amp;#34;)## Skipping install of &amp;#39;mlr3viz&amp;#39; from a github remote, the SHA1 (0b4ea273) has not changed since last install.</description>
+    </item>
+    
+    <item>
+      <title>ISLR :: Classification</title>
+      <link>https://rgoswami.me/posts/islr-ch4/</link>
+      <pubDate>Mon, 17 Feb 2020 15:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/islr-ch4/</guid>
+      <description>Chapter IV - Classification All the questions are as per the ISL seventh printing&amp;nbsp;1.
+Common Stuff Here I&amp;rsquo;ll load things I will be using throughout, mostly libraries.
+libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;tidyverse&amp;#34;,&amp;#34;ISLR&amp;#34;,&amp;#34;caret&amp;#34;) invisible(lapply(libsUsed, library, character.only = TRUE))# # Attaching package: &amp;#39;dplyr&amp;#39;# The following objects are masked from &amp;#39;package:stats&amp;#39;: # # filter, lag# The following objects are masked from &amp;#39;package:base&amp;#39;: # # intersect, setdiff, setequal, union# ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──# ✔ tibble 2.</description>
+    </item>
+    
+    <item>
+      <title>Pandora and Proxychains</title>
+      <link>https://rgoswami.me/posts/pandora-proxychains/</link>
+      <pubDate>Sat, 15 Feb 2020 05:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/pandora-proxychains/</guid>
+      <description>Background  Pandora doesn&amp;rsquo;t work outside the states I keep forgetting how to set-up proxychains  Proxychains Technically this article expects proxychains-ng, which seems to be the more up-to-date fork of the original proxychains.
+ Install proxychains-ng
+# I am on archlinux.. sudo pacman -S proxychains-ng Copy the configuration to the $HOME directory
+cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
+  In my particular case, I don&amp;rsquo;t keep the tor section enabled.</description>
+    </item>
+    
+    <item>
+      <title>Replacing Jupyter with Orgmode</title>
+      <link>https://rgoswami.me/posts/jupyter-orgmode/</link>
+      <pubDate>Thu, 13 Feb 2020 22:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/jupyter-orgmode/</guid>
+      <description>Background  I dislike Jupyter notebooks (and JupyterHub) a lot EIN is really not much of a solution either  In the past I have written some posts on TeX with JupyterHub and discussed ways to use virtual Python with JupyterHub in a more reasonable manner.
+However, I personally found that EIN was a huge pain to work with, and I mostly ended up working with the web-interface anyway.</description>
+    </item>
+    
+    <item>
+      <title>Poetry and Direnv</title>
+      <link>https://rgoswami.me/posts/poetry-direnv/</link>
+      <pubDate>Thu, 13 Feb 2020 21:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
+      <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
+Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
+    </item>
+    
+    <item>
+      <title>Taming Github Notifications</title>
+      <link>https://rgoswami.me/posts/ghnotif/</link>
+      <pubDate>Wed, 12 Feb 2020 11:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/ghnotif/</guid>
+      <description>Background As a member of several large organizations, I get a lot of github notifications. Not all of these are of relevance to me. This is especially true of psuedo-monorepo style repositories like the JOSS review system and especially the exercism community.
+ I recently (re-)joined the exercism community as a maintainer for the C++ lessons after having been a (sporadic) teacher This was largely in response to a community call to action as the group needed new blood to usher in v3 of the exercism project  Anyway, I have since found that at the small cost of possibly much of my public repo data, I can manage my notifications better with Octobox</description>
+    </item>
+    
+    <item>
+      <title>Site Rationale</title>
+      <link>https://rgoswami.me/posts/rationale/</link>
+      <pubDate>Tue, 11 Feb 2020 23:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/rationale/</guid>
+      <description> Why this site exists I have a lot of online presences. I have been around (or at-least, lurking) for over ten years. Almost as long as I have been programming. Anyway, I have a penchant lately for using emacs and honestly there isn&amp;rsquo;t very good support for org-mode files. There are options recently with gatsby as well, but this seemed kinda neat.
+What &amp;lsquo;this&amp;rsquo; is  This site is built by Hugo The posts are generated with ox-hugo The theme is based of this excellent one by Djordje Atlialp, which in turn is based off of this theme by panr  My modifications are here   What is here  Mostly random thoughts I don&amp;rsquo;t mind people knowing Some tech stuff which isn&amp;rsquo;t coherent enough to be put in any form with references Emacs specific workflows which I might want to write about more than short notes on the config  What isn&amp;rsquo;t here  Some collections should and will go to my grimoire My doom-emacs configuration Academic stuff is better tracked on Publons or Google Scholar or my pages hosted by my favorite IITK group or UI group  </description>
+    </item>
+    
+    <item>
+      <title>ISLR :: Multiple Linear Regression</title>
+      <link>https://rgoswami.me/posts/islr-ch2-ch3/</link>
+      <pubDate>Wed, 15 Jan 2020 05:28:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/islr-ch2-ch3/</guid>
+      <description>Chapter II - Statistical Learning All the questions are as per the ISL seventh printing&amp;nbsp;1.
+Question 2.8 - Pages 54-55 This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for \(777\) different universities and colleges in the US. The variables are
+ Private : Public/private indicator Apps : Number of applications received Accept : Number of applicants accepted Enroll : Number of new students enrolled Top10perc : New students from top 10 % of high school class Top25perc : New students from top 25 % of high school class F.</description>
+    </item>
+    
   </channel>
 </rss>

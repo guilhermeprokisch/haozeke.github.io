@@ -113,5 +113,25 @@ cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
 However, I personally found that EIN was a huge pain to work with, and I mostly ended up working with the web-interface anyway.</description>
     </item>
     
+    <item>
+      <title>Poetry and Direnv</title>
+      <link>https://rgoswami.me/posts/poetry-direnv/</link>
+      <pubDate>Thu, 13 Feb 2020 21:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/poetry-direnv/</guid>
+      <description>Background  I end up writing about using poetry a lot I almost always use direnv in real life too I don&amp;rsquo;t keep writing mini scripts in my .envrc  Honestly there&amp;rsquo;s nothing here anyone using the direnv wiki will find surprising, but then it is still neat to link back to.
+Setting Up Poetry This essentially works by simply modifying the global .direnvrc which essentially gets sourced by every local .</description>
+    </item>
+    
+    <item>
+      <title>Taming Github Notifications</title>
+      <link>https://rgoswami.me/posts/ghnotif/</link>
+      <pubDate>Wed, 12 Feb 2020 11:36:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/ghnotif/</guid>
+      <description>Background As a member of several large organizations, I get a lot of github notifications. Not all of these are of relevance to me. This is especially true of psuedo-monorepo style repositories like the JOSS review system and especially the exercism community.
+ I recently (re-)joined the exercism community as a maintainer for the C++ lessons after having been a (sporadic) teacher This was largely in response to a community call to action as the group needed new blood to usher in v3 of the exercism project  Anyway, I have since found that at the small cost of possibly much of my public repo data, I can manage my notifications better with Octobox</description>
+    </item>
+    
   </channel>
 </rss>
