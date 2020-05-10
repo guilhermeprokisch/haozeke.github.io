@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sat, 02 May 2020 20:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 15:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An Orgmode Note Workflow</title>
+      <link>https://rgoswami.me/posts/org-note-workflow/</link>
+      <pubDate>Sun, 10 May 2020 15:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/org-note-workflow/</guid>
+      <description>Background One of the main reasons to use orgmode is definitely to get a better note taking workflow. Closely related to blogging or writing, the ideal note workflow is one which lets you keep a bunch of throwaway ideas and also somehow have access to them in a coherent manner. This will be a long post, and it is a work-in-progress, so, keep that in mind. Since this is mainly me1 work-shopping my technique, the philosophy will come in a later post probably.</description>
+    </item>
     
     <item>
       <title>Refactoring Dotfiles For Colemak</title>
@@ -103,15 +112,6 @@ I will however discuss why and how I transitioned to using the awesome Goat Coun
       <guid>https://rgoswami.me/posts/trees-and-bags/</guid>
       <description>Explain why using bagging for prediction trees generally improves predictions over regular prediction trees.
  Introduction Bagging (or Bootstrap Aggregation) is one of the most commonly used ensemble method for improving the prediction of trees. We will broadly follow a historical development trend to understand the process. That is, we will begin by considering the Bootstrap method. This in turn requires knowledge of the Jacknife method, which is understandable from a simple bias variance perspective.</description>
-    </item>
-    
-    <item>
-      <title>Everyone Should Get an A - David MacKay</title>
-      <link>https://rgoswami.me/posts/mackay-all-a/</link>
-      <pubDate>Mon, 16 Mar 2020 02:24:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/mackay-all-a/</guid>
-      <description>Background  I recently read this post written by the now deceased Prof. David MacKay&amp;nbsp;1 It should be read widely, however, given that it is distributed as a ps.gz which is then a .ps file, and thus probably inaccessible to many of the people who should read it, I decided to rework it for native online consumption (there is also a pdf) THIS IS NOT MY CONTENT&amp;nbsp;2 Now, enjoy the post  Everyone Should Get an A Imagine a University – call it Camwick – where all students arrive with straight A grades.</description>
     </item>
     
   </channel>

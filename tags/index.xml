@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sat, 02 May 2020 20:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 15:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>explanations</title>
+      <link>https://rgoswami.me/tags/explanations/</link>
+      <pubDate>Sun, 10 May 2020 15:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/explanations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ramblings</title>
+      <link>https://rgoswami.me/tags/ramblings/</link>
+      <pubDate>Sun, 10 May 2020 15:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/ramblings/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>workflow</title>
@@ -81,24 +99,6 @@
       <pubDate>Thu, 09 Apr 2020 17:17:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/rationale/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>math</title>
-      <link>https://rgoswami.me/tags/math/</link>
-      <pubDate>Thu, 26 Mar 2020 00:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>statistics</title>
-      <link>https://rgoswami.me/tags/statistics/</link>
-      <pubDate>Thu, 26 Mar 2020 00:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/statistics/</guid>
       <description></description>
     </item>
     

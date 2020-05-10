@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="[Rohit Goswami]">
+<meta name="description" content="Background One of the main reasons to use orgmode is definitely to get a better note taking workflow. Closely related to blogging or writing, the ideal note workflow is one which lets you keep a bunch of throwaway ideas and also somehow have access to them in a coherent manner. This will be a long post, and it is a work-in-progress, so, keep that in mind. Since this is mainly me1 work-shopping my technique, the philosophy will come in a later post probably." />
+<meta name="keywords" content=", ramblings, explanations" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://rgoswami.me/posts/org-note-workflow/" />
+
+
+<title>
+    
+    An Orgmode Note Workflow :: Rohit Goswami  — Reflections
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+      type="text/css">
+
+
+
+<link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+
+
+
+
+<meta itemprop="name" content="An Orgmode Note Workflow">
+<meta itemprop="description" content="Background One of the main reasons to use orgmode is definitely to get a better note taking workflow. Closely related to blogging or writing, the ideal note workflow is one which lets you keep a bunch of throwaway ideas and also somehow have access to them in a coherent manner. This will be a long post, and it is a work-in-progress, so, keep that in mind. Since this is mainly me1 work-shopping my technique, the philosophy will come in a later post probably.">
+
+
+<meta itemprop="datePublished" content="2020-05-10T15:01:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-10T15:01:00&#43;00:00" />
+<meta itemprop="wordCount" content="2055">
+
+
+
+<meta itemprop="keywords" content="ramblings,explanations," />
+<meta property="og:title" content="An Orgmode Note Workflow" />
+<meta property="og:description" content="Background One of the main reasons to use orgmode is definitely to get a better note taking workflow. Closely related to blogging or writing, the ideal note workflow is one which lets you keep a bunch of throwaway ideas and also somehow have access to them in a coherent manner. This will be a long post, and it is a work-in-progress, so, keep that in mind. Since this is mainly me1 work-shopping my technique, the philosophy will come in a later post probably." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rgoswami.me/posts/org-note-workflow/" />
+
+<meta property="og:image" content="https://rgoswami.me" />
+<meta property="article:published_time" content="2020-05-10T15:01:00+00:00" />
+<meta property="article:modified_time" content="2020-05-10T15:01:00+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://rgoswami.me"/>
+
+<meta name="twitter:title" content="An Orgmode Note Workflow"/>
+<meta name="twitter:description" content="Background One of the main reasons to use orgmode is definitely to get a better note taking workflow. Closely related to blogging or writing, the ideal note workflow is one which lets you keep a bunch of throwaway ideas and also somehow have access to them in a coherent manner. This will be a long post, and it is a work-in-progress, so, keep that in mind. Since this is mainly me1 work-shopping my technique, the philosophy will come in a later post probably."/>
+
+
+
+    <meta property="article:section" content="notes" />
+
+
+
+    <meta property="article:published_time" content="2020-05-10 15:01:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <div class="header__inner">
+            <div class="logo">
+<a href="https://rgoswami.me/" style="text-decoration: none;">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">~/haozeke/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+</a>
+    </div>
+
+
+        
+        <div class="button">
+            <div class="button__text">
+        <a href="https://rgoswami.me/search" >
+                Search
+        </a>
+            </div>
+        </div>
+       
+
+        <div class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://rgoswami.me/about">About</a></li><li><a href="https://rgoswami.me/posts">Blog</a></li>
+    </ul>
+    <ul class="menu__inner"><li><a href="https://rgoswami.me/categories">Categories</a></li><li><a href="https://rgoswami.me/tags">Tags</a></li>
+    </ul>
+</nav>
+
+                <div class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </div>
+            
+
+            <div class="theme-toggle unselectable"><svg class="theme-toggler" width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</div>
+        </div>
+    </div>
+</header>
+
+            
+<script src="https://rgoswami.me/js/mathjax-config.js"></script>
+
+
+<script id="MathJax-script" async src="https://unpkg.com/mathjax@3/es5/tex-chtml.js"></script>
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>10 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://rgoswami.me/posts/org-note-workflow/">An Orgmode Note Workflow</a>
+            </h1>
+                <hr />
+                <aside id="toc">
+                <div class="toc-title">Table of Contents</div>
+                    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#concept">Concept</a>
+<ul>
+<li><a href="#reference-management">Reference Management</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#basic-variables">Basic Variables</a></li>
+</ul></li>
+<li><a href="#search">Search</a></li>
+<li><a href="#bibliography">Bibliography</a>
+<ul>
+<li><a href="#zotero">Zotero</a></li>
+</ul></li>
+<li><a href="#helm-bibtex">Helm-Bibtex</a>
+<ul>
+<li><a href="#explanation">Explanation</a></li>
+</ul></li>
+<li><a href="#org-ref">Org-Ref</a>
+<ul>
+<li><a href="#explanation-1">Explanation</a></li>
+</ul></li>
+<li><a href="#indexing-notes">Indexing Notes</a>
+<ul>
+<li><a href="#org-roam">Org-Roam</a></li>
+<li><a href="#org-roam-bibtex">Org-Roam-Bibtex</a></li>
+</ul></li>
+<li><a href="#org-noter">Org Noter</a></li>
+<li><a href="#org-protocol">Org-Protocol</a>
+<ul>
+<li><a href="#templates">Templates</a></li>
+</ul></li>
+<li><a href="#conclusions">Conclusions</a></li>
+</ul></li>
+</ul>
+</nav>
+                </aside>
+                <hr />
+
+            
+
+            <div class="post-content">
+                
+
+<h2 id="background">Background</h2>
+
+<p>One of the main reasons to use <code>orgmode</code> is definitely to get a better note
+taking workflow. Closely related to blogging or writing, the ideal note workflow
+is one which lets you keep a bunch of throwaway ideas and also somehow have
+access to them in a coherent manner. This will be a long post, and it is a
+work-in-progress, so, keep that in mind. Since this is mainly me<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>
+work-shopping my technique, the philosophy will come in a later post probably.
+This workflow is documented more sparsely in my <a href="https://dotdoom.rgoswami.me/config.html#text-3" target="_blank">config file here</a>, in the
+<code>noteYoda</code> section<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup>. Some parts of this post also include mini video
+clips for clarity<sup class="footnote-ref" id="fnref:fn-3"><a href="#fn:fn-3">3</a></sup>.</p>
+
+<p>The entire workflow will end up being something like this:</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/UWB6ZABRVq0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h2 id="concept">Concept</h2>
+
+<p>While working through ideas, it actually was more useful to describe the
+workflow I want, and then implement it, instead of relying on the canned
+approaches of each package. So the basics of the ideology are listed below.</p>
+
+<h3 id="reference-management">Reference Management</h3>
+
+<p>Reference management is one of the main reasons to consider a plain-text setup, and mine is no different. The options most commonly seen are:</p>
+
+<dl>
+<dt>Mendeley</dt>
+<dd>This is a great option, and the most mobile friendly of the bunch. Sadly, the price tiers aren&rsquo;t very friendly so I have to give it a hard pass.</dd>
+<dt>Jabref</dt>
+<dd>This is fun, but really more of a per-project management system, but it works well for that. The fact that it is Java based was a major issue for me.</dd>
+<dt>Zotero</dt>
+<dd>This is what I personally use and recommend. More on that in a later post.</dd>
+</dl>
+
+<h3 id="notes">Notes</h3>
+
+<p>The idea is to be able to create notes for all kinds of content. Specifically,
+papers or books, along with webpages. This then requires a separate system for
+each which is described by:</p>
+
+<dl>
+<dt>Search Engine</dt>
+<dd>The search engine is key, both in terms of accessibility and scalability. It is assumed that there will be many notes, and that they will have a wide variety of content. The search interface must then simply allow us to narrow down our candidates in a meaningful manner.</dd>
+<dt>Contextual Representation</dt>
+<dd>This aspect of the workflow deals with representations, which should transcend the usage of tags or categories. In particular, it would be nice to be able to visualize the flow of ideas, each represented by a note.</dd>
+<dt>Backlinks</dt>
+<dd>In particular, by backlinks at this point we are referring to the ability to link to a <code>pdf</code> or a website with a unique key such that notes can be added or removed at will.</dd>
+<dt>Storage</dt>
+<dd>Not actually part of the workflow in the same way, since it will be handled at the system level, it is worth nothing, that in this workflow Zotero is used to export a master <strong>bib</strong> file and keeps it updated, while the notes themselves are version controlled<sup class="footnote-ref" id="fnref:fn-4"><a href="#fn:fn-4">4</a></sup>.</dd>
+</dl>
+
+<p>The concepts above will be handled by the following packages.</p>
+
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Package</th>
+<th>Note</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Search</td>
+<td>deft</td>
+<td>Has a great interface</td>
+</tr>
+
+<tr>
+<td>Context</td>
+<td>org-roam</td>
+<td>Allows the export of graphiz mindmaps</td>
+</tr>
+
+<tr>
+<td>Backlinks</td>
+<td>org-roam, org-ref, org-noter</td>
+<td>Covers websites, bibliographies, and pdfs respectively</td>
+</tr>
+</tbody>
+</table>
+
+<p>A key component in this workflow is actually facilitated by the fabulous
+<code>org-roam-bibtex</code> <a href="https://github.com/Zaeph/org-roam-bibtex" target="_blank">or ORB</a>. The basic idea is to ensure meaningful templates which
+interpolate smoothly with <code>org-roam</code>, <code>org-ref</code>, <code>helm-bibtex</code>, and
+<code>org-capture</code>.</p>
+
+<h3 id="basic-variables">Basic Variables</h3>
+
+<p>Given the packages we will be using, some variable settings are in order, namely:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq
+   org_notes (<span style="color:#a6e22e">concat</span> (getenv <span style="color:#e6db74">&#34;HOME&#34;</span>) <span style="color:#e6db74">&#34;/Git/Gitlab/Mine/Notes/&#34;</span>)
+   zot_bib (<span style="color:#a6e22e">concat</span> (getenv <span style="color:#e6db74">&#34;HOME&#34;</span>) <span style="color:#e6db74">&#34;/GDrive/zotLib.bib&#34;</span>)
+   org-directory org_notes
+   deft-directory org_notes
+   org-roam-directory org_notes
+   )</code></pre></div>
+<h2 id="search">Search</h2>
+
+<p>For the search setup, the <code>doom-emacs</code> <code>deft</code> setup, by adding <code>+deft</code> in my
+<code>init.el</code>, worked out of the box for me. For those who do not use
+<code>doom</code><sup class="footnote-ref" id="fnref:fn-5"><a href="#fn:fn-5">5</a></sup>, the following should suffice:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package deft
+  :commands deft
+  :init
+  (setq deft-default-extension <span style="color:#e6db74">&#34;org&#34;</span>
+        <span style="color:#75715e">;; de-couples filename and note title:</span>
+        deft-use-filename-as-title <span style="color:#66d9ef">nil</span>
+        deft-use-filter-string-for-filename <span style="color:#66d9ef">t</span>
+        <span style="color:#75715e">;; disable auto-save</span>
+        deft-auto-save-interval <span style="color:#ae81ff">-1.0</span>
+        <span style="color:#75715e">;; converts the filter string into a readable file-name using kebab-case:</span>
+        deft-file-naming-rules
+        <span style="color:#f92672">&#39;</span>((noslash <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;-&#34;</span>)
+          (nospace <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;-&#34;</span>)
+          (case-fn <span style="color:#f92672">.</span> <span style="color:#a6e22e">downcase</span>)))
+  :config
+  (add-to-list <span style="color:#e6db74">&#39;deft-extensions</span> <span style="color:#e6db74">&#34;tex&#34;</span>)
+  )</code></pre></div>
+<p>For more about the <code>doom-emacs</code> defaults, check <a href="https://github.com/hlissner/doom-emacs/search?q=deft&amp;unscoped%5Fq=deft" target="_blank">the Github repo</a>. The other
+aspect of interacting with the notes is via the <code>org-roam</code> interface and will be
+covered below.</p>
+
+<h2 id="bibliography">Bibliography</h2>
+
+<p>Since I will be using <code>org-ref</code>, it makes no sense to load or work with the
+<code>+biblio</code> module at the moment. Thus this section is actually <code>doom</code> agnostic.
+The basic tools of bibliographic management from the <code>emacs</code> end are the
+venerable <code>helm-bibtex</code> (<a href="https://github.com/tmalsburg/helm-bibtex" target="_blank">repo here</a>) and <code>org-ref</code> (<a href="https://github.com/jkitchin/org-ref/" target="_blank">repo here</a>). In order to make
+this guide complete, I will also describe the <a href="https://www.zotero.org/" target="_blank">Zotero</a> settings I have.</p>
+
+<h3 id="zotero">Zotero</h3>
+
+<p>Without getting too deep into the weeds here, the basic requirements are:</p>
+
+<ul>
+<li><a href="https://zotero.org" target="_blank">Zotero</a></li>
+<li>The <a href="https://retorque.re/zotero-better-bibtex/" target="_blank">better bibtex extension</a></li>
+</ul>
+
+<p>The idea is to then have one top level <code>.bib</code> file in some handy location which
+you will set up to sync automatically. To make life easier, there is a tiny
+recording of the next steps.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/iDRpIo7mcKE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h2 id="helm-bibtex">Helm-Bibtex</h2>
+
+<p>This <a href="https://github.com/tmalsburg/helm-bibtex" target="_blank">venerable package</a> is really good at interfacing with a variety of
+externally formatted bibliographic managers.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq
+ bibtex-completion-notes-path <span style="color:#e6db74">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/&#34;</span>
+ bibtex-completion-bibliography <span style="color:#e6db74">&#34;/home/haozeke/GDrive/zotLib.bib&#34;</span>
+ bibtex-completion-pdf-field <span style="color:#e6db74">&#34;file&#34;</span>
+ bibtex-completion-notes-template-multiple-files
+ (<span style="color:#a6e22e">concat</span>
+  <span style="color:#e6db74">&#34;#+TITLE: ${title}\n&#34;</span>
+  <span style="color:#e6db74">&#34;#+ROAM_KEY: cite:${=key=}\n&#34;</span>
+  <span style="color:#e6db74">&#34;* TODO Notes\n&#34;</span>
+  <span style="color:#e6db74">&#34;:PROPERTIES:\n&#34;</span>
+  <span style="color:#e6db74">&#34;:Custom_ID: ${=key=}\n&#34;</span>
+  <span style="color:#e6db74">&#34;:NOTER_DOCUMENT: %(orb-process-file-field \&#34;${=key=}\&#34;)\n&#34;</span>
+  <span style="color:#e6db74">&#34;:AUTHOR: ${author-abbrev}\n&#34;</span>
+  <span style="color:#e6db74">&#34;:JOURNAL: ${journaltitle}\n&#34;</span>
+  <span style="color:#e6db74">&#34;:DATE: ${date}\n&#34;</span>
+  <span style="color:#e6db74">&#34;:YEAR: ${year}\n&#34;</span>
+  <span style="color:#e6db74">&#34;:DOI: ${doi}\n&#34;</span>
+  <span style="color:#e6db74">&#34;:URL: ${url}\n&#34;</span>
+  <span style="color:#e6db74">&#34;:END:\n\n&#34;</span>
+  )
+ )</code></pre></div>
+<p><code>doom-emacs</code> users like me might want to wrap the above in a nice <code>after!
+org-ref</code> expression, but it doesn&rsquo;t really matter.</p>
+
+<h3 id="explanation">Explanation</h3>
+
+<p>To break-down aspects of the configuration snippet above:</p>
+
+<ul>
+<li>The template includes the <code>orb-process-file-field</code> function to allow selecting the <code>pdf</code> to be used with <code>org-noter</code></li>
+<li>The <code>file</code> field is specified to work with the <code>.bib</code> file generated by Zotero</li>
+<li><code>helm-bibtex</code> allows for any of the keys in a <code>.bib</code> file to be used in a template, and an overly expressive one is more useful</li>
+<li>The <code>ROAM_KEY</code> is defined to ensure that cite backlinks work correctly with <code>org-roam</code></li>
+<li>As I prefer to have one notes file per <code>pdf</code>, I have only configured the <code>bibtex-completion-notes-template-multiple-files</code> variable</li>
+</ul>
+
+<h2 id="org-ref">Org-Ref</h2>
+
+<p>As discussed above, this just makes citations much more meaningful in <code>orgmode</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package org-ref
+    :config
+    (setq
+         org-ref-completion-library <span style="color:#e6db74">&#39;org-ref-ivy-cite</span>
+         org-ref-get-pdf-filename-function <span style="color:#e6db74">&#39;org-ref-get-pdf-filename-helm-bibtex</span>
+         org-ref-default-bibliography (<span style="color:#a6e22e">list</span> <span style="color:#e6db74">&#34;/home/haozeke/GDrive/zotLib.bib&#34;</span>)
+         org-ref-bibliography-notes <span style="color:#e6db74">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/bibnotes.org&#34;</span>
+         org-ref-note-title-format <span style="color:#e6db74">&#34;* TODO %y - %t\n :PROPERTIES:\n  :Custom_ID: %k\n  :NOTER_DOCUMENT: %F\n :ROAM_KEY: cite:%k\n  :AUTHOR: %9a\n  :JOURNAL: %j\n  :YEAR: %y\n  :VOLUME: %v\n  :PAGES: %p\n  :DOI: %D\n  :URL: %U\n :END:\n\n&#34;</span>
+         org-ref-notes-directory <span style="color:#e6db74">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/&#34;</span>
+         org-ref-notes-function <span style="color:#e6db74">&#39;org-ref-notes-function-many-files</span>
+    ))</code></pre></div>
+<p>An essential aspect of this configuration is just that most of heavy lifting in
+terms of the notes are palmed off to <code>helm-bibtex</code>.</p>
+
+<h3 id="explanation-1">Explanation</h3>
+
+<p>To break-down aspects of the configuration snippet above:</p>
+
+<ul>
+<li>The <code>org-ref-get-pdf-filename-function</code> simply uses the <code>helm-bibtex</code> settings to find the <code>pdf</code></li>
+<li>The default bibliography and notes directory are set to the same location as all the <code>org-roam</code> files, to encourage a flat hierarchy</li>
+<li>The <code>org-ref-notes-function</code> simply ensures that, like the <code>helm-bibtex</code> settings, I expect one file per <code>pdf</code></li>
+</ul>
+
+<p>Note that for some reason,
+the format specifiers for <code>org-ref</code> are <strong>not</strong> the keys in <code>.bib</code> but are
+instead, the following<sup class="footnote-ref" id="fnref:fn-6"><a href="#fn:fn-6">6</a></sup>:</p>
+
+<blockquote>
+<p>In the format, the following percent escapes will be expanded.
+%l   The BibTeX label of the citation.
+%a   List of author names, see also `reftex-cite-punctuation&rsquo;.
+%2a  Like %a, but abbreviate more than 2 authors like Jones et al.
+%A   First author name only.
+%e   Works like %a, but on list of editor names.  (%2e and %E work as well)
+It is also possible to access all other BibTeX database fields:
+%b booktitle     %c chapter        %d edition    %h howpublished
+%i institution   %j journal        %k key        %m month
+%n number        %o organization   %p pages      %P first page
+%r address       %s school         %u publisher  %t title
+%v volume        %y year
+%B booktitle, abbreviated          %T title, abbreviated
+%U url
+%D doi
+%S series        %N note
+%f pdf filename
+%F absolute pdf filename
+Usually, only %l is needed.  The other stuff is mainly for the echo area
+display, and for (setq reftex-comment-citations t).
+%&lt; as a special operator kills punctuation and space around it after the
+string has been formatted.
+A pair of square brackets indicates an optional argument, and RefTeX
+will prompt for the values of these arguments.</p>
+</blockquote>
+
+<h2 id="indexing-notes">Indexing Notes</h2>
+
+<p>This part of the workflow builds on the concepts best known as <a href="https://www.zettelkasten.de/" target="_blank">Zettelkasten method</a>. More details about the philosophy behind <code>org-roam</code> is <a href="https://org-roam.readthedocs.io/en/latest/" target="_blank">here</a>.</p>
+
+<h3 id="org-roam">Org-Roam</h3>
+
+<p>The first part of this interface is essentially just the <code>doom-emacs</code>
+configuration, adapted for those who don&rsquo;t believe in the dark side below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package org-roam
+  :hook (org-load <span style="color:#f92672">.</span> org-roam-mode)
+  :commands (org-roam-buffer-toggle-display
+             org-roam-find-file
+             org-roam-graph
+             org-roam-insert
+             org-roam-switch-to-buffer
+             org-roam-dailies-date
+             org-roam-dailies-today
+             org-roam-dailies-tomorrow
+             org-roam-dailies-yesterday)
+  :preface
+  <span style="color:#75715e">;; Set this to nil so we can later detect whether the user has set a custom</span>
+  <span style="color:#75715e">;; directory for it, and default to `org-directory&#39; if they haven&#39;t.</span>
+  (defvar org-roam-directory <span style="color:#66d9ef">nil</span>)
+  :init
+  :config
+  (setq org-roam-directory (<span style="color:#a6e22e">expand-file-name</span> (or org-roam-directory <span style="color:#e6db74">&#34;roam&#34;</span>)
+                                             org-directory)
+        org-roam-verbose <span style="color:#66d9ef">nil</span>  <span style="color:#75715e">; https://youtu.be/fn4jIlFwuLU</span>
+        org-roam-buffer-no-delete-other-windows <span style="color:#66d9ef">t</span> <span style="color:#75715e">; make org-roam buffer sticky</span>
+        org-roam-completion-system <span style="color:#e6db74">&#39;default</span>
+
+  <span style="color:#75715e">;; Normally, the org-roam buffer doesn&#39;t open until you explicitly call</span>
+  <span style="color:#75715e">;; `org-roam&#39;. If `+org-roam-open-buffer-on-find-file&#39; is non-nil, the</span>
+  <span style="color:#75715e">;; org-roam buffer will be opened for you when you use `org-roam-find-file&#39;</span>
+  <span style="color:#75715e">;; (but not `find-file&#39;, to limit the scope of this behavior).</span>
+  (add-hook! <span style="color:#e6db74">&#39;find-file-hook</span>
+    (defun +org-roam-open-buffer-maybe-h ()
+      (and +org-roam-open-buffer-on-find-file
+           (<span style="color:#a6e22e">memq</span> <span style="color:#e6db74">&#39;org-roam-buffer--update-maybe</span> post-command-hook)
+           (not (<span style="color:#a6e22e">window-parameter</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;window-side</span>)) <span style="color:#75715e">; don&#39;t proc for popups</span>
+           (not (<span style="color:#a6e22e">eq</span> <span style="color:#e6db74">&#39;visible</span> (org-roam-buffer--visibility)))
+           (with-current-buffer (<span style="color:#a6e22e">window-buffer</span>)
+             (org-roam-buffer--get-create)))))
+
+  <span style="color:#75715e">;; Hide the mode line in the org-roam buffer, since it serves no purpose. This</span>
+  <span style="color:#75715e">;; makes it easier to distinguish among other org buffers.</span>
+  (add-hook <span style="color:#e6db74">&#39;org-roam-buffer-prepare-hook</span> <span style="color:#a6e22e">#&#39;</span>hide-mode-line-mode))
+
+
+<span style="color:#75715e">;; Since the org module lazy loads org-protocol (waits until an org URL is</span>
+<span style="color:#75715e">;; detected), we can safely chain `org-roam-protocol&#39; to it.</span>
+(use-package org-roam-protocol
+  :after org-protocol)
+
+
+(use-package company-org-roam
+  :after org-roam
+  :config
+  (set-company-backend! <span style="color:#e6db74">&#39;org-mode</span> <span style="color:#f92672">&#39;</span>(company-org-roam company-yasnippet company-dabbrev)))</code></pre></div>
+<p>Once again, for more details, check the <a href="https://github.com/hlissner/doom-emacs/search?q=roam&amp;unscoped%5Fq=roam" target="_blank">Github repo</a>.</p>
+
+<h3 id="org-roam-bibtex">Org-Roam-Bibtex</h3>
+
+<p>The configuration required is:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"> (use-package org-roam-bibtex
+  :after (org-roam)
+  :hook (org-roam-mode <span style="color:#f92672">.</span> org-roam-bibtex-mode)
+  :config
+  (add-hook! <span style="color:#e6db74">&#39;org-mode</span> (org-roam-bibtex-mode <span style="color:#66d9ef">t</span>))
+  (setq org-roam-bibtex-preformat-keywords
+   <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;=key=&#34;</span> <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#e6db74">&#34;file&#34;</span> <span style="color:#e6db74">&#34;author-or-editor&#34;</span> <span style="color:#e6db74">&#34;keywords&#34;</span>))
+  (setq orb-templates
+        <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;r&#34;</span> <span style="color:#e6db74">&#34;ref&#34;</span> plain (function org-roam-capture--get-point)
+           <span style="color:#e6db74">&#34;&#34;</span>
+           :file-name <span style="color:#e6db74">&#34;${slug}&#34;</span>
+           :head <span style="color:#e6db74">&#34;#+TITLE: ${=key=}: ${title}\n#+ROAM_KEY: ${ref}
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">- tags ::
+</span><span style="color:#e6db74">- keywords :: ${keywords}
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">\n* ${title}\n  :PROPERTIES:\n  :Custom_ID: ${=key=}\n  :URL: ${url}\n  :AUTHOR: ${author-or-editor}\n  :NOTER_DOCUMENT: %(orb-process-file-field \&#34;${=key=}\&#34;)\n  :NOTER_PAGE: \n  :END:\n\n&#34;</span>
+
+           :unnarrowed <span style="color:#66d9ef">t</span>))))</code></pre></div>
+<p>Where most of the configuration is essentially the template again. Like <code>helm-bibtex</code>, ORB allows taking arbitrary keys from the <code>.bib</code> file.</p>
+
+<h2 id="org-noter">Org Noter</h2>
+
+<p>The final aspect of a <code>pdf</code> workflow is simply ensuring that every <code>pdf</code> is
+associated with notes. The philosophy of <code>org-noter</code> is <a href="https://github.com/weirdNox/org-noter" target="_blank">best described here</a>.
+Only minor tweaks should be required to get this working with <code>interleave</code> as
+well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package org-noter
+  :after (:any org pdf-view)
+  :config
+  (setq
+   <span style="color:#75715e">;; The WM can handle splits</span>
+   org-noter-notes-window-location <span style="color:#e6db74">&#39;other-frame</span>
+   <span style="color:#75715e">;; Please stop opening frames</span>
+   org-noter-always-create-frame <span style="color:#66d9ef">nil</span>
+   <span style="color:#75715e">;; I want to see the whole file</span>
+   org-noter-hide-other <span style="color:#66d9ef">nil</span>
+   <span style="color:#75715e">;; Everything is relative to the main notes file</span>
+   org-noter-notes-search-path (<span style="color:#a6e22e">list</span> org_notes)
+   )
+  )</code></pre></div>
+<p>Evidently, from my configuration, it appears that I decided to use <a href="https://github.com/weirdNox/org-noter" target="_blank">org-noter</a> over
+the more commonly described <a href="https://github.com/rudolfochrist/interleave" target="_blank">interleave</a> because it has better support for working
+with multiple documents linked to one file.</p>
+
+<h2 id="org-protocol">Org-Protocol</h2>
+
+<p>I will only cover the bare minimum relating to the use of <code>org-capture</code> here,
+because eventually I intend to handle a lot more cases with <a href="https://github.com/abo-abo/orca" target="_blank">orca</a>. Note that this
+part of the workflow has more to do with using <code>org-roam</code> with websites than
+<code>pdf</code> files.</p>
+
+<h3 id="templates">Templates</h3>
+
+<p>This might get complicated but I am only trying to get the bare minimum for
+<code>org-protocol</code> right now.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Actually start using templates</span>
+(after! org-capture
+  <span style="color:#75715e">;; Firefox and Chrome</span>
+  (add-to-list <span style="color:#e6db74">&#39;org-capture-templates</span>
+               <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Protocol&#34;</span> entry <span style="color:#75715e">; key, name, type</span>
+                 (file+headline +org-capture-notes-file <span style="color:#e6db74">&#34;Inbox&#34;</span>) <span style="color:#75715e">; target</span>
+                 <span style="color:#e6db74">&#34;* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?&#34;</span>
+                 :prepend <span style="color:#66d9ef">t</span> <span style="color:#75715e">; properties</span>
+                 :kill-buffer <span style="color:#66d9ef">t</span>))
+  (add-to-list <span style="color:#e6db74">&#39;org-capture-templates</span>
+               <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#e6db74">&#34;Protocol Link&#34;</span> entry
+                 (file+headline +org-capture-notes-file <span style="color:#e6db74">&#34;Inbox&#34;</span>)
+                 <span style="color:#e6db74">&#34;* %? [[%:link][%(transform-square-brackets-to-round-ones \&#34;%:description\&#34;)]]\n&#34;</span>
+                 :prepend <span style="color:#66d9ef">t</span>
+                 :kill-buffer <span style="color:#66d9ef">t</span>))
+)</code></pre></div>
+<h2 id="conclusions">Conclusions</h2>
+
+<p>At this point, many might argue that since by the end, only one template is
+called, defining the rest were pointless. They would be right, however, this is
+just how my configuration evolved. Feel free to cannibalize this for your
+personal benefit. Eventually I plan to expand this into something with
+<code>org-journal</code> as well, but not right now.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:fn-1">Rohit Goswami that is, from the <a href="https://rgoswami.me" target="_blank">landing page</a>; obviously
+ <a class="footnote-return" href="#fnref:fn-1"><sup>[return]</sup></a></li>
+<li id="fn:fn-2">This is a reference to my fantastic pet, named Yoda
+ <a class="footnote-return" href="#fnref:fn-2"><sup>[return]</sup></a></li>
+<li id="fn:fn-3">Recorded with <a href="https://www.maartenbaert.be/simplescreenrecorder/" target="_blank">SimpleScreenRecorder</a>, cut with <a href="https://github.com/mifi/lossless-cut" target="_blank">LosslessCut</a>, uploaded to <a href="https://www.youtube.com/" target="_blank">YouTube</a>, and embedded with a <a href="https://gohugo.io/extras/shortcodes/#youtube" target="_blank">Hugo shortcode</a>
+ <a class="footnote-return" href="#fnref:fn-3"><sup>[return]</sup></a></li>
+<li id="fn:fn-4">For some strange reason a lot of online posts suggested Dropbox for syncing notes, which makes no sense to me, it is always better to have version control and ignore rules
+ <a class="footnote-return" href="#fnref:fn-4"><sup>[return]</sup></a></li>
+<li id="fn:fn-5">Therefore clearly proving that the cookies of the dark side have no power in the holy text editor war
+ <a class="footnote-return" href="#fnref:fn-5"><sup>[return]</sup></a></li>
+<li id="fn:fn-6">Where these are from the <a href="https://github.com/jkitchin/org-ref/blob/875371a63430544e446db7a76b44b33c7e20a8bd/org-ref-utils.el" target="_blank">org-ref documentation</a>
+ <a class="footnote-return" href="#fnref:fn-6"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/ramblings">ramblings</a></span><span class="tag"><a href="https://rgoswami.me/tags/explanations">explanations</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>2055 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-10 15:01 &#43;0000</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">Read other posts</span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://rgoswami.me/posts/colemak-dots-refactor/">
+                                <span class="button__text">Refactoring Dotfiles For Colemak</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span><a href="https://rgoswami.me">Rohit Goswami (HaoZeke)</a></span>
+            
+            <span><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</span>
+            <span> <a href="https://rgoswami.me/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme <a href="https://rgoswami.me/posts/rationale/">details here</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script src="https://rgoswami.me/bundle.min.582d94d7fb9230fda38dd4c9d5ca8014cab7228a34654fe3c3476fc00178e03398e53906f6f25d759a6e29f36ae005e4ddbed05e05a31f3c3febc33bd0e89c58.js" integrity="sha512-WC2U1/uSMP2jjdTJ1cqAFMq3Ioo0ZU/jw0dvwAF44DOY5TkG9vJddZpuKfNq4AXk3b7QXgWjHzw/68M70OicWA=="></script>
+<script data-goatcounter="https://rgoswami.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.20.0,npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+    </body>
+</html>

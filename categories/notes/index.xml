@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Wed, 22 Apr 2020 07:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 15:01:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An Orgmode Note Workflow</title>
+      <link>https://rgoswami.me/posts/org-note-workflow/</link>
+      <pubDate>Sun, 10 May 2020 15:01:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/org-note-workflow/</guid>
+      <description>Background One of the main reasons to use orgmode is definitely to get a better note taking workflow. Closely related to blogging or writing, the ideal note workflow is one which lets you keep a bunch of throwaway ideas and also somehow have access to them in a coherent manner. This will be a long post, and it is a work-in-progress, so, keep that in mind. Since this is mainly me1 work-shopping my technique, the philosophy will come in a later post probably.</description>
+    </item>
     
     <item>
       <title>CS106A Small Group Training</title>
