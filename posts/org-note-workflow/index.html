@@ -428,14 +428,12 @@ terms of the notes are palmed off to <code>helm-bibtex</code>.</p>
 <p>Note that for some reason,
 the format specifiers for <code>org-ref</code> are <strong>not</strong> the keys in <code>.bib</code> but are
 instead, the following<sup class="footnote-ref" id="fnref:fn-7"><a href="#fn:fn-7">7</a></sup>:</p>
-
-<blockquote>
-<p>In the format, the following percent escapes will be expanded.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">In the format, the following percent escapes will be expanded.
 %l   The BibTeX label of the citation.
-%a   List of author names, see also `reftex-cite-punctuation&rsquo;.
-%2a  Like %a, but abbreviate more than 2 authors like Jones et al.
+%a   List of author names, see also <span style="color:#e6db74">`</span>reftex-cite-punctuation<span style="color:#960050;background-color:#1e0010">&#39;</span>.
+%2a  Like %a, but abbreviate more than <span style="color:#ae81ff">2</span> authors like Jones et al.
 %A   First author name only.
-%e   Works like %a, but on list of editor names.  (%2e and %E work as well)
+%e   Works like %a, but on list of editor names.  <span style="color:#f92672">(</span>%2e and %E work as well<span style="color:#f92672">)</span>
 It is also possible to access all other BibTeX database fields:
 %b booktitle     %c chapter        %d edition    %h howpublished
 %i institution   %j journal        %k key        %m month
@@ -448,14 +446,12 @@ It is also possible to access all other BibTeX database fields:
 %S series        %N note
 %f pdf filename
 %F absolute pdf filename
-Usually, only %l is needed.  The other stuff is mainly for the echo area
-display, and for (setq reftex-comment-citations t).
+Usually, only %l is needed.  The other stuff is mainly <span style="color:#66d9ef">for</span> the echo area
+display, and <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>setq reftex-comment-citations t<span style="color:#f92672">)</span>.
 %&lt; as a special operator kills punctuation and space around it after the
 string has been formatted.
 A pair of square brackets indicates an optional argument, and RefTeX
-will prompt for the values of these arguments.</p>
-</blockquote>
-
+will prompt <span style="color:#66d9ef">for</span> the values of these arguments.</code></pre></div>
 <h2 id="indexing-notes">Indexing Notes</h2>
 
 <p>This part of the workflow builds on the concepts best known as <a href="https://www.zettelkasten.de/" target="_blank">Zettelkasten method</a>. More details about the philosophy behind <code>org-roam</code> is <a href="https://org-roam.readthedocs.io/en/latest/" target="_blank">here</a>.</p>
