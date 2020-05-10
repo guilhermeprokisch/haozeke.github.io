@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sun, 10 May 2020 15:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 20:54:08 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Search</title>
+      <link>https://rgoswami.me/search/</link>
+      <pubDate>Sun, 10 May 2020 20:54:08 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/search/</guid>
+      <description>Search in full-text, the entire contents of the site.</description>
+    </item>
     
     <item>
       <title>An Orgmode Note Workflow</title>
@@ -102,16 +111,6 @@ On-Boarding This was very reminiscent of the Carpentries instructor training, wh
       <guid>https://rgoswami.me/posts/goat-google/</guid>
       <description>Background Like a lot of my tech based rants, this was brought on by a recent Hacker News post. I won&amp;rsquo;t go into why the product listed there is a hollow faux FOSS rip-off. I won&amp;rsquo;t discuss how that &amp;lsquo;free&amp;rsquo; analytics option, like many others are just hobby projects taking pot shots at other projects. Or how insanely overpriced most alternatives are.
 I will however discuss why and how I transitioned to using the awesome Goat Counter.</description>
-    </item>
-    
-    <item>
-      <title>Trees and Bags</title>
-      <link>https://rgoswami.me/posts/trees-and-bags/</link>
-      <pubDate>Thu, 26 Mar 2020 00:28:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/posts/trees-and-bags/</guid>
-      <description>Explain why using bagging for prediction trees generally improves predictions over regular prediction trees.
- Introduction Bagging (or Bootstrap Aggregation) is one of the most commonly used ensemble method for improving the prediction of trees. We will broadly follow a historical development trend to understand the process. That is, we will begin by considering the Bootstrap method. This in turn requires knowledge of the Jacknife method, which is understandable from a simple bias variance perspective.</description>
     </item>
     
   </channel>
