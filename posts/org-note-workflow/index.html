@@ -491,7 +491,7 @@ configuration, adapted for those who don&rsquo;t believe in the dark side below.
   <span style="color:#75715e">;; `org-roam&#39;. If `+org-roam-open-buffer-on-find-file&#39; is non-nil, the</span>
   <span style="color:#75715e">;; org-roam buffer will be opened for you when you use `org-roam-find-file&#39;</span>
   <span style="color:#75715e">;; (but not `find-file&#39;, to limit the scope of this behavior).</span>
-  (add-hook! <span style="color:#e6db74">&#39;find-file-hook</span>
+  (add-hook <span style="color:#e6db74">&#39;find-file-hook</span>
     (defun +org-roam-open-buffer-maybe-h ()
       (and +org-roam-open-buffer-on-find-file
            (<span style="color:#a6e22e">memq</span> <span style="color:#e6db74">&#39;org-roam-buffer--update-maybe</span> post-command-hook)
@@ -524,7 +524,7 @@ configuration, adapted for those who don&rsquo;t believe in the dark side below.
   :after (org-roam)
   :hook (org-roam-mode <span style="color:#f92672">.</span> org-roam-bibtex-mode)
   :config
-  (add-hook! <span style="color:#e6db74">&#39;org-mode</span> (org-roam-bibtex-mode <span style="color:#66d9ef">t</span>))
+  (add-hook <span style="color:#e6db74">&#39;org-mode</span> (org-roam-bibtex-mode <span style="color:#66d9ef">t</span>))
   (setq org-roam-bibtex-preformat-keywords
    <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;=key=&#34;</span> <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#e6db74">&#34;file&#34;</span> <span style="color:#e6db74">&#34;author-or-editor&#34;</span> <span style="color:#e6db74">&#34;keywords&#34;</span>))
   (setq orb-templates
