@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Tue, 12 May 2020 00:50:18 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 01:34:31 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,10 +15,21 @@
     <item>
       <title>Search</title>
       <link>https://rgoswami.me/search/</link>
-      <pubDate>Tue, 12 May 2020 00:50:18 +0000</pubDate>
+      <pubDate>Tue, 12 May 2020 01:34:31 +0000</pubDate>
       
       <guid>https://rgoswami.me/search/</guid>
       <description>Search in full-text, the entire contents of the site.</description>
+    </item>
+    
+    <item>
+      <title>Compton to Picom and Zoom Shadows</title>
+      <link>https://rgoswami.me/posts/compton-zoom-shadow/</link>
+      <pubDate>Tue, 12 May 2020 01:32:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/compton-zoom-shadow/</guid>
+      <description>Background I have been leading the fantastic section 881 as a virtual section leader for the Stanford CS106A: Code in Place initiative for the past four weeks. I have also spent a lot of time on Zoom, sharing my screen. Fun fact. My screen shares look like this:
+  Figure 1: Zoom screen share with weird overlay
+  This post is about hunting down what caused this amazing zoom glitch1 and how I finally fixed it.</description>
     </item>
     
     <item>

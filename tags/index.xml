@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sun, 10 May 2020 15:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 01:32:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tools</title>
+      <link>https://rgoswami.me/tags/tools/</link>
+      <pubDate>Tue, 12 May 2020 01:32:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow</title>
+      <link>https://rgoswami.me/tags/workflow/</link>
+      <pubDate>Tue, 12 May 2020 01:32:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/workflow/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>explanations</title>
@@ -31,15 +49,6 @@
     </item>
     
     <item>
-      <title>workflow</title>
-      <link>https://rgoswami.me/tags/workflow/</link>
-      <pubDate>Sat, 02 May 2020 20:30:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/workflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>emacs</title>
       <link>https://rgoswami.me/tags/emacs/</link>
       <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
@@ -54,15 +63,6 @@
       <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/orgmode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools</title>
-      <link>https://rgoswami.me/tags/tools/</link>
-      <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/tools/</guid>
       <description></description>
     </item>
     
