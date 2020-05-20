@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Tue, 12 May 2020 01:32:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2020 20:21:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LosslessCut, Zoom and an AMA for CS106A</title>
+      <link>https://rgoswami.me/posts/losslesscut-zoom-ama/</link>
+      <pubDate>Wed, 20 May 2020 20:21:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/losslesscut-zoom-ama/</guid>
+      <description>Background I recently had the opportunity to take part in an AMA (ask me anything) session for the CS106A students on Machine Learning for the Physical Sciences. This is a post about the technical issues, and also includes a video if you read through.
+Zoom and LosslessCut Zoom recordings are one of the nicer ways to deal with switching windows and screen sharing, especially after fixing the dark screen glitch.</description>
+    </item>
     
     <item>
       <title>Compton to Picom and Zoom Glitches</title>

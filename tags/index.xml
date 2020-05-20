@@ -7,15 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Tue, 12 May 2020 01:32:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2020 20:21:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>cs106a</title>
+      <link>https://rgoswami.me/tags/cs106a/</link>
+      <pubDate>Wed, 20 May 2020 20:21:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/cs106a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>teaching</title>
+      <link>https://rgoswami.me/tags/teaching/</link>
+      <pubDate>Wed, 20 May 2020 20:21:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/teaching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>tools</title>
       <link>https://rgoswami.me/tags/tools/</link>
-      <pubDate>Tue, 12 May 2020 01:32:00 +0000</pubDate>
+      <pubDate>Wed, 20 May 2020 20:21:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/tools/</guid>
       <description></description>
@@ -63,24 +81,6 @@
       <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/orgmode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cs106a</title>
-      <link>https://rgoswami.me/tags/cs106a/</link>
-      <pubDate>Wed, 22 Apr 2020 07:01:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/cs106a/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>teaching</title>
-      <link>https://rgoswami.me/tags/teaching/</link>
-      <pubDate>Wed, 22 Apr 2020 07:01:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/teaching/</guid>
       <description></description>
     </item>
     
