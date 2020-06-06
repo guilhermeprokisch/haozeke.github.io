@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nix on Rohit Goswami</title>
+    <link>https://rgoswami.me/tags/nix/</link>
+    <description>Recent content in nix on Rohit Goswami</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
+    <lastBuildDate>Sat, 06 Jun 2020 05:49:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://rgoswami.me/tags/nix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nix with R and devtools</title>
+      <link>https://rgoswami.me/posts/nix-r-devtools/</link>
+      <pubDate>Sat, 06 Jun 2020 05:49:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/nix-r-devtools/</guid>
+      <description>Overview This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
+Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &amp;ldquo;Statistical Rethinking&amp;rdquo; by Richard McElreath, which was made available&amp;nbsp;1.</description>
+    </item>
+    
+  </channel>
+</rss>

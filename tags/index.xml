@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Wed, 20 May 2020 20:21:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2020 05:49:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>nix</title>
+      <link>https://rgoswami.me/tags/nix/</link>
+      <pubDate>Sat, 06 Jun 2020 05:49:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/nix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://rgoswami.me/tags/r/</link>
+      <pubDate>Sat, 06 Jun 2020 05:49:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://rgoswami.me/tags/tools/</link>
+      <pubDate>Sat, 06 Jun 2020 05:49:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow</title>
+      <link>https://rgoswami.me/tags/workflow/</link>
+      <pubDate>Sat, 06 Jun 2020 05:49:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/workflow/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cs106a</title>
@@ -27,24 +63,6 @@
       <pubDate>Wed, 20 May 2020 20:21:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/teaching/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools</title>
-      <link>https://rgoswami.me/tags/tools/</link>
-      <pubDate>Wed, 20 May 2020 20:21:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>workflow</title>
-      <link>https://rgoswami.me/tags/workflow/</link>
-      <pubDate>Tue, 12 May 2020 01:32:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/workflow/</guid>
       <description></description>
     </item>
     
@@ -207,15 +225,6 @@
       <pubDate>Wed, 19 Feb 2020 09:47:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/islr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://rgoswami.me/tags/r/</link>
-      <pubDate>Wed, 19 Feb 2020 09:47:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/r/</guid>
       <description></description>
     </item>
     

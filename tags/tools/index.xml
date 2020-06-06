@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Wed, 20 May 2020 20:21:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2020 05:49:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Nix with R and devtools</title>
+      <link>https://rgoswami.me/posts/nix-r-devtools/</link>
+      <pubDate>Sat, 06 Jun 2020 05:49:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/nix-r-devtools/</guid>
+      <description>Overview This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
+Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &amp;ldquo;Statistical Rethinking&amp;rdquo; by Richard McElreath, which was made available&amp;nbsp;1.</description>
+    </item>
     
     <item>
       <title>LosslessCut, Zoom and an AMA for CS106A</title>
