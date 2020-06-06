@@ -30,7 +30,7 @@ libsUsed&amp;lt;-c(&amp;#34;dplyr&amp;#34;,&amp;#34;ggplot2&amp;#34;,&amp;#34;ti
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -239,18 +239,18 @@ printing</a>&nbsp;<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1
 <h3 id="common-stuff">Common Stuff</h3>
 
 <p>Here I&rsquo;ll load things I will be using throughout, mostly libraries.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">libsUsed<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;dplyr&#34;</span>,<span style="color:#e6db74">&#34;ggplot2&#34;</span>,<span style="color:#e6db74">&#34;tidyverse&#34;</span>,<span style="color:#e6db74">&#34;ISLR&#34;</span>,<span style="color:#e6db74">&#34;caret&#34;</span>)
-<span style="color:#a6e22e">invisible</span>(<span style="color:#a6e22e">lapply</span>(libsUsed, library, character.only <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
-# Attaching package: &#39;dplyr&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following objects are masked from &#39;package:stats&#39;:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">libsUsed&lt;-<span style="color:#447fcf">c</span>(<span style="color:#ed9d13">&#34;dplyr&#34;</span>,<span style="color:#ed9d13">&#34;ggplot2&#34;</span>,<span style="color:#ed9d13">&#34;tidyverse&#34;</span>,<span style="color:#ed9d13">&#34;ISLR&#34;</span>,<span style="color:#ed9d13">&#34;caret&#34;</span>)
+<span style="color:#447fcf">invisible</span>(<span style="color:#447fcf">lapply</span>(libsUsed, library, character.only = <span style="color:#6ab825;font-weight:bold">TRUE</span>))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+# Attaching package: &#39;dplyr&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following objects are masked from &#39;package:stats&#39;:
 #
-#     filter, lag</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following objects are masked from &#39;package:base&#39;:
+#     filter, lag</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following objects are masked from &#39;package:base&#39;:
 #
-#     intersect, setdiff, setequal, union</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># ✔ tibble  2.1.3     ✔ purrr   0.3.3
+#     intersect, setdiff, setequal, union</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># ✔ tibble  2.1.3     ✔ purrr   0.3.3
 # ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-# ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+# ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 # ✖ dplyr::filter() masks stats::filter()
-# ✖ dplyr::lag()    masks stats::lag()</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Loading required package: lattice</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
-# Attaching package: &#39;caret&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following object is masked from &#39;package:purrr&#39;:
+# ✖ dplyr::lag()    masks stats::lag()</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Loading required package: lattice</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+# Attaching package: &#39;caret&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following object is masked from &#39;package:purrr&#39;:
 #
 #     lift</code></pre></div>
 <h2 id="question-4.10---page-171">Question 4.10 - Page 171</h2>
@@ -295,7 +295,7 @@ should also experiment with values for K in the KNN classifier.</p>
 <h3 id="answer">Answer</h3>
 
 <p>We will need the data in a variable for ease of use.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat<span style="color:#f92672">&lt;-</span>ISLR<span style="color:#f92672">::</span>Weekly</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat&lt;-ISLR::Weekly</code></pre></div>
 <h3 id="a-summary-statistics">a) Summary Statistics</h3>
 
 <h4 id="text">Text</h4>
@@ -306,7 +306,7 @@ package<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup> 
 covered here.</p>
 
 <h4 id="basic-summaries">Basic Summaries</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> str</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># &#39;data.frame&#39;: 1089 obs. of  9 variables:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% str</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># &#39;data.frame&#39;: 1089 obs. of  9 variables:
 #  $ Year     : num  1990 1990 1990 1990 1990 1990 1990 1990 1990 1990 ...
 #  $ Lag1     : num  0.816 -0.27 -2.576 3.514 0.712 ...
 #  $ Lag2     : num  1.572 0.816 -0.27 -2.576 3.514 ...
@@ -317,7 +317,7 @@ covered here.</p>
 #  $ Today    : num  -0.27 -2.576 3.514 0.712 1.178 ...
 #  $ Direction: Factor w/ 2 levels &#34;Down&#34;,&#34;Up&#34;: 1 1 2 2 2 1 2 2 2 1 ...</code></pre></div>
 <p>We see that there is only one <code>Factor</code>, which makes sense.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#       Year           Lag1               Lag2               Lag3
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#       Year           Lag1               Lag2               Lag3
 #  Min.   :1990   Min.   :-18.1950   Min.   :-18.1950   Min.   :-18.1950
 #  1st Qu.:1995   1st Qu.: -1.1540   1st Qu.: -1.1540   1st Qu.: -1.1580
 #  Median :2000   Median :  0.2410   Median :  0.2410   Median :  0.2410
@@ -342,7 +342,7 @@ covered here.</p>
 
 <p>We might also want to know how many unique values are there in each
 column.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(unique) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(length)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#      Year      Lag1      Lag2      Lag3      Lag4      Lag5    Volume     Today
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">sapply</span>(unique) %&gt;% <span style="color:#447fcf">sapply</span>(length)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#      Year      Lag1      Lag2      Lag3      Lag4      Lag5    Volume     Today
 #        21      1004      1005      1005      1005      1005      1089      1003
 # Direction
 #         2</code></pre></div>
@@ -353,7 +353,7 @@ in mind while constructing models later.</p>
 
 <p>The range of each variable might be useful as well, but we have to
 ignore the factor.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(range)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#      Year    Lag1    Lag2    Lag3    Lag4    Lag5   Volume   Today
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% <span style="color:#447fcf">sapply</span>(range)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#      Year    Lag1    Lag2    Lag3    Lag4    Lag5   Volume   Today
 # [1,] 1990 -18.195 -18.195 -18.195 -18.195 -18.195 0.087465 -18.195
 # [2,] 2010  12.026  12.026  12.026  12.026  12.026 9.328214  12.026</code></pre></div>
 <p>The most interesting thing about this is probably that the <code>Lag</code>
@@ -364,19 +364,19 @@ while applying transformations to the variable (if at all).</p>
 
 <p>By now we might have a pretty good idea of how this will look, but it is
 still worth seeing.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(mean)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#         Year         Lag1         Lag2         Lag3         Lag4         Lag5
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% <span style="color:#447fcf">sapply</span>(mean)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#         Year         Lag1         Lag2         Lag3         Lag4         Lag5
 # 2000.0486685    0.1505849    0.1510790    0.1472048    0.1458182    0.1398926
 #       Volume        Today
 #    1.5746176    0.1498990</code></pre></div>
 <p>As expected, the <code>Lag</code> values have almost the same mean, what is a bit
 interesting though, is that the <code>Today</code> variable has roughly the same
 mean as the <code>Lag</code> variables.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(sd)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#     Year     Lag1     Lag2     Lag3     Lag4     Lag5   Volume    Today
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% <span style="color:#447fcf">sapply</span>(sd)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#     Year     Lag1     Lag2     Lag3     Lag4     Lag5   Volume    Today
 # 6.033182 2.357013 2.357254 2.360502 2.360279 2.361285 1.686636 2.356927</code></pre></div>
 <p>This is largely redundant in terms of new information.</p>
 
 <h4 id="correlations">Correlations</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> cor</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#               Year         Lag1        Lag2        Lag3         Lag4
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% cor</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#               Year         Lag1        Lag2        Lag3         Lag4
 # Year    1.00000000 -0.032289274 -0.03339001 -0.03000649 -0.031127923
 # Lag1   -0.03228927  1.000000000 -0.07485305  0.05863568 -0.071273876
 # Lag2   -0.03339001 -0.074853051  1.00000000 -0.07572091  0.058381535
@@ -397,10 +397,10 @@ mean as the <code>Lag</code> variables.</p>
 <p>Useful though this is, it is kind of difficult to work with, in this
 form, so we might as well programmatic-ally remove strongly correlated
 data instead.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Uses caret</span>
-corrCols<span style="color:#f92672">=</span>weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> cor <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">findCorrelation</span>(cutoff<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>)
-reducedDat<span style="color:#f92672">&lt;-</span>weeklyDat[<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(corrCols)]
-reducedDat <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#       Year           Lag1               Lag2               Lag3
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># Uses caret</span>
+corrCols=weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% cor %&gt;% <span style="color:#447fcf">findCorrelation</span>(cutoff=<span style="color:#3677a9">0.8</span>)
+reducedDat&lt;-weeklyDat[-<span style="color:#447fcf">c</span>(corrCols)]
+reducedDat %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#       Year           Lag1               Lag2               Lag3
 #  Min.   :1990   Min.   :-18.1950   Min.   :-18.1950   Min.   :-18.1950
 #  1st Qu.:1995   1st Qu.: -1.1540   1st Qu.: -1.1540   1st Qu.: -1.1580
 #  Median :2000   Median :  0.2410   Median :  0.2410   Median :  0.2410
@@ -426,10 +426,10 @@ useful insight, but it is good to keep in mind.</p>
 the methodology
 <a href="https://www.r-bloggers.com/plot-some-variables-against-many-others-with-tidyr-and-ggplot2/" target="_blank">described
 here</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">gather</span>(<span style="color:#f92672">-</span>Year,key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Variable&#34;</span>, value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Value&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>Value,y<span style="color:#f92672">=</span>Year)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span>Variable) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">coord_flip</span>()</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% <span style="color:#447fcf">gather</span>(-Year,key=<span style="color:#ed9d13">&#34;Variable&#34;</span>, value=<span style="color:#ed9d13">&#34;Value&#34;</span>) %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=Value,y=Year)) +
+  <span style="color:#447fcf">geom_point</span>() +
+  <span style="color:#447fcf">facet_wrap</span>(~Variable) +
+  <span style="color:#447fcf">coord_flip</span>()</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-11-1.png"
          alt="Figure 1: One v/s all for Direction"/> <figcaption>
@@ -441,7 +441,7 @@ here</a>.</p>
 <p>That didn&rsquo;t really tell us much which we didn&rsquo;t already get from the
 <code>cor()</code> function, but we can go the whole hog and do this for every
 variable since we don&rsquo;t have that many in the first place..</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> pairs</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% pairs</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-12-1.png"
          alt="Figure 2: Pairs"/> <figcaption>
@@ -452,8 +452,8 @@ variable since we don&rsquo;t have that many in the first place..</p>
 
 <p>This is not especially useful, and it is doubtful if more scatter-plots
 will help at all, so lets move on to box plots.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">pivot_longer</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(Direction,Volume,Today,Year),names_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag&#34;</span>,values_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Value&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>Direction,y<span style="color:#f92672">=</span>Value,fill<span style="color:#f92672">=</span>Lag)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_boxplot</span>()</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">pivot_longer</span>(-<span style="color:#447fcf">c</span>(Direction,Volume,Today,Year),names_to=<span style="color:#ed9d13">&#34;Lag&#34;</span>,values_to=<span style="color:#ed9d13">&#34;Value&#34;</span>) %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=Direction,y=Value,fill=Lag)) +
+  <span style="color:#447fcf">geom_boxplot</span>()</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-13-1.png"
          alt="Figure 3: Box plots for Direction"/> <figcaption>
@@ -461,8 +461,8 @@ will help at all, so lets move on to box plots.</p>
         </figcaption>
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">pivot_longer</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(Direction,Volume,Today,Year),names_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag&#34;</span>,values_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Value&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>Today,y<span style="color:#f92672">=</span>Value,fill<span style="color:#f92672">=</span>Lag)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_boxplot</span>()</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">pivot_longer</span>(-<span style="color:#447fcf">c</span>(Direction,Volume,Today,Year),names_to=<span style="color:#ed9d13">&#34;Lag&#34;</span>,values_to=<span style="color:#ed9d13">&#34;Value&#34;</span>) %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=Today,y=Value,fill=Lag)) +
+  <span style="color:#447fcf">geom_boxplot</span>()</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-14-1.png"
          alt="Figure 4: More box plots"/> <figcaption>
@@ -470,8 +470,8 @@ will help at all, so lets move on to box plots.</p>
         </figcaption>
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">pivot_longer</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(Direction,Volume,Today,Year),names_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag&#34;</span>,values_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Value&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>Lag,y<span style="color:#f92672">=</span>Value,fill<span style="color:#f92672">=</span>Direction)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_boxplot</span>()</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">pivot_longer</span>(-<span style="color:#447fcf">c</span>(Direction,Volume,Today,Year),names_to=<span style="color:#ed9d13">&#34;Lag&#34;</span>,values_to=<span style="color:#ed9d13">&#34;Value&#34;</span>) %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=Lag,y=Value,fill=Direction)) +
+  <span style="color:#447fcf">geom_boxplot</span>()</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-15-1.png"
          alt="Figure 5: Lag v/s all"/> <figcaption>
@@ -485,13 +485,13 @@ us that the <code>Today</code> value is largely unrelated to the \(4\) <code>Lag
 variables.</p>
 
 <p>A really good-looking box-plot is easy to get with the <code>caret</code> library:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">featurePlot</span>(
-            y <span style="color:#f92672">=</span> weeklyDat<span style="color:#f92672">$</span>Direction,
-            plot <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;box&#34;</span>,
-            <span style="color:#75715e"># Pass in options to bwplot()</span>
-            scales <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(y <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(relation<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;free&#34;</span>),
-                          x <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(rot <span style="color:#f92672">=</span> <span style="color:#ae81ff">90</span>)),
-            auto.key <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(columns <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% <span style="color:#447fcf">featurePlot</span>(
+            y = weeklyDat$Direction,
+            plot = <span style="color:#ed9d13">&#34;box&#34;</span>,
+            <span style="color:#999;font-style:italic"># Pass in options to bwplot()</span>
+            scales = <span style="color:#447fcf">list</span>(y = <span style="color:#447fcf">list</span>(relation=<span style="color:#ed9d13">&#34;free&#34;</span>),
+                          x = <span style="color:#447fcf">list</span>(rot = <span style="color:#3677a9">90</span>)),
+            auto.key = <span style="color:#447fcf">list</span>(columns = <span style="color:#3677a9">2</span>))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-16-1.png"
          alt="Figure 6: Plots with caret"/> <figcaption>
@@ -503,11 +503,11 @@ variables.</p>
 <p>We might want to
 <a href="http://www.sthda.com/english/wiki/ggplot2-quick-correlation-matrix-heatmap-r-software-and-data-visualization" target="_blank">visualize</a>
 our correlation matrix as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(reshape2)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
-# Attaching package: &#39;reshape2&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following object is masked from &#39;package:tidyr&#39;:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(reshape2)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+# Attaching package: &#39;reshape2&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following object is masked from &#39;package:tidyr&#39;:
 #
-#     smiths</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(Direction)) <span style="color:#f92672">%&gt;%</span> cor <span style="color:#f92672">%&gt;%</span> melt <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>Var1,y<span style="color:#f92672">=</span>Var2,fill<span style="color:#f92672">=</span>value)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_tile</span>()</code></pre></div>
+#     smiths</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(Direction)) %&gt;% cor %&gt;% melt %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=Var1,y=Var2,fill=value)) +
+  <span style="color:#447fcf">geom_tile</span>()</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-17-1.png"
          alt="Figure 7: Heatmap of the correlation matrix"/> <figcaption>
@@ -519,8 +519,8 @@ our correlation matrix as well.</p>
 <h3 id="b-logistic-regression---predictor-significance">b) Logistic Regression - Predictor Significance</h3>
 
 <p>Lets start with the native <code>glm</code> function.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">glm</span>(Direction<span style="color:#f92672">~</span>Lag1<span style="color:#f92672">+</span>Lag2<span style="color:#f92672">+</span>Lag3<span style="color:#f92672">+</span>Lag4<span style="color:#f92672">+</span>Lag5<span style="color:#f92672">+</span>Volume, data<span style="color:#f92672">=</span>weeklyDat, family<span style="color:#f92672">=</span>binomial)
-<span style="color:#a6e22e">summary</span>(glm.fit)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.fit=<span style="color:#447fcf">glm</span>(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume, data=weeklyDat, family=binomial)
+<span style="color:#447fcf">summary</span>(glm.fit)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
 # Call:
 # glm(formula = Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 +
 #     Volume, family = binomial, data = weeklyDat)
@@ -552,7 +552,7 @@ our correlation matrix as well.</p>
 
 <p>It is always of importance to figure out what numeric values R will
 assign to our factors, and it is best not to guess.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">contrasts</span>(weeklyDat<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#      Up
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">contrasts</span>(weeklyDat$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#      Up
 # Down  0
 # Up    1</code></pre></div>
 <h3 id="c-confusion-matrix-and-metrics">c) Confusion Matrix and Metrics</h3>
@@ -566,11 +566,11 @@ assign to our factors, and it is best not to guess.</p>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.probs <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(glm.fit, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;response&#34;</span>)
-glm.pred <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;Up&#34;</span>,<span style="color:#a6e22e">length</span>(glm.probs))
-glm.pred[glm.probs<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0.5</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Down&#34;</span>
-glm.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor</span>(glm.pred)
-<span style="color:#a6e22e">confusionMatrix</span>(glm.pred,weeklyDat<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.probs = <span style="color:#447fcf">predict</span>(glm.fit, type = <span style="color:#ed9d13">&#34;response&#34;</span>)
+glm.pred = <span style="color:#447fcf">rep</span>(<span style="color:#ed9d13">&#34;Up&#34;</span>,<span style="color:#447fcf">length</span>(glm.probs))
+glm.pred[glm.probs&lt;<span style="color:#3677a9">0.5</span>]=<span style="color:#ed9d13">&#34;Down&#34;</span>
+glm.pred=<span style="color:#447fcf">factor</span>(glm.pred)
+<span style="color:#447fcf">confusionMatrix</span>(glm.pred,weeklyDat$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction Down  Up
@@ -608,11 +608,11 @@ calculating precision, recall and the rest by hand.</li>
 
 <p>Although we could have used the indices and passed it to <code>glm</code> as the
 <code>subset</code> attribute, it is cleaner to just make subsets instead.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyVal<span style="color:#f92672">&lt;-</span>weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">filter</span>(Year<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">2009</span>)
-weeklyTrain<span style="color:#f92672">&lt;-</span>weeklyDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">filter</span>(Year<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2009</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">weeklyVal&lt;-weeklyDat %&gt;% <span style="color:#447fcf">filter</span>(Year&gt;=<span style="color:#3677a9">2009</span>)
+weeklyTrain&lt;-weeklyDat %&gt;% <span style="color:#447fcf">filter</span>(Year&lt;<span style="color:#3677a9">2009</span>)</code></pre></div>
 <p>Now we can train a model on our training data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">glm</span>(Direction<span style="color:#f92672">~</span>Lag2,data<span style="color:#f92672">=</span>weeklyTrain,family<span style="color:#f92672">=</span>binomial)
-<span style="color:#a6e22e">summary</span>(glm.fit)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.fit=<span style="color:#447fcf">glm</span>(Direction~Lag2,data=weeklyTrain,family=binomial)
+<span style="color:#447fcf">summary</span>(glm.fit)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
 # Call:
 # glm(formula = Direction ~ Lag2, family = binomial, data = weeklyTrain)
 #
@@ -635,11 +635,11 @@ weeklyTrain<span style="color:#f92672">&lt;-</span>weeklyDat <span style="color:
 #
 # Number of Fisher Scoring iterations: 4</code></pre></div>
 <p>Having fit our model, we will test the predictions on our held out data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.probs <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(glm.fit,weeklyVal, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;response&#34;</span>)
-glm.pred <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;Up&#34;</span>,<span style="color:#a6e22e">length</span>(glm.probs))
-glm.pred[glm.probs<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0.5</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Down&#34;</span>
-glm.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor</span>(glm.pred)
-<span style="color:#a6e22e">confusionMatrix</span>(glm.pred,weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.probs = <span style="color:#447fcf">predict</span>(glm.fit,weeklyVal, type = <span style="color:#ed9d13">&#34;response&#34;</span>)
+glm.pred = <span style="color:#447fcf">rep</span>(<span style="color:#ed9d13">&#34;Up&#34;</span>,<span style="color:#447fcf">length</span>(glm.probs))
+glm.pred[glm.probs&lt;<span style="color:#3677a9">0.5</span>]=<span style="color:#ed9d13">&#34;Down&#34;</span>
+glm.pred=<span style="color:#447fcf">factor</span>(glm.pred)
+<span style="color:#447fcf">confusionMatrix</span>(glm.pred,weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction Down Up
@@ -675,8 +675,8 @@ evident.</p>
 would be better to just switch to using <code>caret</code>. Note that the <code>caret</code>
 prediction is a label by default, so thresholding needs to be specified
 differently if required.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lda.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(Direction<span style="color:#f92672">~</span>Lag2,data<span style="color:#f92672">=</span>weeklyTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lda&#34;</span>)
-<span style="color:#a6e22e">summary</span>(lda.fit)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#             Length Class      Mode
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lda.fit=<span style="color:#447fcf">train</span>(Direction~Lag2,data=weeklyTrain,method=<span style="color:#ed9d13">&#34;lda&#34;</span>)
+<span style="color:#447fcf">summary</span>(lda.fit)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#             Length Class      Mode
 # prior       2      -none-     numeric
 # counts      2      -none-     numeric
 # means       2      -none-     numeric
@@ -689,7 +689,7 @@ differently if required.</p>
 # problemType 1      -none-     character
 # tuneValue   1      data.frame list
 # obsLevels   2      -none-     character
-# param       0      -none-     list</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">predict</span>(lda.fit,weeklyVal) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">confusionMatrix</span>(weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+# param       0      -none-     list</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">predict</span>(lda.fit,weeklyVal) %&gt;% <span style="color:#447fcf">confusionMatrix</span>(weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction Down Up
@@ -717,8 +717,8 @@ differently if required.</p>
 #        &#39;Positive&#39; Class : Down
 #</code></pre></div>
 <h3 id="f-qda-models">f) QDA models</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">qda.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(Direction<span style="color:#f92672">~</span>Lag2,data<span style="color:#f92672">=</span>weeklyTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qda&#34;</span>)
-<span style="color:#a6e22e">summary</span>(qda.fit)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#             Length Class      Mode
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">qda.fit=<span style="color:#447fcf">train</span>(Direction~Lag2,data=weeklyTrain,method=<span style="color:#ed9d13">&#34;qda&#34;</span>)
+<span style="color:#447fcf">summary</span>(qda.fit)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#             Length Class      Mode
 # prior       2      -none-     numeric
 # counts      2      -none-     numeric
 # means       2      -none-     numeric
@@ -731,7 +731,7 @@ differently if required.</p>
 # problemType 1      -none-     character
 # tuneValue   1      data.frame list
 # obsLevels   2      -none-     character
-# param       0      -none-     list</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">predict</span>(qda.fit,weeklyVal) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">confusionMatrix</span>(weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+# param       0      -none-     list</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">predict</span>(qda.fit,weeklyVal) %&gt;% <span style="color:#447fcf">confusionMatrix</span>(weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction Down Up
@@ -767,10 +767,10 @@ just predicts <code>Up</code> no matter what.</p>
 possible parameters. In this case that is annoying and redundant so we
 will use the <code>class</code> library. We <strong>should really scale our data</strong> before
 using KNN though.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(class)
-<span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1</span>)
-knn.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">knn</span>(<span style="color:#a6e22e">as.matrix</span>(weeklyTrain<span style="color:#f92672">$</span>Lag2),<span style="color:#a6e22e">as.matrix</span>(weeklyVal<span style="color:#f92672">$</span>Lag2),weeklyTrain<span style="color:#f92672">$</span>Direction,k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-<span style="color:#a6e22e">confusionMatrix</span>(knn.pred,weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(class)
+<span style="color:#447fcf">set.seed</span>(<span style="color:#3677a9">1</span>)
+knn.pred=<span style="color:#447fcf">knn</span>(<span style="color:#447fcf">as.matrix</span>(weeklyTrain$Lag2),<span style="color:#447fcf">as.matrix</span>(weeklyVal$Lag2),weeklyTrain$Direction,k=<span style="color:#3677a9">1</span>)
+<span style="color:#447fcf">confusionMatrix</span>(knn.pred,weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction Down Up
@@ -802,13 +802,13 @@ knn.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">knn</spa
 <h3 id="h-model-selection">h) Model Selection</h3>
 
 <p>We will first get the ROC curves.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(pROC)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Type &#39;citation(&#34;pROC&#34;)&#39; for a citation.</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
-# Attaching package: &#39;pROC&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following objects are masked from &#39;package:stats&#39;:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(pROC)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Type &#39;citation(&#34;pROC&#34;)&#39; for a citation.</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+# Attaching package: &#39;pROC&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># The following objects are masked from &#39;package:stats&#39;:
 #
-#     cov, smooth, var</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">knnROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(knn.pred),response<span style="color:#f92672">=</span>weeklyVal<span style="color:#f92672">$</span>Direction,levels<span style="color:#f92672">=</span><span style="color:#a6e22e">rev</span>(<span style="color:#a6e22e">levels</span>(weeklyVal<span style="color:#f92672">$</span>Direction)))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">logiROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(<span style="color:#a6e22e">predict</span>(glm.fit,weeklyVal)),response<span style="color:#f92672">=</span>weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = Down, case = Up</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &gt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ldaROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(<span style="color:#a6e22e">predict</span>(lda.fit,weeklyVal)),response<span style="color:#f92672">=</span>weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = Down, case = Up</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">qdaROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(<span style="color:#a6e22e">predict</span>(qda.fit,weeklyVal)),response<span style="color:#f92672">=</span>weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = Down, case = Up
+#     cov, smooth, var</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">knnROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(knn.pred),response=weeklyVal$Direction,levels=<span style="color:#447fcf">rev</span>(<span style="color:#447fcf">levels</span>(weeklyVal$Direction)))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">logiROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(<span style="color:#447fcf">predict</span>(glm.fit,weeklyVal)),response=weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = Down, case = Up</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &gt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ldaROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(<span style="color:#447fcf">predict</span>(lda.fit,weeklyVal)),response=weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = Down, case = Up</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">qdaROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(<span style="color:#447fcf">predict</span>(qda.fit,weeklyVal)),response=weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = Down, case = Up
 # Setting direction: controls &lt; cases</code></pre></div>
 <p>Now to plot them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggroc</span>(<span style="color:#a6e22e">list</span>(KNN<span style="color:#f92672">=</span>knnROC,Logistic<span style="color:#f92672">=</span>logiROC,LDA<span style="color:#f92672">=</span>ldaROC,QDA<span style="color:#f92672">=</span>qdaROC))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">ggroc</span>(<span style="color:#447fcf">list</span>(KNN=knnROC,Logistic=logiROC,LDA=ldaROC,QDA=qdaROC))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-28-1.png"
          alt="Figure 8: ROC curves for Weekly data"/> <figcaption>
@@ -819,10 +819,10 @@ knn.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">knn</spa
 
 <p>To compare models with <code>caret</code> it is easy to refit the logistic and knn
 models in the caret formulation.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">knnCaret<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(Direction<span style="color:#f92672">~</span>Lag2,data<span style="color:#f92672">=</span>weeklyTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;knn&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">knnCaret=<span style="color:#447fcf">train</span>(Direction~Lag2,data=weeklyTrain,method=<span style="color:#ed9d13">&#34;knn&#34;</span>)</code></pre></div>
 <p>However, the KNN model is the best parameter model.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">resmod <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">resamples</span>(<span style="color:#a6e22e">list</span>(lda<span style="color:#f92672">=</span>lda.fit, qda<span style="color:#f92672">=</span>qda.fit, KNN<span style="color:#f92672">=</span>knnCaret))
-<span style="color:#a6e22e">summary</span>(resmod)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">resmod &lt;- <span style="color:#447fcf">resamples</span>(<span style="color:#447fcf">list</span>(lda=lda.fit, qda=qda.fit, KNN=knnCaret))
+<span style="color:#447fcf">summary</span>(resmod)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
 # Call:
 # summary.resamples(object = resmod)
 #
@@ -843,7 +843,7 @@ models in the caret formulation.</p>
 #     NA&#39;s
 # lda    0
 # qda    0
-# KNN    0</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">bwplot</span>(resmod)</code></pre></div>
+# KNN    0</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">bwplot</span>(resmod)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-30-1.png"
          alt="Figure 9: Caret plots for comparison"/> <figcaption>
@@ -851,7 +851,7 @@ models in the caret formulation.</p>
         </figcaption>
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">dotplot</span>(resmod)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">dotplot</span>(resmod)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-30-2.png"/> 
 </figure>
@@ -867,19 +867,19 @@ selection
 
 <p>Do note the <code>caret</code>
 <a href="https://topepo.github.io/caret/model-training-and-tuning.html" target="_blank">defaults</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fitControl <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">trainControl</span>(<span style="color:#75715e"># 10-fold CV</span>
-                           method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;repeatedcv&#34;</span>,
-                           number <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>,
-                           <span style="color:#75715e"># repeated ten times</span>
-                           repeats <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fitControl &lt;- <span style="color:#447fcf">trainControl</span>(<span style="color:#999;font-style:italic"># 10-fold CV</span>
+                           method = <span style="color:#ed9d13">&#34;repeatedcv&#34;</span>,
+                           number = <span style="color:#3677a9">10</span>,
+                           <span style="color:#999;font-style:italic"># repeated ten times</span>
+                           repeats = <span style="color:#3677a9">10</span>)</code></pre></div>
 <h3 id="logistic">Logistic</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm2.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">glm</span>(Direction<span style="color:#f92672">~</span>Lag1<span style="color:#f92672">+</span>Lag2<span style="color:#f92672">+</span>Lag3<span style="color:#f92672">+</span>Lag4<span style="color:#f92672">+</span>Lag5<span style="color:#f92672">+</span>Volume, data<span style="color:#f92672">=</span>weeklyDat, family<span style="color:#f92672">=</span>binomial)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm2.fit=<span style="color:#447fcf">glm</span>(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume, data=weeklyDat, family=binomial)
 
-glm2.probs <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(glm2.fit,weeklyVal, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;response&#34;</span>)
-glm2.pred <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;Up&#34;</span>,<span style="color:#a6e22e">length</span>(glm2.probs))
-glm2.pred[glm2.probs<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0.5</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Down&#34;</span>
-glm2.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor</span>(glm2.pred)
-<span style="color:#a6e22e">confusionMatrix</span>(glm2.pred,weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+glm2.probs = <span style="color:#447fcf">predict</span>(glm2.fit,weeklyVal, type = <span style="color:#ed9d13">&#34;response&#34;</span>)
+glm2.pred = <span style="color:#447fcf">rep</span>(<span style="color:#ed9d13">&#34;Up&#34;</span>,<span style="color:#447fcf">length</span>(glm2.probs))
+glm2.pred[glm2.probs&lt;<span style="color:#3677a9">0.5</span>]=<span style="color:#ed9d13">&#34;Down&#34;</span>
+glm2.pred=<span style="color:#447fcf">factor</span>(glm2.pred)
+<span style="color:#447fcf">confusionMatrix</span>(glm2.pred,weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction Down Up
@@ -907,7 +907,7 @@ glm2.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor<
 #        &#39;Positive&#39; Class : Down
 #</code></pre></div>
 <h4 id="qda">QDA</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">qdaCaret<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(Direction<span style="color:#f92672">~</span>Lag2<span style="color:#f92672">+</span>Lag4,data<span style="color:#f92672">=</span>weeklyTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qda&#34;</span>,trainControl<span style="color:#f92672">=</span>fitControl)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(qdaCaret)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#             Length Class      Mode
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">qdaCaret=<span style="color:#447fcf">train</span>(Direction~Lag2+Lag4,data=weeklyTrain,method=<span style="color:#ed9d13">&#34;qda&#34;</span>,trainControl=fitControl)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(qdaCaret)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#             Length Class      Mode
 # prior       2      -none-     numeric
 # counts      2      -none-     numeric
 # means       4      -none-     numeric
@@ -920,7 +920,7 @@ glm2.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor<
 # problemType 1      -none-     character
 # tuneValue   1      data.frame list
 # obsLevels   2      -none-     character
-# param       1      -none-     list</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">predict</span>(qdaCaret,weeklyVal) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">confusionMatrix</span>(weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+# param       1      -none-     list</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">predict</span>(qdaCaret,weeklyVal) %&gt;% <span style="color:#447fcf">confusionMatrix</span>(weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction Down Up
@@ -948,7 +948,7 @@ glm2.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor<
 #        &#39;Positive&#39; Class : Down
 #</code></pre></div>
 <h4 id="lda">LDA</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ldaCaret<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(Direction<span style="color:#f92672">~</span>Lag2<span style="color:#f92672">+</span>Lag1<span style="color:#f92672">+</span>Year,data<span style="color:#f92672">=</span>weeklyTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lda&#34;</span>,trainControl<span style="color:#f92672">=</span>fitControl)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(ldaCaret)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#             Length Class      Mode
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ldaCaret=<span style="color:#447fcf">train</span>(Direction~Lag2+Lag1+Year,data=weeklyTrain,method=<span style="color:#ed9d13">&#34;lda&#34;</span>,trainControl=fitControl)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(ldaCaret)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#             Length Class      Mode
 # prior       2      -none-     numeric
 # counts      2      -none-     numeric
 # means       6      -none-     numeric
@@ -961,7 +961,7 @@ glm2.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor<
 # problemType 1      -none-     character
 # tuneValue   1      data.frame list
 # obsLevels   2      -none-     character
-# param       1      -none-     list</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">predict</span>(ldaCaret,weeklyVal) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">confusionMatrix</span>(weeklyVal<span style="color:#f92672">$</span>Direction)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+# param       1      -none-     list</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">predict</span>(ldaCaret,weeklyVal) %&gt;% <span style="color:#447fcf">confusionMatrix</span>(weeklyVal$Direction)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction Down Up
@@ -992,7 +992,7 @@ glm2.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor<
 
 <p>Honestly, again, this should be scaled. Plot <code>KNN</code> with the best
 parameters.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(knnCaret)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(knnCaret)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-37-1.png"
          alt="Figure 10: KNN statistics"/> <figcaption>
@@ -1003,7 +1003,7 @@ parameters.</p>
 
 <p>Evidently, the accuracy increases with an increase in the number of
 neighbors considered.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(knnCaret, print.thres <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>, type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;S&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(knnCaret, print.thres = <span style="color:#3677a9">0.5</span>, type=<span style="color:#ed9d13">&#34;S&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-38-1.png"
          alt="Figure 11: Visualizing thresholds for KNN"/> <figcaption>
@@ -1053,12 +1053,12 @@ associated with <code>mpg01</code> in <strong>(b)</strong>. What test errors do 
 value of \(K\) seems to perform the best on this data set?</p>
 
 <h3 id="answer-1">Answer</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat<span style="color:#f92672">&lt;-</span>ISLR<span style="color:#f92672">::</span>Auto</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat&lt;-ISLR::Auto</code></pre></div>
 <h3 id="a-binary-variable">a) Binary Variable</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat<span style="color:#f92672">$</span>mpg <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sort</span>() <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">median</span>()</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 22.75</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat$mpg %&gt;% <span style="color:#447fcf">sort</span>() %&gt;% <span style="color:#447fcf">median</span>()</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 22.75</code></pre></div>
 <p>Now we can get a new variable from that.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat<span style="color:#f92672">=</span>autoDat
-newDat<span style="color:#f92672">$</span>mpg01 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ifelse</span>(autoDat<span style="color:#f92672">$</span>mpg<span style="color:#f92672">&lt;</span>autoDat<span style="color:#f92672">$</span>mpg <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sort</span>() <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">median</span>(),<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">factor</span>()</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat=autoDat
+newDat$mpg01 &lt;- <span style="color:#447fcf">ifelse</span>(autoDat$mpg&lt;autoDat$mpg %&gt;% <span style="color:#447fcf">sort</span>() %&gt;% <span style="color:#447fcf">median</span>(),<span style="color:#3677a9">0</span>,<span style="color:#3677a9">1</span>) %&gt;% <span style="color:#447fcf">factor</span>()</code></pre></div>
 <p>Note that the <code>ifelse</code> command takes a truthy function, value when
 false, value when true, but does not return a factor automatically so we
 piped it to factor to ensure it is factorial.</p>
@@ -1066,9 +1066,9 @@ piped it to factor to ensure it is factorial.</p>
 <h3 id="b-visual-exploration">b) Visual Exploration</h3>
 
 <p>Some box-plots:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">pivot_longer</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(mpg01,name),names_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Params&#34;</span>,values_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Value&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>mpg01,y<span style="color:#f92672">=</span>Value)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_boxplot</span>() <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span> Params, scales <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;free_y&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat %&gt;% <span style="color:#447fcf">pivot_longer</span>(-<span style="color:#447fcf">c</span>(mpg01,name),names_to=<span style="color:#ed9d13">&#34;Params&#34;</span>,values_to=<span style="color:#ed9d13">&#34;Value&#34;</span>) %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=mpg01,y=Value)) +
+  <span style="color:#447fcf">geom_boxplot</span>() +
+  <span style="color:#447fcf">facet_wrap</span>(~ Params, scales = <span style="color:#ed9d13">&#34;free_y&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-42-1.png"
          alt="Figure 12: Box plots"/> <figcaption>
@@ -1078,9 +1078,9 @@ piped it to factor to ensure it is factorial.</p>
 
 
 <p>With some scatter plots as well:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">pivot_longer</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(mpg01,name,weight),names_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Params&#34;</span>,values_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Value&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>weight,y<span style="color:#f92672">=</span>Value,color<span style="color:#f92672">=</span>mpg01)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span> Params, scales <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;free_y&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat %&gt;% <span style="color:#447fcf">pivot_longer</span>(-<span style="color:#447fcf">c</span>(mpg01,name,weight),names_to=<span style="color:#ed9d13">&#34;Params&#34;</span>,values_to=<span style="color:#ed9d13">&#34;Value&#34;</span>) %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=weight,y=Value,color=mpg01)) +
+  <span style="color:#447fcf">geom_point</span>() +
+  <span style="color:#447fcf">facet_wrap</span>(~ Params, scales = <span style="color:#ed9d13">&#34;free_y&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-43-1.png"
          alt="Figure 13: Scatter plots"/> <figcaption>
@@ -1091,10 +1091,10 @@ piped it to factor to ensure it is factorial.</p>
 
 <p>Clearly, <code>origin</code>, <code>year</code> and <code>cylinder</code> are essentially not very
 relevant numerically for the regression lines and confidence intervals.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>year,<span style="color:#f92672">-</span>origin,<span style="color:#f92672">-</span>cylinders) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">pivot_longer</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(mpg01,name,mpg),names_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Params&#34;</span>,values_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Value&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>mpg,y<span style="color:#f92672">=</span>Value,color<span style="color:#f92672">=</span>mpg01)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_smooth</span>(method<span style="color:#f92672">=</span>lm) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span> Params, scales <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;free_y&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat %&gt;% <span style="color:#447fcf">select</span>(-year,-origin,-cylinders) %&gt;% <span style="color:#447fcf">pivot_longer</span>(-<span style="color:#447fcf">c</span>(mpg01,name,mpg),names_to=<span style="color:#ed9d13">&#34;Params&#34;</span>,values_to=<span style="color:#ed9d13">&#34;Value&#34;</span>) %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=mpg,y=Value,color=mpg01)) +
+  <span style="color:#447fcf">geom_point</span>() +
+  <span style="color:#447fcf">geom_smooth</span>(method=lm) +
+  <span style="color:#447fcf">facet_wrap</span>(~ Params, scales = <span style="color:#ed9d13">&#34;free_y&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-44-1.png"/> 
 </figure>
@@ -1107,18 +1107,18 @@ relevant numerically for the regression lines and confidence intervals.</p>
 easily</a> with <code>caret</code>. It is important to remember that for factors,
 random sampling occurs within each class to preserve the overall class
 distribution of the data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1984</span>)
-trainInd <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">createDataPartition</span>(newDat<span style="color:#f92672">$</span>mpg01, <span style="color:#75715e"># Factor, so class sampling</span>
-                                p<span style="color:#f92672">=</span><span style="color:#ae81ff">0.7</span>, <span style="color:#75715e"># 70-30 train-test</span>
-                                list<span style="color:#f92672">=</span><span style="color:#66d9ef">FALSE</span>, <span style="color:#75715e"># No lists</span>
-                                times<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># No bootstrap</span>
-autoTrain<span style="color:#f92672">&lt;-</span>newDat[trainInd,]
-autoTest<span style="color:#f92672">&lt;-</span>newDat[<span style="color:#f92672">-</span>trainInd,]</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">set.seed</span>(<span style="color:#3677a9">1984</span>)
+trainInd &lt;- <span style="color:#447fcf">createDataPartition</span>(newDat$mpg01, <span style="color:#999;font-style:italic"># Factor, so class sampling</span>
+                                p=<span style="color:#3677a9">0.7</span>, <span style="color:#999;font-style:italic"># 70-30 train-test</span>
+                                list=<span style="color:#6ab825;font-weight:bold">FALSE</span>, <span style="color:#999;font-style:italic"># No lists</span>
+                                times=<span style="color:#3677a9">1</span>) <span style="color:#999;font-style:italic"># No bootstrap</span>
+autoTrain&lt;-newDat[trainInd,]
+autoTest&lt;-newDat[-trainInd,]</code></pre></div>
 <h3 id="d-lda-with-significant-variables">d) LDA with Significant Variables</h3>
 
 <p>Whenever I see significant I think correlation, so let&rsquo;s take a look at
 that.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>mpg01,<span style="color:#f92672">-</span>name) <span style="color:#f92672">%&gt;%</span> cor</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#                     mpg  cylinders displacement horsepower     weight
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat %&gt;% <span style="color:#447fcf">select</span>(-mpg01,-name) %&gt;% cor</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#                     mpg  cylinders displacement horsepower     weight
 # mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268 -0.8322442
 # cylinders    -0.7776175  1.0000000    0.9508233  0.8429834  0.8975273
 # displacement -0.8051269  0.9508233    1.0000000  0.8972570  0.9329944
@@ -1135,11 +1135,11 @@ that.</p>
 # weight         -0.4168392 -0.3091199 -0.5850054
 # acceleration    1.0000000  0.2903161  0.2127458
 # year            0.2903161  1.0000000  0.1815277
-# origin          0.2127458  0.1815277  1.0000000</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat <span style="color:#f92672">%&gt;%</span> length</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 10</code></pre></div>
+# origin          0.2127458  0.1815277  1.0000000</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">newDat %&gt;% length</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 10</code></pre></div>
 <p>Now lets quickly see what it looks like with correlated values removed.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">corrCols2<span style="color:#f92672">=</span>newDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>mpg01,<span style="color:#f92672">-</span>name) <span style="color:#f92672">%&gt;%</span> cor <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">findCorrelation</span>(cutoff<span style="color:#f92672">=</span><span style="color:#ae81ff">0.85</span>)
-newRed<span style="color:#f92672">&lt;-</span>newDat[<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(corrCols2)]
-newRed <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#       mpg            weight      acceleration        year           origin
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">corrCols2=newDat %&gt;% <span style="color:#447fcf">select</span>(-mpg01,-name) %&gt;% cor %&gt;% <span style="color:#447fcf">findCorrelation</span>(cutoff=<span style="color:#3677a9">0.85</span>)
+newRed&lt;-newDat[-<span style="color:#447fcf">c</span>(corrCols2)]
+newRed %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#       mpg            weight      acceleration        year           origin
 #  Min.   : 9.00   Min.   :1613   Min.   : 8.00   Min.   :70.00   Min.   :1.000
 #  1st Qu.:17.00   1st Qu.:2225   1st Qu.:13.78   1st Qu.:73.00   1st Qu.:1.000
 #  Median :22.75   Median :2804   Median :15.50   Median :76.00   Median :1.000
@@ -1160,11 +1160,11 @@ correlated to <code>mpg</code> to be a good indicator of what will help <code>mp
 obvious reasons.</p>
 
 <p>Now we can just use the columns we found with <code>findCorrelation</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">corrCols2 <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 3 4 2</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">names</span>(newDat)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#  [1] &#34;mpg&#34;          &#34;cylinders&#34;    &#34;displacement&#34; &#34;horsepower&#34;   &#34;weight&#34;
-#  [6] &#34;acceleration&#34; &#34;year&#34;         &#34;origin&#34;       &#34;name&#34;         &#34;mpg01&#34;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoLDA<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(mpg01<span style="color:#f92672">~</span>cylinders<span style="color:#f92672">+</span>displacement<span style="color:#f92672">+</span>horsepower,data<span style="color:#f92672">=</span>autoTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lda&#34;</span>)
-valScoreLDA<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(autoLDA,autoTest)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">corrCols2 %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 3 4 2</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">names</span>(newDat)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#  [1] &#34;mpg&#34;          &#34;cylinders&#34;    &#34;displacement&#34; &#34;horsepower&#34;   &#34;weight&#34;
+#  [6] &#34;acceleration&#34; &#34;year&#34;         &#34;origin&#34;       &#34;name&#34;         &#34;mpg01&#34;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoLDA=<span style="color:#447fcf">train</span>(mpg01~cylinders+displacement+horsepower,data=autoTrain,method=<span style="color:#ed9d13">&#34;lda&#34;</span>)
+valScoreLDA=<span style="color:#447fcf">predict</span>(autoLDA,autoTest)</code></pre></div>
 <p>Now we can check the statistics.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(valScoreLDA,autoTest<span style="color:#f92672">$</span>mpg01)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confusionMatrix</span>(valScoreLDA,autoTest$mpg01)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction  0  1
@@ -1192,7 +1192,7 @@ valScoreLDA<span style="color:#f92672">=</span><span style="color:#a6e22e">predi
 #        &#39;Positive&#39; Class : 0
 #</code></pre></div>
 <p>That is an amazingly accurate model.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">auto_ldaROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(valScoreLDA),response<span style="color:#f92672">=</span>autoTest<span style="color:#f92672">$</span>mpg01,levels<span style="color:#f92672">=</span><span style="color:#a6e22e">levels</span>(autoTest<span style="color:#f92672">$</span>mpg01))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggroc</span>(auto_ldaROC)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">auto_ldaROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(valScoreLDA),response=autoTest$mpg01,levels=<span style="color:#447fcf">levels</span>(autoTest$mpg01))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">ggroc</span>(auto_ldaROC)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-51-1.png"/> 
 </figure>
@@ -1201,10 +1201,10 @@ valScoreLDA<span style="color:#f92672">=</span><span style="color:#a6e22e">predi
 <h3 id="e-qda-with-significant-variables">e) QDA with Significant Variables</h3>
 
 <p>Same deal as before.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoQDA<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(mpg01<span style="color:#f92672">~</span>cylinders<span style="color:#f92672">+</span>displacement<span style="color:#f92672">+</span>horsepower,data<span style="color:#f92672">=</span>autoTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qda&#34;</span>)
-valScoreQDA<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(autoQDA,autoTest)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoQDA=<span style="color:#447fcf">train</span>(mpg01~cylinders+displacement+horsepower,data=autoTrain,method=<span style="color:#ed9d13">&#34;qda&#34;</span>)
+valScoreQDA=<span style="color:#447fcf">predict</span>(autoQDA,autoTest)</code></pre></div>
 <p>Now we can check the statistics.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(valScoreQDA,autoTest<span style="color:#f92672">$</span>mpg01)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confusionMatrix</span>(valScoreQDA,autoTest$mpg01)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction  0  1
@@ -1230,16 +1230,16 @@ valScoreQDA<span style="color:#f92672">=</span><span style="color:#a6e22e">predi
 #       Balanced Accuracy : 0.9655
 #
 #        &#39;Positive&#39; Class : 0
-#</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">auto_qdaROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(valScoreQDA),response<span style="color:#f92672">=</span>autoTest<span style="color:#f92672">$</span>mpg01,levels<span style="color:#f92672">=</span><span style="color:#a6e22e">levels</span>(autoTest<span style="color:#f92672">$</span>mpg01))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggroc</span>(auto_qdaROC)</code></pre></div>
+#</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">auto_qdaROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(valScoreQDA),response=autoTest$mpg01,levels=<span style="color:#447fcf">levels</span>(autoTest$mpg01))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">ggroc</span>(auto_qdaROC)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-54-1.png"/> 
 </figure>
 
 
 <p>OK, this is weird enough to check if it isn&rsquo;t some sort of artifact.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoQDA2<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(mpg01<span style="color:#f92672">~</span>horsepower, data<span style="color:#f92672">=</span>autoTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;qda&#39;</span>)
-valScoreQDA2<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(autoQDA2, autoTest)
-<span style="color:#a6e22e">confusionMatrix</span>(valScoreQDA2,autoTest<span style="color:#f92672">$</span>mpg01)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoQDA2=<span style="color:#447fcf">train</span>(mpg01~horsepower, data=autoTrain,method=<span style="color:#ed9d13">&#39;qda&#39;</span>)
+valScoreQDA2=<span style="color:#447fcf">predict</span>(autoQDA2, autoTest)
+<span style="color:#447fcf">confusionMatrix</span>(valScoreQDA2,autoTest$mpg01)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction  0  1
@@ -1279,11 +1279,11 @@ see what the models are really doing. Won&rsquo;t get into it right now
 though.</p>
 
 <h3 id="f-logistic-with-significant-variables">f) Logistic with Significant Variables</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glmAuto.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">glm</span>(mpg01<span style="color:#f92672">~</span>cylinders<span style="color:#f92672">+</span>displacement<span style="color:#f92672">+</span>horsepower, data<span style="color:#f92672">=</span>autoTrain, family<span style="color:#f92672">=</span>binomial)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glmAuto.probs <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(glmAuto.fit,autoTest, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;response&#34;</span>)
-glmAuto.pred <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#ae81ff">1</span>,<span style="color:#a6e22e">length</span>(glmAuto.probs))
-glmAuto.pred[glmAuto.probs<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0.5</span>]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-glmAuto.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor</span>(glmAuto.pred)
-<span style="color:#a6e22e">confusionMatrix</span>(glmAuto.pred,autoTest<span style="color:#f92672">$</span>mpg01)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glmAuto.fit=<span style="color:#447fcf">glm</span>(mpg01~cylinders+displacement+horsepower, data=autoTrain, family=binomial)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glmAuto.probs = <span style="color:#447fcf">predict</span>(glmAuto.fit,autoTest, type = <span style="color:#ed9d13">&#34;response&#34;</span>)
+glmAuto.pred = <span style="color:#447fcf">rep</span>(<span style="color:#3677a9">1</span>,<span style="color:#447fcf">length</span>(glmAuto.probs))
+glmAuto.pred[glmAuto.probs&lt;<span style="color:#3677a9">0.5</span>]=<span style="color:#3677a9">0</span>
+glmAuto.pred=<span style="color:#447fcf">factor</span>(glmAuto.pred)
+<span style="color:#447fcf">confusionMatrix</span>(glmAuto.pred,autoTest$mpg01)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction  0  1
@@ -1313,9 +1313,9 @@ glmAuto.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">fact
 <h3 id="g-knn-modeling">g) KNN Modeling</h3>
 
 <p>Scale the parameters later.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">knnAuto<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(mpg01<span style="color:#f92672">~</span>cylinders<span style="color:#f92672">+</span>displacement<span style="color:#f92672">+</span>horsepower,data<span style="color:#f92672">=</span>autoTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;knn&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">knnAuto=<span style="color:#447fcf">train</span>(mpg01~cylinders+displacement+horsepower,data=autoTrain,method=<span style="color:#ed9d13">&#34;knn&#34;</span>)</code></pre></div>
 <p>Plot <code>KNN</code> with the best parameters.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(knnCaret)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(knnCaret)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-59-1.png"/> 
 </figure>
@@ -1323,7 +1323,7 @@ glmAuto.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">fact
 
 <p>Evidently, the accuracy increases with an increase in the number of
 neighbors considered.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(knnAuto, print.thres <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>, type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;S&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(knnAuto, print.thres = <span style="color:#3677a9">0.5</span>, type=<span style="color:#ed9d13">&#34;S&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-60-1.png"/> 
 </figure>
@@ -1345,9 +1345,9 @@ function to output the result.</em></p>
 <p><strong>(b)</strong> Create a new function, <code>Power2()</code> , that allows you to pass any
 two numbers, <code>x</code> and <code>a</code> , and prints out the value of <code>x^a</code> . You can
 do this by beginning your function with the line</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Power2<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(x,a){}</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Power2=<span style="color:#447fcf">function</span>(x,a){}</code></pre></div>
 <p>You should be able to call your function by entering, for instance,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">Power2</span>(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">8</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">Power2</span>(<span style="color:#3677a9">3</span>,<span style="color:#3677a9">8</span>)</code></pre></div>
 <p>on the command line. This should output the value of \(3^8\), namely,
 \(6,651\).</p>
 
@@ -1359,7 +1359,7 @@ result <code>x^a</code> as an <code>R</code> object, rather than simply printing
 screen. That is, if you store the value <code>x^a</code> in an object called
 <code>result</code> within your function, then you can simply <code>return()</code> this
 result, using the following line:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">return</span>(result)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">return</span>(result)</code></pre></div>
 <p>The line above should be the last line in your function, before the <code>}</code>
 symbol.</p>
 
@@ -1374,44 +1374,44 @@ using <code>log=‘‘x’’</code>, <code>log=‘‘y’’</code>, or <code>l
 <p><strong>(f)</strong> Create a function, <code>PlotPower()</code> , that allows you to create a
 plot of <code>x</code> against <code>x^a</code> for a fixed <code>a</code> and for a range of values of
 <code>x</code>. For instance, if you call</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">PlotPower </span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span> ,<span style="color:#ae81ff">3</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">PlotPower </span>(<span style="color:#3677a9">1</span>:<span style="color:#3677a9">10</span> ,<span style="color:#3677a9">3</span>)</code></pre></div>
 <p>then a plot should be created with an <em>x</em>-axis taking on values
 \(1,2,&hellip;,10\) and a <em>y</em>-axis taking on values \(1^3,2^3,&hellip;,10^3\)</p>
 
 <h3 id="answer-2">Answer</h3>
 
 <h3 id="a-create-a-squaring-function">a) Create a Squaring Function</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Power<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(x){<span style="color:#a6e22e">print</span>(<span style="color:#ae81ff">2</span>^x)}
-<span style="color:#a6e22e">Power</span>(<span style="color:#ae81ff">3</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 8</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Power=<span style="color:#447fcf">function</span>(x){<span style="color:#447fcf">print</span>(<span style="color:#3677a9">2</span>^x)}
+<span style="color:#447fcf">Power</span>(<span style="color:#3677a9">3</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 8</code></pre></div>
 <h3 id="b-generalizing-power-to-arbitrary-numbers">b) Generalizing Power to arbitrary numbers</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Power2<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(x,a){<span style="color:#a6e22e">print</span>(x^a)}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">Power2</span>(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">8</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 6561</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Power2=<span style="color:#447fcf">function</span>(x,a){<span style="color:#447fcf">print</span>(x^a)}</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">Power2</span>(<span style="color:#3677a9">3</span>,<span style="color:#3677a9">8</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 6561</code></pre></div>
 <h3 id="c-random-testing-of-power2">c) Random Testing of Power2</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">Power2</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">3</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 1000</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">Power2</span>(<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">17</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 2.2518e+15</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">Power2</span>(<span style="color:#ae81ff">131</span>,<span style="color:#ae81ff">2</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 17161</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">Power2</span>(<span style="color:#3677a9">10</span>,<span style="color:#3677a9">3</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 1000</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">Power2</span>(<span style="color:#3677a9">8</span>,<span style="color:#3677a9">17</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 2.2518e+15</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">Power2</span>(<span style="color:#3677a9">131</span>,<span style="color:#3677a9">2</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># [1] 17161</code></pre></div>
 <h3 id="d-return-a-value">d) Return a value</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Power3<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(x,a){<span style="color:#a6e22e">return</span>(x^a)}</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Power3=<span style="color:#447fcf">function</span>(x,a){<span style="color:#447fcf">return</span>(x^a)}</code></pre></div>
 <h3 id="e-plot-something-with-power3">e) Plot something with Power3</h3>
 
 <p>Actually now would be a good place to introduce <code>LaTeX</code> labeling.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#install.packages(&#34;latex2exp&#34;)</span>
-<span style="color:#a6e22e">library</span>(latex2exp)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic">#install.packages(&#34;latex2exp&#34;)</span>
+<span style="color:#447fcf">library</span>(latex2exp)</code></pre></div>
 <p>No log scale.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">qplot</span>(x<span style="color:#f92672">=</span><span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">10</span>),y<span style="color:#f92672">=</span><span style="color:#a6e22e">Power3</span>(<span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">10</span>),<span style="color:#ae81ff">2</span>)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;Function without a log scale&#34;</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">xlab</span>(<span style="color:#e6db74">&#34;X&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">ylab</span>(<span style="color:#a6e22e">TeX</span>(<span style="color:#e6db74">&#34;$X^2$&#34;</span>))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">qplot</span>(x=<span style="color:#447fcf">seq</span>(<span style="color:#3677a9">1</span>,<span style="color:#3677a9">10</span>),y=<span style="color:#447fcf">Power3</span>(<span style="color:#447fcf">seq</span>(<span style="color:#3677a9">1</span>,<span style="color:#3677a9">10</span>),<span style="color:#3677a9">2</span>)) + <span style="color:#447fcf">ggtitle</span>(<span style="color:#ed9d13">&#34;Function without a log scale&#34;</span>) +
+  <span style="color:#447fcf">geom_point</span>() + <span style="color:#447fcf">xlab</span>(<span style="color:#ed9d13">&#34;X&#34;</span>) + <span style="color:#447fcf">ylab</span>(<span style="color:#447fcf">TeX</span>(<span style="color:#ed9d13">&#34;$X^2$&#34;</span>))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-67-1.png"/> 
 </figure>
 
 
 <p>With a log scale.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">qplot</span>(x<span style="color:#f92672">=</span><span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">10</span>),y<span style="color:#f92672">=</span><span style="color:#a6e22e">Power3</span>(<span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">10</span>),<span style="color:#ae81ff">2</span>)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;Function with a log scale&#34;</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">xlab</span>(<span style="color:#e6db74">&#34;X&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">ylab</span>(<span style="color:#a6e22e">TeX</span>(<span style="color:#e6db74">&#34;$X^2$&#34;</span>)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">scale_y_log10</span>()</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">qplot</span>(x=<span style="color:#447fcf">seq</span>(<span style="color:#3677a9">1</span>,<span style="color:#3677a9">10</span>),y=<span style="color:#447fcf">Power3</span>(<span style="color:#447fcf">seq</span>(<span style="color:#3677a9">1</span>,<span style="color:#3677a9">10</span>),<span style="color:#3677a9">2</span>)) + <span style="color:#447fcf">ggtitle</span>(<span style="color:#ed9d13">&#34;Function with a log scale&#34;</span>) +
+  <span style="color:#447fcf">geom_point</span>() + <span style="color:#447fcf">xlab</span>(<span style="color:#ed9d13">&#34;X&#34;</span>) + <span style="color:#447fcf">ylab</span>(<span style="color:#447fcf">TeX</span>(<span style="color:#ed9d13">&#34;$X^2$&#34;</span>)) + <span style="color:#447fcf">scale_y_log10</span>()</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-68-1.png"/> 
 </figure>
 
 
 <h3 id="f-plotpower-function">f) PlotPower Function</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">PlotPower<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(xrange,pow){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">qplot</span>(x<span style="color:#f92672">=</span>xrange,y<span style="color:#f92672">=</span><span style="color:#a6e22e">Power3</span>(xrange,pow)))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">plotter<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">PlotPower</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">3</span>)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">PlotPower=<span style="color:#447fcf">function</span>(xrange,pow){<span style="color:#447fcf">return</span>(<span style="color:#447fcf">qplot</span>(x=xrange,y=<span style="color:#447fcf">Power3</span>(xrange,pow)))}</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">plotter&lt;-<span style="color:#447fcf">PlotPower</span>(<span style="color:#3677a9">1</span>:<span style="color:#3677a9">10</span>,<span style="color:#3677a9">3</span>)
 plotter</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-70-1.png"/> 
@@ -1434,33 +1434,33 @@ subsets of the predictors. Describe your findings.</p>
 <code>Auto</code> set. Recall that details about this data-set are
 <a href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html" target="_blank">also
 here</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">&lt;-</span>MASS<span style="color:#f92672">::</span>Boston</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston&lt;-MASS::Boston</code></pre></div>
 <ul>
 <li>Check unique values</li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(unique) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(length)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#    crim      zn   indus    chas     nox      rm     age     dis     rad     tax
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston %&gt;% <span style="color:#447fcf">sapply</span>(unique) %&gt;% <span style="color:#447fcf">sapply</span>(length)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#    crim      zn   indus    chas     nox      rm     age     dis     rad     tax
 #     504      26      76       2      81     446     356     412       9      66
 # ptratio   black   lstat    medv
 #      46     357     455     229</code></pre></div>
 <p><code>CHAS</code> is of course something which should be a factor, and with <code>RAD</code>
 having only \(9\) levels, I&rsquo;m inclined to make it a factor as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">&lt;-</span>boston <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">mutate</span>(rad<span style="color:#f92672">=</span><span style="color:#a6e22e">factor</span>(rad),chas<span style="color:#f92672">=</span><span style="color:#a6e22e">factor</span>(chas))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston&lt;-boston %&gt;% <span style="color:#447fcf">mutate</span>(rad=<span style="color:#447fcf">factor</span>(rad),chas=<span style="color:#447fcf">factor</span>(chas))</code></pre></div>
 <ul>
 <li>Make a median variable</li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>highCrime<span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ifelse</span>(boston<span style="color:#f92672">$</span>crim<span style="color:#f92672">&lt;</span>boston<span style="color:#f92672">$</span>crim <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">median</span>(),<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">factor</span>()</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston$highCrime&lt;- <span style="color:#447fcf">ifelse</span>(boston$crim&lt;boston$crim %&gt;% <span style="color:#447fcf">median</span>(),<span style="color:#3677a9">0</span>,<span style="color:#3677a9">1</span>) %&gt;% <span style="color:#447fcf">factor</span>()</code></pre></div>
 <ul>
 <li>Take a look at the data</li>
 </ul>
 
 <p>Some box-plots:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">pivot_longer</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(rad,chas,highCrime),names_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Param&#34;</span>,values_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Value&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>highCrime,y<span style="color:#f92672">=</span>Value,fill<span style="color:#f92672">=</span>chas)) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">geom_boxplot</span>()<span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#f92672">~</span>Param,scales<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;free_y&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston %&gt;% <span style="color:#447fcf">pivot_longer</span>(-<span style="color:#447fcf">c</span>(rad,chas,highCrime),names_to=<span style="color:#ed9d13">&#34;Param&#34;</span>,values_to=<span style="color:#ed9d13">&#34;Value&#34;</span>) %&gt;% <span style="color:#447fcf">ggplot</span>(<span style="color:#447fcf">aes</span>(x=highCrime,y=Value,fill=chas)) +
+  <span style="color:#447fcf">geom_boxplot</span>()+
+  <span style="color:#447fcf">facet_wrap</span>(~Param,scales=<span style="color:#ed9d13">&#34;free_y&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-75-1.png"/> 
 </figure>
@@ -1474,7 +1474,7 @@ relevant. 1 implies the tract bounds the river, otherwise 0.</p>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(rad,chas,highCrime)) <span style="color:#f92672">%&gt;%</span> cor</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#               crim         zn      indus        nox         rm        age
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston %&gt;% <span style="color:#447fcf">select</span>(-<span style="color:#447fcf">c</span>(rad,chas,highCrime)) %&gt;% cor</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#               crim         zn      indus        nox         rm        age
 # crim     1.0000000 -0.2004692  0.4065834  0.4209717 -0.2192467  0.3527343
 # zn      -0.2004692  1.0000000 -0.5338282 -0.5166037  0.3119906 -0.5695373
 # indus    0.4065834 -0.5338282  1.0000000  0.7636514 -0.3916759  0.6447785
@@ -1508,23 +1508,23 @@ here for some reason.</p>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1984</span>)
-trainIndCri <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">createDataPartition</span>(boston<span style="color:#f92672">$</span>highCrime, <span style="color:#75715e"># Factor, so class sampling</span>
-                                p<span style="color:#f92672">=</span><span style="color:#ae81ff">0.7</span>, <span style="color:#75715e"># 70-30 train-test</span>
-                                list<span style="color:#f92672">=</span><span style="color:#66d9ef">FALSE</span>, <span style="color:#75715e"># No lists</span>
-                                times<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># No bootstrap</span>
-bostonTrain<span style="color:#f92672">&lt;-</span>boston[trainIndCri,]
-bostonTest<span style="color:#f92672">&lt;-</span>boston[<span style="color:#f92672">-</span>trainIndCri,]</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">set.seed</span>(<span style="color:#3677a9">1984</span>)
+trainIndCri &lt;- <span style="color:#447fcf">createDataPartition</span>(boston$highCrime, <span style="color:#999;font-style:italic"># Factor, so class sampling</span>
+                                p=<span style="color:#3677a9">0.7</span>, <span style="color:#999;font-style:italic"># 70-30 train-test</span>
+                                list=<span style="color:#6ab825;font-weight:bold">FALSE</span>, <span style="color:#999;font-style:italic"># No lists</span>
+                                times=<span style="color:#3677a9">1</span>) <span style="color:#999;font-style:italic"># No bootstrap</span>
+bostonTrain&lt;-boston[trainIndCri,]
+bostonTest&lt;-boston[-trainIndCri,]</code></pre></div>
 <ul>
 <li>Make a bunch of models</li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glmBos.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">glm</span>(highCrime<span style="color:#f92672">~</span>., data<span style="color:#f92672">=</span>bostonTrain, family<span style="color:#f92672">=</span>binomial)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Warning: glm.fit: algorithm did not converge</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glmBos.probs <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(glmBos.fit,bostonTest, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;response&#34;</span>)
-glmBos.pred <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#ae81ff">1</span>,<span style="color:#a6e22e">length</span>(glmBos.probs))
-glmBos.pred[glmBos.probs<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0.5</span>]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-glmBos.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">factor</span>(glmBos.pred)
-<span style="color:#a6e22e">confusionMatrix</span>(glmBos.pred,bostonTest<span style="color:#f92672">$</span>highCrime)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glmBos.fit=<span style="color:#447fcf">glm</span>(highCrime~., data=bostonTrain, family=binomial)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Warning: glm.fit: algorithm did not converge</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glmBos.probs = <span style="color:#447fcf">predict</span>(glmBos.fit,bostonTest, type = <span style="color:#ed9d13">&#34;response&#34;</span>)
+glmBos.pred = <span style="color:#447fcf">rep</span>(<span style="color:#3677a9">1</span>,<span style="color:#447fcf">length</span>(glmBos.probs))
+glmBos.pred[glmBos.probs&lt;<span style="color:#3677a9">0.5</span>]=<span style="color:#3677a9">0</span>
+glmBos.pred=<span style="color:#447fcf">factor</span>(glmBos.pred)
+<span style="color:#447fcf">confusionMatrix</span>(glmBos.pred,bostonTest$highCrime)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction  0  1
@@ -1550,11 +1550,11 @@ glmBos.pred<span style="color:#f92672">=</span><span style="color:#a6e22e">facto
 #       Balanced Accuracy : 0.9133
 #
 #        &#39;Positive&#39; Class : 0
-#</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">bostonLDA<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(highCrime<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>bostonTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lda&#39;</span>)
-bostonQDA<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(highCrime<span style="color:#f92672">~</span>tax<span style="color:#f92672">+</span>crim,data<span style="color:#f92672">=</span>bostonTrain,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;qda&#39;</span>)
-bostonKNN<span style="color:#f92672">=</span><span style="color:#a6e22e">train</span>(highCrime<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>bostonTrain,preProcess <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;center&#34;</span>,<span style="color:#e6db74">&#34;scale&#34;</span>),method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;knn&#39;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">bLDAp<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(bostonLDA,bostonTest)
-bQDAp<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(bostonQDA,bostonTest)
-bKNNp<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(bostonKNN,bostonTest)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(bLDAp,bostonTest<span style="color:#f92672">$</span>highCrime)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+#</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">bostonLDA=<span style="color:#447fcf">train</span>(highCrime~.,data=bostonTrain,method=<span style="color:#ed9d13">&#39;lda&#39;</span>)
+bostonQDA=<span style="color:#447fcf">train</span>(highCrime~tax+crim,data=bostonTrain,method=<span style="color:#ed9d13">&#39;qda&#39;</span>)
+bostonKNN=<span style="color:#447fcf">train</span>(highCrime~.,data=bostonTrain,preProcess = <span style="color:#447fcf">c</span>(<span style="color:#ed9d13">&#34;center&#34;</span>,<span style="color:#ed9d13">&#34;scale&#34;</span>),method=<span style="color:#ed9d13">&#39;knn&#39;</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">bLDAp=<span style="color:#447fcf">predict</span>(bostonLDA,bostonTest)
+bQDAp=<span style="color:#447fcf">predict</span>(bostonQDA,bostonTest)
+bKNNp=<span style="color:#447fcf">predict</span>(bostonKNN,bostonTest)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confusionMatrix</span>(bLDAp,bostonTest$highCrime)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction  0  1
@@ -1580,7 +1580,7 @@ bKNNp<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</sp
 #       Balanced Accuracy : 0.9400
 #
 #        &#39;Positive&#39; Class : 0
-#</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(bQDAp,bostonTest<span style="color:#f92672">$</span>highCrime)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+#</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confusionMatrix</span>(bQDAp,bostonTest$highCrime)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction  0  1
@@ -1606,7 +1606,7 @@ bKNNp<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</sp
 #       Balanced Accuracy : 0.9533
 #
 #        &#39;Positive&#39; Class : 0
-#</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(bKNNp,bostonTest<span style="color:#f92672">$</span>highCrime)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
+#</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confusionMatrix</span>(bKNNp,bostonTest$highCrime)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Confusion Matrix and Statistics
 #
 #           Reference
 # Prediction  0  1
@@ -1642,12 +1642,12 @@ Logistic Regression is doing quite well too.</p>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(bostonKNN)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(bostonKNN)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-84-1.png"/> 
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(bostonKNN, print.thres <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>, type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;S&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(bostonKNN, print.thres = <span style="color:#3677a9">0.5</span>, type=<span style="color:#ed9d13">&#34;S&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-85-1.png"/> 
 </figure>
@@ -1658,10 +1658,10 @@ Logistic Regression is doing quite well too.</p>
 </ul>
 
 <p>Finally, we will quickly plot some indicative measures.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">knnBosROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(bKNNp),response<span style="color:#f92672">=</span>bostonTest<span style="color:#f92672">$</span>highCrime)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = 0, case = 1</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">logiBosROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(glmBos.probs),response<span style="color:#f92672">=</span>bostonTest<span style="color:#f92672">$</span>highCrime)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = 0, case = 1
-# Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ldaBosROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(bLDAp),response<span style="color:#f92672">=</span>bostonTest<span style="color:#f92672">$</span>highCrime)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = 0, case = 1
-# Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">qdaBosROC<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">roc</span>(predictor<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(bQDAp),response<span style="color:#f92672">=</span>bostonTest<span style="color:#f92672">$</span>highCrime)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = 0, case = 1
-# Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">ggroc</span>(<span style="color:#a6e22e">list</span>(KNN<span style="color:#f92672">=</span>knnBosROC,Logistic<span style="color:#f92672">=</span>logiBosROC,LDA<span style="color:#f92672">=</span>ldaBosROC,QDA<span style="color:#f92672">=</span>qdaBosROC))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">knnBosROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(bKNNp),response=bostonTest$highCrime)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = 0, case = 1</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">logiBosROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(glmBos.probs),response=bostonTest$highCrime)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = 0, case = 1
+# Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ldaBosROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(bLDAp),response=bostonTest$highCrime)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = 0, case = 1
+# Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">qdaBosROC&lt;-<span style="color:#447fcf">roc</span>(predictor=<span style="color:#447fcf">as.numeric</span>(bQDAp),response=bostonTest$highCrime)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Setting levels: control = 0, case = 1
+# Setting direction: controls &lt; cases</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">ggroc</span>(<span style="color:#447fcf">list</span>(KNN=knnBosROC,Logistic=logiBosROC,LDA=ldaBosROC,QDA=qdaBosROC))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol2/unnamed-chunk-87-1.png"
          alt="Figure 14: plot of chunk unnamed-chunk-87"/> <figcaption>

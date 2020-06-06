@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -38,8 +38,8 @@
 
 
 <meta itemprop="datePublished" content="2020-04-26T20:01:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T06:11:33&#43;00:00" />
-<meta itemprop="wordCount" content="495">
+<meta itemprop="dateModified" content="2020-06-06T15:16:10&#43;00:00" />
+<meta itemprop="wordCount" content="444">
 
 
 
@@ -51,7 +51,7 @@
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-04-26T20:01:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T06:11:33+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-06T15:16:10+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -191,17 +191,17 @@
 </ul>
 
 <p>After obtaining the packages, the configuration is then simply&nbsp;<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Load mathematica from contrib</span>
-(org-babel-do-load-languages <span style="color:#e6db74">&#39;org-babel-load-languages</span>
-                             (<span style="color:#a6e22e">append</span> org-babel-load-languages
-                                     <span style="color:#f92672">&#39;</span>((mathematica <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>))
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#999;font-style:italic">;; Load mathematica from contrib</span>
+(<span style="color:#40ffff">org-babel-do-load-languages</span> <span style="color:#ed9d13">&#39;org-babel-load-languages</span>
+                             (<span style="color:#447fcf">append</span> <span style="color:#40ffff">org-babel-load-languages</span>
+                                     &#39;((<span style="color:#40ffff">mathematica</span> . <span style="color:#40ffff">t</span>))
                                      ))
-<span style="color:#75715e">;; Sanitize output and deal with paths</span>
-(setq org-babel-mathematica-command <span style="color:#e6db74">&#34;~/.local/bin/mash&#34;</span>)
-<span style="color:#75715e">;; Font-locking</span>
-(add-to-list <span style="color:#e6db74">&#39;org-src-lang-modes</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;mathematica&#34;</span> <span style="color:#f92672">.</span> wolfram))
-<span style="color:#75715e">;; For wolfram-mode</span>
-(setq mathematica-command-line <span style="color:#e6db74">&#34;~/.local/bin/mash&#34;</span>)</code></pre></div>
+<span style="color:#999;font-style:italic">;; Sanitize output and deal with paths</span>
+(<span style="color:#24909d">setq</span> <span style="color:#40ffff">org-babel-mathematica-command</span> <span style="color:#ed9d13">&#34;~/.local/bin/mash&#34;</span>)
+<span style="color:#999;font-style:italic">;; Font-locking</span>
+(<span style="color:#40ffff">add-to-list</span> <span style="color:#ed9d13">&#39;org-src-lang-modes</span> &#39;(<span style="color:#ed9d13">&#34;mathematica&#34;</span> . <span style="color:#40ffff">wolfram</span>))
+<span style="color:#999;font-style:italic">;; For wolfram-mode</span>
+(<span style="color:#24909d">setq</span> <span style="color:#40ffff">mathematica-command-line</span> <span style="color:#ed9d13">&#34;~/.local/bin/mash&#34;</span>)</code></pre></div>
 <h2 id="results">Results</h2>
 
 <h3 id="latex">LaTeX</h3>
@@ -244,26 +244,26 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mathematica" data-lang="mathematica">(<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>Transpose<span style="color:#f92672">@</span>x) <span style="color:#f92672">//</span> TeXForm</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mathematica" data-lang="mathematica">(<span style="color:#3677a9">1</span>+Transpose@x)<span style="color:#666"> </span>//<span style="color:#666"> </span>TeXForm</code></pre></div>
 <p>Where our header-line (with <code>#+begin_src</code>) is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode">mathematica :var x=example-table :results latex</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode">mathematica :var x=example-table :results latex</code></pre></div>
 <h3 id="sanity-checks">Sanity Checks</h3>
 
 <p>We can also test the example from the <a href="http://thingwy.blogspot.com/2015/07/maxima-versus-mathematica-should-i-go.html" target="_blank">blog post</a> earlier to test basic mathematical sanity.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mathematica" data-lang="mathematica">Limit[Log[b <span style="color:#f92672">-</span> a <span style="color:#f92672">+</span> I eta], eta <span style="color:#f92672">-&gt;</span> <span style="color:#ae81ff">0</span>, Direction <span style="color:#f92672">-&gt;</span> <span style="color:#ae81ff">-1</span>,Assumptions <span style="color:#f92672">-&gt;</span> {a <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, b <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, a <span style="color:#f92672">&gt;</span> b}]
-TeXForm[Limit[Log[b <span style="color:#f92672">-</span> a <span style="color:#f92672">+</span> I eta], eta <span style="color:#f92672">-&gt;</span> <span style="color:#ae81ff">0</span>, Direction <span style="color:#f92672">-&gt;</span> <span style="color:#ae81ff">1</span>,Assumptions <span style="color:#f92672">-&gt;</span> {a <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, b <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, a <span style="color:#f92672">&gt;</span> b}]]</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mathematica" data-lang="mathematica">Limit[Log[b<span style="color:#666"> </span>-<span style="color:#666"> </span>a<span style="color:#666"> </span>+<span style="color:#666"> </span>I<span style="color:#666"> </span>eta],<span style="color:#666"> </span>eta<span style="color:#666"> </span>-&gt;<span style="color:#666"> </span><span style="color:#3677a9">0</span>,<span style="color:#666"> </span>Direction<span style="color:#666"> </span>-&gt;<span style="color:#666"> </span><span style="color:#3677a9">-1</span>,Assumptions<span style="color:#666"> </span>-&gt;<span style="color:#666"> </span>{a<span style="color:#666"> </span>&gt;<span style="color:#666"> </span><span style="color:#3677a9">0</span>,<span style="color:#666"> </span>b<span style="color:#666"> </span>&gt;<span style="color:#666"> </span><span style="color:#3677a9">0</span>,<span style="color:#666"> </span>a<span style="color:#666"> </span>&gt;<span style="color:#666"> </span>b}]<span style="color:#666">
+</span><span style="color:#666"></span>TeXForm[Limit[Log[b<span style="color:#666"> </span>-<span style="color:#666"> </span>a<span style="color:#666"> </span>+<span style="color:#666"> </span>I<span style="color:#666"> </span>eta],<span style="color:#666"> </span>eta<span style="color:#666"> </span>-&gt;<span style="color:#666"> </span><span style="color:#3677a9">0</span>,<span style="color:#666"> </span>Direction<span style="color:#666"> </span>-&gt;<span style="color:#666"> </span><span style="color:#3677a9">1</span>,Assumptions<span style="color:#666"> </span>-&gt;<span style="color:#666"> </span>{a<span style="color:#666"> </span>&gt;<span style="color:#666"> </span><span style="color:#3677a9">0</span>,<span style="color:#666"> </span>b<span style="color:#666"> </span>&gt;<span style="color:#666"> </span><span style="color:#3677a9">0</span>,<span style="color:#666"> </span>a<span style="color:#666"> </span>&gt;<span style="color:#666"> </span>b}]]</code></pre></div>
 <p>\((I*Pi + Log[a - b])*\log (a-b)-i \pi\)</p>
 
 <h3 id="inline-math">Inline Math</h3>
 
 <p>Note that we can now also write fractions, integrals and other cumbersome TeX objects a lot faster with this syntax, like \(\frac{x^3}{3}\). Where we are using the following snippet:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode">src_mathematica[:exports none :results raw]{Integrate[x^2,x] // TeXForm}</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-orgmode" data-lang="orgmode">src_mathematica[:exports none :results raw]{Integrate[x^2,x] // TeXForm}</code></pre></div>
 <h3 id="plots">Plots</h3>
 
 <p>For plots, the standard <code>orgmode</code> rules apply, that is, we have to export to a file and return the name through our code snippet. Consider:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mathematica" data-lang="mathematica">p<span style="color:#f92672">=</span>Plot[Sin[x], {x, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">6</span> Pi},Frame<span style="color:#f92672">-&gt;</span>True];
-Export[<span style="color:#e6db74">&#34;images/sine.png&#34;</span>,p];
-Print[<span style="color:#e6db74">&#34;images/sine.png&#34;</span>]</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mathematica" data-lang="mathematica">p=Plot[Sin[x],<span style="color:#666"> </span>{x,<span style="color:#666"> </span><span style="color:#3677a9">0</span>,<span style="color:#666"> </span><span style="color:#3677a9">6</span><span style="color:#666"> </span>Pi},Frame-&gt;True];<span style="color:#666">
+</span><span style="color:#666"></span>Export[<span style="color:#ed9d13">&#34;images/sine.png&#34;</span>,p];<span style="color:#666">
+</span><span style="color:#666"></span>Print[<span style="color:#ed9d13">&#34;images/sine.png&#34;</span>]</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/ox-hugo/sine.png"
          alt="Figure 1: An exported Mathematica image"/> <figcaption>
@@ -295,7 +295,7 @@ Print[<span style="color:#e6db74">&#34;images/sine.png&#34;</span>]</code></pre>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/tools">tools</a></span><span class="tag"><a href="https://rgoswami.me/tags/emacs">emacs</a></span><span class="tag"><a href="https://rgoswami.me/tags/workflow">workflow</a></span><span class="tag"><a href="https://rgoswami.me/tags/orgmode">orgmode</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>495 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>444 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-04-26 20:01 &#43;0000</p>
 <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2frgoswami.me%2fposts%2forg-mathematica%2f" target="_blank" rel="noopener" aria-label="Facebook">

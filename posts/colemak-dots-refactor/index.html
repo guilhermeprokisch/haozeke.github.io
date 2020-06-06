@@ -29,7 +29,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -40,7 +40,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 
 
 <meta itemprop="datePublished" content="2020-05-02T20:30:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T06:11:34&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-06T15:16:11&#43;00:00" />
 <meta itemprop="wordCount" content="900">
 
 
@@ -54,7 +54,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-05-02T20:30:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T06:11:34+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-06T15:16:11+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -188,10 +188,10 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 until recently, I was still trying to mimic the VIM keybindings from QWERTY.
 This is a post where I discuss the changes I made to ensure that I never have to
 stretch my fingers in odd ways again. The main idea is expressed well by <a href="https://github.com/jooize/vim-colemak" target="_blank">vim-colemak</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Colemak layout:                  |                 QWERTY layout:
-<span style="color:#e6db74">`</span><span style="color:#ae81ff">12345</span> <span style="color:#ae81ff">67890</span>-<span style="color:#f92672">=</span>     Move around:  |  <span style="color:#f92672">(</span>instead of<span style="color:#f92672">)</span>   <span style="color:#e6db74">`</span><span style="color:#ae81ff">12345</span> <span style="color:#ae81ff">67890</span>-<span style="color:#f92672">=</span>
- qwfpg jluy;<span style="color:#f92672">[]</span><span style="color:#ae81ff">\ </span>        e        |       k          qwert yuiop<span style="color:#f92672">[]</span><span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span> arstd HNEIo<span style="color:#e6db74">&#39;         h   i      |     h   l        asdfg HJKL;&#39;</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Colemak layout:                  |                 QWERTY layout:
+<span style="color:#ed9d13">`</span><span style="color:#3677a9">12345</span> <span style="color:#3677a9">67890</span>-=     Move around:  |  (instead of)   <span style="color:#ed9d13">`</span><span style="color:#3677a9">12345</span> <span style="color:#3677a9">67890</span>-=
+ qwfpg jluy;[]<span style="color:#ed9d13">\ </span>        e        |       k          qwert yuiop[]<span style="color:#ed9d13">\
+</span><span style="color:#ed9d13"></span> arstd HNEIo<span style="color:#ed9d13">&#39;         h   i      |     h   l        asdfg HJKL;&#39;</span>
  zxcvb km,./            n        |       j          zxcvb nm,./</code></pre></div>
 <h2 id="emacs">Emacs</h2>
 
@@ -323,16 +323,16 @@ using <code>swiper-isearch</code> more which is a bonus too.</p>
 <h3 id="pdf-tools">Pdf-Tools</h3>
 
 <p>For my <code>doom-emacs</code> configuration, I also set the following map:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(after! pdf-view
-  (add-hook! <span style="color:#e6db74">&#39;pdf-view-mode-hook</span> (evil-colemak-basics-mode <span style="color:#ae81ff">-1</span>))
- (map!
-   :map pdf-view-mode-map
-   :n <span style="color:#e6db74">&#34;g g&#34;</span>          <span style="color:#a6e22e">#&#39;</span>pdf-view-first-page
-   :n <span style="color:#e6db74">&#34;G&#34;</span>            <span style="color:#a6e22e">#&#39;</span>pdf-view-last-page
-   :n <span style="color:#e6db74">&#34;N&#34;</span>            <span style="color:#a6e22e">#&#39;</span>pdf-view-next-page-command
-   :n <span style="color:#e6db74">&#34;E&#34;</span>            <span style="color:#a6e22e">#&#39;</span>pdf-view-previous-page-command
-   :n <span style="color:#e6db74">&#34;e&#34;</span>            <span style="color:#a6e22e">#&#39;</span>evil-collection-pdf-view-previous-line-or-previous-page
-   :n <span style="color:#e6db74">&#34;n&#34;</span>            <span style="color:#a6e22e">#&#39;</span>evil-collection-pdf-view-next-line-or-next-page
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#40ffff">after!</span> <span style="color:#40ffff">pdf-view</span>
+  (<span style="color:#40ffff">add-hook!</span> <span style="color:#ed9d13">&#39;pdf-view-mode-hook</span> (<span style="color:#40ffff">evil-colemak-basics-mode</span> <span style="color:#3677a9">-1</span>))
+ (<span style="color:#40ffff">map!</span>
+   <span style="color:#24909d">:map</span> <span style="color:#40ffff">pdf-view-mode-map</span>
+   <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;g g&#34;</span>          <span style="color:#447fcf">#&#39;</span><span style="color:#40ffff">pdf-view-first-page</span>
+   <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;G&#34;</span>            <span style="color:#447fcf">#&#39;</span><span style="color:#40ffff">pdf-view-last-page</span>
+   <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;N&#34;</span>            <span style="color:#447fcf">#&#39;</span><span style="color:#40ffff">pdf-view-next-page-command</span>
+   <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;E&#34;</span>            <span style="color:#447fcf">#&#39;</span><span style="color:#40ffff">pdf-view-previous-page-command</span>
+   <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;e&#34;</span>            <span style="color:#447fcf">#&#39;</span><span style="color:#40ffff">evil-collection-pdf-view-previous-line-or-previous-page</span>
+   <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;n&#34;</span>            <span style="color:#447fcf">#&#39;</span><span style="color:#40ffff">evil-collection-pdf-view-next-line-or-next-page</span>
  )</code></pre></div>
 <p>Where the most important thing is the hook which removes the
 <code>evil-colemak-basics</code> binding. Since it is a single mode and hook, <code>after-hook!</code>
@@ -341,23 +341,23 @@ is the same as <code>after-hook</code><sup class="footnote-ref" id="fnref:fn-1">
 <h3 id="window-management">Window Management</h3>
 
 <p>Somehow these are not part of the <code>evil-colemak</code> defaults.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(after! evil
-  (map! :map evil-window-map
-        (:leader
-         (:prefix (<span style="color:#e6db74">&#34;w&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Select Window&#34;</span>)
-          :n :desc <span style="color:#e6db74">&#34;Left&#34;</span>  <span style="color:#e6db74">&#34;h&#34;</span> <span style="color:#e6db74">&#39;evil-window-left</span>
-          :n :desc <span style="color:#e6db74">&#34;Up&#34;</span>    <span style="color:#e6db74">&#34;e&#34;</span> <span style="color:#e6db74">&#39;evil-window-up</span>
-          :n :desc <span style="color:#e6db74">&#34;Down&#34;</span>  <span style="color:#e6db74">&#34;n&#34;</span> <span style="color:#e6db74">&#39;evil-window-down</span>
-          :n :desc <span style="color:#e6db74">&#34;Right&#34;</span> <span style="color:#e6db74">&#34;i&#34;</span> <span style="color:#e6db74">&#39;evil-window-right</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#40ffff">after!</span> <span style="color:#40ffff">evil</span>
+  (<span style="color:#40ffff">map!</span> <span style="color:#24909d">:map</span> <span style="color:#40ffff">evil-window-map</span>
+        (<span style="color:#24909d">:leader</span>
+         (<span style="color:#24909d">:prefix</span> (<span style="color:#ed9d13">&#34;w&#34;</span> . <span style="color:#ed9d13">&#34;Select Window&#34;</span>)
+          <span style="color:#24909d">:n</span> <span style="color:#24909d">:desc</span> <span style="color:#ed9d13">&#34;Left&#34;</span>  <span style="color:#ed9d13">&#34;h&#34;</span> <span style="color:#ed9d13">&#39;evil-window-left</span>
+          <span style="color:#24909d">:n</span> <span style="color:#24909d">:desc</span> <span style="color:#ed9d13">&#34;Up&#34;</span>    <span style="color:#ed9d13">&#34;e&#34;</span> <span style="color:#ed9d13">&#39;evil-window-up</span>
+          <span style="color:#24909d">:n</span> <span style="color:#24909d">:desc</span> <span style="color:#ed9d13">&#34;Down&#34;</span>  <span style="color:#ed9d13">&#34;n&#34;</span> <span style="color:#ed9d13">&#39;evil-window-down</span>
+          <span style="color:#24909d">:n</span> <span style="color:#24909d">:desc</span> <span style="color:#ed9d13">&#34;Right&#34;</span> <span style="color:#ed9d13">&#34;i&#34;</span> <span style="color:#ed9d13">&#39;evil-window-right</span>
           ))
         ))</code></pre></div>
 <h3 id="search">Search</h3>
 
 <p>Harmonizing with Vimium.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(after! evil (map! :map evil-motion-state-map
-                   (:n :desc <span style="color:#e6db74">&#34;Previous match&#34;</span> <span style="color:#e6db74">&#34;K&#34;</span> <span style="color:#e6db74">&#39;evil-ex-search-previous</span>
-                    :n :desc <span style="color:#e6db74">&#34;Next match&#34;</span> <span style="color:#e6db74">&#34;k&#34;</span> <span style="color:#e6db74">&#39;evil-ex-search-next</span>
-                    :n :desc <span style="color:#e6db74">&#34;Forward search&#34;</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#e6db74">&#39;evil-search-forward</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#40ffff">after!</span> <span style="color:#40ffff">evil</span> (<span style="color:#40ffff">map!</span> <span style="color:#24909d">:map</span> <span style="color:#40ffff">evil-motion-state-map</span>
+                   (<span style="color:#24909d">:n</span> <span style="color:#24909d">:desc</span> <span style="color:#ed9d13">&#34;Previous match&#34;</span> <span style="color:#ed9d13">&#34;K&#34;</span> <span style="color:#ed9d13">&#39;evil-ex-search-previous</span>
+                    <span style="color:#24909d">:n</span> <span style="color:#24909d">:desc</span> <span style="color:#ed9d13">&#34;Next match&#34;</span> <span style="color:#ed9d13">&#34;k&#34;</span> <span style="color:#ed9d13">&#39;evil-ex-search-next</span>
+                    <span style="color:#24909d">:n</span> <span style="color:#24909d">:desc</span> <span style="color:#ed9d13">&#34;Forward search&#34;</span> <span style="color:#ed9d13">&#34;/&#34;</span> <span style="color:#ed9d13">&#39;evil-search-forward</span>
                     )
                    ))</code></pre></div>
 <h3 id="page-movement">Page Movement</h3>
@@ -365,10 +365,10 @@ is the same as <code>after-hook</code><sup class="footnote-ref" id="fnref:fn-1">
 <p>Though this is more of a personal preference, I find it more natural to bind N
 and E to page-wise movement instead of join lines and lookup, since I almost
 never use those commands, and the movement keys echo what I expect elsewhere.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(after! evil
-  (map! :map evil-colemak-basics-keymap
-      :n <span style="color:#e6db74">&#34;N&#34;</span> <span style="color:#e6db74">&#39;evil-scroll-page-up</span>
-      :n <span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#e6db74">&#39;evil-scroll-page-down</span>)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#40ffff">after!</span> <span style="color:#40ffff">evil</span>
+  (<span style="color:#40ffff">map!</span> <span style="color:#24909d">:map</span> <span style="color:#40ffff">evil-colemak-basics-keymap</span>
+      <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;N&#34;</span> <span style="color:#ed9d13">&#39;evil-scroll-page-up</span>
+      <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;E&#34;</span> <span style="color:#ed9d13">&#39;evil-scroll-page-down</span>)
   )</code></pre></div>
 <h2 id="vimium">Vimium</h2>
 
@@ -376,7 +376,7 @@ never use those commands, and the movement keys echo what I expect elsewhere.</p
 Wiki</a> seems to have a reasonable suggestion for colemak. The basic idea is to
 migrate the underlying keys directly to ensure very few manual changes are
 required.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">mapkey n j
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">mapkey n j
 mapkey N J
 mapkey e k
 mapkey E K
@@ -393,30 +393,30 @@ mapkey J E</code></pre></div>
 <p>To ensure uniform bindings, I used to use <code>bindkey -v</code> but will need some minor
 changes to that set up. I based this part of my configuration off the bindings
 of <a href="https://github.com/bunnyfly/dotfiles/blob/master/zshrc" target="_blank">bunnyfly</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">bindkey -v
-<span style="color:#75715e"># Colemak.</span>
-  bindkey -M vicmd <span style="color:#e6db74">&#34;h&#34;</span> backward-char
-  bindkey -M vicmd <span style="color:#e6db74">&#34;n&#34;</span> down-line-or-history
-  bindkey -M vicmd <span style="color:#e6db74">&#34;e&#34;</span> up-line-or-history
-  bindkey -M vicmd <span style="color:#e6db74">&#34;i&#34;</span> forward-char
-  bindkey -M vicmd <span style="color:#e6db74">&#34;s&#34;</span> vi-insert
-  bindkey -M vicmd <span style="color:#e6db74">&#34;S&#34;</span> vi-insert-bol
-  bindkey -M vicmd <span style="color:#e6db74">&#34;k&#34;</span> vi-repeat-search
-  bindkey -M vicmd <span style="color:#e6db74">&#34;K&#34;</span> vi-rev-repeat-search
-  bindkey -M vicmd <span style="color:#e6db74">&#34;l&#34;</span> beginning-of-line
-  bindkey -M vicmd <span style="color:#e6db74">&#34;L&#34;</span> end-of-line
-  bindkey -M vicmd <span style="color:#e6db74">&#34;j&#34;</span> vi-forward-word-end
-  bindkey -M vicmd <span style="color:#e6db74">&#34;J&#34;</span> vi-forward-blank-word-end
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">bindkey -v
+<span style="color:#999;font-style:italic"># Colemak.</span>
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;h&#34;</span> backward-char
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;n&#34;</span> down-line-or-history
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;e&#34;</span> up-line-or-history
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;i&#34;</span> forward-char
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;s&#34;</span> vi-insert
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;S&#34;</span> vi-insert-bol
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;k&#34;</span> vi-repeat-search
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;K&#34;</span> vi-rev-repeat-search
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;l&#34;</span> beginning-of-line
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;L&#34;</span> end-of-line
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;j&#34;</span> vi-forward-word-end
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;J&#34;</span> vi-forward-blank-word-end
 
-<span style="color:#75715e"># Sane Undo, Redo, Backspace, Delete.</span>
-  bindkey -M vicmd <span style="color:#e6db74">&#34;u&#34;</span> undo
-  bindkey -M vicmd <span style="color:#e6db74">&#34;U&#34;</span> redo
-  bindkey -M vicmd <span style="color:#e6db74">&#34;^?&#34;</span> backward-delete-char
-  bindkey -M vicmd <span style="color:#e6db74">&#34;^[[3~&#34;</span> delete-char
+<span style="color:#999;font-style:italic"># Sane Undo, Redo, Backspace, Delete.</span>
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;u&#34;</span> undo
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;U&#34;</span> redo
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;^?&#34;</span> backward-delete-char
+  bindkey -M vicmd <span style="color:#ed9d13">&#34;^[[3~&#34;</span> delete-char
 
-<span style="color:#75715e"># Keep ctrl+r searching</span>
-  bindkey -M viins <span style="color:#e6db74">&#39;^R&#39;</span> history-incremental-pattern-search-forward
-  bindkey -M viins <span style="color:#e6db74">&#39;^r&#39;</span> history-incremental-pattern-search-backward</code></pre></div>
+<span style="color:#999;font-style:italic"># Keep ctrl+r searching</span>
+  bindkey -M viins <span style="color:#ed9d13">&#39;^R&#39;</span> history-incremental-pattern-search-forward
+  bindkey -M viins <span style="color:#ed9d13">&#39;^r&#39;</span> history-incremental-pattern-search-backward</code></pre></div>
 <h2 id="zathura">Zathura</h2>
 
 <p>There is no better <code>pdf</code> viewer than <a href="https://pwmt.org/projects/zathura/" target="_blank">zathura</a>, and it also works for <code>djvu</code> and
@@ -424,29 +424,29 @@ friends. As a plus point, it normally has very reasonable <code>vim</code> bindi
 excellent configuration system, so we will leverage that. The best part is that
 we can just add to it using <code>include zathuraColemak</code> or whatever so as to be
 minimally invasive.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">h</span> <span style="color:#a6e22e">scroll</span> <span style="color:#a6e22e">left</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">n</span> <span style="color:#a6e22e">scroll</span> <span style="color:#a6e22e">down</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">e</span> <span style="color:#a6e22e">scroll</span> <span style="color:#a6e22e">up</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">i</span> <span style="color:#a6e22e">scroll</span> <span style="color:#a6e22e">right</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">N</span> <span style="color:#a6e22e">scroll</span> <span style="color:#a6e22e">half</span>-<span style="color:#a6e22e">down</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">E</span> <span style="color:#a6e22e">scroll</span> <span style="color:#a6e22e">half</span>-<span style="color:#a6e22e">up</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">k</span> <span style="color:#a6e22e">search</span> <span style="color:#a6e22e">next</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">K</span> <span style="color:#a6e22e">search</span> <span style="color:#a6e22e">previous</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> &lt;<span style="color:#a6e22e">PageUp</span>&gt; <span style="color:#a6e22e">navigate</span> <span style="color:#a6e22e">previous</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> &lt;<span style="color:#a6e22e">PageDown</span>&gt; <span style="color:#a6e22e">navigate</span> <span style="color:#a6e22e">next</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> <span style="color:#a6e22e">q</span> <span style="color:#a6e22e">quit</span></code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">map h scroll left<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map n scroll down<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map e scroll up<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map i scroll right<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map N scroll half-down<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map E scroll half-up<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map k search next<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map K search previous<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map &lt;PageUp&gt; navigate previous<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map &lt;PageDown&gt; navigate next<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>map q quit</code></pre></div>
 <h2 id="i3">i3</h2>
 
 <p>I have some bindings set up in terms of $left $right $up and $down, so it was
 simple to re-bind them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">set</span> $<span style="color:#a6e22e">left</span> <span style="color:#a6e22e">h</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> $<span style="color:#a6e22e">down</span> <span style="color:#a6e22e">n</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> $<span style="color:#a6e22e">up</span> <span style="color:#a6e22e">e</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> $<span style="color:#a6e22e">right</span> <span style="color:#a6e22e">i</span></code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">set $left h<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>set $down n<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>set $up e<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>set $right i</code></pre></div>
 <h2 id="conclusions">Conclusions</h2>
 
 <p>That seems to be it for now. If I think of more programs I use regularly which

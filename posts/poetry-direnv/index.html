@@ -29,7 +29,7 @@ Setting Up Poetry This essentially works by simply modifying the global .direnvr
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -40,7 +40,7 @@ Setting Up Poetry This essentially works by simply modifying the global .direnvr
 
 
 <meta itemprop="datePublished" content="2020-02-13T21:36:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T06:11:31&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-06T15:16:08&#43;00:00" />
 <meta itemprop="wordCount" content="162">
 
 
@@ -54,7 +54,7 @@ Setting Up Poetry This essentially works by simply modifying the global .direnvr
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-02-13T21:36:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T06:11:31+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-06T15:16:08+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -172,21 +172,21 @@ but then it is still neat to link back to.</p>
 
 <p>This essentially works by simply modifying the global <code>.direnvrc</code> which
 essentially gets sourced by every local <code>.envrc</code> anyway.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim $HOME/.direnvrc</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim <span style="color:#40ffff">$HOME</span>/.direnvrc</code></pre></div>
 <p>So what we put in there is the following snippet derived from other snippets <a href="https://github.com/direnv/direnv/wiki/Python" target="_blank">on
 the wiki</a>, and is actually now there too.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># PUT this here</span>
-layout_poetry<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> ! -f pyproject.toml <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
-    log_error <span style="color:#e6db74">&#39;No pyproject.toml found.  Use `poetry new` or `poetry init` to create one first.&#39;</span>
-    exit <span style="color:#ae81ff">2</span>
-  <span style="color:#66d9ef">fi</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># PUT this here</span>
+layout_poetry() {
+  <span style="color:#6ab825;font-weight:bold">if</span> [[ ! -f pyproject.toml ]]; <span style="color:#6ab825;font-weight:bold">then</span>
+    log_error <span style="color:#ed9d13">&#39;No pyproject.toml found.  Use `poetry new` or `poetry init` to create one first.&#39;</span>
+    <span style="color:#24909d">exit</span> <span style="color:#3677a9">2</span>
+  <span style="color:#6ab825;font-weight:bold">fi</span>
 
-  local VENV<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>dirname <span style="color:#66d9ef">$(</span>poetry run which python<span style="color:#66d9ef">))</span>
-  export VIRTUAL_ENV<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$VENV<span style="color:#e6db74">&#34;</span> | rev | cut -d<span style="color:#e6db74">&#39;/&#39;</span> -f2- | rev<span style="color:#66d9ef">)</span>
-  export POETRY_ACTIVE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-  PATH_add <span style="color:#e6db74">&#34;</span>$VENV<span style="color:#e6db74">&#34;</span>
-<span style="color:#f92672">}</span></code></pre></div>
+  <span style="color:#24909d">local</span> <span style="color:#40ffff">VENV</span>=<span style="color:#6ab825;font-weight:bold">$(</span>dirname <span style="color:#6ab825;font-weight:bold">$(</span>poetry run which python<span style="color:#6ab825;font-weight:bold">))</span>
+  <span style="color:#24909d">export</span> <span style="color:#40ffff">VIRTUAL_ENV</span>=<span style="color:#6ab825;font-weight:bold">$(</span><span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$VENV</span><span style="color:#ed9d13">&#34;</span> | rev | cut -d<span style="color:#ed9d13">&#39;/&#39;</span> -f2- | rev<span style="color:#6ab825;font-weight:bold">)</span>
+  <span style="color:#24909d">export</span> <span style="color:#40ffff">POETRY_ACTIVE</span>=<span style="color:#3677a9">1</span>
+  PATH_add <span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$VENV</span><span style="color:#ed9d13">&#34;</span>
+}</code></pre></div>
 <p>Now we can just make <code>.envrc</code> files with <code>layout_poetry</code> and everything will
 <em>just work™</em>.</p>
 

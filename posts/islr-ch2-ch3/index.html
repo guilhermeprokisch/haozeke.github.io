@@ -30,7 +30,7 @@ Question 2.8 - Pages 54-55 This exercise relates to the College data set, which 
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -239,15 +239,15 @@ correct location for the data.</p>
 that the ﬁrst column is just the name of each university. We don&rsquo;t
 really want R to treat this as data. However, it may be handy to have
 these names for later. Try the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">rownames</span>(college)<span style="color:#f92672">=</span>college[,<span style="color:#ae81ff">1</span>]
-<span style="color:#a6e22e">fix</span>(college)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">rownames</span>(college)=college[,<span style="color:#3677a9">1</span>]
+<span style="color:#447fcf">fix</span>(college)</code></pre></div>
 <p>You should see that there is now a row.names column with the name of
 each university recorded. This means that R has given each row a name
 corresponding to the appropriate university. R will not try to perform
 calculations on the row names. However, we still need to eliminate the
 ﬁrst column in the data where the names are stored. Try:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">college<span style="color:#f92672">=</span>college[,<span style="color:#ae81ff">-1</span>]
-<span style="color:#a6e22e">fix</span>(college)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">college=college[,<span style="color:#3677a9">-1</span>]
+<span style="color:#447fcf">fix</span>(college)</code></pre></div>
 <p><strong>&copy;</strong></p>
 
 <ol>
@@ -265,10 +265,10 @@ the top \(10%\) of their high school classes exceeds \(50%\).</li>
 </ol>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Elite <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;No&#34;</span>, <span style="color:#a6e22e">nrow</span>(college))
-Elite [college<span style="color:#f92672">$</span>Top10perc <span style="color:#f92672">&gt;</span><span style="color:#ae81ff">50</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Yes&#34;</span>
-Elite <span style="color:#f92672">=</span> <span style="color:#a6e22e">as.factor </span>(Elite)
-college <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame </span>(college, Elite)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">Elite = <span style="color:#447fcf">rep</span>(<span style="color:#ed9d13">&#34;No&#34;</span>, <span style="color:#447fcf">nrow</span>(college))
+Elite [college$Top10perc &gt;<span style="color:#3677a9">50</span>]=<span style="color:#ed9d13">&#34;Yes&#34;</span>
+Elite = <span style="color:#447fcf">as.factor </span>(Elite)
+college = <span style="color:#447fcf">data.frame </span>(college, Elite)</code></pre></div>
 <p>Use the <code>summary()</code> function to see how many elite univer- sities there
 are. Now use the <code>plot()</code> function to produce side-by-side boxplots of
 <code>Outstate</code> versus <code>Elite</code> .</p>
@@ -289,7 +289,7 @@ discover.</li>
 <p>Instead of reading in data, for ISLR in particular we can load the
 <a href="https://rdrr.io/cran/ISLR/" target="_blank">ISLR library</a> which is on CRAN and
 contains the data-sets required for the book.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;ISLR&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">install.packages</span>(<span style="color:#ed9d13">&#34;ISLR&#34;</span>)</code></pre></div>
 <p>Thus, we can now read it in as <code>library(&quot;ISLR&quot;)</code></p>
 
 <p>The remaining sections are meant to be executed, and are marked as such,
@@ -298,13 +298,13 @@ with <code>r</code> in <code>{}</code>.</p>
 <p><strong>&copy;</strong></p>
 
 <p>We will load the dataset once for the whole document.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;ISLR&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(<span style="color:#ed9d13">&#34;ISLR&#34;</span>)</code></pre></div>
 <ol>
 <li>Usage of the <code>summary()</code> function</li>
 </ol>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(ISLR<span style="color:#f92672">::</span>College)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##  Private        Apps           Accept          Enroll       Top10perc
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(ISLR::College)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##  Private        Apps           Accept          Enroll       Top10perc
 ##  No :212   Min.   :   81   Min.   :   72   Min.   :  35   Min.   : 1.00
 ##  Yes:565   1st Qu.:  776   1st Qu.:  604   1st Qu.: 242   1st Qu.:15.00
 ##            Median : 1558   Median : 1110   Median : 434   Median :23.00
@@ -344,8 +344,8 @@ with <code>r</code> in <code>{}</code>.</p>
 </ol>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">tenColl <span style="color:#f92672">&lt;-</span> ISLR<span style="color:#f92672">::</span>College[,<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>] <span style="color:#75715e"># For getting the first ten columns</span>
-<span style="color:#a6e22e">pairs</span>(tenColl) <span style="color:#75715e"># Scatterplot</span></code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">tenColl &lt;- ISLR::College[,<span style="color:#3677a9">1</span>:<span style="color:#3677a9">10</span>] <span style="color:#999;font-style:italic"># For getting the first ten columns</span>
+<span style="color:#447fcf">pairs</span>(tenColl) <span style="color:#999;font-style:italic"># Scatterplot</span></code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-3-1.png"
          alt="Figure 1: Pairs"/> <figcaption>
@@ -359,7 +359,7 @@ with <code>r</code> in <code>{}</code>.</p>
 </ol>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(ISLR<span style="color:#f92672">::</span>College<span style="color:#f92672">$</span>Private,ISLR<span style="color:#f92672">::</span>College<span style="color:#f92672">$</span>Outstate,xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Private&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Outstate&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(ISLR::College$Private,ISLR::College$Outstate,xlab=<span style="color:#ed9d13">&#34;Private&#34;</span>,ylab=<span style="color:#ed9d13">&#34;Outstate&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-4-1.png"
          alt="Figure 2: Boxplots"/> <figcaption>
@@ -373,13 +373,13 @@ with <code>r</code> in <code>{}</code>.</p>
 </ol>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">college<span style="color:#f92672">=</span>ISLR<span style="color:#f92672">::</span>College
-Elite<span style="color:#f92672">=</span><span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;No&#34;</span>,<span style="color:#a6e22e">nrow</span>(college))
-Elite[college<span style="color:#f92672">$</span>Top10perc<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">50</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Yes&#34;</span>
-Elite<span style="color:#f92672">=</span><span style="color:#a6e22e">as.factor</span>(Elite)
-college<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">data.frame</span>(college,Elite)
-<span style="color:#a6e22e">summary</span>(college<span style="color:#f92672">$</span>Elite)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##  No Yes
-## 699  78</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(college<span style="color:#f92672">$</span>Outstate,college<span style="color:#f92672">$</span>Elite,xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Outstate&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Elite&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">college=ISLR::College
+Elite=<span style="color:#447fcf">rep</span>(<span style="color:#ed9d13">&#34;No&#34;</span>,<span style="color:#447fcf">nrow</span>(college))
+Elite[college$Top10perc&gt;<span style="color:#3677a9">50</span>]=<span style="color:#ed9d13">&#34;Yes&#34;</span>
+Elite=<span style="color:#447fcf">as.factor</span>(Elite)
+college&lt;-<span style="color:#447fcf">data.frame</span>(college,Elite)
+<span style="color:#447fcf">summary</span>(college$Elite)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##  No Yes
+## 699  78</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(college$Outstate,college$Elite,xlab=<span style="color:#ed9d13">&#34;Outstate&#34;</span>,ylab=<span style="color:#ed9d13">&#34;Elite&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-6-1.png"
          alt="Figure 3: Plotting Outstate and Elite"/> <figcaption>
@@ -393,11 +393,11 @@ college<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">data.
 </ol>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
-<span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>Enroll)
-<span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>perc.alumni, col<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
-<span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>Personal, col<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, breaks<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-<span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>PhD, breaks<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">par</span>(mfrow=<span style="color:#447fcf">c</span>(<span style="color:#3677a9">2</span>,<span style="color:#3677a9">2</span>))
+<span style="color:#447fcf">hist</span>(college$Enroll)
+<span style="color:#447fcf">hist</span>(college$perc.alumni, col=<span style="color:#3677a9">2</span>)
+<span style="color:#447fcf">hist</span>(college$Personal, col=<span style="color:#3677a9">3</span>, breaks=<span style="color:#3677a9">10</span>)
+<span style="color:#447fcf">hist</span>(college$PhD, breaks=<span style="color:#3677a9">10</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-7-1.png"
          alt="Figure 4: Histogram"/> <figcaption>
@@ -405,8 +405,8 @@ college<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">data.
         </figcaption>
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>Top10perc, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>)
-<span style="color:#a6e22e">hist</span>(college<span style="color:#f92672">$</span>Outstate, col<span style="color:#f92672">=</span><span style="color:#ae81ff">23</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">hist</span>(college$Top10perc, col=<span style="color:#ed9d13">&#34;blue&#34;</span>)
+<span style="color:#447fcf">hist</span>(college$Outstate, col=<span style="color:#3677a9">23</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-7-2.png"
          alt="Figure 5: Colored Histogram"/> <figcaption>
@@ -421,7 +421,7 @@ college<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">data.
 
 <p>\(0\) implies the faculty have PhDs. It is clear that people donate more
 when faculty do not have terminal degrees.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(college<span style="color:#f92672">$</span>Terminal<span style="color:#f92672">-</span>college<span style="color:#f92672">$</span>PhD, college<span style="color:#f92672">$</span>perc.alumni)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(college$Terminal-college$PhD, college$perc.alumni)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-8-1.png"
          alt="Figure 6: Terminal degrees and alumni"/> <figcaption>
@@ -431,7 +431,7 @@ when faculty do not have terminal degrees.</p>
 
 
 <p>High tuition correlates to high graduation rate.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(college<span style="color:#f92672">$</span>Expend, college<span style="color:#f92672">$</span>Grad.Rate)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(college$Expend, college$Grad.Rate)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-9-1.png"
          alt="Figure 7: Tuiton and graduation"/> <figcaption>
@@ -441,7 +441,7 @@ when faculty do not have terminal degrees.</p>
 
 
 <p>Low acceptance implies a low student to faculty ratio.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">plot</span>(college<span style="color:#f92672">$</span>Accept <span style="color:#f92672">/</span> college<span style="color:#f92672">$</span>Apps, college<span style="color:#f92672">$</span>S.F.Ratio)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">plot</span>(college$Accept / college$Apps, college$S.F.Ratio)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-10-1.png"
          alt="Figure 8: Acceptance and Student/Faculty ratio"/> <figcaption>
@@ -481,11 +481,11 @@ variables might be useful in predicting <code>mpg</code>? Justify your answer.</
 
 <p>Once again, since the dataset is loaded from the library, we will simply
 start manipulating it.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Clean data</span>
-autoDat<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">na.omit</span>(ISLR<span style="color:#f92672">::</span>Auto) <span style="color:#75715e"># renamed for convenience</span></code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># Clean data</span>
+autoDat&lt;-<span style="color:#447fcf">na.omit</span>(ISLR::Auto) <span style="color:#999;font-style:italic"># renamed for convenience</span></code></pre></div>
 <p><strong>(a)</strong> To determine weather the variables a qualitative or quantitative
 we can either inspect the variables by eye, or query the dataset.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(autoDat) <span style="color:#75715e"># Observe the output for variance</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg          cylinders      displacement     horsepower        weight
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(autoDat) <span style="color:#999;font-style:italic"># Observe the output for variance</span></code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg          cylinders      displacement     horsepower        weight
 ##  Min.   : 9.00   Min.   :3.000   Min.   : 68.0   Min.   : 46.0   Min.   :1613
 ##  1st Qu.:17.00   1st Qu.:4.000   1st Qu.:105.0   1st Qu.: 75.0   1st Qu.:2225
 ##  Median :22.75   Median :4.000   Median :151.0   Median : 93.5   Median :2804
@@ -500,7 +500,7 @@ we can either inspect the variables by eye, or query the dataset.</p>
 ##  Mean   :15.54   Mean   :75.98   Mean   :1.577   amc gremlin       :  4
 ##  3rd Qu.:17.02   3rd Qu.:79.00   3rd Qu.:2.000   amc hornet        :  4
 ##  Max.   :24.80   Max.   :82.00   Max.   :3.000   chevrolet chevette:  4
-##                                                  (Other)           :365</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">str</span>(autoDat) <span style="color:#75715e"># Directly find find out</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    392 obs. of  9 variables:
+##                                                  (Other)           :365</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">str</span>(autoDat) <span style="color:#999;font-style:italic"># Directly find find out</span></code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    392 obs. of  9 variables:
 ##  $ mpg         : num  18 15 18 16 17 15 14 14 14 15 ...
 ##  $ cylinders   : num  8 8 8 8 8 8 8 8 8 8 ...
 ##  $ displacement: num  307 350 318 304 302 429 454 440 455 390 ...
@@ -514,29 +514,29 @@ we can either inspect the variables by eye, or query the dataset.</p>
 qualitative variable or factor, and that is <code>name</code>. However, we can also
 do this in a cleaner manner or at-least in a different manner with a
 function.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">findFactors <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(autoDat,is.factor)
-findFactors</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">findFactors &lt;- <span style="color:#447fcf">sapply</span>(autoDat,is.factor)
+findFactors</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
 ##        FALSE        FALSE        FALSE        FALSE        FALSE        FALSE
 ##         year       origin         name
 ##        FALSE        FALSE         TRUE</code></pre></div>
 <p>Though only <strong>name</strong> is listed as a qualitative variable, we note that
 <strong>origin</strong> seems to be almost qualitative as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">length</span>(<span style="color:#a6e22e">unique</span>(autoDat<span style="color:#f92672">$</span>origin))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 3</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">unique</span>(autoDat<span style="color:#f92672">$</span>origin)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 1 3 2</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">length</span>(<span style="color:#447fcf">unique</span>(autoDat$origin))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 3</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">unique</span>(autoDat$origin)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 1 3 2</code></pre></div>
 <p>Infact we can check that nothing else has this property by repeated
 application of <code>sapply</code>, though a pipe would be more satisfying</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">getUniq<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">sapply</span>(autoDat, unique)
-getLengths<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">sapply</span>(getUniq,length)
-getLengths</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">getUniq&lt;-<span style="color:#447fcf">sapply</span>(autoDat, unique)
+getLengths&lt;-<span style="color:#447fcf">sapply</span>(getUniq,length)
+getLengths</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
 ##          127            5           81           93          346           95
 ##         year       origin         name
 ##           13            3          301</code></pre></div>
 <p>This is really nicer with pipes</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(dplyr)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
-## Attaching package: &#39;dplyr&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:stats&#39;:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(dplyr)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;dplyr&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:stats&#39;:
 ##
-##     filter, lag</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:base&#39;:
+##     filter, lag</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:base&#39;:
 ##
-##     intersect, setdiff, setequal, union</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(unique) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(length)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
+##     intersect, setdiff, setequal, union</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat %&gt;% <span style="color:#447fcf">sapply</span>(unique) %&gt;% <span style="color:#447fcf">sapply</span>(length)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
 ##          127            5           81           93          346           95
 ##         year       origin         name
 ##           13            3          301</code></pre></div>
@@ -548,39 +548,39 @@ qualitative, and the rest are quantitative.</p>
 <p>A nice feature of the dataset we have is that the suspected qualitative
 variables are at the end of the dataset. So we can simply select the
 first \(7\) rows and go nuts on them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat[,<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">7</span>] <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(range) <span style="color:#75715e"># or sapply(autoDat[,1:7],range)</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg cylinders displacement horsepower weight acceleration year
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat[,<span style="color:#3677a9">1</span>:<span style="color:#3677a9">7</span>] %&gt;% <span style="color:#447fcf">sapply</span>(range) <span style="color:#999;font-style:italic"># or sapply(autoDat[,1:7],range)</span></code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg cylinders displacement horsepower weight acceleration year
 ## [1,]  9.0         3           68         46   1613          8.0   70
 ## [2,] 46.6         8          455        230   5140         24.8   82</code></pre></div>
 <p>Once again, more elegant with pipes and <code>subset()</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=-</span><span style="color:#a6e22e">c</span>(name,origin)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(range)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg cylinders displacement horsepower weight acceleration year
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">autoDat %&gt;% <span style="color:#447fcf">subset</span>(select=-<span style="color:#447fcf">c</span>(name,origin)) %&gt;% <span style="color:#447fcf">sapply</span>(range)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg cylinders displacement horsepower weight acceleration year
 ## [1,]  9.0         3           68         46   1613          8.0   70
-## [2,] 46.6         8          455        230   5140         24.8   82</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Even simpler with dplyr</span>
-autoDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>name,<span style="color:#f92672">-</span>origin) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(range)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg cylinders displacement horsepower weight acceleration year
+## [2,] 46.6         8          455        230   5140         24.8   82</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># Even simpler with dplyr</span>
+autoDat %&gt;% <span style="color:#447fcf">select</span>(-name,-origin) %&gt;% <span style="color:#447fcf">sapply</span>(range)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg cylinders displacement horsepower weight acceleration year
 ## [1,]  9.0         3           68         46   1613          8.0   70
 ## [2,] 46.6         8          455        230   5140         24.8   82</code></pre></div>
 <p><strong>&copy;</strong> Mean and standard deviation</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">&lt;-</span> autoDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>name,<span style="color:#f92672">-</span>origin)
-noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(mean)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors &lt;- autoDat %&gt;% <span style="color:#447fcf">select</span>(-name,-origin)
+noFactors %&gt;% <span style="color:#447fcf">sapply</span>(mean)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
 ##    23.445918     5.471939   194.411990   104.469388  2977.584184    15.541327
 ##         year
-##    75.979592</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(sd)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
+##    75.979592</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">sapply</span>(sd)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
 ##     7.805007     1.705783   104.644004    38.491160   849.402560     2.758864
 ##         year
 ##     3.683737</code></pre></div>
 <p><strong>(d)</strong> Removing observations 10-85 and testing.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors[<span style="color:#f92672">-</span>(<span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">85</span>),] <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(mean)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors[-(<span style="color:#3677a9">10</span>:<span style="color:#3677a9">85</span>),] %&gt;% <span style="color:#447fcf">sapply</span>(mean)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
 ##    24.404430     5.373418   187.240506   100.721519  2935.971519    15.726899
 ##         year
-##    77.145570</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors[<span style="color:#f92672">-</span>(<span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">85</span>),] <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(sd)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
+##    77.145570</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors[-(<span style="color:#3677a9">10</span>:<span style="color:#3677a9">85</span>),] %&gt;% <span style="color:#447fcf">sapply</span>(sd)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
 ##     7.867283     1.654179    99.678367    35.708853   811.300208     2.693721
 ##         year
 ##     3.106217</code></pre></div>
 <p><strong>(e)</strong> Plots for determining relationships</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
-<span style="color:#a6e22e">plot</span>(autoDat<span style="color:#f92672">$</span>weight, autoDat<span style="color:#f92672">$</span>horsepower)
-<span style="color:#a6e22e">plot</span>(autoDat<span style="color:#f92672">$</span>weight, autoDat<span style="color:#f92672">$</span>acceleration)
-<span style="color:#a6e22e">plot</span>(autoDat<span style="color:#f92672">$</span>displacement, autoDat<span style="color:#f92672">$</span>acceleration)
-<span style="color:#a6e22e">plot</span>(autoDat<span style="color:#f92672">$</span>cylinders, autoDat<span style="color:#f92672">$</span>acceleration)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">par</span>(mfrow=<span style="color:#447fcf">c</span>(<span style="color:#3677a9">2</span>,<span style="color:#3677a9">2</span>))
+<span style="color:#447fcf">plot</span>(autoDat$weight, autoDat$horsepower)
+<span style="color:#447fcf">plot</span>(autoDat$weight, autoDat$acceleration)
+<span style="color:#447fcf">plot</span>(autoDat$displacement, autoDat$acceleration)
+<span style="color:#447fcf">plot</span>(autoDat$cylinders, autoDat$acceleration)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-21-1.png"
          alt="Figure 9: Relationship determination"/> <figcaption>
@@ -601,7 +601,7 @@ values</li>
 
 <p>Let us recall certain key elements of the quantitative aspects of the
 dataset.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(noFactors) <span style="color:#75715e"># To understand the spread</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg          cylinders      displacement     horsepower        weight
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(noFactors) <span style="color:#999;font-style:italic"># To understand the spread</span></code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg          cylinders      displacement     horsepower        weight
 ##  Min.   : 9.00   Min.   :3.000   Min.   : 68.0   Min.   : 46.0   Min.   :1613
 ##  1st Qu.:17.00   1st Qu.:4.000   1st Qu.:105.0   1st Qu.: 75.0   1st Qu.:2225
 ##  Median :22.75   Median :4.000   Median :151.0   Median : 93.5   Median :2804
@@ -614,18 +614,18 @@ dataset.</p>
 ##  Median :15.50   Median :76.00
 ##  Mean   :15.54   Mean   :75.98
 ##  3rd Qu.:17.02   3rd Qu.:79.00
-##  Max.   :24.80   Max.   :82.00</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">getLengths <span style="color:#75715e"># To get the number of unique values</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
+##  Max.   :24.80   Max.   :82.00</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">getLengths <span style="color:#999;font-style:italic"># To get the number of unique values</span></code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##          mpg    cylinders displacement   horsepower       weight acceleration
 ##          127            5           81           93          346           95
 ##         year       origin         name
 ##           13            3          301</code></pre></div>
 <p>From this we can assert easily that the number of cylinders is not of
 much interest for predictions of the mileage.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>))
-<span style="color:#a6e22e">plot</span>(noFactors<span style="color:#f92672">$</span>mpg,noFactors<span style="color:#f92672">$</span>horsepower)
-<span style="color:#a6e22e">plot</span>(noFactors<span style="color:#f92672">$</span>mpg,noFactors<span style="color:#f92672">$</span>weight)
-<span style="color:#a6e22e">plot</span>(noFactors<span style="color:#f92672">$</span>mpg,noFactors<span style="color:#f92672">$</span>displacement)
-<span style="color:#a6e22e">plot</span>(noFactors<span style="color:#f92672">$</span>mpg,noFactors<span style="color:#f92672">$</span>acceleration)
-<span style="color:#a6e22e">plot</span>(noFactors<span style="color:#f92672">$</span>mpg,noFactors<span style="color:#f92672">$</span>year)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">par</span>(mfrow=<span style="color:#447fcf">c</span>(<span style="color:#3677a9">3</span>,<span style="color:#3677a9">2</span>))
+<span style="color:#447fcf">plot</span>(noFactors$mpg,noFactors$horsepower)
+<span style="color:#447fcf">plot</span>(noFactors$mpg,noFactors$weight)
+<span style="color:#447fcf">plot</span>(noFactors$mpg,noFactors$displacement)
+<span style="color:#447fcf">plot</span>(noFactors$mpg,noFactors$acceleration)
+<span style="color:#447fcf">plot</span>(noFactors$mpg,noFactors$year)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-23-1.png"
          alt="Figure 10: Predictions"/> <figcaption>
@@ -687,8 +687,8 @@ significant?</p>
 <h4 id="answer-2">Answer</h4>
 
 <p>Once again, we will use the dataset from the library.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">cleanAuto <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">na.omit</span>(autoDat)
-<span style="color:#a6e22e">summary</span>(cleanAuto) <span style="color:#75715e"># Already created above, so no need to do na.omit again</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg          cylinders      displacement     horsepower        weight
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">cleanAuto &lt;- <span style="color:#447fcf">na.omit</span>(autoDat)
+<span style="color:#447fcf">summary</span>(cleanAuto) <span style="color:#999;font-style:italic"># Already created above, so no need to do na.omit again</span></code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       mpg          cylinders      displacement     horsepower        weight
 ##  Min.   : 9.00   Min.   :3.000   Min.   : 68.0   Min.   : 46.0   Min.   :1613
 ##  1st Qu.:17.00   1st Qu.:4.000   1st Qu.:105.0   1st Qu.: 75.0   1st Qu.:2225
 ##  Median :22.75   Median :4.000   Median :151.0   Median : 93.5   Median :2804
@@ -705,7 +705,7 @@ significant?</p>
 ##  Max.   :24.80   Max.   :82.00   Max.   :3.000   chevrolet chevette:  4
 ##                                                  (Other)           :365</code></pre></div>
 <p><strong>(a)</strong> Scatterplot</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">pairs</span>(cleanAuto)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">pairs</span>(cleanAuto)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-25-1.png"
          alt="Figure 11: Scatterplot"/> <figcaption>
@@ -716,8 +716,8 @@ significant?</p>
 
 <p><strong>(b)</strong> Correlation matrix. For this we exclude the qualitative variables
 either by using <code>select</code> or by using the existing <code>noFactors</code> dataset</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># A full set</span>
-ISLR<span style="color:#f92672">::</span>Auto <span style="color:#f92672">%&gt;%</span> na.omit <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>name,<span style="color:#f92672">-</span>origin) <span style="color:#f92672">%&gt;%</span> cor</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                     mpg  cylinders displacement horsepower     weight
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># A full set</span>
+ISLR::Auto %&gt;% na.omit %&gt;% <span style="color:#447fcf">select</span>(-name,-origin) %&gt;% cor</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                     mpg  cylinders displacement horsepower     weight
 ## mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268 -0.8322442
 ## cylinders    -0.7776175  1.0000000    0.9508233  0.8429834  0.8975273
 ## displacement -0.8051269  0.9508233    1.0000000  0.8972570  0.9329944
@@ -734,9 +734,9 @@ ISLR<span style="color:#f92672">::</span>Auto <span style="color:#f92672">%&gt;%
 ## acceleration    1.0000000  0.2903161
 ## year            0.2903161  1.0000000</code></pre></div>
 <p><strong>&copy;</strong> Multiple Linear Regression</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Fit against every variable</span>
-lm.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>noFactors)
-<span style="color:#a6e22e">summary</span>(lm.fit)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># Fit against every variable</span>
+lm.fit=<span style="color:#447fcf">lm</span>(mpg~.,data=noFactors)
+<span style="color:#447fcf">summary</span>(lm.fit)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ ., data = noFactors)
 ##
@@ -758,8 +758,8 @@ lm.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">lm</span>(
 ##
 ## Residual standard error: 3.435 on 385 degrees of freedom
 ## Multiple R-squared:  0.8093, Adjusted R-squared:  0.8063
-## F-statistic: 272.2 on 6 and 385 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Fit against one variable</span>
-noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>horsepower,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 272.2 on 6 and 385 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># Fit against one variable</span>
+noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~horsepower,data=.) %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ horsepower, data = .)
 ##
@@ -776,7 +776,7 @@ noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">
 ##
 ## Residual standard error: 4.906 on 390 degrees of freedom
 ## Multiple R-squared:  0.6059, Adjusted R-squared:  0.6049
-## F-statistic: 599.7 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>year,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 599.7 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~year,data=.) %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ year, data = .)
 ##
@@ -793,7 +793,7 @@ noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">
 ##
 ## Residual standard error: 6.363 on 390 degrees of freedom
 ## Multiple R-squared:  0.337,  Adjusted R-squared:  0.3353
-## F-statistic: 198.3 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>acceleration,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 198.3 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~acceleration,data=.) %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ acceleration, data = .)
 ##
@@ -810,7 +810,7 @@ noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">
 ##
 ## Residual standard error: 7.08 on 390 degrees of freedom
 ## Multiple R-squared:  0.1792, Adjusted R-squared:  0.1771
-## F-statistic: 85.15 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>weight,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 85.15 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~weight,data=.) %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ weight, data = .)
 ##
@@ -827,7 +827,7 @@ noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">
 ##
 ## Residual standard error: 4.333 on 390 degrees of freedom
 ## Multiple R-squared:  0.6926, Adjusted R-squared:  0.6918
-## F-statistic: 878.8 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>displacement,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 878.8 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~displacement,data=.) %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ displacement, data = .)
 ##
@@ -869,33 +869,33 @@ efficient every year</p></li>
 </ol>
 
 <p><strong>(d)</strong> Lets plot these</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
-noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>horsepower,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Horsepower&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">par</span>(mfrow=<span style="color:#447fcf">c</span>(<span style="color:#3677a9">2</span>,<span style="color:#3677a9">2</span>))
+noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~horsepower,data=.) %&gt;% <span style="color:#447fcf">plot</span>(main=<span style="color:#ed9d13">&#34;Mileage v/s Horsepower&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-1.png"/> 
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>weight,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Weight&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~weight,data=.) %&gt;% <span style="color:#447fcf">plot</span>(main=<span style="color:#ed9d13">&#34;Mileage v/s Weight&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-2.png"/> 
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>year,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Year&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~year,data=.) %&gt;% <span style="color:#447fcf">plot</span>(main=<span style="color:#ed9d13">&#34;Mileage v/s Year&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-3.png"/> 
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>acceleration,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Acceleration&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~acceleration,data=.) %&gt;% <span style="color:#447fcf">plot</span>(main=<span style="color:#ed9d13">&#34;Mileage v/s Acceleration&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-4.png"/> 
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>displacement,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage v/s Displacement&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~displacement,data=.) %&gt;% <span style="color:#447fcf">plot</span>(main=<span style="color:#ed9d13">&#34;Mileage v/s Displacement&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-5.png"/> 
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>.) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">plot</span>(main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Mileage Multiple Regression&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~.,data=.) %&gt;% <span style="color:#447fcf">plot</span>(main=<span style="color:#ed9d13">&#34;Mileage Multiple Regression&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-28-6.png"/> 
 </figure>
@@ -908,17 +908,17 @@ plot too much.</p>
 
 <p><strong>We know</strong> that an observation with a studentized residual greater than
 \(3\) in absolute value are possible outliers. Hence we must plot this.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Predict and get the plot</span>
-fitPlot <span style="color:#f92672">&lt;-</span> noFactors <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>.)
-<span style="color:#75715e"># See residuals</span>
-<span style="color:#a6e22e">plot</span>(xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Prediction&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Studentized Residual&#34;</span>,x<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(fitPlot),y<span style="color:#f92672">=</span><span style="color:#a6e22e">rstudent</span>(fitPlot))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># Predict and get the plot</span>
+fitPlot &lt;- noFactors %&gt;% <span style="color:#447fcf">lm</span>(mpg~.,data=.)
+<span style="color:#999;font-style:italic"># See residuals</span>
+<span style="color:#447fcf">plot</span>(xlab=<span style="color:#ed9d13">&#34;Prediction&#34;</span>,ylab=<span style="color:#ed9d13">&#34;Studentized Residual&#34;</span>,x=<span style="color:#447fcf">predict</span>(fitPlot),y=<span style="color:#447fcf">rstudent</span>(fitPlot))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-29-1.png"/> 
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Try a linear fit of studentized residuals</span>
-<span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
-<span style="color:#a6e22e">plot</span>(<span style="color:#a6e22e">lm</span>(<span style="color:#a6e22e">predict</span>(fitPlot)<span style="color:#f92672">~</span><span style="color:#a6e22e">rstudent</span>(fitPlot)))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># Try a linear fit of studentized residuals</span>
+<span style="color:#447fcf">par</span>(mfrow=<span style="color:#447fcf">c</span>(<span style="color:#3677a9">2</span>,<span style="color:#3677a9">2</span>))
+<span style="color:#447fcf">plot</span>(<span style="color:#447fcf">lm</span>(<span style="color:#447fcf">predict</span>(fitPlot)~<span style="color:#447fcf">rstudent</span>(fitPlot)))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-29-2.png"/> 
 </figure>
@@ -931,8 +931,8 @@ outliers, in keeping with the leverage plot.</p>
 <p><strong>(e)</strong> Interaction effects</p>
 
 <p><strong>We recall</strong> that <code>x*y</code> corresponds to <code>x+y+x:y</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># View the correlation matrix</span>
-cleanAuto <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#f92672">-</span>name,<span style="color:#f92672">-</span>origin) <span style="color:#f92672">%&gt;%</span> cor</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                     mpg  cylinders displacement horsepower     weight
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># View the correlation matrix</span>
+cleanAuto %&gt;% <span style="color:#447fcf">select</span>(-name,-origin) %&gt;% cor</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                     mpg  cylinders displacement horsepower     weight
 ## mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268 -0.8322442
 ## cylinders    -0.7776175  1.0000000    0.9508233  0.8429834  0.8975273
 ## displacement -0.8051269  0.9508233    1.0000000  0.8972570  0.9329944
@@ -947,7 +947,7 @@ cleanAuto <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">
 ## horsepower     -0.6891955 -0.4163615
 ## weight         -0.4168392 -0.3091199
 ## acceleration    1.0000000  0.2903161
-## year            0.2903161  1.0000000</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>weight<span style="color:#f92672">*</span>displacement<span style="color:#f92672">*</span>year,data<span style="color:#f92672">=</span>noFactors<span style="color:#a6e22e">[</span>(<span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## year            0.2903161  1.0000000</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(mpg~weight*displacement*year,data=noFactors<span style="color:#447fcf">[</span>(<span style="color:#3677a9">10</span>:<span style="color:#3677a9">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ weight * displacement * year, data = noFactors[(10:85),
 ##     ])
@@ -969,7 +969,7 @@ cleanAuto <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">
 ##
 ## Residual standard error: 1.8 on 68 degrees of freedom
 ## Multiple R-squared:  0.922,  Adjusted R-squared:  0.914
-## F-statistic: 114.9 on 7 and 68 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>weight<span style="color:#f92672">*</span>displacement<span style="color:#f92672">*</span>year,data<span style="color:#f92672">=</span>noFactors))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 114.9 on 7 and 68 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(mpg~weight*displacement*year,data=noFactors))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ weight * displacement * year, data = noFactors)
 ##
@@ -1002,7 +1002,7 @@ identified in chapter 2.</li>
 </ul>
 
 <p><strong>(f)</strong> Nonlinear transformations</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span>weight<span style="color:#f92672">*</span>displacement<span style="color:#f92672">*</span>year<span style="color:#f92672">+</span><span style="color:#a6e22e">I</span>(year^2),data<span style="color:#f92672">=</span>noFactors<span style="color:#a6e22e">[</span>(<span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(mpg~weight*displacement*year+<span style="color:#447fcf">I</span>(year^2),data=noFactors<span style="color:#447fcf">[</span>(<span style="color:#3677a9">10</span>:<span style="color:#3677a9">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ weight * displacement * year + I(year^2),
 ##     data = noFactors[(10:85), ])
@@ -1027,7 +1027,7 @@ identified in chapter 2.</li>
 ##
 ## Residual standard error: 1.73 on 67 degrees of freedom
 ## Multiple R-squared:  0.929,  Adjusted R-squared:  0.9205
-## F-statistic: 109.6 on 8 and 67 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(mpg<span style="color:#f92672">~</span><span style="color:#a6e22e">.-I</span>(<span style="color:#a6e22e">log</span>(acceleration^2)),data<span style="color:#f92672">=</span>noFactors<span style="color:#a6e22e">[</span>(<span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 109.6 on 8 and 67 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(mpg~<span style="color:#447fcf">.-I</span>(<span style="color:#447fcf">log</span>(acceleration^2)),data=noFactors<span style="color:#447fcf">[</span>(<span style="color:#3677a9">10</span>:<span style="color:#3677a9">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = mpg ~ . - I(log(acceleration^2)), data = noFactors[(10:85),
 ##     ])
@@ -1061,7 +1061,7 @@ the outputs</p></li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(<span style="color:#a6e22e">log</span>(mpg)<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>noFactors<span style="color:#a6e22e">[</span>(<span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(<span style="color:#447fcf">log</span>(mpg)~.,data=noFactors<span style="color:#447fcf">[</span>(<span style="color:#3677a9">10</span>:<span style="color:#3677a9">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = log(mpg) ~ ., data = noFactors[(10:85), ])
 ##
@@ -1083,7 +1083,7 @@ the outputs</p></li>
 ##
 ## Residual standard error: 0.09636 on 69 degrees of freedom
 ## Multiple R-squared:  0.919,  Adjusted R-squared:  0.912
-## F-statistic: 130.5 on 6 and 69 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(<span style="color:#a6e22e">log</span>(mpg)<span style="color:#f92672">~</span><span style="color:#a6e22e">log</span>(weight<span style="color:#f92672">*</span>displacement<span style="color:#f92672">*</span>year),data<span style="color:#f92672">=</span>noFactors<span style="color:#a6e22e">[</span>(<span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 130.5 on 6 and 69 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(<span style="color:#447fcf">log</span>(mpg)~<span style="color:#447fcf">log</span>(weight*displacement*year),data=noFactors<span style="color:#447fcf">[</span>(<span style="color:#3677a9">10</span>:<span style="color:#3677a9">85</span>),]))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = log(mpg) ~ log(weight * displacement * year), data = noFactors[(10:85),
 ##     ])
@@ -1133,12 +1133,12 @@ model from (e)?</p>
 <h4 id="answer-3">Answer</h4>
 
 <p>Load the dataset (and clean it)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">cleanCarSeats <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">na.omit</span>(ISLR<span style="color:#f92672">::</span>Carseats)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">cleanCarSeats &lt;- <span style="color:#447fcf">na.omit</span>(ISLR::Carseats)</code></pre></div>
 <p>Obtain summary statistics</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">cleanCarSeats <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(unique) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">sapply</span>(length)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       Sales   CompPrice      Income Advertising  Population       Price
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">cleanCarSeats %&gt;% <span style="color:#447fcf">sapply</span>(unique) %&gt;% <span style="color:#447fcf">sapply</span>(length)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       Sales   CompPrice      Income Advertising  Population       Price
 ##         336          73          98          28         275         101
 ##   ShelveLoc         Age   Education       Urban          US
-##           3          56           9           2           2</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">str</span>(cleanCarSeats)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    400 obs. of  11 variables:
+##           3          56           9           2           2</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">str</span>(cleanCarSeats)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    400 obs. of  11 variables:
 ##  $ Sales      : num  9.5 11.22 10.06 7.4 4.15 ...
 ##  $ CompPrice  : num  138 111 113 117 141 124 115 136 132 132 ...
 ##  $ Income     : num  73 48 35 100 64 113 105 81 110 113 ...
@@ -1149,7 +1149,7 @@ model from (e)?</p>
 ##  $ Age        : num  42 65 59 55 38 78 71 67 76 76 ...
 ##  $ Education  : num  17 10 12 14 13 16 15 10 10 17 ...
 ##  $ Urban      : Factor w/ 2 levels &#34;No&#34;,&#34;Yes&#34;: 2 2 2 2 2 1 2 2 1 1 ...
-##  $ US         : Factor w/ 2 levels &#34;No&#34;,&#34;Yes&#34;: 2 2 2 2 1 2 1 2 1 2 ...</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(cleanCarSeats)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      Sales          CompPrice       Income        Advertising
+##  $ US         : Factor w/ 2 levels &#34;No&#34;,&#34;Yes&#34;: 2 2 2 2 1 2 1 2 1 2 ...</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(cleanCarSeats)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##      Sales          CompPrice       Income        Advertising
 ##  Min.   : 0.000   Min.   : 77   Min.   : 21.00   Min.   : 0.000
 ##  1st Qu.: 5.390   1st Qu.:115   1st Qu.: 42.75   1st Qu.: 0.000
 ##  Median : 7.490   Median :125   Median : 69.00   Median : 5.000
@@ -1182,7 +1182,7 @@ be a factor too if we need to</li>
 <p><strong>(a)</strong> Multiple Regression Model</p>
 
 <p>Fit it to things</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(Sales<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>cleanCarSeats))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(Sales~.,data=cleanCarSeats))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = Sales ~ ., data = cleanCarSeats)
 ##
@@ -1209,7 +1209,7 @@ be a factor too if we need to</li>
 ##
 ## Residual standard error: 1.019 on 388 degrees of freedom
 ## Multiple R-squared:  0.8734, Adjusted R-squared:  0.8698
-## F-statistic: 243.4 on 11 and 388 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(Sales<span style="color:#f92672">~</span>US<span style="color:#f92672">*</span>Price<span style="color:#f92672">*</span>Urban,data<span style="color:#f92672">=</span>cleanCarSeats))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 243.4 on 11 and 388 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(Sales~US*Price*Urban,data=cleanCarSeats))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = Sales ~ US * Price * Urban, data = cleanCarSeats)
 ##
@@ -1232,7 +1232,7 @@ be a factor too if we need to</li>
 ##
 ## Residual standard error: 2.473 on 392 degrees of freedom
 ## Multiple R-squared:  0.2467, Adjusted R-squared:  0.2333
-## F-statistic: 18.34 on 7 and 392 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(Sales<span style="color:#f92672">~</span>US<span style="color:#f92672">+</span>Price<span style="color:#f92672">+</span>Urban,data<span style="color:#f92672">=</span>cleanCarSeats))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 18.34 on 7 and 392 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(Sales~US+Price+Urban,data=cleanCarSeats))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = Sales ~ US + Price + Urban, data = cleanCarSeats)
 ##
@@ -1256,10 +1256,10 @@ be a factor too if we need to</li>
 
 <p>To interpret the data, we need to determine which of the models fits the
 data best, we will use <code>anova()</code> to test this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lmCarSAll<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">lm</span>(Sales<span style="color:#f92672">~</span>.,data<span style="color:#f92672">=</span>cleanCarSeats)
-lmCarStimesPUU<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">lm</span>(Sales<span style="color:#f92672">~</span>US<span style="color:#f92672">*</span>Price<span style="color:#f92672">*</span>Urban,data<span style="color:#f92672">=</span>cleanCarSeats)
-lmCarSplusPUU<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">lm</span>(Sales<span style="color:#f92672">~</span>US<span style="color:#f92672">+</span>Price<span style="color:#f92672">+</span>Urban,data<span style="color:#f92672">=</span>cleanCarSeats)
-<span style="color:#a6e22e">anova</span>(lmCarSAll,lmCarStimesPUU,lmCarSplusPUU)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Analysis of Variance Table
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lmCarSAll&lt;-<span style="color:#447fcf">lm</span>(Sales~.,data=cleanCarSeats)
+lmCarStimesPUU&lt;-<span style="color:#447fcf">lm</span>(Sales~US*Price*Urban,data=cleanCarSeats)
+lmCarSplusPUU&lt;-<span style="color:#447fcf">lm</span>(Sales~US+Price+Urban,data=cleanCarSeats)
+<span style="color:#447fcf">anova</span>(lmCarSAll,lmCarStimesPUU,lmCarSplusPUU)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Analysis of Variance Table
 ##
 ## Model 1: Sales ~ CompPrice + Income + Advertising + Population + Price +
 ##     ShelveLoc + Age + Education + Urban + US
@@ -1270,7 +1270,7 @@ lmCarSplusPUU<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e"
 ## 2    392 2397.10 -4  -1994.27 480.2082 &lt; 2.2e-16 ***
 ## 3    396 2420.83 -4    -23.73   5.7149 0.0001772 ***
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">anova</span>(lmCarStimesPUU,lmCarSplusPUU)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Analysis of Variance Table
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">anova</span>(lmCarStimesPUU,lmCarSplusPUU)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Analysis of Variance Table
 ##
 ## Model 1: Sales ~ US * Price * Urban
 ## Model 2: Sales ~ US + Price + Urban
@@ -1303,7 +1303,7 @@ probably correlated to a higher price, which we can check immediately</li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(Price<span style="color:#f92672">~</span>Urban,data<span style="color:#f92672">=</span>cleanCarSeats))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(<span style="color:#447fcf">lm</span>(Price~Urban,data=cleanCarSeats))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = Price ~ Urban, data = cleanCarSeats)
 ##
@@ -1357,9 +1357,9 @@ significant, so we can use a smaller model.</li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lmCarSplusPU<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">lm</span>(Sales<span style="color:#f92672">~</span>US<span style="color:#f92672">+</span>Price, data<span style="color:#f92672">=</span>cleanCarSeats)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lmCarSplusPU&lt;-<span style="color:#447fcf">lm</span>(Sales~US+Price, data=cleanCarSeats)</code></pre></div>
 <p><strong>(f)</strong> Comparison of models</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">summary</span>(lmCarSplusPU)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">summary</span>(lmCarSplusPU)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = Sales ~ US + Price, data = cleanCarSeats)
 ##
@@ -1377,7 +1377,7 @@ significant, so we can use a smaller model.</li>
 ##
 ## Residual standard error: 2.469 on 397 degrees of freedom
 ## Multiple R-squared:  0.2393, Adjusted R-squared:  0.2354
-## F-statistic: 62.43 on 2 and 397 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">anova</span>(lmCarSplusPUU,lmCarSplusPU)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Analysis of Variance Table
+## F-statistic: 62.43 on 2 and 397 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">anova</span>(lmCarSplusPUU,lmCarSplusPU)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Analysis of Variance Table
 ##
 ## Model 1: Sales ~ US + Price + Urban
 ## Model 2: Sales ~ US + Price
@@ -1391,10 +1391,10 @@ parameter, which is also seen in the <code>R</code> squared value, which is the
 same for both models</p>
 
 <p><strong>(g)</strong> Confidence Intervals</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confint</span>(lmCarSplusPU)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                   2.5 %      97.5 %
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confint</span>(lmCarSplusPU)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                   2.5 %      97.5 %
 ## (Intercept) 11.79032020 14.27126531
 ## USYes        0.69151957  1.70776632
-## Price       -0.06475984 -0.04419543</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confint</span>(lmCarSplusPUU)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                   2.5 %      97.5 %
+## Price       -0.06475984 -0.04419543</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confint</span>(lmCarSplusPUU)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                   2.5 %      97.5 %
 ## (Intercept) 11.76359670 14.32334118
 ## USYes        0.69130419  1.70984121
 ## Price       -0.06476419 -0.04415351
@@ -1410,8 +1410,8 @@ same for both models</p>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
-<span style="color:#a6e22e">plot</span>(lmCarSplusPU)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">par</span>(mfrow=<span style="color:#447fcf">c</span>(<span style="color:#3677a9">2</span>,<span style="color:#3677a9">2</span>))
+<span style="color:#447fcf">plot</span>(lmCarSplusPU)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-41-1.png"
          alt="Figure 12: Leverage Plots"/> <figcaption>
@@ -1429,8 +1429,8 @@ than 3</li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># See residuals</span>
-<span style="color:#a6e22e">plot</span>(xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Prediction&#34;</span>,ylab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Studentized Residual&#34;</span>,x<span style="color:#f92672">=</span><span style="color:#a6e22e">predict</span>(lmCarSplusPU),y<span style="color:#f92672">=</span><span style="color:#a6e22e">rstudent</span>(lmCarSplusPU))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># See residuals</span>
+<span style="color:#447fcf">plot</span>(xlab=<span style="color:#ed9d13">&#34;Prediction&#34;</span>,ylab=<span style="color:#ed9d13">&#34;Studentized Residual&#34;</span>,x=<span style="color:#447fcf">predict</span>(lmCarSplusPU),y=<span style="color:#447fcf">rstudent</span>(lmCarSplusPU))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol01/unnamed-chunk-42-1.png"
          alt="Figure 13: Studentized residuals"/> <figcaption>

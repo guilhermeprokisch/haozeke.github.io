@@ -31,7 +31,7 @@ install.packages(&amp;#34;remotes&amp;#34;,&amp;#34;data.table&amp;#34;, &amp;#3
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -237,42 +237,42 @@ printing</a><sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></
 
 <p>Instead of using the standard functions, we will leverage the <code>mlr3</code>
 package<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#install.packages(&#34;mlr3&#34;,&#34;data.table&#34;,&#34;mlr3viz&#34;,&#34;mlr3learners&#34;)</span></code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic">#install.packages(&#34;mlr3&#34;,&#34;data.table&#34;,&#34;mlr3viz&#34;,&#34;mlr3learners&#34;)</span></code></pre></div>
 <p>Actually for <code>R</code> version <code>3.6.2</code>, the steps to get it working were a bit
 more involved.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;remotes&#34;</span>,<span style="color:#e6db74">&#34;data.table&#34;</span>,
-                 <span style="color:#e6db74">&#34;GGally&#34;</span>,<span style="color:#e6db74">&#34;precerec&#34;</span>) <span style="color:#75715e"># For plots</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(remotes)
-remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;mlr-org/mlr3&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3&#39; from a github remote, the SHA1 (fca21c10) has not changed since last install.
-##   Use `force = TRUE` to force installation</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;mlr-org/mlr3viz&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3viz&#39; from a github remote, the SHA1 (0b4ea273) has not changed since last install.
-##   Use `force = TRUE` to force installation</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;mlr-org/mlr3learners&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3learners&#39; from a github remote, the SHA1 (64b275a0) has not changed since last install.
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">install.packages</span>(<span style="color:#ed9d13">&#34;remotes&#34;</span>,<span style="color:#ed9d13">&#34;data.table&#34;</span>,
+                 <span style="color:#ed9d13">&#34;GGally&#34;</span>,<span style="color:#ed9d13">&#34;precerec&#34;</span>) <span style="color:#999;font-style:italic"># For plots</span></code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(remotes)
+remotes::<span style="color:#447fcf">install_github</span>(<span style="color:#ed9d13">&#34;mlr-org/mlr3&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3&#39; from a github remote, the SHA1 (fca21c10) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">remotes::<span style="color:#447fcf">install_github</span>(<span style="color:#ed9d13">&#34;mlr-org/mlr3viz&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3viz&#39; from a github remote, the SHA1 (0b4ea273) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">remotes::<span style="color:#447fcf">install_github</span>(<span style="color:#ed9d13">&#34;mlr-org/mlr3learners&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Skipping install of &#39;mlr3learners&#39; from a github remote, the SHA1 (64b275a0) has not changed since last install.
 ##   Use `force = TRUE` to force installation</code></pre></div>
 <p>Load <code>ISLR</code> and other libraries.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">libsUsed<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;dplyr&#34;</span>,<span style="color:#e6db74">&#34;ggplot2&#34;</span>,<span style="color:#e6db74">&#34;tidyverse&#34;</span>,
-            <span style="color:#e6db74">&#34;ISLR&#34;</span>,<span style="color:#e6db74">&#34;caret&#34;</span>,<span style="color:#e6db74">&#34;MASS&#34;</span>,
-            <span style="color:#e6db74">&#34;pROC&#34;</span>,<span style="color:#e6db74">&#34;mlr3&#34;</span>,<span style="color:#e6db74">&#34;data.table&#34;</span>,
-            <span style="color:#e6db74">&#34;mlr3viz&#34;</span>,<span style="color:#e6db74">&#34;mlr3learners&#34;</span>)
-<span style="color:#a6e22e">invisible</span>(<span style="color:#a6e22e">lapply</span>(libsUsed, library, character.only <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
-## Attaching package: &#39;dplyr&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:stats&#39;:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">libsUsed&lt;-<span style="color:#447fcf">c</span>(<span style="color:#ed9d13">&#34;dplyr&#34;</span>,<span style="color:#ed9d13">&#34;ggplot2&#34;</span>,<span style="color:#ed9d13">&#34;tidyverse&#34;</span>,
+            <span style="color:#ed9d13">&#34;ISLR&#34;</span>,<span style="color:#ed9d13">&#34;caret&#34;</span>,<span style="color:#ed9d13">&#34;MASS&#34;</span>,
+            <span style="color:#ed9d13">&#34;pROC&#34;</span>,<span style="color:#ed9d13">&#34;mlr3&#34;</span>,<span style="color:#ed9d13">&#34;data.table&#34;</span>,
+            <span style="color:#ed9d13">&#34;mlr3viz&#34;</span>,<span style="color:#ed9d13">&#34;mlr3learners&#34;</span>)
+<span style="color:#447fcf">invisible</span>(<span style="color:#447fcf">lapply</span>(libsUsed, library, character.only = <span style="color:#6ab825;font-weight:bold">TRUE</span>))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;dplyr&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:stats&#39;:
 ##
-##     filter, lag</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:base&#39;:
+##     filter, lag</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:base&#39;:
 ##
-##     intersect, setdiff, setequal, union</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ✔ tibble  2.1.3     ✔ purrr   0.3.3
+##     intersect, setdiff, setequal, union</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ✔ tibble  2.1.3     ✔ purrr   0.3.3
 ## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Loading required package: lattice</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
-## Attaching package: &#39;caret&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:purrr&#39;:
+## ✖ dplyr::lag()    masks stats::lag()</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Loading required package: lattice</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;caret&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:purrr&#39;:
 ##
-##     lift</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
-## Attaching package: &#39;MASS&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:dplyr&#39;:
+##     lift</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;MASS&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:dplyr&#39;:
 ##
-##     select</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Type &#39;citation(&#34;pROC&#34;)&#39; for a citation.</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
-## Attaching package: &#39;pROC&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:stats&#39;:
+##     select</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Type &#39;citation(&#34;pROC&#34;)&#39; for a citation.</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;pROC&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:stats&#39;:
 ##
-##     cov, smooth, var</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
-## Attaching package: &#39;data.table&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:purrr&#39;:
+##     cov, smooth, var</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;data.table&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:purrr&#39;:
 ##
-##     transpose</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:dplyr&#39;:
+##     transpose</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following objects are masked from &#39;package:dplyr&#39;:
 ##
 ##     between, first, last</code></pre></div>
 <h2 id="question-5.5---page-198">Question 5.5 - Page 198</h2>
@@ -317,19 +317,19 @@ variable for <code>student</code> leads to a reduction in the test error rate.</
 <h3 id="answer">Answer</h3>
 
 <p>We will need our data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat<span style="color:#f92672">&lt;-</span>ISLR<span style="color:#f92672">::</span>Default</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat&lt;-ISLR::Default</code></pre></div>
 <ul>
 <li>Very quick peek</li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##  default    student       balance           income
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##  default    student       balance           income
 ##  No :9667   No :7056   Min.   :   0.0   Min.   :  772
 ##  Yes: 333   Yes:2944   1st Qu.: 481.7   1st Qu.:21340
 ##                        Median : 823.6   Median :34553
 ##                        Mean   : 835.4   Mean   :33517
 ##                        3rd Qu.:1166.3   3rd Qu.:43808
-##                        Max.   :2654.3   Max.   :73554</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat <span style="color:#f92672">%&gt;%</span> str</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    10000 obs. of  4 variables:
+##                        Max.   :2654.3   Max.   :73554</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">defDat %&gt;% str</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    10000 obs. of  4 variables:
 ##  $ default: Factor w/ 2 levels &#34;No&#34;,&#34;Yes&#34;: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ student: Factor w/ 2 levels &#34;No&#34;,&#34;Yes&#34;: 1 2 1 1 1 2 1 2 1 1 ...
 ##  $ balance: num  730 817 1074 529 786 ...
@@ -341,16 +341,16 @@ which leverages R6 features leads us to define a classification task
 first. As far as I can tell, the data needs to be filtered to contain
 only the things we need to predict with, in this case we are required to
 use only income and balance so we will do so.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1984</span>)
-redDat<span style="color:#f92672">&lt;-</span>defDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(income,balance,default))
-tskLogiFull<span style="color:#f92672">=</span>TaskClassif<span style="color:#f92672">$</span><span style="color:#a6e22e">new</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credit&#34;</span>,backend<span style="color:#f92672">=</span>redDat,target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>)
-<span style="color:#a6e22e">print</span>(tskLogiFull)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &lt;TaskClassif:credit&gt; (10000 x 3)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">set.seed</span>(<span style="color:#3677a9">1984</span>)
+redDat&lt;-defDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(income,balance,default))
+tskLogiFull=TaskClassif$<span style="color:#447fcf">new</span>(id=<span style="color:#ed9d13">&#34;credit&#34;</span>,backend=redDat,target=<span style="color:#ed9d13">&#34;default&#34;</span>)
+<span style="color:#447fcf">print</span>(tskLogiFull)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &lt;TaskClassif:credit&gt; (10000 x 3)
 ## * Target: default
 ## * Properties: twoclass
 ## * Features (2):
 ##   - dbl (2): balance, income</code></pre></div>
 <p>This can be visualized neatly as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(tskLogiFull)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">autoplot</span>(tskLogiFull)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-8-1.png"
          alt="Figure 1: MLR3 Visualizations"/> <figcaption>
@@ -360,9 +360,9 @@ tskLogiFull<span style="color:#f92672">=</span>TaskClassif<span style="color:#f9
 
 
 <p>We have a pretty imbalanced data-set.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(tskLogiFull,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pairs&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Registered S3 method overwritten by &#39;GGally&#39;:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">autoplot</span>(tskLogiFull,type=<span style="color:#ed9d13">&#34;pairs&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Registered S3 method overwritten by &#39;GGally&#39;:
 ##   method from
-##   +.gg   ggplot2</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+##   +.gg   ggplot2</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-9-1.png"
@@ -374,7 +374,7 @@ tskLogiFull<span style="color:#f92672">=</span>TaskClassif<span style="color:#f9
 
 <p>We can use any of the learners implemented, so it is a good idea to take
 a quick peek at them all.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">as.data.table</span>(mlr_learners)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                     key                                    feature_types
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">as.data.table</span>(mlr_learners)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##                     key                                    feature_types
 ##  1:       classif.debug logical,integer,numeric,character,factor,ordered
 ##  2: classif.featureless logical,integer,numeric,character,factor,ordered
 ##  3:      classif.glmnet                          logical,integer,numeric
@@ -469,22 +469,22 @@ a quick peek at them all.</p>
 <p>We can now pick the logistic one.
 <a href="https://github.com/mlr-org/mlr3learners/" target="_blank">Note that</a> this essentially
 proxies our requests down to the <code>stats</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">learner <span style="color:#f92672">=</span> mlr_learners<span style="color:#f92672">$</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;classif.log_reg&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">learner = mlr_learners$<span style="color:#447fcf">get</span>(<span style="color:#ed9d13">&#34;classif.log_reg&#34;</span>)</code></pre></div>
 <p>Now we can final solve the question, which is to simply use the model on
 all our data and return the accuracy metrics.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">trainFullCred<span style="color:#f92672">=</span>learner<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogiFull)
-<span style="color:#a6e22e">print</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull)<span style="color:#f92672">$</span>confusion)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##         truth
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">trainFullCred=learner$<span style="color:#447fcf">train</span>(tskLogiFull)
+<span style="color:#447fcf">print</span>(learner$<span style="color:#447fcf">predict</span>(tskLogiFull)$confusion)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##         truth
 ## response   No  Yes
 ##      No  9629  225
-##      Yes   38  108</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">measure <span style="color:#f92672">=</span> <span style="color:#a6e22e">msr</span>(<span style="color:#e6db74">&#34;classif.acc&#34;</span>)
-<span style="color:#a6e22e">print</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull)<span style="color:#f92672">$</span><span style="color:#a6e22e">score</span>(measure))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## classif.acc
+##      Yes   38  108</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">measure = <span style="color:#447fcf">msr</span>(<span style="color:#ed9d13">&#34;classif.acc&#34;</span>)
+<span style="color:#447fcf">print</span>(learner$<span style="color:#447fcf">predict</span>(tskLogiFull)$<span style="color:#447fcf">score</span>(measure))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## classif.acc
 ##      0.9737</code></pre></div>
 <p>Note that this style of working with objects does not really utilize the
 familiar <code>%&gt;%</code> interface.</p>
 
 <p>The <code>caret</code> package still has neater default metrics so we will use that
 as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull)<span style="color:#f92672">$</span>response,defDat<span style="color:#f92672">$</span>default)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confusionMatrix</span>(learner$<span style="color:#447fcf">predict</span>(tskLogiFull)$response,defDat$default)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
 ##
 ##           Reference
 ## Prediction   No  Yes
@@ -510,7 +510,7 @@ as well.</p>
 ##       Balanced Accuracy : 0.6602
 ##
 ##        &#39;Positive&#39; Class : No
-##</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull))</code></pre></div>
+##</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">autoplot</span>(learner$<span style="color:#447fcf">predict</span>(tskLogiFull))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-14-1.png"
          alt="Figure 3: Autoplot results"/> <figcaption>
@@ -521,10 +521,10 @@ as well.</p>
 
 <p>We can get some other plots as well, but we need our probabilities to be
 returned.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># For ROC curves</span>
-lrnprob <span style="color:#f92672">=</span> <span style="color:#a6e22e">lrn</span>(<span style="color:#e6db74">&#34;classif.log_reg&#34;</span>,predict_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prob&#34;</span>)
-lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogiFull)
-<span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull),type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#999;font-style:italic"># For ROC curves</span>
+lrnprob = <span style="color:#447fcf">lrn</span>(<span style="color:#ed9d13">&#34;classif.log_reg&#34;</span>,predict_type=<span style="color:#ed9d13">&#34;prob&#34;</span>)
+lrnprob$<span style="color:#447fcf">train</span>(tskLogiFull)
+<span style="color:#447fcf">autoplot</span>(lrnprob$<span style="color:#447fcf">predict</span>(tskLogiFull),type=<span style="color:#ed9d13">&#34;roc&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-15-1.png"
          alt="Figure 4: ROC curve"/> <figcaption>
@@ -537,10 +537,10 @@ lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">train</sp
 
 <p>Though the question seems to require a manual validation set generation
 and thresholding, we can simply use the defaults.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">train_set <span style="color:#f92672">=</span> <span style="color:#a6e22e">sample</span>(tskLogiFull<span style="color:#f92672">$</span>nrow, <span style="color:#ae81ff">0.8</span> <span style="color:#f92672">*</span> tskLogiFull<span style="color:#f92672">$</span>nrow)
-test_set <span style="color:#f92672">=</span> <span style="color:#a6e22e">setdiff</span>(<span style="color:#a6e22e">seq_len</span>(tskLogiFull<span style="color:#f92672">$</span>nrow), train_set)
-learner<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogiFull,row_ids<span style="color:#f92672">=</span>train_set)
-<span style="color:#a6e22e">confusionMatrix</span>(learner<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogiFull, row_ids<span style="color:#f92672">=</span>test_set)<span style="color:#f92672">$</span>response,defDat[<span style="color:#f92672">-</span>train_set,]<span style="color:#f92672">$</span>default)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">train_set = <span style="color:#447fcf">sample</span>(tskLogiFull$nrow, <span style="color:#3677a9">0.8</span> * tskLogiFull$nrow)
+test_set = <span style="color:#447fcf">setdiff</span>(<span style="color:#447fcf">seq_len</span>(tskLogiFull$nrow), train_set)
+learner$<span style="color:#447fcf">train</span>(tskLogiFull,row_ids=train_set)
+<span style="color:#447fcf">confusionMatrix</span>(learner$<span style="color:#447fcf">predict</span>(tskLogiFull, row_ids=test_set)$response,defDat[-train_set,]$default)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
 ##
 ##           Reference
 ## Prediction   No  Yes
@@ -571,11 +571,11 @@ learner<span style="color:#f92672">$</span><span style="color:#a6e22e">train</sp
 well. In this instance we will not use <code>caret</code> to ensure that our class
 distribution in the train and test sets are not sampled to remain the
 same.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">trainNoCaret<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">sample</span>(<span style="color:#a6e22e">nrow</span>(defDat), size <span style="color:#f92672">=</span> <span style="color:#a6e22e">floor</span>(<span style="color:#ae81ff">.8</span><span style="color:#f92672">*</span><span style="color:#a6e22e">nrow</span>(defDat)), replace <span style="color:#f92672">=</span> F)
-glm.fit<span style="color:#f92672">=</span><span style="color:#a6e22e">glm</span>(default<span style="color:#f92672">~</span>income<span style="color:#f92672">+</span>balance,data<span style="color:#f92672">=</span>defDat,family<span style="color:#f92672">=</span>binomial,subset<span style="color:#f92672">=</span>trainNoCaret)
-glm.probs<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">predict</span>(glm.fit,defDat[<span style="color:#f92672">-</span>trainNoCaret,],type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;response&#34;</span>)
-glm.preds<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">ifelse</span>(glm.probs <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#34;No&#34;</span>, <span style="color:#e6db74">&#34;Yes&#34;</span>)
-<span style="color:#a6e22e">confusionMatrix</span>(glm.preds <span style="color:#f92672">%&gt;%</span> factor,defDat[<span style="color:#f92672">-</span>trainNoCaret,]<span style="color:#f92672">$</span>default)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">trainNoCaret&lt;-<span style="color:#447fcf">sample</span>(<span style="color:#447fcf">nrow</span>(defDat), size = <span style="color:#447fcf">floor</span>(<span style="color:#3677a9">.8</span>*<span style="color:#447fcf">nrow</span>(defDat)), replace = F)
+glm.fit=<span style="color:#447fcf">glm</span>(default~income+balance,data=defDat,family=binomial,subset=trainNoCaret)
+glm.probs&lt;-<span style="color:#447fcf">predict</span>(glm.fit,defDat[-trainNoCaret,],type=<span style="color:#ed9d13">&#34;response&#34;</span>)
+glm.preds&lt;-<span style="color:#447fcf">ifelse</span>(glm.probs &lt; <span style="color:#3677a9">0.5</span>, <span style="color:#ed9d13">&#34;No&#34;</span>, <span style="color:#ed9d13">&#34;Yes&#34;</span>)
+<span style="color:#447fcf">confusionMatrix</span>(glm.preds %&gt;% factor,defDat[-trainNoCaret,]$default)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
 ##
 ##           Reference
 ## Prediction   No  Yes
@@ -611,9 +611,9 @@ variation, but we can see that the accuracy is essentially the same.</p>
 extract it into a function which takes a seed value and run that three
 times. Either way, here we will present the <code>mlr3</code> approach to cross
 validation and resampling.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr <span style="color:#f92672">=</span> <span style="color:#a6e22e">resample</span>(tskLogiFull, lrnprob, <span style="color:#a6e22e">rsmp</span>(<span style="color:#e6db74">&#34;cv&#34;</span>, folds <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## INFO  [22:12:30.025] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 1/3)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr = <span style="color:#447fcf">resample</span>(tskLogiFull, lrnprob, <span style="color:#447fcf">rsmp</span>(<span style="color:#ed9d13">&#34;cv&#34;</span>, folds = <span style="color:#3677a9">3</span>))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## INFO  [22:12:30.025] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 1/3)
 ## INFO  [22:12:30.212] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 2/3)
-## INFO  [22:12:30.360] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 3/3)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(rr,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
+## INFO  [22:12:30.360] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 3/3)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">autoplot</span>(rr,type=<span style="color:#ed9d13">&#34;roc&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-18-1.png"
          alt="Figure 5: Resampled ROC curve"/> <figcaption>
@@ -623,18 +623,18 @@ validation and resampling.</p>
 
 
 <p>We might want the average as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr<span style="color:#f92672">$</span><span style="color:#a6e22e">aggregate</span>(<span style="color:#a6e22e">msr</span>(<span style="color:#e6db74">&#34;classif.ce&#34;</span>)) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## classif.ce
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr$<span style="color:#447fcf">aggregate</span>(<span style="color:#447fcf">msr</span>(<span style="color:#ed9d13">&#34;classif.ce&#34;</span>)) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## classif.ce
 ## 0.02630035</code></pre></div>
 <h4 id="adding-student-as-a-dummy-variable">Adding Student as a dummy variable</h4>
 
 <p>We will stick to the <code>mlr3</code> approach because it is faster.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">redDat2<span style="color:#f92672">&lt;-</span>defDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">mutate</span>(student<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(defDat<span style="color:#f92672">$</span>student))
-tskLogi2<span style="color:#f92672">=</span>TaskClassif<span style="color:#f92672">$</span><span style="color:#a6e22e">new</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credit&#34;</span>,backend<span style="color:#f92672">=</span>redDat2,target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>)
-<span style="color:#a6e22e">print</span>(tskLogi2)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &lt;TaskClassif:credit&gt; (10000 x 4)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">redDat2&lt;-defDat %&gt;% <span style="color:#447fcf">mutate</span>(student=<span style="color:#447fcf">as.numeric</span>(defDat$student))
+tskLogi2=TaskClassif$<span style="color:#447fcf">new</span>(id=<span style="color:#ed9d13">&#34;credit&#34;</span>,backend=redDat2,target=<span style="color:#ed9d13">&#34;default&#34;</span>)
+<span style="color:#447fcf">print</span>(tskLogi2)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &lt;TaskClassif:credit&gt; (10000 x 4)
 ## * Target: default
 ## * Properties: twoclass
 ## * Features (3):
-##   - dbl (3): balance, income, student</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(tskLogi2,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pairs&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+##   - dbl (3): balance, income, student</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">autoplot</span>(tskLogi2,type=<span style="color:#ed9d13">&#34;pairs&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre></div>
 <figure>
@@ -648,7 +648,7 @@ tskLogi2<span style="color:#f92672">=</span>TaskClassif<span style="color:#f9267
 <p>This gives us a visual indicator and premonition that we might not be
 getting incredible results with our new variable in the mix, but we
 should still work it through.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">confusionMatrix</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogi2)<span style="color:#f92672">$</span>response,defDat<span style="color:#f92672">$</span>default)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">confusionMatrix</span>(lrnprob$<span style="color:#447fcf">predict</span>(tskLogi2)$response,defDat$default)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Confusion Matrix and Statistics
 ##
 ##           Reference
 ## Prediction   No  Yes
@@ -674,7 +674,7 @@ should still work it through.</p>
 ##       Balanced Accuracy : 0.6602
 ##
 ##        &#39;Positive&#39; Class : No
-##</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogi2))</code></pre></div>
+##</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">autoplot</span>(lrnprob$<span style="color:#447fcf">predict</span>(tskLogi2))</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-23-1.png"
          alt="Figure 7: Autoplot figure"/> <figcaption>
@@ -682,8 +682,8 @@ should still work it through.</p>
         </figcaption>
 </figure>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">train</span>(tskLogi2)
-<span style="color:#a6e22e">autoplot</span>(lrnprob<span style="color:#f92672">$</span><span style="color:#a6e22e">predict</span>(tskLogi2),type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roc&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">lrnprob$<span style="color:#447fcf">train</span>(tskLogi2)
+<span style="color:#447fcf">autoplot</span>(lrnprob$<span style="color:#447fcf">predict</span>(tskLogi2),type=<span style="color:#ed9d13">&#34;roc&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-24-1.png"
          alt="Figure 8: ROC plot"/> <figcaption>
@@ -696,14 +696,14 @@ should still work it through.</p>
 needs to be compared to determine if it is worth further investigation.</p>
 
 <p>With a three-fold validation approach,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;gridExtra&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
-## Attaching package: &#39;gridExtra&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:dplyr&#39;:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(<span style="color:#ed9d13">&#34;gridExtra&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;gridExtra&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:dplyr&#39;:
 ##
-##     combine</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">resample</span>(tskLogi2, lrnprob, <span style="color:#a6e22e">rsmp</span>(<span style="color:#e6db74">&#34;cv&#34;</span>, folds <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>))</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## INFO  [22:12:39.670] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 1/3)
+##     combine</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">rr2 = <span style="color:#447fcf">resample</span>(tskLogi2, lrnprob, <span style="color:#447fcf">rsmp</span>(<span style="color:#ed9d13">&#34;cv&#34;</span>, folds = <span style="color:#3677a9">3</span>))</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## INFO  [22:12:39.670] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 1/3)
 ## INFO  [22:12:39.731] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 2/3)
-## INFO  [22:12:39.780] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 3/3)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">wS<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">autoplot</span>(rr2)
-nS<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">autoplot</span>(rr)
-<span style="color:#a6e22e">grid.arrange</span>(wS,nS,ncol<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,bottom<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;With student (left) and without (right)&#34;</span>)</code></pre></div>
+## INFO  [22:12:39.780] Applying learner &#39;classif.log_reg&#39; on task &#39;credit&#39; (iter 3/3)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">wS&lt;-<span style="color:#447fcf">autoplot</span>(rr2)
+nS&lt;-<span style="color:#447fcf">autoplot</span>(rr)
+<span style="color:#447fcf">grid.arrange</span>(wS,nS,ncol=<span style="color:#3677a9">2</span>,bottom=<span style="color:#ed9d13">&#34;With student (left) and without (right)&#34;</span>)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-25-1.png"
          alt="Figure 9: Plot of accuracy"/> <figcaption>
@@ -749,7 +749,7 @@ for <code>income</code> and <code>balance</code>.</p>
 we will use them.</p>
 
 <h4 id="a-fit-summary">a) Fit summary</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.fit <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">glm.fit %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## glm(formula = default ~ income + balance, family = binomial,
 ##     data = defDat, subset = trainNoCaret)
@@ -774,8 +774,8 @@ we will use them.</p>
 ##
 ## Number of Fisher Scoring iterations: 8</code></pre></div>
 <h4 id="b-function">b) Function</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boot.fn<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(data,subs){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">coef</span>(<span style="color:#a6e22e">glm</span>(default<span style="color:#f92672">~</span>income<span style="color:#f92672">+</span>balance,data<span style="color:#f92672">=</span>data, family<span style="color:#f92672">=</span>binomial,subset<span style="color:#f92672">=</span>subs)))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">boot.fn</span>(defDat,train_set) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##   (Intercept)        income       balance
-## -1.136824e+01  1.846153e-05  5.576468e-03</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">glm</span>(default<span style="color:#f92672">~</span>income<span style="color:#f92672">+</span>balance,data<span style="color:#f92672">=</span>defDat,family<span style="color:#f92672">=</span>binomial,subset<span style="color:#f92672">=</span>train_set) <span style="color:#f92672">%&gt;%</span> summary</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boot.fn=<span style="color:#447fcf">function</span>(data,subs){<span style="color:#447fcf">return</span>(<span style="color:#447fcf">coef</span>(<span style="color:#447fcf">glm</span>(default~income+balance,data=data, family=binomial,subset=subs)))}</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">boot.fn</span>(defDat,train_set) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##   (Intercept)        income       balance
+## -1.136824e+01  1.846153e-05  5.576468e-03</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">glm</span>(default~income+balance,data=defDat,family=binomial,subset=train_set) %&gt;% summary</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## glm(formula = default ~ income + balance, family = binomial,
 ##     data = defDat, subset = train_set)
@@ -805,10 +805,10 @@ we will use them.</p>
 
 <p>The old fashioned way. <code>R</code> is the resample rate, <code>boot.fn</code> is the
 statistic used.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(boot)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
-## Attaching package: &#39;boot&#39;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:lattice&#39;:
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(boot)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## Attaching package: &#39;boot&#39;</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## The following object is masked from &#39;package:lattice&#39;:
 ##
-##     melanoma</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">boot</span>(defDat,boot.fn,R<span style="color:#f92672">=</span><span style="color:#ae81ff">184</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+##     melanoma</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">boot</span>(defDat,boot.fn,R=<span style="color:#3677a9">184</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
 ##
 ##
@@ -839,10 +839,10 @@ balance | 2.423002e-04 | 2.591e-04 |<br />
 
 <p>We will now perform cross-validation on a simulated data set. <strong>(a)</strong>
 Generate a simulated data set as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#f92672">&gt;</span> set <span style="color:#a6e22e">. seed </span>(<span style="color:#ae81ff">1</span>)
-<span style="color:#f92672">&gt;</span> y <span style="color:#f92672">=</span> <span style="color:#a6e22e">rnorm </span>(<span style="color:#ae81ff">100</span>)
-<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#a6e22e">rnorm </span>(<span style="color:#ae81ff">100</span>)
-<span style="color:#f92672">&gt;</span> y <span style="color:#f92672">=</span>x <span style="color:#ae81ff">-2</span>\<span style="color:#f92672">*</span> x ^2<span style="color:#f92672">+</span> <span style="color:#a6e22e">rnorm </span>(<span style="color:#ae81ff">100</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">&gt; set <span style="color:#447fcf">. seed </span>(<span style="color:#3677a9">1</span>)
+&gt; y = <span style="color:#447fcf">rnorm </span>(<span style="color:#3677a9">100</span>)
+&gt; x = <span style="color:#447fcf">rnorm </span>(<span style="color:#3677a9">100</span>)
+&gt; y =x <span style="color:#3677a9">-2</span>\* x ^2+ <span style="color:#447fcf">rnorm </span>(<span style="color:#3677a9">100</span>)</code></pre></div>
 <p>In this data set, what is n and what is p? Write out the model used to
 generate the data in equation form.</p>
 
@@ -878,10 +878,10 @@ cross-validation results?</p>
 <h3 id="answer-2">Answer</h3>
 
 <h4 id="a-modeling-data">a) Modeling data</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1</span>)
-y <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">100</span>)
-x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">100</span>)
-y <span style="color:#f92672">&lt;-</span> x <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x^2 <span style="color:#f92672">+</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">100</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">set.seed</span>(<span style="color:#3677a9">1</span>)
+y &lt;- <span style="color:#447fcf">rnorm</span>(<span style="color:#3677a9">100</span>)
+x &lt;- <span style="color:#447fcf">rnorm</span>(<span style="color:#3677a9">100</span>)
+y &lt;- x - <span style="color:#3677a9">2</span>*x^2 + <span style="color:#447fcf">rnorm</span>(<span style="color:#3677a9">100</span>)</code></pre></div>
 <p>Clearly:</p>
 
 <ul>
@@ -892,7 +892,7 @@ distributed from 100 samples</li>
 </ul>
 
 <h4 id="b-visual-inspection">b) Visual inspection</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">qplot</span>(x,y)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">qplot</span>(x,y)</code></pre></div>
 <figure>
     <img src="https://rgoswami.me/islr/sol3/unnamed-chunk-31-1.png"
          alt="Figure 10: Model data plot"/> <figcaption>
@@ -908,12 +908,12 @@ distributed noise.</p>
 <h4 id="c-least-squares-fits">c) Least squares fits</h4>
 
 <p>Not very important, but here we use the <code>caret</code> form.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">pow<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(x,y){<span style="color:#a6e22e">return</span>(x^y)}
-dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(y,x,x2<span style="color:#f92672">=</span><span style="color:#a6e22e">pow</span>(x,<span style="color:#ae81ff">2</span>),x3<span style="color:#f92672">=</span><span style="color:#a6e22e">pow</span>(x,<span style="color:#ae81ff">3</span>),x4<span style="color:#f92672">=</span><span style="color:#a6e22e">pow</span>(x,<span style="color:#ae81ff">4</span>))</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">pow=<span style="color:#447fcf">function</span>(x,y){<span style="color:#447fcf">return</span>(x^y)}
+dfDat &lt;- <span style="color:#447fcf">data.frame</span>(y,x,x2=<span style="color:#447fcf">pow</span>(x,<span style="color:#3677a9">2</span>),x3=<span style="color:#447fcf">pow</span>(x,<span style="color:#3677a9">3</span>),x4=<span style="color:#447fcf">pow</span>(x,<span style="color:#3677a9">4</span>))</code></pre></div>
 <p>We might have also just used <code>poly(x,n)</code> to skip making the data frame.</p>
 
 <p>We will set our resampling method as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fitControl<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">trainControl</span>(method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;LOOCV&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fitControl&lt;-<span style="color:#447fcf">trainControl</span>(method=<span style="color:#ed9d13">&#34;LOOCV&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x,data=dfDat,trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   1 predictor
@@ -926,7 +926,7 @@ dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.
 ##   RMSE      Rsquared    MAE
 ##   2.427134  0.05389864  1.878566
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x+x2,data=dfDat,trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   2 predictor
@@ -939,7 +939,7 @@ dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.
 ##   RMSE      Rsquared   MAE
 ##   1.042399  0.8032414  0.8029942
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2<span style="color:#f92672">+</span>x3,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x+x2+x3,data=dfDat,trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   3 predictor
@@ -952,7 +952,7 @@ dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.
 ##   RMSE      Rsquared   MAE
 ##   1.050041  0.8003517  0.8073024
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2<span style="color:#f92672">+</span>x3<span style="color:#f92672">+</span>x4,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x+x2+x3+x4,data=dfDat,trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   4 predictor
@@ -967,7 +967,7 @@ dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.
 ##
 ## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div>
 <h4 id="d-seeding-effects">d) Seeding effects</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1995</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">set.seed</span>(<span style="color:#3677a9">1995</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x,data=dfDat,trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   1 predictor
@@ -980,7 +980,7 @@ dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.
 ##   RMSE      Rsquared    MAE
 ##   2.427134  0.05389864  1.878566
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x+x2,data=dfDat,trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   2 predictor
@@ -993,7 +993,7 @@ dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.
 ##   RMSE      Rsquared   MAE
 ##   1.042399  0.8032414  0.8029942
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2<span style="color:#f92672">+</span>x3,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x+x2+x3,data=dfDat,trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   3 predictor
@@ -1006,7 +1006,7 @@ dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.
 ##   RMSE      Rsquared   MAE
 ##   1.050041  0.8003517  0.8073024
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x<span style="color:#f92672">+</span>x2<span style="color:#f92672">+</span>x3<span style="color:#f92672">+</span>x4,data<span style="color:#f92672">=</span>dfDat,trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x+x2+x3+x4,data=dfDat,trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   4 predictor
@@ -1024,7 +1024,7 @@ dfDat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.
 exhaustive and uses n folds for each observation.</p>
 
 <h4 id="e-analysis">e) Analysis</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x,data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x,data=dfDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(y,x)),trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   1 predictor
@@ -1037,7 +1037,7 @@ exhaustive and uses n folds for each observation.</p>
 ##   RMSE      Rsquared    MAE
 ##   2.427134  0.05389864  1.878566
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">2</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~<span style="color:#447fcf">poly</span>(x,<span style="color:#3677a9">2</span>),data=dfDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(y,x)),trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   1 predictor
@@ -1050,7 +1050,7 @@ exhaustive and uses n folds for each observation.</p>
 ##   RMSE      Rsquared   MAE
 ##   1.042399  0.8032414  0.8029942
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">3</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~<span style="color:#447fcf">poly</span>(x,<span style="color:#3677a9">3</span>),data=dfDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(y,x)),trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   1 predictor
@@ -1063,7 +1063,7 @@ exhaustive and uses n folds for each observation.</p>
 ##   RMSE      Rsquared   MAE
 ##   1.050041  0.8003517  0.8073024
 ##
-## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">4</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
+## Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~<span style="color:#447fcf">poly</span>(x,<span style="color:#3677a9">4</span>),data=dfDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(y,x)),trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## Linear Regression
 ##
 ## 100 samples
 ##   1 predictor
@@ -1081,7 +1081,7 @@ exhaustive and uses n folds for each observation.</p>
 given how the data was generated.</p>
 
 <h4 id="f-statistical-significance">f) Statistical significance</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span>x,data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~x,data=dfDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(y,x)),trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% summary %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = .outcome ~ ., data = dat)
 ##
@@ -1098,7 +1098,7 @@ given how the data was generated.</p>
 ##
 ## Residual standard error: 2.362 on 98 degrees of freedom
 ## Multiple R-squared:  0.009717,   Adjusted R-squared:  -0.0003881
-## F-statistic: 0.9616 on 1 and 98 DF,  p-value: 0.3292</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">2</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 0.9616 on 1 and 98 DF,  p-value: 0.3292</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~<span style="color:#447fcf">poly</span>(x,<span style="color:#3677a9">2</span>),data=dfDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(y,x)),trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% summary %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = .outcome ~ ., data = dat)
 ##
@@ -1116,7 +1116,7 @@ given how the data was generated.</p>
 ##
 ## Residual standard error: 1.032 on 97 degrees of freedom
 ## Multiple R-squared:  0.8128, Adjusted R-squared:  0.8089
-## F-statistic: 210.6 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">3</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 210.6 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~<span style="color:#447fcf">poly</span>(x,<span style="color:#3677a9">3</span>),data=dfDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(y,x)),trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% summary %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = .outcome ~ ., data = dat)
 ##
@@ -1135,7 +1135,7 @@ given how the data was generated.</p>
 ##
 ## Residual standard error: 1.037 on 96 degrees of freedom
 ## Multiple R-squared:  0.813,  Adjusted R-squared:  0.8071
-## F-statistic: 139.1 on 3 and 96 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">train</span>(y<span style="color:#f92672">~</span><span style="color:#a6e22e">poly</span>(x,<span style="color:#ae81ff">4</span>),data<span style="color:#f92672">=</span>dfDat <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">subset</span>(select<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(y,x)),trControl<span style="color:#f92672">=</span>fitControl,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lm&#34;</span>) <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+## F-statistic: 139.1 on 3 and 96 DF,  p-value: &lt; 2.2e-16</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">train</span>(y~<span style="color:#447fcf">poly</span>(x,<span style="color:#3677a9">4</span>),data=dfDat %&gt;% <span style="color:#447fcf">subset</span>(select=<span style="color:#447fcf">c</span>(y,x)),trControl=fitControl,method=<span style="color:#ed9d13">&#34;lm&#34;</span>) %&gt;% summary %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## Call:
 ## lm(formula = .outcome ~ ., data = dat)
 ##
@@ -1197,13 +1197,13 @@ percentile of <code>medv</code> in Boston suburbs. Call this quantity
 \(\hat{\mu_{0.1}}\). Comment on your findings.</p>
 
 <h3 id="answer-3">Answer</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">&lt;-</span>MASS<span style="color:#f92672">::</span>Boston</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston&lt;-MASS::Boston</code></pre></div>
 <ul>
 <li>Reminder</li>
 </ul>
 
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston <span style="color:#f92672">%&gt;%</span> summary <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       crim                zn             indus            chas
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston %&gt;% summary %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##       crim                zn             indus            chas
 ##  Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000
 ##  1st Qu.: 0.08204   1st Qu.:  0.00   1st Qu.: 5.19   1st Qu.:0.00000
 ##  Median : 0.25651   Median :  0.00   Median : 9.69   Median :0.00000
@@ -1230,7 +1230,7 @@ percentile of <code>medv</code> in Boston suburbs. Call this quantity
 ##  Median :11.36   Median :21.20
 ##  Mean   :12.65   Mean   :22.53
 ##  3rd Qu.:16.95   3rd Qu.:25.00
-##  Max.   :37.97   Max.   :50.00</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston <span style="color:#f92672">%&gt;%</span> str <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    506 obs. of  14 variables:
+##  Max.   :37.97   Max.   :50.00</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston %&gt;% str %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## &#39;data.frame&#39;:    506 obs. of  14 variables:
 ##  $ crim   : num  0.00632 0.02731 0.02729 0.03237 0.06905 ...
 ##  $ zn     : num  18 0 0 0 0 0 12.5 12.5 12.5 12.5 ...
 ##  $ indus  : num  2.31 7.07 7.07 2.18 2.18 2.18 7.87 7.87 7.87 7.87 ...
@@ -1247,15 +1247,15 @@ percentile of <code>medv</code> in Boston suburbs. Call this quantity
 ##  $ medv   : num  24 21.6 34.7 33.4 36.2 28.7 22.9 27.1 16.5 18.9 ...
 ## NULL</code></pre></div>
 <h4 id="a-mean">a) Mean</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">muhat<span style="color:#f92672">=</span>boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">mean</span>()
-<span style="color:#a6e22e">print</span>(muhat)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 22.53281</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">muhat=boston$medv %&gt;% <span style="color:#447fcf">mean</span>()
+<span style="color:#447fcf">print</span>(muhat)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 22.53281</code></pre></div>
 <h4 id="b-standard-error">b) Standard error</h4>
 
 <p>Recall that \(SE=\frac{SD}{\sqrt{N_{obs}}}\)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> sd<span style="color:#f92672">/</span>(<span style="color:#a6e22e">nrow</span>(boston)^0.5) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 22.49444</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 0.4088611</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston$medv %&gt;% sd/(<span style="color:#447fcf">nrow</span>(boston)^0.5) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 22.49444</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 0.4088611</code></pre></div>
 <h4 id="c-bootstrap-estimate">c) Bootstrap estimate</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(boot)
-myMean<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">function</span>(frame,ind){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">mean</span>(frame[ind]))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">boot</span>(boston<span style="color:#f92672">$</span>medv,myMean,R<span style="color:#f92672">=</span><span style="color:#ae81ff">184</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">library</span>(boot)
+myMean&lt;-<span style="color:#447fcf">function</span>(frame,ind){<span style="color:#447fcf">return</span>(<span style="color:#447fcf">mean</span>(frame[ind]))}</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#447fcf">boot</span>(boston$medv,myMean,R=<span style="color:#3677a9">184</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
 ##
 ##
@@ -1270,7 +1270,7 @@ myMean<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">functi
 without it we had <code>0.4088611</code> which is similar enough.</p>
 
 <h4 id="d-confidence-intervals-with-bootstrap-and-t.test">d) Confidence intervals with bootstrap and t.test</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> t.test <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston$medv %&gt;% t.test %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ##  One Sample t-test
 ##
 ## data:  .
@@ -1282,19 +1282,19 @@ without it we had <code>0.4088611</code> which is similar enough.</p>
 ## mean of x
 ##  22.53281</code></pre></div>
 <p>We can approximate this with what we already have</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">bRes<span style="color:#f92672">=</span><span style="color:#a6e22e">boot</span>(boston<span style="color:#f92672">$</span>medv,myMean,R<span style="color:#f92672">=</span><span style="color:#ae81ff">184</span>)
-seBoot<span style="color:#f92672">&lt;-</span>bRes<span style="color:#f92672">$</span>t <span style="color:#f92672">%&gt;%</span> var <span style="color:#f92672">%&gt;%</span> sqrt
-xlow<span style="color:#f92672">=</span>muhat<span style="color:#ae81ff">-2</span><span style="color:#f92672">*</span>(seBoot)
-xhigh<span style="color:#f92672">=</span>muhat<span style="color:#ae81ff">+2</span><span style="color:#f92672">*</span>(seBoot)
-<span style="color:#a6e22e">c</span>(xlow,xhigh) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 21.72675 23.33887</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">bRes=<span style="color:#447fcf">boot</span>(boston$medv,myMean,R=<span style="color:#3677a9">184</span>)
+seBoot&lt;-bRes$t %&gt;% var %&gt;% sqrt
+xlow=muhat<span style="color:#3677a9">-2</span>*(seBoot)
+xhigh=muhat<span style="color:#3677a9">+2</span>*(seBoot)
+<span style="color:#447fcf">c</span>(xlow,xhigh) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 21.72675 23.33887</code></pre></div>
 <p>Our intervals are also pretty close to each other.</p>
 
 <h4 id="e-median">e) Median</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> sort <span style="color:#f92672">%&gt;%</span> median <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 21.2</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston$medv %&gt;% sort %&gt;% median %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## [1] 21.2</code></pre></div>
 <h4 id="f-median-standard-error">f) Median standard error</h4>
 
 <p>We can reuse the logic of the <code>myMean</code> function defined previously.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">myMedian<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(data,ind){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">median</span>(data[ind]))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">boot</span>(myMedian,R<span style="color:#f92672">=</span><span style="color:#ae81ff">1500</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">myMedian=<span style="color:#447fcf">function</span>(data,ind){<span style="color:#447fcf">return</span>(<span style="color:#447fcf">median</span>(data[ind]))}</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston$medv %&gt;% <span style="color:#447fcf">boot</span>(myMedian,R=<span style="color:#3677a9">1500</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
 ##
 ##
@@ -1308,13 +1308,13 @@ xhigh<span style="color:#f92672">=</span>muhat<span style="color:#ae81ff">+2</sp
 <p>We see that the standard error is <code>0.3767072</code>.</p>
 
 <h4 id="g-tenth-percentile">g) Tenth percentile</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">mu0one<span style="color:#f92672">&lt;-</span>boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">quantile</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0.1</span>))
-<span style="color:#a6e22e">print</span>(mu0one)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##   10%
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">mu0one&lt;-boston$medv %&gt;% <span style="color:#447fcf">quantile</span>(<span style="color:#447fcf">c</span>(<span style="color:#3677a9">0.1</span>))
+<span style="color:#447fcf">print</span>(mu0one)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##   10%
 ## 12.75</code></pre></div>
 <h4 id="h-bootstrap">h) Bootstrap</h4>
 
 <p>Once again.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">myQuant<span style="color:#f92672">=</span><span style="color:#a6e22e">function</span>(data,ind){<span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">quantile</span>(data[ind],<span style="color:#ae81ff">0.1</span>))}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston<span style="color:#f92672">$</span>medv <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">boot</span>(myQuant,R<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>) <span style="color:#f92672">%&gt;%</span> print</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">myQuant=<span style="color:#447fcf">function</span>(data,ind){<span style="color:#447fcf">return</span>(<span style="color:#447fcf">quantile</span>(data[ind],<span style="color:#3677a9">0.1</span>))}</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">boston$medv %&gt;% <span style="color:#447fcf">boot</span>(myQuant,R=<span style="color:#3677a9">500</span>) %&gt;% print</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
 ##
 ##

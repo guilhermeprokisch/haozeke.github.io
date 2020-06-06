@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -38,7 +38,7 @@
 
 
 <meta itemprop="datePublished" content="2020-05-10T15:01:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T06:11:33&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-06T15:16:10&#43;00:00" />
 <meta itemprop="wordCount" content="2084">
 
 
@@ -51,7 +51,7 @@
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-05-10T15:01:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T06:11:33+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-06T15:16:10+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -292,34 +292,34 @@ interpolate smoothly with <code>org-roam</code>, <code>org-ref</code>, <code>hel
 <h3 id="basic-variables">Basic Variables</h3>
 
 <p>Given the packages we will be using, some variable settings are in order, namely:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq
-   org_notes (<span style="color:#a6e22e">concat</span> (getenv <span style="color:#e6db74">&#34;HOME&#34;</span>) <span style="color:#e6db74">&#34;/Git/Gitlab/Mine/Notes/&#34;</span>)
-   zot_bib (<span style="color:#a6e22e">concat</span> (getenv <span style="color:#e6db74">&#34;HOME&#34;</span>) <span style="color:#e6db74">&#34;/GDrive/zotLib.bib&#34;</span>)
-   org-directory org_notes
-   deft-directory org_notes
-   org-roam-directory org_notes
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#24909d">setq</span>
+   <span style="color:#40ffff">org_notes</span> (<span style="color:#447fcf">concat</span> (<span style="color:#40ffff">getenv</span> <span style="color:#ed9d13">&#34;HOME&#34;</span>) <span style="color:#ed9d13">&#34;/Git/Gitlab/Mine/Notes/&#34;</span>)
+   <span style="color:#40ffff">zot_bib</span> (<span style="color:#447fcf">concat</span> (<span style="color:#40ffff">getenv</span> <span style="color:#ed9d13">&#34;HOME&#34;</span>) <span style="color:#ed9d13">&#34;/GDrive/zotLib.bib&#34;</span>)
+   <span style="color:#40ffff">org-directory</span> <span style="color:#40ffff">org_notes</span>
+   <span style="color:#40ffff">deft-directory</span> <span style="color:#40ffff">org_notes</span>
+   <span style="color:#40ffff">org-roam-directory</span> <span style="color:#40ffff">org_notes</span>
    )</code></pre></div>
 <h2 id="search">Search</h2>
 
 <p>For the search setup, the <code>doom-emacs</code> <code>deft</code> setup, by adding <code>+deft</code> in my
 <code>init.el</code>, worked out of the box for me. For those who do not use
 <code>doom</code><sup class="footnote-ref" id="fnref:fn-6"><a href="#fn:fn-6">6</a></sup>, the following should suffice:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package deft
-  :commands deft
-  :init
-  (setq deft-default-extension <span style="color:#e6db74">&#34;org&#34;</span>
-        <span style="color:#75715e">;; de-couples filename and note title:</span>
-        deft-use-filename-as-title <span style="color:#66d9ef">nil</span>
-        deft-use-filter-string-for-filename <span style="color:#66d9ef">t</span>
-        <span style="color:#75715e">;; disable auto-save</span>
-        deft-auto-save-interval <span style="color:#ae81ff">-1.0</span>
-        <span style="color:#75715e">;; converts the filter string into a readable file-name using kebab-case:</span>
-        deft-file-naming-rules
-        <span style="color:#f92672">&#39;</span>((noslash <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;-&#34;</span>)
-          (nospace <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;-&#34;</span>)
-          (case-fn <span style="color:#f92672">.</span> <span style="color:#a6e22e">downcase</span>)))
-  :config
-  (add-to-list <span style="color:#e6db74">&#39;deft-extensions</span> <span style="color:#e6db74">&#34;tex&#34;</span>)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#24909d">use-package</span> <span style="color:#40ffff">deft</span>
+  <span style="color:#24909d">:commands</span> <span style="color:#40ffff">deft</span>
+  <span style="color:#24909d">:init</span>
+  (<span style="color:#24909d">setq</span> <span style="color:#40ffff">deft-default-extension</span> <span style="color:#ed9d13">&#34;org&#34;</span>
+        <span style="color:#999;font-style:italic">;; de-couples filename and note title:</span>
+        <span style="color:#40ffff">deft-use-filename-as-title</span> <span style="color:#40ffff">nil</span>
+        <span style="color:#40ffff">deft-use-filter-string-for-filename</span> <span style="color:#40ffff">t</span>
+        <span style="color:#999;font-style:italic">;; disable auto-save</span>
+        <span style="color:#40ffff">deft-auto-save-interval</span> <span style="color:#3677a9">-1.0</span>
+        <span style="color:#999;font-style:italic">;; converts the filter string into a readable file-name using kebab-case:</span>
+        <span style="color:#40ffff">deft-file-naming-rules</span>
+        &#39;((<span style="color:#40ffff">noslash</span> . <span style="color:#ed9d13">&#34;-&#34;</span>)
+          (<span style="color:#40ffff">nospace</span> . <span style="color:#ed9d13">&#34;-&#34;</span>)
+          (<span style="color:#40ffff">case-fn</span> . <span style="color:#447fcf">downcase</span>)))
+  <span style="color:#24909d">:config</span>
+  (<span style="color:#40ffff">add-to-list</span> <span style="color:#ed9d13">&#39;deft-extensions</span> <span style="color:#ed9d13">&#34;tex&#34;</span>)
   )</code></pre></div>
 <p>For more about the <code>doom-emacs</code> defaults, check <a href="https://github.com/hlissner/doom-emacs/search?q=deft&amp;unscoped%5Fq=deft" target="_blank">the Github repo</a>. The other
 aspect of interacting with the notes is via the <code>org-roam</code> interface and will be
@@ -356,25 +356,25 @@ recording of the next steps.</p>
 
 <p>This <a href="https://github.com/tmalsburg/helm-bibtex" target="_blank">venerable package</a> is really good at interfacing with a variety of
 externally formatted bibliographic managers.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq
- bibtex-completion-notes-path <span style="color:#e6db74">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/&#34;</span>
- bibtex-completion-bibliography <span style="color:#e6db74">&#34;/home/haozeke/GDrive/zotLib.bib&#34;</span>
- bibtex-completion-pdf-field <span style="color:#e6db74">&#34;file&#34;</span>
- bibtex-completion-notes-template-multiple-files
- (<span style="color:#a6e22e">concat</span>
-  <span style="color:#e6db74">&#34;#+TITLE: ${title}\n&#34;</span>
-  <span style="color:#e6db74">&#34;#+ROAM_KEY: cite:${=key=}\n&#34;</span>
-  <span style="color:#e6db74">&#34;* TODO Notes\n&#34;</span>
-  <span style="color:#e6db74">&#34;:PROPERTIES:\n&#34;</span>
-  <span style="color:#e6db74">&#34;:Custom_ID: ${=key=}\n&#34;</span>
-  <span style="color:#e6db74">&#34;:NOTER_DOCUMENT: %(orb-process-file-field \&#34;${=key=}\&#34;)\n&#34;</span>
-  <span style="color:#e6db74">&#34;:AUTHOR: ${author-abbrev}\n&#34;</span>
-  <span style="color:#e6db74">&#34;:JOURNAL: ${journaltitle}\n&#34;</span>
-  <span style="color:#e6db74">&#34;:DATE: ${date}\n&#34;</span>
-  <span style="color:#e6db74">&#34;:YEAR: ${year}\n&#34;</span>
-  <span style="color:#e6db74">&#34;:DOI: ${doi}\n&#34;</span>
-  <span style="color:#e6db74">&#34;:URL: ${url}\n&#34;</span>
-  <span style="color:#e6db74">&#34;:END:\n\n&#34;</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#24909d">setq</span>
+ <span style="color:#40ffff">bibtex-completion-notes-path</span> <span style="color:#ed9d13">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/&#34;</span>
+ <span style="color:#40ffff">bibtex-completion-bibliography</span> <span style="color:#ed9d13">&#34;/home/haozeke/GDrive/zotLib.bib&#34;</span>
+ <span style="color:#40ffff">bibtex-completion-pdf-field</span> <span style="color:#ed9d13">&#34;file&#34;</span>
+ <span style="color:#40ffff">bibtex-completion-notes-template-multiple-files</span>
+ (<span style="color:#447fcf">concat</span>
+  <span style="color:#ed9d13">&#34;#+TITLE: ${title}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;#+ROAM_KEY: cite:${=key=}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;* TODO Notes\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:PROPERTIES:\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:Custom_ID: ${=key=}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:NOTER_DOCUMENT: %(orb-process-file-field \&#34;${=key=}\&#34;)\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:AUTHOR: ${author-abbrev}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:JOURNAL: ${journaltitle}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:DATE: ${date}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:YEAR: ${year}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:DOI: ${doi}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:URL: ${url}\n&#34;</span>
+  <span style="color:#ed9d13">&#34;:END:\n\n&#34;</span>
   )
  )</code></pre></div>
 <p><code>doom-emacs</code> users like me might want to wrap the above in a nice <code>after!
@@ -395,16 +395,16 @@ org-ref</code> expression, but it doesn&rsquo;t really matter.</p>
 <h2 id="org-ref">Org-Ref</h2>
 
 <p>As discussed above, this just makes citations much more meaningful in <code>orgmode</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package org-ref
-    :config
-    (setq
-         org-ref-completion-library <span style="color:#e6db74">&#39;org-ref-ivy-cite</span>
-         org-ref-get-pdf-filename-function <span style="color:#e6db74">&#39;org-ref-get-pdf-filename-helm-bibtex</span>
-         org-ref-default-bibliography (<span style="color:#a6e22e">list</span> <span style="color:#e6db74">&#34;/home/haozeke/GDrive/zotLib.bib&#34;</span>)
-         org-ref-bibliography-notes <span style="color:#e6db74">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/bibnotes.org&#34;</span>
-         org-ref-note-title-format <span style="color:#e6db74">&#34;* TODO %y - %t\n :PROPERTIES:\n  :Custom_ID: %k\n  :NOTER_DOCUMENT: %F\n :ROAM_KEY: cite:%k\n  :AUTHOR: %9a\n  :JOURNAL: %j\n  :YEAR: %y\n  :VOLUME: %v\n  :PAGES: %p\n  :DOI: %D\n  :URL: %U\n :END:\n\n&#34;</span>
-         org-ref-notes-directory <span style="color:#e6db74">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/&#34;</span>
-         org-ref-notes-function <span style="color:#e6db74">&#39;orb-edit-notes</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#24909d">use-package</span> <span style="color:#40ffff">org-ref</span>
+    <span style="color:#24909d">:config</span>
+    (<span style="color:#24909d">setq</span>
+         <span style="color:#40ffff">org-ref-completion-library</span> <span style="color:#ed9d13">&#39;org-ref-ivy-cite</span>
+         <span style="color:#40ffff">org-ref-get-pdf-filename-function</span> <span style="color:#ed9d13">&#39;org-ref-get-pdf-filename-helm-bibtex</span>
+         <span style="color:#40ffff">org-ref-default-bibliography</span> (<span style="color:#447fcf">list</span> <span style="color:#ed9d13">&#34;/home/haozeke/GDrive/zotLib.bib&#34;</span>)
+         <span style="color:#40ffff">org-ref-bibliography-notes</span> <span style="color:#ed9d13">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/bibnotes.org&#34;</span>
+         <span style="color:#40ffff">org-ref-note-title-format</span> <span style="color:#ed9d13">&#34;* TODO %y - %t\n :PROPERTIES:\n  :Custom_ID: %k\n  :NOTER_DOCUMENT: %F\n :ROAM_KEY: cite:%k\n  :AUTHOR: %9a\n  :JOURNAL: %j\n  :YEAR: %y\n  :VOLUME: %v\n  :PAGES: %p\n  :DOI: %D\n  :URL: %U\n :END:\n\n&#34;</span>
+         <span style="color:#40ffff">org-ref-notes-directory</span> <span style="color:#ed9d13">&#34;/home/haozeke/Git/Gitlab/Mine/Notes/&#34;</span>
+         <span style="color:#40ffff">org-ref-notes-function</span> <span style="color:#ed9d13">&#39;orb-edit-notes</span>
     ))</code></pre></div>
 <p>An essential aspect of this configuration is just that most of heavy lifting in
 terms of the notes are palmed off to <code>helm-bibtex</code>.</p>
@@ -422,12 +422,12 @@ terms of the notes are palmed off to <code>helm-bibtex</code>.</p>
 <p>Note that for some reason,
 the format specifiers for <code>org-ref</code> are <strong>not</strong> the keys in <code>.bib</code> but are
 instead, the following<sup class="footnote-ref" id="fnref:fn-7"><a href="#fn:fn-7">7</a></sup>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">In the format, the following percent escapes will be expanded.
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">In the format, the following percent escapes will be expanded.
 %l   The BibTeX label of the citation.
-%a   List of author names, see also <span style="color:#e6db74">`</span>reftex-cite-punctuation<span style="color:#960050;background-color:#1e0010">&#39;</span>.
-%2a  Like %a, but abbreviate more than <span style="color:#ae81ff">2</span> authors like Jones et al.
+%a   List of author names, see also <span style="color:#ed9d13">`</span>reftex-cite-punctuation<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>.
+%2a  Like %a, but abbreviate more than <span style="color:#3677a9">2</span> authors like Jones et al.
 %A   First author name only.
-%e   Works like %a, but on list of editor names.  <span style="color:#f92672">(</span>%2e and %E work as well<span style="color:#f92672">)</span>
+%e   Works like %a, but on list of editor names.  (%2e and %E work as well)
 It is also possible to access all other BibTeX database fields:
 %b booktitle     %c chapter        %d edition    %h howpublished
 %i institution   %j journal        %k key        %m month
@@ -440,12 +440,12 @@ It is also possible to access all other BibTeX database fields:
 %S series        %N note
 %f pdf filename
 %F absolute pdf filename
-Usually, only %l is needed.  The other stuff is mainly <span style="color:#66d9ef">for</span> the echo area
-display, and <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>setq reftex-comment-citations t<span style="color:#f92672">)</span>.
+Usually, only %l is needed.  The other stuff is mainly <span style="color:#6ab825;font-weight:bold">for</span> the <span style="color:#24909d">echo</span> area
+display, and <span style="color:#6ab825;font-weight:bold">for</span> (setq reftex-comment-citations t).
 %&lt; as a special operator kills punctuation and space around it after the
 string has been formatted.
 A pair of square brackets indicates an optional argument, and RefTeX
-will prompt <span style="color:#66d9ef">for</span> the values of these arguments.</code></pre></div>
+will prompt <span style="color:#6ab825;font-weight:bold">for</span> the values of these arguments.</code></pre></div>
 <h2 id="indexing-notes">Indexing Notes</h2>
 
 <p>This part of the workflow builds on the concepts best known as the <a href="https://www.zettelkasten.de/" target="_blank">Zettelkasten method</a>. More details about the philosophy behind <code>org-roam</code> is <a href="https://org-roam.readthedocs.io/en/latest/" target="_blank">here</a>.</p>
@@ -454,80 +454,80 @@ will prompt <span style="color:#66d9ef">for</span> the values of these arguments
 
 <p>The first part of this interface is essentially just the <code>doom-emacs</code>
 configuration, adapted for those who don&rsquo;t believe in the dark side below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package org-roam
-  :hook (org-load <span style="color:#f92672">.</span> org-roam-mode)
-  :commands (org-roam-buffer-toggle-display
-             org-roam-find-file
-             org-roam-graph
-             org-roam-insert
-             org-roam-switch-to-buffer
-             org-roam-dailies-date
-             org-roam-dailies-today
-             org-roam-dailies-tomorrow
-             org-roam-dailies-yesterday)
-  :preface
-  <span style="color:#75715e">;; Set this to nil so we can later detect whether the user has set a custom</span>
-  <span style="color:#75715e">;; directory for it, and default to `org-directory&#39; if they haven&#39;t.</span>
-  (defvar org-roam-directory <span style="color:#66d9ef">nil</span>)
-  :init
-  :config
-  (setq org-roam-directory (<span style="color:#a6e22e">expand-file-name</span> (or org-roam-directory <span style="color:#e6db74">&#34;roam&#34;</span>)
-                                             org-directory)
-        org-roam-verbose <span style="color:#66d9ef">nil</span>  <span style="color:#75715e">; https://youtu.be/fn4jIlFwuLU</span>
-        org-roam-buffer-no-delete-other-windows <span style="color:#66d9ef">t</span> <span style="color:#75715e">; make org-roam buffer sticky</span>
-        org-roam-completion-system <span style="color:#e6db74">&#39;default</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#24909d">use-package</span> <span style="color:#40ffff">org-roam</span>
+  <span style="color:#24909d">:hook</span> (<span style="color:#40ffff">org-load</span> . <span style="color:#40ffff">org-roam-mode</span>)
+  <span style="color:#24909d">:commands</span> (<span style="color:#40ffff">org-roam-buffer-toggle-display</span>
+             <span style="color:#40ffff">org-roam-find-file</span>
+             <span style="color:#40ffff">org-roam-graph</span>
+             <span style="color:#40ffff">org-roam-insert</span>
+             <span style="color:#40ffff">org-roam-switch-to-buffer</span>
+             <span style="color:#40ffff">org-roam-dailies-date</span>
+             <span style="color:#40ffff">org-roam-dailies-today</span>
+             <span style="color:#40ffff">org-roam-dailies-tomorrow</span>
+             <span style="color:#40ffff">org-roam-dailies-yesterday</span>)
+  <span style="color:#24909d">:preface</span>
+  <span style="color:#999;font-style:italic">;; Set this to nil so we can later detect whether the user has set a custom</span>
+  <span style="color:#999;font-style:italic">;; directory for it, and default to `org-directory&#39; if they haven&#39;t.</span>
+  (<span style="color:#24909d">defvar</span> <span style="color:#40ffff">org-roam-directory</span> <span style="color:#40ffff">nil</span>)
+  <span style="color:#24909d">:init</span>
+  <span style="color:#24909d">:config</span>
+  (<span style="color:#24909d">setq</span> <span style="color:#40ffff">org-roam-directory</span> (<span style="color:#447fcf">expand-file-name</span> (<span style="color:#24909d">or</span> <span style="color:#40ffff">org-roam-directory</span> <span style="color:#ed9d13">&#34;roam&#34;</span>)
+                                             <span style="color:#40ffff">org-directory</span>)
+        <span style="color:#40ffff">org-roam-verbose</span> <span style="color:#40ffff">nil</span>  <span style="color:#999;font-style:italic">; https://youtu.be/fn4jIlFwuLU</span>
+        <span style="color:#40ffff">org-roam-buffer-no-delete-other-windows</span> <span style="color:#40ffff">t</span> <span style="color:#999;font-style:italic">; make org-roam buffer sticky</span>
+        <span style="color:#40ffff">org-roam-completion-system</span> <span style="color:#ed9d13">&#39;default</span>
 
-  <span style="color:#75715e">;; Normally, the org-roam buffer doesn&#39;t open until you explicitly call</span>
-  <span style="color:#75715e">;; `org-roam&#39;. If `+org-roam-open-buffer-on-find-file&#39; is non-nil, the</span>
-  <span style="color:#75715e">;; org-roam buffer will be opened for you when you use `org-roam-find-file&#39;</span>
-  <span style="color:#75715e">;; (but not `find-file&#39;, to limit the scope of this behavior).</span>
-  (add-hook <span style="color:#e6db74">&#39;find-file-hook</span>
-    (defun +org-roam-open-buffer-maybe-h ()
-      (and +org-roam-open-buffer-on-find-file
-           (<span style="color:#a6e22e">memq</span> <span style="color:#e6db74">&#39;org-roam-buffer--update-maybe</span> post-command-hook)
-           (not (<span style="color:#a6e22e">window-parameter</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;window-side</span>)) <span style="color:#75715e">; don&#39;t proc for popups</span>
-           (not (<span style="color:#a6e22e">eq</span> <span style="color:#e6db74">&#39;visible</span> (org-roam-buffer--visibility)))
-           (with-current-buffer (<span style="color:#a6e22e">window-buffer</span>)
-             (org-roam-buffer--get-create)))))
+  <span style="color:#999;font-style:italic">;; Normally, the org-roam buffer doesn&#39;t open until you explicitly call</span>
+  <span style="color:#999;font-style:italic">;; `org-roam&#39;. If `+org-roam-open-buffer-on-find-file&#39; is non-nil, the</span>
+  <span style="color:#999;font-style:italic">;; org-roam buffer will be opened for you when you use `org-roam-find-file&#39;</span>
+  <span style="color:#999;font-style:italic">;; (but not `find-file&#39;, to limit the scope of this behavior).</span>
+  (<span style="color:#40ffff">add-hook</span> <span style="color:#ed9d13">&#39;find-file-hook</span>
+    (<span style="color:#24909d">defun</span> <span style="color:#40ffff">+org-roam-open-buffer-maybe-h</span> ()
+      (<span style="color:#24909d">and</span> <span style="color:#40ffff">+org-roam-open-buffer-on-find-file</span>
+           (<span style="color:#447fcf">memq</span> <span style="color:#ed9d13">&#39;org-roam-buffer--update-maybe</span> <span style="color:#40ffff">post-command-hook</span>)
+           (<span style="color:#40ffff">not</span> (<span style="color:#447fcf">window-parameter</span> <span style="color:#40ffff">nil</span> <span style="color:#ed9d13">&#39;window-side</span>)) <span style="color:#999;font-style:italic">; don&#39;t proc for popups</span>
+           (<span style="color:#40ffff">not</span> (<span style="color:#447fcf">eq</span> <span style="color:#ed9d13">&#39;visible</span> (<span style="color:#40ffff">org-roam-buffer--visibility</span>)))
+           (<span style="color:#24909d">with-current-buffer</span> (<span style="color:#447fcf">window-buffer</span>)
+             (<span style="color:#40ffff">org-roam-buffer--get-create</span>)))))
 
-  <span style="color:#75715e">;; Hide the mode line in the org-roam buffer, since it serves no purpose. This</span>
-  <span style="color:#75715e">;; makes it easier to distinguish among other org buffers.</span>
-  (add-hook <span style="color:#e6db74">&#39;org-roam-buffer-prepare-hook</span> <span style="color:#a6e22e">#&#39;</span>hide-mode-line-mode))
-
-
-<span style="color:#75715e">;; Since the org module lazy loads org-protocol (waits until an org URL is</span>
-<span style="color:#75715e">;; detected), we can safely chain `org-roam-protocol&#39; to it.</span>
-(use-package org-roam-protocol
-  :after org-protocol)
+  <span style="color:#999;font-style:italic">;; Hide the mode line in the org-roam buffer, since it serves no purpose. This</span>
+  <span style="color:#999;font-style:italic">;; makes it easier to distinguish among other org buffers.</span>
+  (<span style="color:#40ffff">add-hook</span> <span style="color:#ed9d13">&#39;org-roam-buffer-prepare-hook</span> <span style="color:#447fcf">#&#39;</span><span style="color:#40ffff">hide-mode-line-mode</span>))
 
 
-(use-package company-org-roam
-  :after org-roam
-  :config
-  (set-company-backend! <span style="color:#e6db74">&#39;org-mode</span> <span style="color:#f92672">&#39;</span>(company-org-roam company-yasnippet company-dabbrev)))</code></pre></div>
+<span style="color:#999;font-style:italic">;; Since the org module lazy loads org-protocol (waits until an org URL is</span>
+<span style="color:#999;font-style:italic">;; detected), we can safely chain `org-roam-protocol&#39; to it.</span>
+(<span style="color:#24909d">use-package</span> <span style="color:#40ffff">org-roam-protocol</span>
+  <span style="color:#24909d">:after</span> <span style="color:#40ffff">org-protocol</span>)
+
+
+(<span style="color:#24909d">use-package</span> <span style="color:#40ffff">company-org-roam</span>
+  <span style="color:#24909d">:after</span> <span style="color:#40ffff">org-roam</span>
+  <span style="color:#24909d">:config</span>
+  (<span style="color:#40ffff">set-company-backend!</span> <span style="color:#ed9d13">&#39;org-mode</span> &#39;(<span style="color:#40ffff">company-org-roam</span> <span style="color:#40ffff">company-yasnippet</span> <span style="color:#40ffff">company-dabbrev</span>)))</code></pre></div>
 <p>Once again, for more details, check the <a href="https://github.com/hlissner/doom-emacs/search?q=roam&amp;unscoped%5Fq=roam" target="_blank">Github repo</a>.</p>
 
 <h3 id="org-roam-bibtex">Org-Roam-Bibtex</h3>
 
 <p>The configuration required is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"> (use-package org-roam-bibtex
-  :after (org-roam)
-  :hook (org-roam-mode <span style="color:#f92672">.</span> org-roam-bibtex-mode)
-  :config
-  (setq org-roam-bibtex-preformat-keywords
-   <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;=key=&#34;</span> <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#e6db74">&#34;file&#34;</span> <span style="color:#e6db74">&#34;author-or-editor&#34;</span> <span style="color:#e6db74">&#34;keywords&#34;</span>))
-  (setq orb-templates
-        <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;r&#34;</span> <span style="color:#e6db74">&#34;ref&#34;</span> plain (function org-roam-capture--get-point)
-           <span style="color:#e6db74">&#34;&#34;</span>
-           :file-name <span style="color:#e6db74">&#34;${slug}&#34;</span>
-           :head <span style="color:#e6db74">&#34;#+TITLE: ${=key=}: ${title}\n#+ROAM_KEY: ${ref}
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">- tags ::
-</span><span style="color:#e6db74">- keywords :: ${keywords}
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">\n* ${title}\n  :PROPERTIES:\n  :Custom_ID: ${=key=}\n  :URL: ${url}\n  :AUTHOR: ${author-or-editor}\n  :NOTER_DOCUMENT: %(orb-process-file-field \&#34;${=key=}\&#34;)\n  :NOTER_PAGE: \n  :END:\n\n&#34;</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"> (<span style="color:#24909d">use-package</span> <span style="color:#40ffff">org-roam-bibtex</span>
+  <span style="color:#24909d">:after</span> (<span style="color:#40ffff">org-roam</span>)
+  <span style="color:#24909d">:hook</span> (<span style="color:#40ffff">org-roam-mode</span> . <span style="color:#40ffff">org-roam-bibtex-mode</span>)
+  <span style="color:#24909d">:config</span>
+  (<span style="color:#24909d">setq</span> <span style="color:#40ffff">org-roam-bibtex-preformat-keywords</span>
+   &#39;(<span style="color:#ed9d13">&#34;=key=&#34;</span> <span style="color:#ed9d13">&#34;title&#34;</span> <span style="color:#ed9d13">&#34;url&#34;</span> <span style="color:#ed9d13">&#34;file&#34;</span> <span style="color:#ed9d13">&#34;author-or-editor&#34;</span> <span style="color:#ed9d13">&#34;keywords&#34;</span>))
+  (<span style="color:#24909d">setq</span> <span style="color:#40ffff">orb-templates</span>
+        &#39;((<span style="color:#ed9d13">&#34;r&#34;</span> <span style="color:#ed9d13">&#34;ref&#34;</span> <span style="color:#40ffff">plain</span> (<span style="color:#24909d">function</span> <span style="color:#40ffff">org-roam-capture--get-point</span>)
+           <span style="color:#ed9d13">&#34;&#34;</span>
+           <span style="color:#24909d">:file-name</span> <span style="color:#ed9d13">&#34;${slug}&#34;</span>
+           <span style="color:#24909d">:head</span> <span style="color:#ed9d13">&#34;#+TITLE: ${=key=}: ${title}\n#+ROAM_KEY: ${ref}
+</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13">- tags ::
+</span><span style="color:#ed9d13">- keywords :: ${keywords}
+</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13">\n* ${title}\n  :PROPERTIES:\n  :Custom_ID: ${=key=}\n  :URL: ${url}\n  :AUTHOR: ${author-or-editor}\n  :NOTER_DOCUMENT: %(orb-process-file-field \&#34;${=key=}\&#34;)\n  :NOTER_PAGE: \n  :END:\n\n&#34;</span>
 
-           :unnarrowed <span style="color:#66d9ef">t</span>))))</code></pre></div>
+           <span style="color:#24909d">:unnarrowed</span> <span style="color:#40ffff">t</span>))))</code></pre></div>
 <p>Where most of the configuration is essentially the template again. Like <code>helm-bibtex</code>, <a href="https://github.com/org-roam/org-roam-bibtex" target="_blank">ORB</a> allows taking arbitrary keys from the <code>.bib</code> file.</p>
 
 <h2 id="org-noter">Org Noter</h2>
@@ -536,18 +536,18 @@ configuration, adapted for those who don&rsquo;t believe in the dark side below.
 associated with notes. The philosophy of <code>org-noter</code> is <a href="https://github.com/weirdNox/org-noter" target="_blank">best described here</a>.
 Only minor tweaks should be required to get this working with <code>interleave</code> as
 well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package org-noter
-  :after (:any org pdf-view)
-  :config
-  (setq
-   <span style="color:#75715e">;; The WM can handle splits</span>
-   org-noter-notes-window-location <span style="color:#e6db74">&#39;other-frame</span>
-   <span style="color:#75715e">;; Please stop opening frames</span>
-   org-noter-always-create-frame <span style="color:#66d9ef">nil</span>
-   <span style="color:#75715e">;; I want to see the whole file</span>
-   org-noter-hide-other <span style="color:#66d9ef">nil</span>
-   <span style="color:#75715e">;; Everything is relative to the main notes file</span>
-   org-noter-notes-search-path (<span style="color:#a6e22e">list</span> org_notes)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#24909d">use-package</span> <span style="color:#40ffff">org-noter</span>
+  <span style="color:#24909d">:after</span> (<span style="color:#24909d">:any</span> <span style="color:#40ffff">org</span> <span style="color:#40ffff">pdf-view</span>)
+  <span style="color:#24909d">:config</span>
+  (<span style="color:#24909d">setq</span>
+   <span style="color:#999;font-style:italic">;; The WM can handle splits</span>
+   <span style="color:#40ffff">org-noter-notes-window-location</span> <span style="color:#ed9d13">&#39;other-frame</span>
+   <span style="color:#999;font-style:italic">;; Please stop opening frames</span>
+   <span style="color:#40ffff">org-noter-always-create-frame</span> <span style="color:#40ffff">nil</span>
+   <span style="color:#999;font-style:italic">;; I want to see the whole file</span>
+   <span style="color:#40ffff">org-noter-hide-other</span> <span style="color:#40ffff">nil</span>
+   <span style="color:#999;font-style:italic">;; Everything is relative to the main notes file</span>
+   <span style="color:#40ffff">org-noter-notes-search-path</span> (<span style="color:#447fcf">list</span> <span style="color:#40ffff">org_notes</span>)
    )
   )</code></pre></div>
 <p>Evidently, from my configuration, it appears that I decided to use <a href="https://github.com/weirdNox/org-noter" target="_blank">org-noter</a> over
@@ -565,21 +565,21 @@ part of the workflow has more to do with using <code>org-roam</code> with websit
 
 <p>This might get complicated but I am only trying to get the bare minimum for
 <code>org-protocol</code> right now.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Actually start using templates</span>
-(after! org-capture
-  <span style="color:#75715e">;; Firefox and Chrome</span>
-  (add-to-list <span style="color:#e6db74">&#39;org-capture-templates</span>
-               <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Protocol&#34;</span> entry <span style="color:#75715e">; key, name, type</span>
-                 (file+headline +org-capture-notes-file <span style="color:#e6db74">&#34;Inbox&#34;</span>) <span style="color:#75715e">; target</span>
-                 <span style="color:#e6db74">&#34;* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?&#34;</span>
-                 :prepend <span style="color:#66d9ef">t</span> <span style="color:#75715e">; properties</span>
-                 :kill-buffer <span style="color:#66d9ef">t</span>))
-  (add-to-list <span style="color:#e6db74">&#39;org-capture-templates</span>
-               <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#e6db74">&#34;Protocol Link&#34;</span> entry
-                 (file+headline +org-capture-notes-file <span style="color:#e6db74">&#34;Inbox&#34;</span>)
-                 <span style="color:#e6db74">&#34;* %? [[%:link][%(transform-square-brackets-to-round-ones \&#34;%:description\&#34;)]]\n&#34;</span>
-                 :prepend <span style="color:#66d9ef">t</span>
-                 :kill-buffer <span style="color:#66d9ef">t</span>))
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#999;font-style:italic">;; Actually start using templates</span>
+(<span style="color:#40ffff">after!</span> <span style="color:#40ffff">org-capture</span>
+  <span style="color:#999;font-style:italic">;; Firefox and Chrome</span>
+  (<span style="color:#40ffff">add-to-list</span> <span style="color:#ed9d13">&#39;org-capture-templates</span>
+               &#39;(<span style="color:#ed9d13">&#34;P&#34;</span> <span style="color:#ed9d13">&#34;Protocol&#34;</span> <span style="color:#40ffff">entry</span> <span style="color:#999;font-style:italic">; key, name, type</span>
+                 (<span style="color:#40ffff">file+headline</span> <span style="color:#40ffff">+org-capture-notes-file</span> <span style="color:#ed9d13">&#34;Inbox&#34;</span>) <span style="color:#999;font-style:italic">; target</span>
+                 <span style="color:#ed9d13">&#34;* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?&#34;</span>
+                 <span style="color:#24909d">:prepend</span> <span style="color:#40ffff">t</span> <span style="color:#999;font-style:italic">; properties</span>
+                 <span style="color:#24909d">:kill-buffer</span> <span style="color:#40ffff">t</span>))
+  (<span style="color:#40ffff">add-to-list</span> <span style="color:#ed9d13">&#39;org-capture-templates</span>
+               &#39;(<span style="color:#ed9d13">&#34;L&#34;</span> <span style="color:#ed9d13">&#34;Protocol Link&#34;</span> <span style="color:#40ffff">entry</span>
+                 (<span style="color:#40ffff">file+headline</span> <span style="color:#40ffff">+org-capture-notes-file</span> <span style="color:#ed9d13">&#34;Inbox&#34;</span>)
+                 <span style="color:#ed9d13">&#34;* %? [[%:link][%(transform-square-brackets-to-round-ones \&#34;%:description\&#34;)]]\n&#34;</span>
+                 <span style="color:#24909d">:prepend</span> <span style="color:#40ffff">t</span>
+                 <span style="color:#24909d">:kill-buffer</span> <span style="color:#40ffff">t</span>))
 )</code></pre></div>
 <h2 id="conclusions">Conclusions</h2>
 

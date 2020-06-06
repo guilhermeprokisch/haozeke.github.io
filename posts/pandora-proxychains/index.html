@@ -32,7 +32,7 @@ cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -46,7 +46,7 @@ cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
 
 
 <meta itemprop="datePublished" content="2020-02-15T05:28:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T06:11:31&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-06T15:16:08&#43;00:00" />
 <meta itemprop="wordCount" content="243">
 
 
@@ -63,7 +63,7 @@ cp /etc/proxychains.conf . Edit said configuration to add some US-based proxy
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-02-15T05:28:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T06:11:31+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-06T15:16:08+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -183,17 +183,17 @@ up-to-date fork of the original <code>proxychains</code>.</p>
 
 <ol>
 <li><p>Install <code>proxychains-ng</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># I am on archlinux..</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># I am on archlinux..</span>
 sudo pacman -S proxychains-ng</code></pre></div></li>
 
 <li><p>Copy the configuration to the <code>$HOME</code> directory</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /etc/proxychains.conf .</code></pre></div></li>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /etc/proxychains.conf .</code></pre></div></li>
 
 <li><p>Edit said configuration to add some US-based proxy</p></li>
 </ol>
 
 <p>In my particular case, I don&rsquo;t keep the tor section enabled.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tail $HOME/proxychains.conf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tail <span style="color:#40ffff">$HOME</span>/proxychains.conf</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#
 #       proxy types: http, socks4, socks5
 #        ( auth types supported: &#34;basic&#34;-http  &#34;user/pass&#34;-socks )
 #
@@ -213,19 +213,19 @@ I use <code>ping $SERVER</code> and put that in the <code>conf</code> file.</p>
 
 <ol>
 <li><p>Get <a href="https://github.com/PromyLOPh/pianobar" target="_blank">pianobar</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S pianobar</code></pre></div></li>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S pianobar</code></pre></div></li>
 
 <li><p>Use it with <code>proxychains</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">proxychains pianobar</code></pre></div></li>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">proxychains pianobar</code></pre></div></li>
 
 <li><p>Profit</p></li>
 </ol>
 
 <p>I also like setting up some defaults to make life easier:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p ~/.config/pianobar
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p ~/.config/pianobar
 vim ~/.config/pianobar/config</code></pre></div>
 <p>I normally set the following (inspired by the <a href="https://wiki.archlinux.org/index.php/Pianobar" target="_blank">ArchWiki</a>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">audio_quality = {high, medium, low}
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">audio_quality = {high, medium, low}
 autostart_station = $ID
 password = &#34;$PASS&#34;
 user = &#34;$emailID&#34;</code></pre></div>

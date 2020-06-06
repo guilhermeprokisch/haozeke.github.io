@@ -29,7 +29,7 @@ Consider the following beautifully highlighted snippet of an rst (ReStructured T
 <link rel="stylesheet" href="https://rgoswami.me/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-twilight.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
 
 
@@ -40,7 +40,7 @@ Consider the following beautifully highlighted snippet of an rst (ReStructured T
 
 
 <meta itemprop="datePublished" content="2020-05-02T16:39:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T06:11:33&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-06T15:16:11&#43;00:00" />
 <meta itemprop="wordCount" content="406">
 
 
@@ -54,7 +54,7 @@ Consider the following beautifully highlighted snippet of an rst (ReStructured T
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-05-02T16:39:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T06:11:33+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-06T15:16:11+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -180,60 +180,60 @@ execute arbitrary code snippets. However, not all languages have an exporter,
 for obvious reasons. Somewhat surprisingly, there is no way to call <a href="https://pandoc.org/MANUAL.html" target="_blank">pandoc</a> on embedded snippets, which feels like a waste, especially when a whole bunch of documentation formats can be converted to <code>orgmode</code> with it.</p>
 
 <p>Consider the following beautifully highlighted snippet of an <code>rst</code> (ReStructured Text) <a href="https://sublime-and-sphinx-guide.readthedocs.io/en/latest/tables.html" target="_blank">list table</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">.. <span style="color:#f92672">list-table</span>:: Title<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   <span style="color:#a6e22e">:widths:</span> <span style="color:#a6e22e">25 25 50</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   <span style="color:#a6e22e">:header-rows:</span> <span style="color:#a6e22e">1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>
-   <span style="color:#ae81ff">*</span> - Heading row 1, column 1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     <span style="color:#ae81ff">-</span> Heading row 1, column 2<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     <span style="color:#ae81ff">-</span> Heading row 1, column 3<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   <span style="color:#ae81ff">*</span> - Row 1, column 1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     -<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     - Row 1, column 3<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   <span style="color:#ae81ff">*</span> - Row 2, column 1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     - Row 2, column 2<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   - Row 2, column 3</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">.. <span style="color:#6ab825;font-weight:bold">list-table</span>:: Title<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   <span style="color:#447fcf;text-decoration:underline">:widths:</span> <span style="color:#447fcf">25 25 50</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   <span style="color:#447fcf;text-decoration:underline">:header-rows:</span> <span style="color:#447fcf">1</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>
+   <span style="color:#3677a9">*</span> - Heading row 1, column 1<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     <span style="color:#3677a9">-</span> Heading row 1, column 2<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     <span style="color:#3677a9">-</span> Heading row 1, column 3<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   <span style="color:#3677a9">*</span> - Row 1, column 1<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     -<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     - Row 1, column 3<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   <span style="color:#3677a9">*</span> - Row 2, column 1<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     - Row 2, column 2<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   - Row 2, column 3</code></pre></div>
 <p>Trying to run this will generate the sort of obvious error:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">org-babel-execute-src-block: No org-babel-execute function for rst!</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#40ffff">org-babel-execute-src-block:</span> <span style="color:#40ffff">No</span> <span style="color:#40ffff">org-babel-execute</span> <span style="color:#24909d">function</span> <span style="color:#40ffff">for</span> <span style="color:#40ffff">rst!</span></code></pre></div>
 <h2 id="writing-an-exporter">Writing an Exporter</h2>
 
 <p>For this post, I will be focusing on <code>rst</code>, but this can be defined for any of the <code>pandoc</code> back-ends. The approach was inspired by <a href="https://github.com/hoelterhof/ob-markdown/blob/master/ob-markdown.el" target="_blank">ob-markdown</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun org-babel-execute:rst (body params)
-  <span style="color:#e6db74">&#34;Execute a block of rst code with org-babel.
-</span><span style="color:#e6db74">This function is called by </span><span style="color:#e6db74">`org-babel-execute-src-block&#39;</span><span style="color:#e6db74">.&#34;</span>
-  (let* ((result-params (split-string (or (<span style="color:#a6e22e">cdr</span> (<span style="color:#a6e22e">assoc</span> :results params)) <span style="color:#e6db74">&#34;&#34;</span>)))
-       (in-file (org-babel-temp-file <span style="color:#e6db74">&#34;rst-&#34;</span>))
-       (cmdline (<span style="color:#a6e22e">cdr</span> (<span style="color:#a6e22e">assoc</span> :cmdline params)))
-       (to (<span style="color:#a6e22e">cdr</span> (<span style="color:#a6e22e">assoc</span> :to params)))
-       (template (<span style="color:#a6e22e">cdr</span> (<span style="color:#a6e22e">assoc</span> :template params)))
-       (cmd (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;pandoc&#34;</span>
-                    <span style="color:#e6db74">&#34; -t  org&#34;</span>
-                    <span style="color:#e6db74">&#34; -i &#34;</span> (org-babel-process-file-name in-file)
-                    <span style="color:#e6db74">&#34; -f rst &#34;</span>
-                    <span style="color:#e6db74">&#34; &#34;</span> cmdline)))
-    (with-temp-file in-file (<span style="color:#a6e22e">insert</span> body))
-    (<span style="color:#a6e22e">message</span> cmd)
-    (shell-command-to-string cmd))) <span style="color:#75715e">;; Send to results</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#24909d">defun</span> <span style="color:#40ffff">org-babel-execute:rst</span> (<span style="color:#40ffff">body</span> <span style="color:#40ffff">params</span>)
+  <span style="color:#ed9d13">&#34;Execute a block of rst code with org-babel.
+</span><span style="color:#ed9d13">This function is called by </span><span style="color:#ed9d13">`org-babel-execute-src-block&#39;</span><span style="color:#ed9d13">.&#34;</span>
+  (<span style="color:#24909d">let*</span> ((<span style="color:#40ffff">result-params</span> (<span style="color:#40ffff">split-string</span> (<span style="color:#24909d">or</span> (<span style="color:#447fcf">cdr</span> (<span style="color:#447fcf">assoc</span> <span style="color:#24909d">:results</span> <span style="color:#40ffff">params</span>)) <span style="color:#ed9d13">&#34;&#34;</span>)))
+       (<span style="color:#40ffff">in-file</span> (<span style="color:#40ffff">org-babel-temp-file</span> <span style="color:#ed9d13">&#34;rst-&#34;</span>))
+       (<span style="color:#40ffff">cmdline</span> (<span style="color:#447fcf">cdr</span> (<span style="color:#447fcf">assoc</span> <span style="color:#24909d">:cmdline</span> <span style="color:#40ffff">params</span>)))
+       (<span style="color:#40ffff">to</span> (<span style="color:#447fcf">cdr</span> (<span style="color:#447fcf">assoc</span> <span style="color:#24909d">:to</span> <span style="color:#40ffff">params</span>)))
+       (<span style="color:#40ffff">template</span> (<span style="color:#447fcf">cdr</span> (<span style="color:#447fcf">assoc</span> <span style="color:#24909d">:template</span> <span style="color:#40ffff">params</span>)))
+       (<span style="color:#40ffff">cmd</span> (<span style="color:#447fcf">concat</span> <span style="color:#ed9d13">&#34;pandoc&#34;</span>
+                    <span style="color:#ed9d13">&#34; -t  org&#34;</span>
+                    <span style="color:#ed9d13">&#34; -i &#34;</span> (<span style="color:#40ffff">org-babel-process-file-name</span> <span style="color:#40ffff">in-file</span>)
+                    <span style="color:#ed9d13">&#34; -f rst &#34;</span>
+                    <span style="color:#ed9d13">&#34; &#34;</span> <span style="color:#40ffff">cmdline</span>)))
+    (<span style="color:#24909d">with-temp-file</span> <span style="color:#40ffff">in-file</span> (<span style="color:#447fcf">insert</span> <span style="color:#40ffff">body</span>))
+    (<span style="color:#447fcf">message</span> <span style="color:#40ffff">cmd</span>)
+    (<span style="color:#40ffff">shell-command-to-string</span> <span style="color:#40ffff">cmd</span>))) <span style="color:#999;font-style:italic">;; Send to results</span>
 
-(defun org-babel-prep-session:rst (session params)
-  <span style="color:#e6db74">&#34;Return an error because rst does not support sessions.&#34;</span>
-  (<span style="color:#a6e22e">error</span> <span style="color:#e6db74">&#34;rst does not support sessions&#34;</span>))</code></pre></div>
+(<span style="color:#24909d">defun</span> <span style="color:#40ffff">org-babel-prep-session:rst</span> (<span style="color:#40ffff">session</span> <span style="color:#40ffff">params</span>)
+  <span style="color:#ed9d13">&#34;Return an error because rst does not support sessions.&#34;</span>
+  (<span style="color:#bbb">error</span> <span style="color:#ed9d13">&#34;rst does not support sessions&#34;</span>))</code></pre></div>
 <h2 id="trying-it-out">Trying it out</h2>
 
 <p>With that done, it is pretty trivial to re-run the above example.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">.. <span style="color:#f92672">list-table</span>:: Title<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   <span style="color:#a6e22e">:widths:</span> <span style="color:#a6e22e">25 25 50</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   <span style="color:#a6e22e">:header-rows:</span> <span style="color:#a6e22e">1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>
-   <span style="color:#ae81ff">*</span> - Heading row 1, column 1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     <span style="color:#ae81ff">-</span> Heading row 1, column 2<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     <span style="color:#ae81ff">-</span> Heading row 1, column 3<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   <span style="color:#ae81ff">*</span> - Row 1, column 1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     -<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     - Row 1, column 3<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   <span style="color:#ae81ff">*</span> - Row 2, column 1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>     - Row 2, column 2<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>   - Row 2, column 3</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">.. <span style="color:#6ab825;font-weight:bold">list-table</span>:: Title<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   <span style="color:#447fcf;text-decoration:underline">:widths:</span> <span style="color:#447fcf">25 25 50</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   <span style="color:#447fcf;text-decoration:underline">:header-rows:</span> <span style="color:#447fcf">1</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>
+   <span style="color:#3677a9">*</span> - Heading row 1, column 1<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     <span style="color:#3677a9">-</span> Heading row 1, column 2<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     <span style="color:#3677a9">-</span> Heading row 1, column 3<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   <span style="color:#3677a9">*</span> - Row 1, column 1<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     -<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     - Row 1, column 3<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   <span style="color:#3677a9">*</span> - Row 2, column 1<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>     - Row 2, column 2<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>   - Row 2, column 3</code></pre></div>
 <table>
 <thead>
 <tr>
