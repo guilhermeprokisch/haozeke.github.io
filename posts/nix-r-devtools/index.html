@@ -40,7 +40,7 @@ Background The entire nix ecosystem is fantastic, and is the main packaging syst
 
 
 <meta itemprop="datePublished" content="2020-06-06T05:49:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T05:50:42&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-06T05:59:30&#43;00:00" />
 <meta itemprop="wordCount" content="1076">
 
 
@@ -54,7 +54,7 @@ Background The entire nix ecosystem is fantastic, and is the main packaging syst
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-06-06T05:49:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T05:50:42+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-06T05:59:30+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -206,7 +206,7 @@ having weaned off non-nix dependency tools for <code>python</code> and friends, 
 strange to not do the same for R.</p>
 
 <p>The standard installation for the package entails obtaining <code>rstan</code> (which is trivial with <code>nixpkgs</code>) and then using:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">install.packages</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;coda&#34;</span>,<span style="color:#e6db74">&#34;mvtnorm&#34;</span>,<span style="color:#e6db74">&#34;devtools&#34;</span>,<span style="color:#e6db74">&#34;loo&#34;</span>,<span style="color:#e6db74">&#34;dagitty&#34;</span>))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">install.packages</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;coda&#34;</span>,<span style="color:#e6db74">&#34;mvtnorm&#34;</span>,<span style="color:#e6db74">&#34;devtools&#34;</span>,<span style="color:#e6db74">&#34;loo&#34;</span>,<span style="color:#e6db74">&#34;dagitty&#34;</span>))
 <span style="color:#a6e22e">library</span>(devtools)
 devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;rmcelreath/rethinking&#34;</span>)</code></pre></div>
 <p>We will break this down and work through this installation in Nix space.</p>
@@ -292,7 +292,7 @@ packages. This is the most reproducible of the lot, and also has the useful
 property of storing the files in the <code>nix-store</code> so re-using packages across
 different projects will not store, build or download the package again. The
 values required can be calculated from <code>nix-prefetch-git</code> as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nix-env -i nix-prefetch-git
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">nix-env -i nix-prefetch-git
 nix-prefetch-git https://github.com/rmcelreath/rethinking.git</code></pre></div>
 <p>The crux of this approach is the following snippet&nbsp;<sup class="footnote-ref" id="fnref:fn-5"><a href="#fn:fn-5">5</a></sup>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">(buildRPackage {
@@ -380,7 +380,7 @@ should be placed in <code>$HOME/.config/nixpkgs/config.nix</code>:</p>
     };
 }</code></pre></div>
 <p>This snippet allows us to use our <code>R</code> as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Install things</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Install things</span>
 nix-env -f <span style="color:#e6db74">&#34;&lt;nixpkgs&gt;&#34;</span> -iA rEnv
 <span style="color:#75715e"># Fix locale</span>
 export LOCALE_ARCHIVE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>nix-build --no-out-link <span style="color:#e6db74">&#34;&lt;nixpkgs&gt;&#34;</span> -A glibcLocales<span style="color:#66d9ef">)</span><span style="color:#e6db74">/lib/locale/locale-archive&#34;</span>
