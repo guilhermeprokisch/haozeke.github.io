@@ -40,8 +40,8 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 
 
 <meta itemprop="datePublished" content="2020-05-02T20:30:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-20T20:22:46&#43;00:00" />
-<meta itemprop="wordCount" content="843">
+<meta itemprop="dateModified" content="2020-06-06T01:36:52&#43;00:00" />
+<meta itemprop="wordCount" content="900">
 
 
 
@@ -54,7 +54,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-05-02T20:30:00+00:00" />
-<meta property="article:modified_time" content="2020-05-20T20:22:46+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-06T01:36:52+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -140,7 +140,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
     <main class="post">
 
         <div class="post-info">
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>4 minutes
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 minutes
 
             
 
@@ -164,6 +164,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 <li><a href="#pdf-tools">Pdf-Tools</a></li>
 <li><a href="#window-management">Window Management</a></li>
 <li><a href="#search">Search</a></li>
+<li><a href="#page-movement">Page Movement</a></li>
 </ul></li>
 <li><a href="#vimium">Vimium</a></li>
 <li><a href="#zsh">Zsh</a></li>
@@ -359,6 +360,16 @@ is the same as <code>after-hook</code><sup class="footnote-ref" id="fnref:fn-1">
                     :n :desc <span style="color:#e6db74">&#34;Forward search&#34;</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#e6db74">&#39;evil-search-forward</span>
                     )
                    ))</code></pre></div>
+<h3 id="page-movement">Page Movement</h3>
+
+<p>Though this is more of a personal preference, I find it more natural to bind N
+and E to page-wise movement instead of join lines and lookup, since I almost
+never use those commands, and the movement keys echo what I expect elsewhere.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(after! evil
+  (map! :map evil-colemak-basics-keymap
+      :n <span style="color:#e6db74">&#34;N&#34;</span> <span style="color:#e6db74">&#39;evil-scroll-page-up</span>
+      :n <span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#e6db74">&#39;evil-scroll-page-down</span>)
+  )</code></pre></div>
 <h2 id="vimium">Vimium</h2>
 
 <p>I use the excellent <a href="https://vimium.github.io/" target="_blank">vimium</a> to make Chrome be a little less annoying. Luckily <a href="https://github.com/philc/vimium/wiki/colemak" target="_blank">the
@@ -461,7 +472,7 @@ post. My full dotfiles are <a href="https://github.com/HaoZeke/Dotfiles" target=
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/workflow">workflow</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>843 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>900 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-02 20:30 &#43;0000</p>
 <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2frgoswami.me%2fposts%2fcolemak-dots-refactor%2f" target="_blank" rel="noopener" aria-label="Facebook">
