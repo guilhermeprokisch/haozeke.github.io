@@ -40,8 +40,8 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 
 
 <meta itemprop="datePublished" content="2020-05-02T20:30:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T15:16:11&#43;00:00" />
-<meta itemprop="wordCount" content="900">
+<meta itemprop="dateModified" content="2020-06-07T04:26:58&#43;00:00" />
+<meta itemprop="wordCount" content="955">
 
 
 
@@ -54,7 +54,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-05-02T20:30:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T15:16:11+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-07T04:26:58+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -165,6 +165,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 <li><a href="#window-management">Window Management</a></li>
 <li><a href="#search">Search</a></li>
 <li><a href="#page-movement">Page Movement</a></li>
+<li><a href="#evil-org">Evil Org</a></li>
 </ul></li>
 <li><a href="#vimium">Vimium</a></li>
 <li><a href="#zsh">Zsh</a></li>
@@ -370,6 +371,18 @@ never use those commands, and the movement keys echo what I expect elsewhere.</p
       <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;N&#34;</span> <span style="color:#ed9d13">&#39;evil-scroll-page-up</span>
       <span style="color:#24909d">:n</span> <span style="color:#ed9d13">&#34;E&#34;</span> <span style="color:#ed9d13">&#39;evil-scroll-page-down</span>)
   )</code></pre></div>
+<h3 id="evil-org">Evil Org</h3>
+
+<p>Annoyingly, <code>evil-org-mode</code> had a map which kept overriding all my other
+settings. Thankfully it has a helper variable to set movement. I also do not
+need this anyway, at-least not by default.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#40ffff">after!</span> <span style="color:#40ffff">org</span>
+  (<span style="color:#40ffff">remove-hook</span> <span style="color:#ed9d13">&#39;org-mode-hook</span> <span style="color:#ed9d13">&#39;evil-org-mode</span>)
+  (<span style="color:#24909d">setq</span> <span style="color:#40ffff">evil-org-movement-bindings</span>
+        &#39;((<span style="color:#40ffff">up</span> . <span style="color:#ed9d13">&#34;e&#34;</span>) (<span style="color:#40ffff">down</span> . <span style="color:#ed9d13">&#34;n&#34;</span>)
+          (<span style="color:#40ffff">left</span> . <span style="color:#ed9d13">&#34;h&#34;</span>) (<span style="color:#40ffff">right</span> . <span style="color:#ed9d13">&#34;i&#34;</span>))
+        )
+)</code></pre></div>
 <h2 id="vimium">Vimium</h2>
 
 <p>I use the excellent <a href="https://vimium.github.io/" target="_blank">vimium</a> to make Chrome be a little less annoying. Luckily <a href="https://github.com/philc/vimium/wiki/colemak" target="_blank">the
@@ -472,7 +485,7 @@ post. My full dotfiles are <a href="https://github.com/HaoZeke/Dotfiles" target=
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/workflow">workflow</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>900 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>955 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-02 20:30 &#43;0000</p>
 <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2frgoswami.me%2fposts%2fcolemak-dots-refactor%2f" target="_blank" rel="noopener" aria-label="Facebook">

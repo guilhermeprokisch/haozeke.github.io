@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="[Rohit Goswami]">
-<meta name="description" content="Overview This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
-Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &amp;ldquo;Statistical Rethinking&amp;rdquo; by Richard McElreath, which was made available&amp;nbsp;1." />
+<meta name="description" content="This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &amp;ldquo;Statistical Rethinking&amp;rdquo; by Richard McElreath, which was made available&amp;nbsp;1." />
 <meta name="keywords" content=", tools, nix, workflow, R" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -35,32 +35,32 @@ Background The entire nix ecosystem is fantastic, and is the main packaging syst
 
 
 <meta itemprop="name" content="Nix with R and devtools">
-<meta itemprop="description" content="Overview This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
-Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1.">
+<meta itemprop="description" content="This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1.">
 
 
 <meta itemprop="datePublished" content="2020-06-06T05:49:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-06T15:16:11&#43;00:00" />
-<meta itemprop="wordCount" content="1076">
+<meta itemprop="dateModified" content="2020-06-07T04:26:59&#43;00:00" />
+<meta itemprop="wordCount" content="1196">
 
 
 
 <meta itemprop="keywords" content="tools,nix,workflow,R," />
 <meta property="og:title" content="Nix with R and devtools" />
-<meta property="og:description" content="Overview This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
-Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1." />
+<meta property="og:description" content="This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rgoswami.me/posts/nix-r-devtools/" />
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-06-06T05:49:00+00:00" />
-<meta property="article:modified_time" content="2020-06-06T15:16:11+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-07T04:26:59+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
 <meta name="twitter:title" content="Nix with R and devtools"/>
-<meta name="twitter:description" content="Overview This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
-Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1."/>
+<meta name="twitter:description" content="This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1."/>
 
 
 
@@ -158,7 +158,6 @@ Background The entire nix ecosystem is fantastic, and is the main packaging syst
 <ul>
 <li>
 <ul>
-<li><a href="#overview">Overview</a></li>
 <li><a href="#background">Background</a></li>
 <li><a href="#nix-and-r">Nix and R</a></li>
 <li><a href="#nix-r-and-devtools">Nix-R and Devtools</a>
@@ -182,12 +181,12 @@ Background The entire nix ecosystem is fantastic, and is the main packaging syst
             <div class="post-content">
                 
 
-<h2 id="overview">Overview</h2>
-
+<blockquote>
 <p>This post discusses briefly, the <code>nix-shell</code> environment for reproducible
 programming. In particular, there is an emphasis on extensions for installing
 and working with packages not in <a href="https://cran.r-project.org/web/packages/" target="_blank">CRAN</a>, i.e. packages off Github which are
 normally installed with <code>devtools</code>.</p>
+</blockquote>
 
 <h2 id="background">Background</h2>
 
@@ -273,7 +272,8 @@ user packages per-project.</p>
     ];
   };
 <span style="color:#6ab825;font-weight:bold">in</span> mkShell {
-  buildInputs = [ git glibcLocales openssl openssh curl wget R my-r-pkgs ];
+  buildInputs = = <span style="color:#6ab825;font-weight:bold">with</span> pkgs;[ git glibcLocales openssl openssh curl wget ];
+  inputsFrom = [ my-r-pkgs ];
   shellHook = <span style="color:#ed9d13">&#39;&#39;
 </span><span style="color:#ed9d13">    mkdir -p &#34;$(pwd)/_libs&#34;
 </span><span style="color:#ed9d13">    export R_LIBS_USER=&#34;$(pwd)/_libs&#34;
@@ -337,7 +337,7 @@ nix-prefetch-git https://github.com/rmcelreath/rethinking.git</code></pre></div>
     ];
   };
 <span style="color:#6ab825;font-weight:bold">in</span> mkShell {
-  buildInputs = [ git glibcLocales openssl which openssh curl wget my-r-pkgs ];
+  buildInputs = <span style="color:#6ab825;font-weight:bold">with</span> pkgs; [ git glibcLocales openssl which openssh curl wget my-r-pkgs ];
   shellHook = <span style="color:#ed9d13">&#39;&#39;
 </span><span style="color:#ed9d13">    mkdir -p &#34;$(pwd)/_libs&#34;
 </span><span style="color:#ed9d13">    export R_LIBS_USER=&#34;$(pwd)/_libs&#34;
@@ -347,7 +347,9 @@ nix-prefetch-git https://github.com/rmcelreath/rethinking.git</code></pre></div>
   LOCALE_ARCHIVE = stdenv.lib.optionalString stdenv.isLinux
     <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">${</span>glibcLocales<span style="color:#ed9d13">}</span><span style="color:#ed9d13">/lib/locale/locale-archive&#34;</span>;
 }</code></pre></div>
-<p>The reason behind this is simply that <code>rWrapper</code> forms an extra package which has lower precedence than the user profile <code>R</code>, which is documented in more detail here on the <a href="https://nixos.wiki/wiki/R" target="_blank">NixOS wiki</a>.</p>
+<p>The reason behind this is simply that <code>rWrapper</code> forms an extra package which
+has lower precedence than the user profile <code>R</code>, which is documented in more
+detail here on the <a href="https://nixos.wiki/wiki/R" target="_blank">NixOS wiki</a>.</p>
 
 <h4 id="user-profile">User Profile</h4>
 
@@ -397,6 +399,32 @@ hosted on CRAN is through the user-profile, while the <code>shell.nix</code> met
 useful in conjunction, for managing various projects. So the ideal approach is
 then to use the user profile for installing anything which normally uses
 <code>devtools</code> and then use <code>shell.nix</code> for the rest.</p>
+
+<p>Note that if the <a href="#project-shell">Project Shell</a> is used with a <a href="#user-profile">User Profile</a> as described in the
+next section, all packages defined there can be dropped and then the project
+shell does not need to execute <code>R</code> by default. The simplified <code>shell.nix</code> is
+then simply:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">{ pkgs ? <span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#ed9d13">&lt;nixpkgs&gt;</span> { } }:
+<span style="color:#6ab825;font-weight:bold">with</span> pkgs;
+<span style="color:#6ab825;font-weight:bold">let</span>
+  my-r-pkgs = rWrapper.override {
+    packages = <span style="color:#6ab825;font-weight:bold">with</span> rPackages; [
+      ggplot2
+    ];
+  };
+<span style="color:#6ab825;font-weight:bold">in</span> mkShell {
+  buildInputs = <span style="color:#6ab825;font-weight:bold">with</span> pkgs;[ git glibcLocales openssl which openssh curl wget my-r-pkgs ];
+  inputsFrom = [ my-r-pkgs ];
+  shellHook = <span style="color:#ed9d13">&#39;&#39;
+</span><span style="color:#ed9d13">    mkdir -p &#34;$(pwd)/_libs&#34;
+</span><span style="color:#ed9d13">    export R_LIBS_USER=&#34;$(pwd)/_libs&#34;
+</span><span style="color:#ed9d13">  &#39;&#39;</span>;
+  GIT_SSL_CAINFO = <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">${</span>cacert<span style="color:#ed9d13">}</span><span style="color:#ed9d13">/etc/ssl/certs/ca-bundle.crt&#34;</span>;
+  LOCALE_ARCHIVE = stdenv.lib.optionalString stdenv.isLinux
+    <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">${</span>glibcLocales<span style="color:#ed9d13">}</span><span style="color:#ed9d13">/lib/locale/locale-archive&#34;</span>;
+}</code></pre></div>
+<p>The entire workflow for
+<code>rethinking</code> is <a href="https://rgoswami.me/posts/rethinking-r-nix/" target="_blank">continued here</a>.</p>
 <div class="footnotes">
 
 <hr />
@@ -425,7 +453,7 @@ then to use the user profile for installing anything which normally uses
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/tools">tools</a></span><span class="tag"><a href="https://rgoswami.me/tags/nix">nix</a></span><span class="tag"><a href="https://rgoswami.me/tags/workflow">workflow</a></span><span class="tag"><a href="https://rgoswami.me/tags/r">R</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1076 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1196 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-06-06 05:49 &#43;0000</p>
 <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2frgoswami.me%2fposts%2fnix-r-devtools%2f" target="_blank" rel="noopener" aria-label="Facebook">
@@ -472,6 +500,13 @@ then to use the user profile for installing anything which normally uses
                 </div>
 
                 <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://rgoswami.me/posts/rethinking-r-nix/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">Statistical Rethinking and Nix</span>
+                            </a>
+                        </span>
                     
 
                     
