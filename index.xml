@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sun, 07 Jun 2020 13:34:09 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2020 13:52:15 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Search</title>
       <link>https://rgoswami.me/search/</link>
-      <pubDate>Sun, 07 Jun 2020 13:34:09 +0000</pubDate>
+      <pubDate>Sun, 07 Jun 2020 13:52:15 +0000</pubDate>
       
       <guid>https://rgoswami.me/search/</guid>
       <description>Search in full-text, the entire contents of the site.</description>
@@ -38,7 +38,7 @@
       
       <guid>https://rgoswami.me/posts/nix-r-devtools/</guid>
       <description>This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
- Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &amp;ldquo;Statistical Rethinking&amp;rdquo; by Richard McElreath, which was made available&amp;nbsp;1.</description>
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &amp;ldquo;Statistical Rethinking&amp;rdquo; by Richard McElreath1.</description>
     </item>
     
     <item>

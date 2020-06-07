@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="[Rohit Goswami]">
 <meta name="description" content="This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
- Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &amp;ldquo;Statistical Rethinking&amp;rdquo; by Richard McElreath, which was made available&amp;nbsp;1." />
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &amp;ldquo;Statistical Rethinking&amp;rdquo; by Richard McElreath1." />
 <meta name="keywords" content=", tools, nix, workflow, R" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -35,31 +35,31 @@
 
 <meta itemprop="name" content="Nix with R and devtools">
 <meta itemprop="description" content="This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
- Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1.">
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath1.">
 
 
 <meta itemprop="datePublished" content="2020-06-06T05:49:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-07T13:34:12&#43;00:00" />
-<meta itemprop="wordCount" content="1196">
+<meta itemprop="dateModified" content="2020-06-07T13:52:19&#43;00:00" />
+<meta itemprop="wordCount" content="1192">
 
 
 
 <meta itemprop="keywords" content="tools,nix,workflow,R," />
 <meta property="og:title" content="Nix with R and devtools" />
 <meta property="og:description" content="This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
- Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1." />
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rgoswami.me/posts/nix-r-devtools/" />
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-06-06T05:49:00+00:00" />
-<meta property="article:modified_time" content="2020-06-07T13:34:12+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-07T13:52:19+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
 <meta name="twitter:title" content="Nix with R and devtools"/>
 <meta name="twitter:description" content="This post discusses briefly, the nix-shell environment for reproducible programming. In particular, there is an emphasis on extensions for installing and working with packages not in CRAN, i.e. packages off Github which are normally installed with devtools.
- Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath, which was made available&nbsp;1."/>
+ Background The entire nix ecosystem is fantastic, and is the main packaging system used by d-SEAMS as well. Recently I began working through the excellent second edition of &ldquo;Statistical Rethinking&rdquo; by Richard McElreath1."/>
 
 
 
@@ -192,14 +192,14 @@ normally installed with <code>devtools</code>.</p>
 <p>The entire <a href="https://nixos.org/" target="_blank">nix ecosystem</a> is fantastic, and is the main packaging
 system used by <a href="https://dseams.info" target="_blank">d-SEAMS</a> as well.
 Recently I began working through the <a href="https://xcelab.net/rm/statistical-rethinking/" target="_blank">excellent second edition</a> of &ldquo;Statistical
-Rethinking&rdquo; by <a href="https://twitter.com/rlmcelreath" target="_blank">Richard McElreath</a>, which was made available&nbsp;<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>.</p>
+Rethinking&rdquo; by <a href="https://twitter.com/rlmcelreath" target="_blank">Richard McElreath</a><sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>.</p>
 
 <p>Unfortunately, the <code>rethinking</code> package which is a major component of the book
-itself depends on the V8 engine for some reason. The reigning AUR&nbsp;<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup>
+itself depends on the V8 engine for some reason. The reigning AUR<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup>
 package (<a href="https://aur.archlinux.org/packages/v8-r/" target="_blank">V8-r</a>) broke with a <a href="https://aur.archlinux.org/packages/v8-r/#comment-749561" target="_blank">fun error message</a> I couldn&rsquo;t be bothered to deal
 with. Ominously, the <a href="https://pastebin.com/CbdCMZ8d" target="_blank">rest of the logs</a> prominently featured <code>Warning: Running
 gclient on Python 3.</code>. Given that older <code>python</code> versions have been permanently
-retired, this seemed like a bad thing to deal with&nbsp;<sup class="footnote-ref" id="fnref:fn-3"><a href="#fn:fn-3">3</a></sup>. In any case,
+retired, this seemed like a bad thing to deal with<sup class="footnote-ref" id="fnref:fn-3"><a href="#fn:fn-3">3</a></sup>. In any case,
 having weaned off non-nix dependency tools for <code>python</code> and friends, it seemed
 strange to not do the same for R.</p>
 
@@ -452,7 +452,7 @@ then simply:</p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/tools">tools</a></span><span class="tag"><a href="https://rgoswami.me/tags/nix">nix</a></span><span class="tag"><a href="https://rgoswami.me/tags/workflow">workflow</a></span><span class="tag"><a href="https://rgoswami.me/tags/r">R</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1196 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1192 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-06-06 05:49 &#43;0000</p>
 <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2frgoswami.me%2fposts%2fnix-r-devtools%2f" target="_blank" rel="noopener" aria-label="Facebook">
