@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sun, 07 Jun 2020 04:24:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:12:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Emacs for Nix-R</title>
+      <link>https://rgoswami.me/posts/emacs-nix-r/</link>
+      <pubDate>Wed, 10 Jun 2020 00:12:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/emacs-nix-r/</guid>
+      <description>A short post on my current set-up for R with nixpkgs and emacs to auto-compile my system configuration.
+ Background This is my third post on working with nixpkgs and R.
+ Part I covered ways of working effectively with R and nixpkgs Part II dealt with composing dependent devtools packages in a per-package environment, with a focus on rethinking and tidybayes.rethinking  This final part is about automating the system-wide configuration using emacs.</description>
+    </item>
     
     <item>
       <title>Statistical Rethinking and Nix</title>

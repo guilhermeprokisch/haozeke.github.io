@@ -7,15 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sun, 07 Jun 2020 04:24:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:12:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>emacs</title>
+      <link>https://rgoswami.me/tags/emacs/</link>
+      <pubDate>Wed, 10 Jun 2020 00:12:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>nix</title>
       <link>https://rgoswami.me/tags/nix/</link>
-      <pubDate>Sun, 07 Jun 2020 04:24:00 +0000</pubDate>
+      <pubDate>Wed, 10 Jun 2020 00:12:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/nix/</guid>
       <description></description>
@@ -24,7 +33,7 @@
     <item>
       <title>R</title>
       <link>https://rgoswami.me/tags/r/</link>
-      <pubDate>Sun, 07 Jun 2020 04:24:00 +0000</pubDate>
+      <pubDate>Wed, 10 Jun 2020 00:12:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/r/</guid>
       <description></description>
@@ -33,7 +42,7 @@
     <item>
       <title>tools</title>
       <link>https://rgoswami.me/tags/tools/</link>
-      <pubDate>Sun, 07 Jun 2020 04:24:00 +0000</pubDate>
+      <pubDate>Wed, 10 Jun 2020 00:12:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/tools/</guid>
       <description></description>
@@ -42,7 +51,7 @@
     <item>
       <title>workflow</title>
       <link>https://rgoswami.me/tags/workflow/</link>
-      <pubDate>Sun, 07 Jun 2020 04:24:00 +0000</pubDate>
+      <pubDate>Wed, 10 Jun 2020 00:12:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/workflow/</guid>
       <description></description>
@@ -81,15 +90,6 @@
       <pubDate>Sun, 10 May 2020 15:01:00 +0000</pubDate>
       
       <guid>https://rgoswami.me/tags/ramblings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emacs</title>
-      <link>https://rgoswami.me/tags/emacs/</link>
-      <pubDate>Sat, 02 May 2020 16:39:00 +0000</pubDate>
-      
-      <guid>https://rgoswami.me/tags/emacs/</guid>
       <description></description>
     </item>
     
