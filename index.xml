@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.</copyright>
-    <lastBuildDate>Sat, 13 Jun 2020 14:36:29 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2020 14:51:49 +0000</lastBuildDate>
     
 	<atom:link href="https://rgoswami.me/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Search</title>
       <link>https://rgoswami.me/search/</link>
-      <pubDate>Sat, 13 Jun 2020 14:36:29 +0000</pubDate>
+      <pubDate>Sat, 13 Jun 2020 14:51:49 +0000</pubDate>
       
       <guid>https://rgoswami.me/search/</guid>
       <description>Search in full-text, the entire contents of the site.</description>
@@ -350,6 +350,16 @@ Question 2.8 - Pages 54-55 This exercise relates to the College data set, which 
       
       <guid>https://rgoswami.me/about/</guid>
       <description>A short historical recollection of some &lt;strong&gt;thoughts&lt;/strong&gt; and &lt;span class=&#34;underline&#34;&gt;stuff&lt;/span&gt;.</description>
+    </item>
+    
+    <item>
+      <title>Collection of WebLinks</title>
+      <link>https://rgoswami.me/posts/rg-collection-weblinks/</link>
+      <pubDate>Thu, 10 Aug 1995 00:00:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/rg-collection-weblinks/</guid>
+      <description>An attempt to re-claim and verify my digital presence.
+ Background I mentioned on my about page, that it is nigh impossible to keep track of every digital trace there is of me. That said, it is really not even a countable infinite set yet, so it is a good idea to get started before it gets much worse. This is minimally curated, and will only be sporadically updated, so take everything here with a grain of salt.</description>
     </item>
     
   </channel>

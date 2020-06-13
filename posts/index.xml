@@ -334,5 +334,15 @@ Question 2.8 - Pages 54-55 This exercise relates to the College data set, which 
  Private : Public/private indicator Apps : Number of applications received Accept : Number of applicants accepted Enroll : Number of new students enrolled Top10perc : New students from top 10 % of high school class Top25perc : New students from top 25 % of high school class F.</description>
     </item>
     
+    <item>
+      <title>Collection of WebLinks</title>
+      <link>https://rgoswami.me/posts/rg-collection-weblinks/</link>
+      <pubDate>Thu, 10 Aug 1995 00:00:00 +0000</pubDate>
+      
+      <guid>https://rgoswami.me/posts/rg-collection-weblinks/</guid>
+      <description>An attempt to re-claim and verify my digital presence.
+ Background I mentioned on my about page, that it is nigh impossible to keep track of every digital trace there is of me. That said, it is really not even a countable infinite set yet, so it is a good idea to get started before it gets much worse. This is minimally curated, and will only be sporadically updated, so take everything here with a grain of salt.</description>
+    </item>
+    
   </channel>
 </rss>
