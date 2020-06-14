@@ -39,8 +39,8 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 
 
 <meta itemprop="datePublished" content="2020-05-02T20:30:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-14T01:26:07&#43;00:00" />
-<meta itemprop="wordCount" content="995">
+<meta itemprop="dateModified" content="2020-06-14T15:20:39&#43;00:00" />
+<meta itemprop="wordCount" content="1049">
 
 
 
@@ -53,7 +53,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 
 <meta property="og:image" content="https://rgoswami.me" />
 <meta property="article:published_time" content="2020-05-02T20:30:00+00:00" />
-<meta property="article:modified_time" content="2020-06-14T01:26:07+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
+<meta property="article:modified_time" content="2020-06-14T15:20:39+00:00" /><meta property="og:site_name" content="Rohit Goswami" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rgoswami.me"/>
 
@@ -160,6 +160,7 @@ Colemak layout: | QWERTY layout: `12345 67890-= Move around: | (instead of) `123
 <li><a href="#background">Background</a></li>
 <li><a href="#emacs">Emacs</a>
 <ul>
+<li><a href="#visual-lines">Visual Lines</a></li>
 <li><a href="#pdf-tools">Pdf-Tools</a></li>
 <li><a href="#window-management">Window Management</a></li>
 <li><a href="#search">Search</a></li>
@@ -320,6 +321,20 @@ make the switch if they&rsquo;re previously used to VIM bindings.</p>
 <p>I still had some issues, mostly relating to searching in buffers, so I ended
 using <code>swiper-isearch</code> more which is a bonus too.</p>
 
+<h3 id="visual-lines">Visual Lines</h3>
+
+<p>Since I tend to keep <code>visual-line-mode</code> all the time, it makes sense to actually swap working with lines and visual lines.
+To work this through this needs <a href="https://github.com/YourFin/evil-better-visual-line/" target="_blank">evil-better-visual-line</a>.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#40ffff">use-package!</span> <span style="color:#40ffff">evil-better-visual-line</span>
+  <span style="color:#24909d">:after</span> <span style="color:#40ffff">evil-colemak-basics</span>
+  <span style="color:#24909d">:config</span>
+  (<span style="color:#40ffff">evil-better-visual-line-on</span>)
+  (<span style="color:#40ffff">map!</span> <span style="color:#24909d">:map</span> <span style="color:#40ffff">evil-colemak-basics-keymap</span>
+        (<span style="color:#24909d">:nvm</span> <span style="color:#ed9d13">&#34;n&#34;</span> <span style="color:#ed9d13">&#39;evil-better-visual-line-next-line</span>
+         <span style="color:#24909d">:nvm</span> <span style="color:#ed9d13">&#34;e&#34;</span> <span style="color:#ed9d13">&#39;evil-better-visual-line-previous-line</span>
+         <span style="color:#24909d">:nvm</span> <span style="color:#ed9d13">&#34;g n&#34;</span> <span style="color:#ed9d13">&#39;evil-next-line</span>
+         <span style="color:#24909d">:nvm</span> <span style="color:#ed9d13">&#34;g e&#34;</span> <span style="color:#ed9d13">&#39;evil-previous-line</span>))
+)</code></pre></div>
 <h3 id="pdf-tools">Pdf-Tools</h3>
 
 <p>For my <code>doom-emacs</code> configuration, I also set the following map:</p>
@@ -494,9 +509,10 @@ post. My full dotfiles are <a href="https://github.com/HaoZeke/Dotfiles" target=
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rgoswami.me/tags/workflow">workflow</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>995 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1049 Words</p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-02 20:30 &#43;0000</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Posted: 2020-05-02 20:30 &#43;0000</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Updated: 2020-06-14 15:20 &#43;0000</p>
 <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2frgoswami.me%2fposts%2fcolemak-dots-refactor%2f" target="_blank" rel="noopener" aria-label="Facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--circle">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11.5"/><path d="M15.84 9.5H13.5V8.48c0-.53.35-.65.6-.65h1.4v-2.3h-2.35c-2.3 0-2.65 1.7-2.65 2.8V9.5h-2v2h2v7h3v-7h2.1l.24-2z"/></svg></div>Facebook</div>
